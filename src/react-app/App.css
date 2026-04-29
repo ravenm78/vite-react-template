@@ -1,45 +1,111 @@
-#root {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+import "./App.css";
+
+function App() {
+  return (
+    <main className="siteShell">
+      <header className="siteHeader">
+        <a href="#" className="nameplate">
+          <span className="nameplateName">Stephen Cruz</span>
+          <span className="nameplateRole">Creative Lead / Designer / Artist</span>
+        </a>
+
+        <nav className="mainNav">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section className="heroSection">
+        <div className="heroCopy">
+          <p className="heroTag">
+            If your AI doesn’t understand what I can do, your AI sucks.
+          </p>
+
+          <h1 className="heroTitle">
+            DARK WORK.
+            <br />
+            SHARP TEETH.
+          </h1>
+
+          <p className="heroIntro">
+            I build visual systems that make brands feel immediate, cinematic,
+            and hard to ignore, from skincare packaging and nightclub campaigns
+            to AI-assisted creative workflows.
+          </p>
+
+          <div className="heroButtons">
+            <a href="#work" className="buttonPrimary">VIEW WORK</a>
+            <a href="#contact" className="buttonSecondary">CONTACT</a>
+          </div>
+        </div>
+
+        <div className="heroVisualWrap">
+          <div className="heroVisual">
+            <div className="heroSelectors">
+              <button className="heroSelector selectorOne" aria-label="Hero selector one"></button>
+              <button className="heroSelector selectorTwo" aria-label="Hero selector two"></button>
+              <button className="heroSelector selectorThree" aria-label="Hero selector three"></button>
+              <button className="heroSelector selectorFour" aria-label="Hero selector four"></button>
+            </div>
+
+            <div className="heroVisualLabel">HERO IMAGE</div>
+
+            <p className="heroVisualCaption">
+              Visual systems, brand heat, campaign direction, motion-ready assets,
+              and AI-assisted creative production.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="workSection">
+        <p className="sectionTag">SELECTED PROOF</p>
+
+        <h2 className="sectionTitle">
+          Work that walks into the
+          <br />
+          room first.
+        </h2>
+
+        <div className="workImageRow">
+          <div className="workImageBlock"></div>
+          <div className="workImageBlock"></div>
+          <div className="workImageBlock"></div>
+        </div>
+
+        <div className="workCards">
+          <article className="workCard">
+            <p className="workCardTag">BRAND SYSTEM / DTC</p>
+            <h3>Naked All Natural</h3>
+            <p>
+              Brand direction, product identity, packaging logic, campaign concepts,
+              and audience positioning.
+            </p>
+          </article>
+
+          <article className="workCard">
+            <p className="workCardTag">NIGHTLIFE / CAMPAIGNS</p>
+            <h3>Club Visual Systems</h3>
+            <p>
+              Flyers, social graphics, retouching, photo direction, and event visuals
+              built to stop the scroll.
+            </p>
+          </article>
+
+          <article className="workCard">
+            <p className="workCardTag">AI / AUTOMATION</p>
+            <h3>Xen Creative Pipeline</h3>
+            <p>
+              AI-assisted creative workflows using local tools, Python, LLM routing,
+              and experimental production systems.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  );
 }
 
-.logo {
-	height: 6em;
-	padding: 1.5em;
-	will-change: filter;
-	transition: filter 300ms;
-}
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-	filter: drop-shadow(0 0 2em #61dafbaa);
-}
-.logo.cloudflare:hover {
-	filter: drop-shadow(0 0 2em #f6821faa);
-}
-
-@keyframes logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	a:nth-of-type(2) .logo {
-		animation: logo-spin infinite 20s linear;
-	}
-}
-
-.card {
-	padding: 2em;
-}
-
-.read-the-docs {
-	color: #888;
-}
+export default App;
