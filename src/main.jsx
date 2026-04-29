@@ -25,10 +25,9 @@ function App() {
             If your AI doesn’t understand what I can do, your AI sucks.
           </p>
 
-          <h1>
-            Dark Work.
-            <br />
-            Sharp Teeth.
+          <h1 className="heroTitle">
+            <span>Dark Work.</span>
+            <span>Sharp Teeth.</span>
           </h1>
 
           <p className="intro">
@@ -38,37 +37,81 @@ function App() {
           </p>
 
           <div className="buttons">
-          <a href="#work">View Work</a>
+            <a href="#work">
+              <span>View Work</span>
+              <span className="buttonArrow">↗</span>
+            </a>
           </div>
         </div>
 
         <div className="heroStage" aria-label="Featured portfolio visual">
           <div className="heroImage">
-            <div className="heroImageLabel">Hero Image</div>
+            <div className="heroFrameLine heroFrameLineTop"></div>
+            <div className="heroFrameLine heroFrameLineBottom"></div>
+            <div className="heroCorner heroCornerTopLeft"></div>
+            <div className="heroCorner heroCornerTopRight"></div>
+            <div className="heroCorner heroCornerBottomLeft"></div>
+            <div className="heroCorner heroCornerBottomRight"></div>
 
-            <div className="heroSelectors">
-              <button className="selector selectorOne" aria-label="Hero visual selector one"></button>
-              <button className="selector selectorTwo" aria-label="Hero visual selector two"></button>
-              <button className="selector selectorThree isActive" aria-label="Hero visual selector three"></button>
-              <button className="selector selectorFour" aria-label="Hero visual selector four"></button>
+            <div className="heroSelectors" aria-label="Featured visual selectors">
+              <button className="selector selectorOne isActive" aria-label="Brand systems selector">
+                <span className="selectorDot"></span>
+                <span className="selectorNumber">01</span>
+              </button>
+
+              <button className="selector selectorTwo" aria-label="Campaign selector">
+                <span className="selectorDot"></span>
+                <span className="selectorNumber">02</span>
+              </button>
+
+              <button className="selector selectorThree" aria-label="AI workflow selector">
+                <span className="selectorDot"></span>
+                <span className="selectorNumber">03</span>
+              </button>
+
+              <button className="selector selectorFour" aria-label="Motion selector">
+                <span className="selectorDot"></span>
+                <span className="selectorNumber">04</span>
+              </button>
             </div>
 
-            <p className="heroCaption">
-              Visual systems, campaign worlds, AI workflows, motion-ready assets,
-              and brand direction built with teeth.
-            </p>
+            <div className="heroImageLabel">
+              <span className="heroIndex">01</span>
+              <div>
+                <h2>Cinematic by Design</h2>
+                <p>
+                  Visual systems, campaign worlds, AI workflows, motion-ready
+                  assets, and brand direction built with teeth.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="work" className="section workSection">
-        <p className="eyebrow">Selected Proof</p>
-        <h2>Work that walks into the room first.</h2>
+        <p className="eyebrow sectionEyebrow">Selected Proof</p>
+
+        <div className="sectionHeader">
+          <h2 className="sectionTitle">Work that walks into the room.</h2>
+          <p className="sectionIntro">
+            A selection of projects where strategy, design, and execution hit
+            as one.
+          </p>
+        </div>
 
         <div className="imageGrid">
-          <div className="projectImage"></div>
-          <div className="projectImage"></div>
-          <div className="projectImage"></div>
+          <div className="projectImage">
+            <span>Brand System</span>
+          </div>
+
+          <div className="projectImage">
+            <span>Campaign Worlds</span>
+          </div>
+
+          <div className="projectImage">
+            <span>AI Workflow</span>
+          </div>
         </div>
 
         <div className="cards">
