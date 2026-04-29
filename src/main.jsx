@@ -38,8 +38,7 @@ function App() {
           </p>
 
           <div className="buttons">
-            <a href="#work">View Work</a>
-            <a href="mailto:ravenmacabrex12@gmail.com">Contact</a>
+          <a href="#work">View Work</a>
           </div>
         </div>
 
