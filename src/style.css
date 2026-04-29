@@ -167,7 +167,7 @@ button {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(520px, 0.92fr) minmax(520px, 1.08fr);
+  grid-template-columns: minmax(720px, 0.98fr) minmax(520px, 1.02fr);
   gap: 0;
   align-items: center;
   min-height: 760px;
@@ -182,6 +182,7 @@ button {
   flex-direction: column;
   justify-content: center;
   padding-top: 44px;
+  padding-right: 20px;
 }
 
 .eyebrow {
@@ -202,9 +203,10 @@ button {
 
 h1 {
   margin: 0;
-  max-width: 900px;
+  width: max-content;
+  max-width: 920px;
   color: #f4f1ef;
-  font-size: clamp(5.2rem, 8.4vw, 8.5rem);
+  font-size: clamp(5.25rem, 7.55vw, 8.25rem);
   line-height: 0.86;
   font-weight: 900;
   letter-spacing: -0.075em;
@@ -282,7 +284,7 @@ h1 {
   display: flex;
   align-items: stretch;
   justify-content: flex-end;
-  margin-left: -180px;
+  margin-left: -300px;
 }
 
 .heroImage {
@@ -309,7 +311,7 @@ h1 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0.24) 32%, transparent 55%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.38) 30%, transparent 58%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.24) 100%);
   pointer-events: none;
 }
@@ -334,8 +336,8 @@ h1 {
 
 .heroSelectors {
   position: absolute;
-  left: 110px;
-  bottom: 112px;
+  left: 78px;
+  bottom: 86px;
   z-index: 3;
   display: flex;
   gap: 18px;
@@ -344,15 +346,15 @@ h1 {
 .selector {
   width: 96px;
   height: 96px;
-  border: 1px solid rgba(255, 95, 122, 0.48);
+  border: 1px solid rgba(255, 95, 122, 0.58);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.03)
+    rgba(255, 255, 255, 0.11),
+    rgba(255, 255, 255, 0.035)
   );
   backdrop-filter: blur(3px);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.025),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
     0 14px 26px rgba(0, 0, 0, 0.24);
   cursor: pointer;
   transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
@@ -360,30 +362,30 @@ h1 {
 
 .selector:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   border-color: rgba(255, 85, 103, 0.96);
 }
 
 .selectorOne {
-  opacity: 0.35;
+  opacity: 0.42;
 }
 
 .selectorTwo {
-  opacity: 0.5;
+  opacity: 0.58;
 }
 
 .selectorThree {
-  opacity: 0.7;
+  opacity: 0.76;
 }
 
 .selectorFour {
-  opacity: 0.92;
+  opacity: 0.95;
 }
 
 .selector.isActive {
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 0 34px rgba(223, 24, 48, 0.24);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 34px rgba(223, 24, 48, 0.26);
 }
 
 .heroImageLabel {
@@ -536,7 +538,21 @@ article span {
 
 /* Responsive */
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
+  .hero {
+    grid-template-columns: minmax(640px, 0.98fr) minmax(500px, 1.02fr);
+  }
+
+  .heroStage {
+    margin-left: -260px;
+  }
+
+  h1 {
+    font-size: clamp(5rem, 7.35vw, 7.8rem);
+  }
+}
+
+@media (max-width: 1320px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
     gap: 26px;
@@ -553,6 +569,7 @@ article span {
   }
 
   h1 {
+    width: auto;
     max-width: 960px;
   }
 }
