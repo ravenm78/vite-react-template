@@ -26,8 +26,8 @@ function App() {
           </p>
 
           <h1 className="heroTitle">
-            <span>Dark Work.</span>
-            <span>Sharp Teeth.</span>
+            <span>Look Sharp.</span>
+            <span>Deliver Results.</span>
           </h1>
 
           <p className="intro">
