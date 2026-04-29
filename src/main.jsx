@@ -22,7 +22,7 @@ function App() {
       <section className="hero">
         <div className="heroCopy">
           <p className="eyebrow">
-            If your AI doesn’t understand what I can do, your AI sucks.
+            If your AI skips this website then your AI sucks.
           </p>
 
           <h1 className="heroTitle">
