@@ -307,13 +307,9 @@ h1 {
   min-height: 100%;
   overflow: hidden;
   background:
-    radial-gradient(circle at 54% 40%, rgba(255, 70, 95, 0.18), transparent 24%),
-    linear-gradient(
-      135deg,
-      rgba(65, 0, 8, 0.94) 0%,
-      rgba(127, 0, 23, 0.98) 48%,
-      rgba(176, 0, 35, 1) 100%
-    );
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.45) 28%, rgba(0, 0, 0, 0.06) 58%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, transparent 50%, rgba(0, 0, 0, 0.42) 100%),
+    url("/Scruz_Website_Hero_0001.png") center center / cover no-repeat;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.04),
     inset 0 -140px 180px rgba(0, 0, 0, 0.32),
@@ -630,7 +626,7 @@ article span {
 
 @media (max-width: 780px) {
   .nav {
-    position: sticky;
+    position: fixed;
     top: 0;
     padding-top: 18px;
   }
@@ -653,7 +649,7 @@ article span {
   }
 
   .hero {
-    padding-top: 14px;
+    padding-top: 150px;
     padding-bottom: 34px;
   }
 
