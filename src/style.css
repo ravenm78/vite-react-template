@@ -42,6 +42,12 @@ button {
   font: inherit;
 }
 
+section,
+.hero,
+.workSection {
+  scroll-margin-top: 110px;
+}
+
 .site {
   position: relative;
   min-height: 100vh;
@@ -90,13 +96,19 @@ button {
 /* Header */
 
 .nav {
-  position: relative;
-  z-index: 5;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
-  padding: 24px 52px 18px;
+  padding: 20px 52px 18px;
+  background: rgba(5, 5, 5, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
 }
 
 .nameplate {
@@ -336,7 +348,7 @@ h1 {
 
 .heroSelectors {
   position: absolute;
-  left: 78px;
+  left: 112px;
   bottom: 86px;
   z-index: 3;
   display: flex;
@@ -594,7 +606,7 @@ article span {
   }
 
   .heroSelectors {
-    left: 28px;
+    left: 44px;
     bottom: 122px;
     gap: 12px;
   }
@@ -616,6 +628,8 @@ article span {
 
 @media (max-width: 780px) {
   .nav {
+    position: sticky;
+    top: 0;
     padding-top: 18px;
   }
 
