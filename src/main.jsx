@@ -136,8 +136,8 @@ function App() {
           </p>
 
 <h1 className="heroTitle heroTitle--loaded">
-  <span className="heroTitleLine">Look Sharp.</span>
-  <span className="heroTitleLine heroTitleSmaller">Deliver Results.</span>
+  <span className="heroTitleLine">Look Sharp</span>
+  <span className="heroTitleLine heroTitleSmaller">Deliver Results</span>
 </h1>
 
           <p className="intro">
