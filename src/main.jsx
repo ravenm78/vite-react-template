@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
@@ -67,6 +67,26 @@ function App() {
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const activeHero = heroSlides[activeHeroIndex];
 
+  useEffect(() => {
+    const revealItems = document.querySelectorAll("[data-reveal]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("isVisible", entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.34,
+        rootMargin: "0px 0px -12% 0px",
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <div className="site-bg" aria-hidden="true" />
@@ -92,7 +112,7 @@ function App() {
               Not just a designer. A creative systems builder.
             </p>
 
-            <h1 className="heroTitle">
+            <h1 className="heroTitle revealTitle heroTitle--reveal" data-reveal>
               <span>Look Sharp</span>
               <span className="heroTitleSmaller">Deliver Results</span>
             </h1>
@@ -162,8 +182,9 @@ function App() {
           <p className="eyebrow sectionEyebrow">Choose Your Entry Point</p>
 
           <div className="sectionHeader">
-            <h2 className="sectionTitle sectionTitle--proof">
-              Proof of life, not just style.
+            <h2 className="sectionTitle sectionTitle--proof revealTitle" data-reveal>
+              <span>Proof of life,</span>
+              <span>not just style.</span>
             </h2>
 
             <p className="sectionIntro">
@@ -200,7 +221,7 @@ function App() {
           <div className="xenHeader">
             <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
 
-            <h2 className="xenTitle">
+            <h2 className="xenTitle revealTitle xenTitle--reveal" data-reveal>
               <span>Xen</span>
               <strong>Agentic AI for Workflow Automation</strong>
             </h2>
