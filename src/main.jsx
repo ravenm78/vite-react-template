@@ -37,6 +37,30 @@ const heroSlides = [
   },
 ];
 
+const workItems = [
+  {
+    eyebrow: "Brand System / DTC",
+    imageLabel: "Brand System",
+    title: "Naked All Natural",
+    copy:
+      "Brand direction, product identity, packaging logic, campaign concepts, and audience positioning.",
+  },
+  {
+    eyebrow: "Nightlife / Campaigns",
+    imageLabel: "Campaign Worlds",
+    title: "Club Visual Systems",
+    copy:
+      "Flyers, social graphics, retouching, photo direction, and event visuals built to stop the scroll.",
+  },
+  {
+    eyebrow: "AI / Automation",
+    imageLabel: "AI Workflow",
+    title: "Xen Creative Pipeline",
+    copy:
+      "AI-assisted creative workflows using local tools, Python, LLM routing, and experimental production systems.",
+  },
+];
+
 function App() {
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const activeHero = heroSlides[activeHeroIndex];
@@ -139,47 +163,20 @@ function App() {
           </p>
         </div>
 
-        <div className="imageGrid">
-          <div className="projectImage">
-            <span>Brand System</span>
-          </div>
+        <div className="projectGrid">
+          {workItems.map((item) => (
+            <article className="projectItem" key={item.title}>
+              <div className="projectImage">
+                <span>{item.imageLabel}</span>
+              </div>
 
-          <div className="projectImage">
-            <span>Campaign Worlds</span>
-          </div>
-
-          <div className="projectImage">
-            <span>AI Workflow</span>
-          </div>
-        </div>
-
-        <div className="cards">
-          <article>
-            <p>Brand System / DTC</p>
-            <h3>Naked All Natural</h3>
-            <span>
-              Brand direction, product identity, packaging logic, campaign
-              concepts, and audience positioning.
-            </span>
-          </article>
-
-          <article>
-            <p>Nightlife / Campaigns</p>
-            <h3>Club Visual Systems</h3>
-            <span>
-              Flyers, social graphics, retouching, photo direction, and event
-              visuals built to stop the scroll.
-            </span>
-          </article>
-
-          <article>
-            <p>AI / Automation</p>
-            <h3>Xen Creative Pipeline</h3>
-            <span>
-              AI-assisted creative workflows using local tools, Python, LLM
-              routing, and experimental production systems.
-            </span>
-          </article>
+              <div className="projectCard">
+                <p>{item.eyebrow}</p>
+                <h3>{item.title}</h3>
+                <span>{item.copy}</span>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </main>
