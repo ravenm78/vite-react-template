@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
@@ -65,7 +65,53 @@ const workItems = [
 
 function App() {
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const [workVisible, setWorkVisible] = useState(false);
+  const workSectionRef = useRef(null);
   const activeHero = heroSlides[activeHeroIndex];
+
+  useEffect(() => {
+    const section = workSectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setWorkVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.32,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  function handleProjectMove(event) {
+    const item = event.currentTarget;
+    const rect = item.getBoundingClientRect();
+
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    item.style.setProperty("--tilt-x", `${(-y * 4).toFixed(2)}deg`);
+    item.style.setProperty("--tilt-y", `${(x * 5).toFixed(2)}deg`);
+    item.style.setProperty("--shine-x", `${((x + 0.5) * 100).toFixed(2)}%`);
+    item.style.setProperty("--shine-y", `${((y + 0.5) * 100).toFixed(2)}%`);
+  }
+
+  function handleProjectLeave(event) {
+    const item = event.currentTarget;
+
+    item.style.setProperty("--tilt-x", "0deg");
+    item.style.setProperty("--tilt-y", "0deg");
+    item.style.setProperty("--shine-x", "50%");
+    item.style.setProperty("--shine-y", "50%");
+  }
 
   return (
     <main className="site">
@@ -96,9 +142,9 @@ function App() {
 
           <p className="intro">
             I turn scattered creative requests into brand systems, campaign
-            worlds, and automated production pipelines.
-            Big-picture vision, hands-on execution, and enough technical
-            range to build the machine instead of waiting for one.
+            worlds, and automated production pipelines. Big-picture vision,
+            hands-on execution, and enough technical range to build the machine
+            instead of waiting for one.
           </p>
 
           <div className="buttons">
@@ -155,12 +201,18 @@ function App() {
         </div>
       </section>
 
-      <section id="work" className="section workSection">
+      <section
+        id="work"
+        ref={workSectionRef}
+        className={`section workSection ${workVisible ? "isVisible" : ""}`}
+      >
         <p className="eyebrow sectionEyebrow">Selected Proof</p>
 
         <div className="sectionHeader">
           <h2 className="sectionTitle sectionTitle--proof">
-            Proof of systems, not just style.
+            <span>Proof</span>
+            <span>of systems,</span>
+            <span>not just style.</span>
           </h2>
 
           <p className="sectionIntro">
@@ -172,7 +224,13 @@ function App() {
 
         <div className="projectGrid">
           {workItems.map((item) => (
-            <a className="projectItem" key={item.title} href={item.href}>
+            <a
+              className="projectItem"
+              key={item.title}
+              href={item.href}
+              onMouseMove={handleProjectMove}
+              onMouseLeave={handleProjectLeave}
+            >
               <div
                 className="projectImage"
                 style={{
