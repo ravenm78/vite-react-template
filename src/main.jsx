@@ -227,7 +227,7 @@ function App() {
             </h2>
 
             <p className="xenIntro">
-              Xen is a custom AI-assisted creative operations system built to help
+              Xen is a custom AI-assisted creative operations system built on local hardware to help
               sort requests, shape concepts, route tasks, organize production, and
               turn scattered creative chaos into a cleaner working pipeline.
             </p>
