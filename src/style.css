@@ -1201,3 +1201,172 @@ button {
     scroll-behavior: auto !important;
   }
 }
+/* =========================================================
+   15. MOBILE / PROJECT STRUCTURE FIXES
+   Keeps hero selectors visible and pairs work images with cards
+   ========================================================= */
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.projectItem {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.projectItem:hover {
+  transform: none;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.projectCard {
+  min-height: 156px;
+  padding: 20px 20px 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.015)),
+    rgba(7, 7, 7, 0.92);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 36, 71, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018)),
+    rgba(7, 7, 7, 0.94);
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.28),
+    0 0 20px rgba(255, 36, 71, 0.06);
+}
+
+.projectCard p {
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+
+.projectCard h3 {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.projectCard span {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 1180px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .heroImage {
+    aspect-ratio: 16 / 12;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .heroSelectors {
+    display: flex;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .selector {
+    width: 58px;
+    height: 58px;
+  }
+
+  .selectorDot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .selectorNumber {
+    font-size: 0.58rem;
+  }
+
+  .heroImageLabel .heroIndex {
+    top: 16px;
+    left: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 0.86rem;
+  }
+
+  .heroImageLabel h2 {
+    top: 18px;
+    left: 62px;
+    max-width: calc(100% - 84px);
+    font-size: 1.45rem;
+    white-space: nowrap;
+  }
+
+  .heroImageLabel p {
+    display: none;
+  }
+
+  .projectGrid {
+    gap: 36px;
+  }
+
+  .projectItem {
+    gap: 14px;
+  }
+
+  .projectImage {
+    min-height: 260px;
+  }
+
+  .projectCard {
+    border-radius: 22px;
+    padding: 28px 28px 30px;
+  }
+
+  .projectCard p {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+  }
+
+  .projectCard h3 {
+    font-size: 1.55rem;
+  }
+
+  .projectCard span {
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+}
