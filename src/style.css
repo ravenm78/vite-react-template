@@ -299,6 +299,24 @@ button {
   display: block;
 }
 
+.heroTitleLine {
+  opacity: 0;
+  transform: translateY(0.34em);
+  filter: blur(7px);
+}
+
+.heroTitle--loaded .heroTitleLine {
+  animation: heroTitleLock 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.heroTitle--loaded .heroTitleLine:nth-child(1) {
+  animation-delay: 0.12s;
+}
+
+.heroTitle--loaded .heroTitleLine:nth-child(2) {
+  animation-delay: 0.26s;
+}
+
 .heroTitleSmaller {
   font-size: 0.66em;
   line-height: 0.88;
@@ -1072,6 +1090,25 @@ button {
   50% {
     transform: scale(1.28);
     opacity: 1;
+  }
+}
+@keyframes heroTitleLock {
+  0% {
+    opacity: 0;
+    transform: translateY(0.34em);
+    filter: blur(7px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-0.025em);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
 
