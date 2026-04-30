@@ -93,8 +93,8 @@ function App() {
             </p>
 
             <h1 className="heroTitle">
-              <span>Look Sharp.</span>
-              <span className="heroTitleSmaller">Deliver Results.</span>
+              <span>Look Sharp</span>
+              <span className="heroTitleSmaller">Deliver Results</span>
             </h1>
 
             <p className="intro">
