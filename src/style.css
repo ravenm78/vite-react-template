@@ -736,9 +736,10 @@ button { font: inherit; }
 .xenTitle strong {
   display: block;
   margin-top: 8px;
-  font-size: clamp(2rem, 4vw, 4.2rem);
+  font-size: clamp(2rem, 3.35vw, 3.55rem);
   line-height: 0.95;
   letter-spacing: -0.045em;
+  white-space: nowrap;
 }
 
 .xenIntro,
