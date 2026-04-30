@@ -298,15 +298,11 @@ button {
   display: block;
 }
 
-.heroTitle span:nth-child(3),
-.heroTitle span:nth-child(4) {
-  font-size: 0.92em;
-  line-height: 0.9;
-}
 .heroTitleSmaller {
-  font-size: 0.66em;
+  font-size: 0.86em;
   line-height: 0.88;
 }
+
 .intro {
   margin: 30px 0 0;
   max-width: 560px;
@@ -433,7 +429,7 @@ button {
       rgba(5, 5, 5, 0.06) 50%,
       rgba(5, 5, 5, 0.04) 100%
     ),
-var(--hero-image);
+    var(--hero-image);
   background-size: 103% auto;
   background-position: center center;
   background-repeat: no-repeat;
@@ -561,11 +557,14 @@ var(--hero-image);
   width: 82px;
   height: 82px;
   border: 1px solid rgba(255, 70, 96, 0.34);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.04),
-    rgba(255, 255, 255, 0.02)
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.14),
+      rgba(0, 0, 0, 0.62)
+    ),
+    var(--selector-image) center center / cover no-repeat;
+
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
@@ -575,38 +574,55 @@ var(--hero-image);
   justify-content: center;
   gap: 8px;
 
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
   transition:
     transform 0.22s ease,
     border-color 0.22s ease,
     background 0.22s ease,
-    box-shadow 0.22s ease;
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.selector::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18),
+      transparent 34%,
+      rgba(255, 36, 71, 0.14)
+    );
+  opacity: 0.18;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.selector:hover::before,
+.selector.isActive::before {
+  opacity: 0.34;
 }
 
 .selector:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 90, 112, 0.7);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 40, 72, 0.11),
-    rgba(255, 255, 255, 0.035)
-  );
+  border-color: rgba(255, 90, 112, 0.78);
+  filter: brightness(1.12) contrast(1.08);
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.28),
-    0 0 22px rgba(255, 36, 71, 0.12);
+    0 0 22px rgba(255, 36, 71, 0.16);
 }
 
 .selector.isActive {
-  border-color: rgba(255, 90, 112, 0.68);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 40, 72, 0.13),
-    rgba(255, 255, 255, 0.04)
-  );
+  border-color: rgba(255, 90, 112, 0.88);
+  filter: brightness(1.18) contrast(1.1);
   box-shadow:
     0 10px 26px rgba(0, 0, 0, 0.26),
-    0 0 26px rgba(255, 36, 71, 0.12);
+    0 0 28px rgba(255, 36, 71, 0.2);
 }
 
 .selectorDot {
@@ -623,6 +639,12 @@ var(--hero-image);
     0 0 12px rgba(255, 255, 255, 0.62),
     0 0 24px rgba(255, 36, 71, 0.38);
   animation: dotPulse 2.2s ease-in-out infinite;
+}
+
+.selectorDot,
+.selectorNumber {
+  position: relative;
+  z-index: 2;
 }
 
 .selectorNumber {
