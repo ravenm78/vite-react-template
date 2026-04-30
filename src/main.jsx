@@ -27,7 +27,7 @@ const heroSlides = [
   {
     id: "04",
     image: "/Scruz_Website_Hero_0004.png",
-    title: "Make the Work Stronger",
+    title: "Turn Ideas Into Assets",
     caption: "A steady creative hand when the brief gets weird.",
     label: "Built to scale",
   },
@@ -191,6 +191,39 @@ function App() {
             </a>
           ))}
         </div>
+      </section>
+
+      <section id="xen" className="section xenSection">
+        <div className="xenHeader">
+          <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
+
+          <h2 className="xenTitle">
+            <span>Xen</span>
+            <strong>Agentic AI for Workflow Automation</strong>
+          </h2>
+
+          <p className="xenIntro">
+            Xen is a custom AI-assisted creative operations system built to help
+            sort requests, shape concepts, route tasks, organize production, and
+            turn scattered creative chaos into a cleaner working pipeline.
+          </p>
+        </div>
+
+        <div className="xenVisual" aria-label="Xen workflow automation visual">
+          <img
+            src="/Scruz_Xen_Section.png"
+            alt=""
+            onError={(event) => {
+              event.currentTarget.style.display = "none";
+            }}
+          />
+        </div>
+
+        <p className="xenOutro">
+          Part creative assistant, part production brain, part workflow skeleton.
+          Xen connects ideas, assets, notes, systems, and automation into one
+          evolving creative engine.
+        </p>
       </section>
     </main>
   );
