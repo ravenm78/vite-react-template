@@ -16,7 +16,7 @@ const heroSlides = [
     image: "/Scruz_Website_Hero_0002.png",
     title: "Shape the Big Picture",
     caption:
-      "Strong creative needs more than a good-looking asset. I bring mood, hierarchy, timing, voice, and visual judgment together so the work feels intentional from the first look.",
+      "Strong creative needs more than polish. I help shape the mood, hierarchy, and visual logic so the work feels intentional.",
     label: "Campaign worlds",
   },
   {
