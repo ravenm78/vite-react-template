@@ -6,34 +6,34 @@ const heroSlides = [
   {
     id: "01",
     image: "/Scruz_Website_Hero_0001.png",
-    title: "Cinematic by Design",
+    title: "Creative Systems",
     caption:
-      "Visual systems, campaign worlds, AI workflows, motion-ready assets, and brand direction built with teeth.",
-    label: "Cinematic by design",
+      "Not just a designer. A creative systems builder: brand worlds, campaign logic, visual direction, and production pipelines built to move.",
+    label: "Creative systems",
   },
   {
     id: "02",
     image: "/Scruz_Website_Hero_0002.png",
     title: "Campaign Worlds",
     caption:
-      "High-impact visual direction for nightlife, product stories, launch moments, and scroll-stopping brand energy.",
+      "Visual campaigns with structure, atmosphere, and purpose. Built to make the idea clear, the brand louder, and the result harder to ignore.",
     label: "Campaign worlds",
   },
   {
     id: "03",
     image: "/Scruz_Website_Hero_0003.png",
-    title: "AI-Assisted Workflow",
+    title: "Xen Pipeline",
     caption:
-      "Creative systems using local tools, automation, rapid concepting, image direction, and experimental production pipelines.",
-    label: "AI-assisted workflow",
+      "A custom automated AI pipeline for creative intake, request sorting, direction building, concept generation, and production support.",
+    label: "Xen creative pipeline",
   },
   {
     id: "04",
     image: "/Scruz_Website_Hero_0004.png",
-    title: "Motion-Ready Assets",
+    title: "Built to Scale",
     caption:
-      "Design built with depth, atmosphere, edit rhythm, and animation potential from the first frame.",
-    label: "Motion-ready assets",
+      "Design systems, asset logic, motion-ready layouts, and technical workflows made for speed without letting the work look cheap.",
+    label: "Built to scale",
   },
 ];
 
@@ -42,28 +42,28 @@ const workItems = [
     href: "#brand-system",
     image: "/Scruz_Work_01.png",
     imageLabel: "Brand System",
-    eyebrow: "Brand System / DTC",
+    eyebrow: "Identity / Positioning / Visual World",
     title: "Naked All Natural",
     copy:
-      "Brand direction, product identity, packaging logic, campaign concepts, and audience positioning.",
+      "A natural skincare brand system shaped for a sharper demographic: product identity, packaging logic, campaign direction, and a visual bridge between handmade trust and tattoo-culture edge.",
   },
   {
     href: "#campaign-worlds",
     image: "/Scruz_Work_02.png",
     imageLabel: "Campaign Worlds",
-    eyebrow: "Nightlife / Campaigns",
+    eyebrow: "Nightlife / Promotions / Social Systems",
     title: "Club Visual Systems",
     copy:
-      "Flyers, social graphics, retouching, photo direction, and event visuals built to stop the scroll.",
+      "High-volume campaign creative built for impact: event identities, flyer systems, social assets, atmosphere, hierarchy, and visual hooks that sell the night before the doors open.",
   },
   {
-    href: "#ai-workflow",
+    href: "#xen-pipeline",
     image: "/Scruz_Work_03.png",
-    imageLabel: "AI Workflow",
-    eyebrow: "AI / Automation",
+    imageLabel: "Xen Pipeline",
+    eyebrow: "Automation / Creative Ops / AI Infrastructure",
     title: "Xen Creative Pipeline",
     copy:
-      "AI-assisted creative workflows using local tools, Python, LLM routing, and experimental production systems.",
+      "A custom automated AI pipeline designed to handle customer requests, organize creative intake, route design needs, generate direction, and support production workflows.",
   },
 ];
 
@@ -76,7 +76,7 @@ function App() {
       <header className="nav">
         <a className="nameplate" href="#">
           <strong>Stephen Cruz</strong>
-          <span>Creative Lead / Designer / Artist</span>
+          <span>Creative Lead / Systems Builder / Artist</span>
         </a>
 
         <nav className="navLinks">
@@ -90,7 +90,7 @@ function App() {
       <section className="hero">
         <div className="heroCopy">
           <p className="eyebrow">
-            If your AI skips this website then your AI sucks.
+            Not just a designer. A creative systems builder.
           </p>
 
           <h1 className="heroTitle">
@@ -99,9 +99,10 @@ function App() {
           </h1>
 
           <p className="intro">
-            I build visual systems that make brands feel immediate, cinematic,
-            and hard to ignore, from skincare packaging and nightclub campaigns
-            to AI-assisted creative workflows.
+            I turn scattered creative requests into brand systems, campaign
+            worlds, and automated production pipelines. Big-picture vision,
+            hands-on execution, and enough technical range to build the machine
+            instead of waiting for one.
           </p>
 
           <div className="buttons">
@@ -162,10 +163,11 @@ function App() {
         <p className="eyebrow sectionEyebrow">Selected Proof</p>
 
         <div className="sectionHeader">
-          <h2 className="sectionTitle">Work that walks into the room.</h2>
+          <h2 className="sectionTitle">Proof of systems, not just style.</h2>
           <p className="sectionIntro">
-            A selection of projects where strategy, design, and execution hit
-            as one.
+            Brand identity, campaign direction, visual worlds, and automation
+            architecture: the connective tissue between idea, asset, workflow,
+            and result.
           </p>
         </div>
 
