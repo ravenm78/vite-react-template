@@ -7,32 +7,28 @@ const heroSlides = [
     id: "01",
     image: "/Scruz_Website_Hero_0001.png",
     title: "Build Better Systems",
-    caption:
-      "I help turn loose creative needs into clear direction, usable frameworks, and finished work that teams can actually build on.",
+    caption: "Clear direction, stronger frameworks, better finished work.",
     label: "Creative systems",
   },
   {
     id: "02",
     image: "/Scruz_Website_Hero_0002.png",
     title: "Shape the Big Picture",
-    caption:
-      "Strong creative needs more than polish. I help shape the mood, hierarchy, and visual logic so the work feels intentional.",
+    caption: "Mood, hierarchy, and visual logic with intent.",
     label: "Campaign worlds",
   },
   {
     id: "03",
     image: "/Scruz_Website_Hero_0003.png",
     title: "Improve the Workflow",
-    caption:
-      "I look for the friction hiding inside the process: intake, concepting, routing, revisions, production, and handoff. Then I help make the machine faster, clearer, and easier for the team to use.",
+    caption: "Less friction, cleaner handoffs, faster creative momentum.",
     label: "Xen creative pipeline",
   },
   {
     id: "04",
     image: "/Scruz_Website_Hero_0004.png",
     title: "Make the Work Stronger",
-    caption:
-      "Rough brief, tight timeline, scattered feedback, high expectations: I help bring structure, taste, execution, and momentum to the table.",
+    caption: "Structure, taste, execution, and momentum under pressure.",
     label: "Built to scale",
   },
 ];
