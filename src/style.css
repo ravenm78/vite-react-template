@@ -700,7 +700,7 @@ button {
   right: 28px;
   bottom: 24px;
 
-  width: min(380px, calc(100% - 56px));
+  width: min(620px, calc(100% - 56px));
   margin: 0;
 
   text-align: right;
