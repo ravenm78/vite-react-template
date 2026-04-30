@@ -46,7 +46,7 @@ const workItems = [
   {
     href: "#about",
     image: "/Scruz_Work_02.png",
-    imageLabel: "Creative Engine",
+    imageLabel: "The Engine",
     eyebrow: "Process / Range / Creative Intelligence",
     title: "The Mind Behind the Machine",
     copy:
