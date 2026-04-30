@@ -39,7 +39,7 @@ const workItems = [
     image: "/Scruz_Work_01.png",
     imageLabel: "Creative Direction",
     eyebrow: "Identity / Positioning / Development",
-    title: "Built From Concept to System",
+    title: "From Concept to Completion",
     copy:
       "Creative direction for brands, campaigns, and visual ecosystems that need more than decoration. I build the positioning, art direction, design language, asset logic, and production structure that turn scattered ideas into sharp, scalable creative.",
   },
