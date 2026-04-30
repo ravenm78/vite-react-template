@@ -9,7 +9,7 @@ const heroSlides = [
     title: "Cinematic by Design",
     caption:
       "Visual systems, campaign worlds, AI workflows, motion-ready assets, and brand direction built with teeth.",
-    label: "Brand systems",
+    label: "Cinematic by design",
   },
   {
     id: "02",
@@ -25,7 +25,7 @@ const heroSlides = [
     title: "AI-Assisted Workflow",
     caption:
       "Creative systems using local tools, automation, rapid concepting, image direction, and experimental production pipelines.",
-    label: "AI workflow",
+    label: "AI-assisted workflow",
   },
   {
     id: "04",
@@ -33,7 +33,7 @@ const heroSlides = [
     title: "Motion-Ready Assets",
     caption:
       "Design built with depth, atmosphere, edit rhythm, and animation potential from the first frame.",
-    label: "Motion systems",
+    label: "Motion-ready assets",
   },
 ];
 
@@ -107,6 +107,9 @@ function App() {
                   aria-label={`${slide.label} selector`}
                   aria-pressed={activeHeroIndex === index}
                   onClick={() => setActiveHeroIndex(index)}
+                  style={{
+                    "--selector-image": `url("${slide.image}")`,
+                  }}
                 >
                   <span className="selectorDot"></span>
                   <span className="selectorNumber">{slide.id}</span>
