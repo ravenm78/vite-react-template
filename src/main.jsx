@@ -211,7 +211,7 @@ function App() {
         <div className="sectionHeader">
           <h2 className="sectionTitle sectionTitle--proof">
             <span>Proof</span>
-            <span>of systems,</span>
+            <span>of life,</span>
             <span>not just style.</span>
           </h2>
 
