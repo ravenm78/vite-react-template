@@ -68,164 +68,168 @@ function App() {
   const activeHero = heroSlides[activeHeroIndex];
 
   return (
-    <main className="site">
-      <header className="nav">
-        <a className="nameplate" href="#">
-          <strong>Stephen Cruz</strong>
-          <span>Creative Lead / Systems Builder / Artist</span>
-        </a>
+    <>
+      <div className="site-bg" aria-hidden="true" />
 
-        <nav className="navLinks">
-          <a href="/work">Work</a>
-          <a href="/about">About</a>
-          <a href="/skills">Skills</a>
-          <a href="mailto:ravenmacabrex12@gmail.com">Contact</a>
-        </nav>
-      </header>
+      <main className="site">
+        <header className="nav">
+          <a className="nameplate" href="#">
+            <strong>Stephen Cruz</strong>
+            <span>Creative Lead / Systems Builder / Artist</span>
+          </a>
 
-      <section className="hero">
-        <div className="heroCopy">
-          <p className="eyebrow">
-            Not just a designer. A creative systems builder.
-          </p>
+          <nav className="navLinks">
+            <a href="/work">Work</a>
+            <a href="/about">About</a>
+            <a href="/skills">Skills</a>
+            <a href="mailto:ravenmacabrex12@gmail.com">Contact</a>
+          </nav>
+        </header>
 
-          <h1 className="heroTitle">
-            <span>Look Sharp.</span>
-            <span className="heroTitleSmaller">Deliver Results.</span>
-          </h1>
+        <section className="hero">
+          <div className="heroCopy">
+            <p className="eyebrow">
+              Not just a designer. A creative systems builder.
+            </p>
 
-          <p className="intro">
-            I turn scattered creative requests into brand systems, campaign
-            worlds, and automated production pipelines.
-            Big-picture vision, hands-on execution, and enough technical
-            range to build the machine instead of waiting for one.
-          </p>
+            <h1 className="heroTitle">
+              <span>Look Sharp.</span>
+              <span className="heroTitleSmaller">Deliver Results.</span>
+            </h1>
 
-          <div className="buttons">
-            <a href="#work">
-              <span>View Proof</span>
-              <span className="buttonArrow">↗</span>
-            </a>
+            <p className="intro">
+              I turn scattered creative requests into brand systems, campaign
+              worlds, and automated production pipelines.
+              Big-picture vision, hands-on execution, and enough technical
+              range to build the machine instead of waiting for one.
+            </p>
+
+            <div className="buttons">
+              <a href="#work">
+                <span>View Proof</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="heroStage" aria-label="Featured portfolio visual">
-          <div
-            className="heroImage"
-            style={{
-              "--hero-image": `url("${activeHero.image}")`,
-            }}
-          >
-            <div className="heroFrameLine heroFrameLineTop"></div>
-            <div className="heroFrameLine heroFrameLineBottom"></div>
-            <div className="heroCorner heroCornerTopLeft"></div>
-            <div className="heroCorner heroCornerTopRight"></div>
-            <div className="heroCorner heroCornerBottomLeft"></div>
-            <div className="heroCorner heroCornerBottomRight"></div>
+          <div className="heroStage" aria-label="Featured portfolio visual">
+            <div
+              className="heroImage"
+              style={{
+                "--hero-image": `url("${activeHero.image}")`,
+              }}
+            >
+              <div className="heroFrameLine heroFrameLineTop"></div>
+              <div className="heroFrameLine heroFrameLineBottom"></div>
+              <div className="heroCorner heroCornerTopLeft"></div>
+              <div className="heroCorner heroCornerTopRight"></div>
+              <div className="heroCorner heroCornerBottomLeft"></div>
+              <div className="heroCorner heroCornerBottomRight"></div>
 
-            <div className="heroSelectors" aria-label="Featured visual selectors">
-              {heroSlides.map((slide, index) => (
-                <button
-                  key={slide.id}
-                  className={`selector selector${slide.id} ${
-                    activeHeroIndex === index ? "isActive" : ""
-                  }`}
-                  type="button"
-                  aria-label={`${slide.label} selector`}
-                  aria-pressed={activeHeroIndex === index}
-                  onClick={() => setActiveHeroIndex(index)}
+              <div className="heroSelectors" aria-label="Featured visual selectors">
+                {heroSlides.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    className={`selector selector${slide.id} ${
+                      activeHeroIndex === index ? "isActive" : ""
+                    }`}
+                    type="button"
+                    aria-label={`${slide.label} selector`}
+                    aria-pressed={activeHeroIndex === index}
+                    onClick={() => setActiveHeroIndex(index)}
+                    style={{
+                      "--selector-image": `url("${slide.image}")`,
+                    }}
+                  >
+                    <span className="selectorDot"></span>
+                    <span className="selectorNumber">{slide.id}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="heroImageLabel">
+                <span className="heroIndex">{activeHero.id}</span>
+                <div>
+                  <h2>{activeHero.title}</h2>
+                  <p>{activeHero.caption}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="work" className="section workSection">
+          <p className="eyebrow sectionEyebrow">Choose Your Entry Point</p>
+
+          <div className="sectionHeader">
+            <h2 className="sectionTitle sectionTitle--proof">
+              Proof of life, not just style.
+            </h2>
+
+            <p className="sectionIntro">
+              Brand identity, campaign direction, visual worlds, and automation
+              architecture: the connective tissue between idea, asset, workflow,
+              and result.
+            </p>
+          </div>
+
+          <div className="projectGrid">
+            {workItems.map((item) => (
+              <a className="projectItem" key={item.title} href={item.href}>
+                <div
+                  className="projectImage"
                   style={{
-                    "--selector-image": `url("${slide.image}")`,
+                    "--project-image": `url("${item.image}")`,
                   }}
                 >
-                  <span className="selectorDot"></span>
-                  <span className="selectorNumber">{slide.id}</span>
-                </button>
-              ))}
-            </div>
+                  <div className="projectImageOverlay"></div>
+                  <span className="projectImageLabel">{item.imageLabel}</span>
+                </div>
 
-            <div className="heroImageLabel">
-              <span className="heroIndex">{activeHero.id}</span>
-              <div>
-                <h2>{activeHero.title}</h2>
-                <p>{activeHero.caption}</p>
-              </div>
-            </div>
+                <div className="projectCard">
+                  <p>{item.eyebrow}</p>
+                  <h3>{item.title}</h3>
+                  <span>{item.copy}</span>
+                </div>
+              </a>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="work" className="section workSection">
-        <p className="eyebrow sectionEyebrow">Choose Your Entry Point</p>
+        <section id="xen" className="section xenSection">
+          <div className="xenHeader">
+            <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
 
-        <div className="sectionHeader">
-          <h2 className="sectionTitle sectionTitle--proof">
-            Proof of life, not just style.
-          </h2>
+            <h2 className="xenTitle">
+              <span>Xen</span>
+              <strong>Agentic AI for Workflow Automation</strong>
+            </h2>
 
-          <p className="sectionIntro">
-            Brand identity, campaign direction, visual worlds, and automation
-            architecture: the connective tissue between idea, asset, workflow,
-            and result.
+            <p className="xenIntro">
+              Xen is a custom AI-assisted creative operations system built to help
+              sort requests, shape concepts, route tasks, organize production, and
+              turn scattered creative chaos into a cleaner working pipeline.
+            </p>
+          </div>
+
+          <div className="xenVisual" aria-label="Xen workflow automation visual">
+            <img
+              src="/Scruz_Xen_Section.png"
+              alt=""
+              onError={(event) => {
+                event.currentTarget.style.display = "none";
+              }}
+            />
+          </div>
+
+          <p className="xenOutro">
+            Part creative assistant, part production brain, part workflow skeleton.
+            Xen connects ideas, assets, notes, systems, and automation into one
+            evolving creative engine.
           </p>
-        </div>
-
-        <div className="projectGrid">
-          {workItems.map((item) => (
-            <a className="projectItem" key={item.title} href={item.href}>
-              <div
-                className="projectImage"
-                style={{
-                  "--project-image": `url("${item.image}")`,
-                }}
-              >
-                <div className="projectImageOverlay"></div>
-                <span className="projectImageLabel">{item.imageLabel}</span>
-              </div>
-
-              <div className="projectCard">
-                <p>{item.eyebrow}</p>
-                <h3>{item.title}</h3>
-                <span>{item.copy}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section id="xen" className="section xenSection">
-        <div className="xenHeader">
-          <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
-
-          <h2 className="xenTitle">
-            <span>Xen</span>
-            <strong>Agentic AI for Workflow Automation</strong>
-          </h2>
-
-          <p className="xenIntro">
-            Xen is a custom AI-assisted creative operations system built to help
-            sort requests, shape concepts, route tasks, organize production, and
-            turn scattered creative chaos into a cleaner working pipeline.
-          </p>
-        </div>
-
-        <div className="xenVisual" aria-label="Xen workflow automation visual">
-          <img
-            src="/Scruz_Xen_Section.png"
-            alt=""
-            onError={(event) => {
-              event.currentTarget.style.display = "none";
-            }}
-          />
-        </div>
-
-        <p className="xenOutro">
-          Part creative assistant, part production brain, part workflow skeleton.
-          Xen connects ideas, assets, notes, systems, and automation into one
-          evolving creative engine.
-        </p>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }
 
