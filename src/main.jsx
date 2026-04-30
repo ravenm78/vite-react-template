@@ -54,7 +54,7 @@ const workItems = [
     eyebrow: "Process / Range / Creative Intelligence",
     title: "The Mind Behind the Machine",
     copy:
-      "The portfolio shows the output. The about page shows the engine: visual direction, technical fluency, cultural taste, production discipline, and the ability to turn vague creative chaos into something sharp, useful, and hard to ignore.",
+      "There’s a person behind the polish. I’ve spent years turning rough ideas, weird requests, tight deadlines, and half-formed sparks into finished work that feels intentional.",
   },
   {
     href: "#xen-pipeline",
