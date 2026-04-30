@@ -96,9 +96,9 @@ function App() {
 
           <p className="intro">
             I turn scattered creative requests into brand systems, campaign
-            worlds, and automated production pipelines. Big-picture vision,
-            hands-on execution, and enough technical range to build the machine
-            instead of waiting for one.
+            worlds, and automated production pipelines.
+            Big-picture vision, hands-on execution, and enough technical
+            range to build the machine instead of waiting for one.
           </p>
 
           <div className="buttons">
