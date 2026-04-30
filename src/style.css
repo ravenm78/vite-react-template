@@ -1479,3 +1479,55 @@ button {
     line-height: 1.75;
   }
 }
+/* =========================================================
+   16. WORK SECTION TITLE WIDTH FIX
+   Makes "Proof of systems, not just style." breathe properly
+   ========================================================= */
+
+.sectionHeader {
+  grid-template-columns: minmax(760px, 1fr) minmax(320px, 420px);
+  align-items: end;
+  column-gap: 56px;
+}
+
+.sectionTitle {
+  max-width: 1120px;
+  font-size: clamp(4.4rem, 6.3vw, 7rem);
+  line-height: 0.86;
+}
+
+.sectionIntro {
+  max-width: 420px;
+  justify-self: end;
+  padding-bottom: 10px;
+}
+
+/* Large desktop polish */
+@media (min-width: 1500px) {
+  .sectionHeader {
+    grid-template-columns: minmax(900px, 1fr) minmax(360px, 440px);
+  }
+
+  .sectionTitle {
+    max-width: 1200px;
+  }
+}
+
+/* Tablet / mobile keeps it sane */
+@media (max-width: 1180px) {
+  .sectionHeader {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .sectionTitle {
+    max-width: 100%;
+    font-size: clamp(3.2rem, 11vw, 5.6rem);
+  }
+
+  .sectionIntro {
+    justify-self: start;
+    max-width: 620px;
+    padding-bottom: 0;
+  }
+}
