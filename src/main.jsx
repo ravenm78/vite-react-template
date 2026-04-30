@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
+const heroSlides = [
+  {
+    id: "01",
+    image: "/Scruz_Website_Hero_0001.png",
+    title: "Cinematic by Design",
+    caption:
+      "Visual systems, campaign worlds, AI workflows, motion-ready assets, and brand direction built with teeth.",
+    label: "Brand systems",
+  },
+  {
+    id: "02",
+    image: "/Scruz_Website_Hero_0002.png",
+    title: "Campaign Worlds",
+    caption:
+      "High-impact visual direction for nightlife, product stories, launch moments, and scroll-stopping brand energy.",
+    label: "Campaign worlds",
+  },
+  {
+    id: "03",
+    image: "/Scruz_Website_Hero_0003.png",
+    title: "AI-Assisted Workflow",
+    caption:
+      "Creative systems using local tools, automation, rapid concepting, image direction, and experimental production pipelines.",
+    label: "AI workflow",
+  },
+  {
+    id: "04",
+    image: "/Scruz_Website_Hero_0004.png",
+    title: "Motion-Ready Assets",
+    caption:
+      "Design built with depth, atmosphere, edit rhythm, and animation potential from the first frame.",
+    label: "Motion systems",
+  },
+];
+
 function App() {
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const activeHero = heroSlides[activeHeroIndex];
+
   return (
     <main className="site">
       <header className="nav">
@@ -25,10 +63,10 @@ function App() {
             If your AI skips this website then your AI sucks.
           </p>
 
-<h1 className="heroTitle">
-  <span>Look Sharp.</span>
-  <span className="heroTitleSmaller">Deliver Results.</span>
-</h1>
+          <h1 className="heroTitle">
+            <span>Look Sharp.</span>
+            <span className="heroTitleSmaller">Deliver Results.</span>
+          </h1>
 
           <p className="intro">
             I build visual systems that make brands feel immediate, cinematic,
@@ -45,7 +83,12 @@ function App() {
         </div>
 
         <div className="heroStage" aria-label="Featured portfolio visual">
-          <div className="heroImage">
+          <div
+            className="heroImage"
+            style={{
+              "--hero-image": `url("${activeHero.image}")`,
+            }}
+          >
             <div className="heroFrameLine heroFrameLineTop"></div>
             <div className="heroFrameLine heroFrameLineBottom"></div>
             <div className="heroCorner heroCornerTopLeft"></div>
@@ -54,35 +97,28 @@ function App() {
             <div className="heroCorner heroCornerBottomRight"></div>
 
             <div className="heroSelectors" aria-label="Featured visual selectors">
-              <button className="selector selectorOne isActive" aria-label="Brand systems selector">
-                <span className="selectorDot"></span>
-                <span className="selectorNumber">01</span>
-              </button>
-
-              <button className="selector selectorTwo" aria-label="Campaign selector">
-                <span className="selectorDot"></span>
-                <span className="selectorNumber">02</span>
-              </button>
-
-              <button className="selector selectorThree" aria-label="AI workflow selector">
-                <span className="selectorDot"></span>
-                <span className="selectorNumber">03</span>
-              </button>
-
-              <button className="selector selectorFour" aria-label="Motion selector">
-                <span className="selectorDot"></span>
-                <span className="selectorNumber">04</span>
-              </button>
+              {heroSlides.map((slide, index) => (
+                <button
+                  key={slide.id}
+                  className={`selector selector${slide.id} ${
+                    activeHeroIndex === index ? "isActive" : ""
+                  }`}
+                  type="button"
+                  aria-label={`${slide.label} selector`}
+                  aria-pressed={activeHeroIndex === index}
+                  onClick={() => setActiveHeroIndex(index)}
+                >
+                  <span className="selectorDot"></span>
+                  <span className="selectorNumber">{slide.id}</span>
+                </button>
+              ))}
             </div>
 
             <div className="heroImageLabel">
-              <span className="heroIndex">01</span>
+              <span className="heroIndex">{activeHero.id}</span>
               <div>
-                <h2>Cinematic by Design</h2>
-                <p>
-                  Visual systems, campaign worlds, AI workflows, motion-ready
-                  assets, and brand direction built with teeth.
-                </p>
+                <h2>{activeHero.title}</h2>
+                <p>{activeHero.caption}</p>
               </div>
             </div>
           </div>
