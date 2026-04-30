@@ -1531,3 +1531,44 @@ button {
     padding-bottom: 0;
   }
 }
+/* =========================================================
+   17. WORK SECTION TITLE REFINEMENT
+   Smaller one-line title with intro underneath on the left
+   ========================================================= */
+
+.sectionHeader {
+  display: block;
+  margin-bottom: 42px;
+}
+
+.sectionTitle {
+  max-width: none;
+  width: 100%;
+  font-size: clamp(3.2rem, 5vw, 5.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+  white-space: nowrap;
+}
+
+.sectionIntro {
+  max-width: 760px;
+  margin-top: 24px;
+  justify-self: auto;
+  padding-bottom: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(244, 241, 236, 0.72);
+}
+
+/* Keep mobile from exploding sideways */
+@media (max-width: 980px) {
+  .sectionTitle {
+    white-space: normal;
+    font-size: clamp(3rem, 11vw, 5rem);
+  }
+
+  .sectionIntro {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
