@@ -39,22 +39,28 @@ const heroSlides = [
 
 const workItems = [
   {
-    eyebrow: "Brand System / DTC",
+    href: "#brand-system",
+    image: "/Scruz_Work_01.png",
     imageLabel: "Brand System",
+    eyebrow: "Brand System / DTC",
     title: "Naked All Natural",
     copy:
       "Brand direction, product identity, packaging logic, campaign concepts, and audience positioning.",
   },
   {
-    eyebrow: "Nightlife / Campaigns",
+    href: "#campaign-worlds",
+    image: "/Scruz_Work_02.png",
     imageLabel: "Campaign Worlds",
+    eyebrow: "Nightlife / Campaigns",
     title: "Club Visual Systems",
     copy:
       "Flyers, social graphics, retouching, photo direction, and event visuals built to stop the scroll.",
   },
   {
-    eyebrow: "AI / Automation",
+    href: "#ai-workflow",
+    image: "/Scruz_Work_03.png",
     imageLabel: "AI Workflow",
+    eyebrow: "AI / Automation",
     title: "Xen Creative Pipeline",
     copy:
       "AI-assisted creative workflows using local tools, Python, LLM routing, and experimental production systems.",
@@ -165,9 +171,15 @@ function App() {
 
         <div className="projectGrid">
           {workItems.map((item) => (
-            <article className="projectItem" key={item.title}>
-              <div className="projectImage">
-                <span>{item.imageLabel}</span>
+            <a className="projectItem" key={item.title} href={item.href}>
+              <div
+                className="projectImage"
+                style={{
+                  "--project-image": `url("${item.image}")`,
+                }}
+              >
+                <div className="projectImageOverlay"></div>
+                <span className="projectImageLabel">{item.imageLabel}</span>
               </div>
 
               <div className="projectCard">
@@ -175,7 +187,7 @@ function App() {
                 <h3>{item.title}</h3>
                 <span>{item.copy}</span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
