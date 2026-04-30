@@ -163,7 +163,9 @@ function App() {
         <p className="eyebrow sectionEyebrow">Selected Proof</p>
 
         <div className="sectionHeader">
-          <h2 className="sectionTitle">Proof of systems, not just style.</h2>
+          <h2 className="sectionTitle sectionTitle--proof">
+  Proof of systems, not just style.
+</h2>
           <p className="sectionIntro">
             Brand identity, campaign direction, visual worlds, and automation
             architecture: the connective tissue between idea, asset, workflow,
