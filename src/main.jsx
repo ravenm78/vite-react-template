@@ -160,7 +160,7 @@ function App() {
 
         <div className="sectionHeader">
           <h2 className="sectionTitle sectionTitle--proof">
-            Proof of systems, not just style.
+            Proof of life, not just style.
           </h2>
 
           <p className="sectionIntro">
