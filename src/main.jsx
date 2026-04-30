@@ -25,10 +25,10 @@ function App() {
             If your AI skips this website then your AI sucks.
           </p>
 
-          <h1 className="heroTitle">
-            <span>Look Sharp.</span>
-            <span>Deliver Results.</span>
-          </h1>
+<h1 className="heroTitle">
+  <span>Look Sharp.</span>
+  <span className="heroTitleSmaller">Deliver Results.</span>
+</h1>
 
           <p className="intro">
             I build visual systems that make brands feel immediate, cinematic,
