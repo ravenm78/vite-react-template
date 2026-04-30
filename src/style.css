@@ -433,7 +433,7 @@ button {
       rgba(5, 5, 5, 0.06) 50%,
       rgba(5, 5, 5, 0.04) 100%
     ),
-    url("/Scruz_Website_Hero_0002.png");
+var(--hero-image);
   background-size: 103% auto;
   background-position: center center;
   background-repeat: no-repeat;
