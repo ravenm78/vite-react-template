@@ -746,8 +746,35 @@ button {
   letter-spacing: -0.065em;
   white-space: nowrap;
 }
+
 .sectionTitle--proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.18em;
   font-size: clamp(3rem, 4.5vw, 5.1rem);
+}
+
+.sectionTitle--proof span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.32em);
+  filter: blur(6px);
+}
+
+.workSection.isVisible .sectionTitle--proof span {
+  animation: titleLock 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.workSection.isVisible .sectionTitle--proof span:nth-child(1) {
+  animation-delay: 0.02s;
+}
+
+.workSection.isVisible .sectionTitle--proof span:nth-child(2) {
+  animation-delay: 0.13s;
+}
+
+.workSection.isVisible .sectionTitle--proof span:nth-child(3) {
+  animation-delay: 0.24s;
 }
 
 .sectionIntro {
@@ -763,9 +790,15 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+  perspective: 1200px;
 }
 
 .projectItem {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --shine-x: 50%;
+  --shine-y: 50%;
+
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -777,30 +810,38 @@ button {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  transform-style: preserve-3d;
 }
 
 .projectItem:hover .projectImage {
-  transform: translateY(-4px);
-  border-color: rgba(255, 36, 71, 0.2);
+  transform:
+    translateY(-5px)
+    rotateX(var(--tilt-x))
+    rotateY(var(--tilt-y));
+  border-color: rgba(255, 36, 71, 0.24);
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.32),
-    0 0 24px rgba(255, 36, 71, 0.08);
+    0 22px 48px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(255, 36, 71, 0.1);
 }
 
 .projectItem:hover .projectImage::before {
-  opacity: 0.28;
-  transform: translateX(40%);
+  opacity: 0.34;
+  transform: translateX(42%);
+}
+
+.projectItem:hover .projectImage::after {
+  opacity: 1;
 }
 
 .projectItem:hover .projectCard {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: rgba(255, 36, 71, 0.16);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018)),
     rgba(7, 7, 7, 0.94);
   box-shadow:
-    0 16px 38px rgba(0, 0, 0, 0.28),
-    0 0 20px rgba(255, 36, 71, 0.06);
+    0 18px 42px rgba(0, 0, 0, 0.3),
+    0 0 22px rgba(255, 36, 71, 0.07);
 }
 
 .projectImage {
@@ -814,8 +855,14 @@ button {
   background-position: center center;
   background-repeat: no-repeat;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  transform:
+    translateY(0)
+    rotateX(0deg)
+    rotateY(0deg);
+  transform-style: preserve-3d;
+  will-change: transform;
   transition:
-    transform 0.28s ease,
+    transform 0.22s ease,
     box-shadow 0.28s ease,
     border-color 0.28s ease;
 }
@@ -825,6 +872,11 @@ button {
   inset: 0;
   z-index: 1;
   background:
+    radial-gradient(
+      circle at var(--shine-x) var(--shine-y),
+      rgba(255, 255, 255, 0.16),
+      transparent 28%
+    ),
     linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.08) 0%,
@@ -849,7 +901,7 @@ button {
       120deg,
       transparent 0%,
       transparent 40%,
-      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.1) 50%,
       transparent 60%,
       transparent 100%
     ),
@@ -874,7 +926,9 @@ button {
   inset: auto 0 0 0;
   z-index: 2;
   height: 42%;
+  opacity: 0.9;
   background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.82));
+  transition: opacity 0.28s ease;
   pointer-events: none;
 }
 
@@ -935,6 +989,26 @@ button {
 /* =========================================================
    07. ANIMATIONS
    ========================================================= */
+
+@keyframes titleLock {
+  0% {
+    opacity: 0;
+    transform: translateY(0.32em);
+    filter: blur(6px);
+  }
+
+  72% {
+    opacity: 1;
+    transform: translateY(-0.025em);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
 
 @keyframes ambientPulse {
   0% {
