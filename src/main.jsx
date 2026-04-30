@@ -39,31 +39,31 @@ const heroSlides = [
 
 const workItems = [
   {
-    href: "#brand-system",
+    href: "#work",
     image: "/Scruz_Work_01.png",
-    imageLabel: "Brand System",
-    eyebrow: "Identity / Positioning / Visual World",
-    title: "Naked All Natural",
+    imageLabel: "Creative Direction",
+    eyebrow: "Identity / Positioning / Development",
+    title: "Built From Concept to System",
     copy:
-      "A natural skincare brand system shaped for a sharper demographic: product identity, packaging logic, campaign direction, and a visual bridge between handmade trust and tattoo-culture edge.",
+      "Creative direction for brands, campaigns, and visual ecosystems that need more than decoration. I build the positioning, art direction, design language, asset logic, and production structure that turn scattered ideas into sharp, scalable creative.",
   },
   {
-    href: "#campaign-worlds",
+    href: "#about",
     image: "/Scruz_Work_02.png",
-    imageLabel: "Campaign Worlds",
-    eyebrow: "Nightlife / Promotions / Social Systems",
-    title: "Club Visual Systems",
+    imageLabel: "Creative Engine",
+    eyebrow: "Process / Range / Creative Intelligence",
+    title: "The Mind Behind the Machine",
     copy:
-      "High-volume campaign creative built for impact: event identities, flyer systems, social assets, atmosphere, hierarchy, and visual hooks that sell the night before the doors open.",
+      "The portfolio shows the output. The about page shows the engine: visual direction, technical fluency, cultural taste, production discipline, and the ability to turn vague creative chaos into something sharp, useful, and hard to ignore.",
   },
   {
     href: "#xen-pipeline",
     image: "/Scruz_Work_03.png",
     imageLabel: "Xen Pipeline",
     eyebrow: "Automation / Creative Ops / AI Infrastructure",
-    title: "Xen Creative Pipeline",
+    title: "Custom Creative Operations Pipeline",
     copy:
-      "A custom automated AI pipeline designed to handle customer requests, organize creative intake, route design needs, generate direction, and support production workflows.",
+      "Xen is a custom automated AI creative pipeline built for intake, request sorting, task routing, concept development, creative direction, and production support. It connects design thinking with operational intelligence so creative work moves faster without getting dumber.",
   },
 ];
 
@@ -164,8 +164,9 @@ function App() {
 
         <div className="sectionHeader">
           <h2 className="sectionTitle sectionTitle--proof">
-  Proof of systems, not just style.
-</h2>
+            Proof of systems, not just style.
+          </h2>
+
           <p className="sectionIntro">
             Brand identity, campaign direction, visual worlds, and automation
             architecture: the connective tissue between idea, asset, workflow,
