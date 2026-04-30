@@ -135,10 +135,10 @@ function App() {
             Not just a designer. A creative systems builder.
           </p>
 
-          <h1 className="heroTitle">
-            <span>Look Sharp.</span>
-            <span className="heroTitleSmaller">Deliver Results.</span>
-          </h1>
+<h1 className="heroTitle heroTitle--loaded">
+  <span className="heroTitleLine">Look Sharp.</span>
+  <span className="heroTitleLine heroTitleSmaller">Deliver Results.</span>
+</h1>
 
           <p className="intro">
             I turn scattered creative requests into brand systems, campaign
