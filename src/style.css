@@ -26,31 +26,18 @@
   --ui-font: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 html,
 body,
 #root {
-  min-height: 100%;
-  background: #000;
-}
-
-body {
   margin: 0;
-}
-
-.site-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  pointer-events: none;
-  background-image: url("/Scruz_Website_Background.jpg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  background-color: #000;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ui-font);
 }
 
 body {
@@ -749,10 +736,9 @@ button { font: inherit; }
 .xenTitle strong {
   display: block;
   margin-top: 8px;
-  font-size: clamp(2rem, 3.35vw, 3.55rem);
+  font-size: clamp(2rem, 4vw, 4.2rem);
   line-height: 0.95;
   letter-spacing: -0.045em;
-  white-space: nowrap;
 }
 
 .xenIntro,
