@@ -747,7 +747,7 @@ button {
   white-space: nowrap;
 }
 .sectionTitle--proof {
-  font-size: clamp(3rem, 4.58vw, 5.22rem);
+  font-size: clamp(3rem, 4.5vw, 5.1rem);
 }
 
 .sectionIntro {
