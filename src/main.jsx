@@ -6,33 +6,33 @@ const heroSlides = [
   {
     id: "01",
     image: "/Scruz_Website_Hero_0001.png",
-    title: "Creative Systems",
+    title: "Build Better Systems",
     caption:
-      "Not just a designer. A creative systems builder: brand worlds, campaign logic, visual direction, and production pipelines built to move.",
+      "I help turn loose creative needs into clear direction, usable frameworks, and finished work that teams can actually build on.",
     label: "Creative systems",
   },
   {
     id: "02",
     image: "/Scruz_Website_Hero_0002.png",
-    title: "Campaign Worlds",
+    title: "Shape the Big Picture",
     caption:
-      "Visual campaigns with structure, atmosphere, and purpose. Built to make the idea clear, the brand louder, and the result harder to ignore.",
+      "Strong creative needs more than a good-looking asset. I bring mood, hierarchy, timing, voice, and visual judgment together so the work feels intentional from the first look.",
     label: "Campaign worlds",
   },
   {
     id: "03",
     image: "/Scruz_Website_Hero_0003.png",
-    title: "Xen Pipeline",
+    title: "Improve the Workflow",
     caption:
-      "A custom automated AI pipeline for creative intake, request sorting, direction building, concept generation, and production support.",
+      "I look for the friction hiding inside the process: intake, concepting, routing, revisions, production, and handoff. Then I help make the machine faster, clearer, and easier for the team to use.",
     label: "Xen creative pipeline",
   },
   {
     id: "04",
     image: "/Scruz_Website_Hero_0004.png",
-    title: "Built to Scale",
+    title: "Make the Work Stronger",
     caption:
-      "Design systems, asset logic, motion-ready layouts, and technical workflows made for speed without letting the work look cheap.",
+      "Rough brief, tight timeline, scattered feedback, high expectations: I help bring structure, taste, execution, and momentum to the table.",
     label: "Built to scale",
   },
 ];
