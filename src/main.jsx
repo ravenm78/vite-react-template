@@ -27,7 +27,7 @@ const heroSlides = [
   {
     id: "04",
     image: "/Scruz_Website_Hero_0004.png",
-    title: "Make the Work Stronger",
+    title: "Turn Ideas Into Assets",
     caption: "A steady creative hand when the brief gets weird.",
     label: "Built to scale",
   },
