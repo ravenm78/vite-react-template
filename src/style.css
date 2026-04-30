@@ -978,7 +978,92 @@ button { font: inherit; }
 }
 
 /* =========================================================
-   11. REDUCED MOTION
+   11. REACTIVE SCROLL TITLE REVEALS
+   ========================================================= */
+
+.revealTitle span,
+.revealTitle strong {
+  opacity: 0;
+  transform: translateY(0.42em) scale(0.975);
+  filter: blur(12px);
+  text-shadow: 0 0 0 rgba(255, 36, 71, 0);
+  transition:
+    opacity 0.78s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.78s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.78s cubic-bezier(0.16, 1, 0.3, 1),
+    text-shadow 0.78s ease;
+  will-change: opacity, transform, filter;
+}
+
+.revealTitle.isVisible span,
+.revealTitle.isVisible strong {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  text-shadow: 0 0 30px rgba(255, 36, 71, 0.12);
+}
+
+.revealTitle.isVisible span:nth-child(1) { transition-delay: 0.04s; }
+
+.revealTitle.isVisible span:nth-child(2),
+.revealTitle.isVisible strong { transition-delay: 0.17s; }
+
+.heroTitle--reveal {
+  overflow: visible;
+}
+
+.heroTitle--reveal span {
+  transform-origin: left center;
+}
+
+.sectionTitle--proof.revealTitle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.18em;
+  overflow: visible;
+}
+
+.sectionTitle--proof.revealTitle span {
+  display: inline-block;
+}
+
+.workSection.isVisible .sectionTitle--proof span {
+  animation: none;
+}
+
+.xenTitle--reveal {
+  overflow: visible;
+}
+
+.xenTitle--reveal span,
+.xenTitle--reveal strong {
+  transform-origin: center;
+}
+
+.xenTitle--reveal.isVisible span {
+  text-shadow:
+    0 0 22px rgba(255, 36, 71, 0.2),
+    0 0 58px rgba(255, 36, 71, 0.09);
+}
+
+.xenTitle--reveal.isVisible strong {
+  text-shadow: 0 0 34px rgba(255, 36, 71, 0.12);
+}
+
+@media (max-width: 620px) {
+  .revealTitle span,
+  .revealTitle strong {
+    transform: translateY(0.28em) scale(0.985);
+    filter: blur(8px);
+  }
+
+  .heroTitle--reveal span {
+    transform-origin: center;
+  }
+}
+
+/* =========================================================
+   12. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -989,5 +1074,13 @@ button { font: inherit; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .revealTitle span,
+  .revealTitle strong {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    text-shadow: none !important;
   }
 }
