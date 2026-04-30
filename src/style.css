@@ -226,9 +226,9 @@ button {
 .hero {
   width: min(calc(100% - 48px), var(--max-width));
   margin: 0 auto;
-  padding-top: calc(var(--header-height) + 44px);
-  padding-bottom: 72px;
-  min-height: 100vh;
+  padding-top: calc(var(--header-height) + 18px);
+  padding-bottom: 56px;
+  min-height: calc(100vh - 20px);
 
   display: grid;
   grid-template-columns: minmax(340px, 540px) minmax(600px, 1fr);
@@ -252,7 +252,7 @@ button {
 .heroCopy {
   position: relative;
   z-index: 3;
-  padding: 76px 28px 44px 18px;
+  padding: 36px 28px 36px 18px;
 
   display: flex;
   flex-direction: column;
