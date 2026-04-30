@@ -746,6 +746,9 @@ button {
   letter-spacing: -0.065em;
   white-space: nowrap;
 }
+.sectionTitle--proof {
+  font-size: clamp(3rem, 4.58vw, 5.22rem);
+}
 
 .sectionIntro {
   max-width: 760px;
