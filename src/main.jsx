@@ -461,7 +461,7 @@ function WorkPage() {
         <div className="workSectionHeader">
           <p className="eyebrow sectionEyebrow">Featured / Naked All Natural</p>
           <h2 className="sectionTitle sectionTitle--workpage revealTitle">
-            <span>Naked All Natural:</span>
+            <span>Naked All Natural :</span>
             <span>Soft Skin, Sharp Identity.</span>
           </h2>
         </div>
