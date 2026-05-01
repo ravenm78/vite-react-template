@@ -264,7 +264,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-weight: 900;
   line-height: 0.88;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.005em;
   text-transform: uppercase;
   color: #f5f1eb;
   margin: 0;
@@ -338,6 +338,54 @@ button { font: inherit; }
 }
 
 .buttonArrow { font-size: 0.95rem; opacity: 0.9; }
+
+
+
+/* ANTON DISPLAY FONT TUNING */
+.heroTitle,
+.sectionTitle,
+.aboutTitle,
+.xenTitle,
+.heroImageLabel h2,
+.aboutStat strong {
+  letter-spacing: 0.005em;
+  font-stretch: normal;
+}
+
+.heroTitle {
+  line-height: 0.96;
+}
+
+.heroTitleSmaller {
+  line-height: 0.96;
+}
+
+.sectionTitle {
+  line-height: 0.98;
+}
+
+.aboutTitle {
+  line-height: 0.98;
+}
+
+.xenTitle {
+  line-height: 0.98;
+}
+
+.xenTitle strong {
+  letter-spacing: 0.006em;
+  line-height: 1;
+}
+
+.heroImageLabel h2 {
+  letter-spacing: 0.006em;
+  line-height: 1;
+}
+
+.aboutStat strong {
+  letter-spacing: 0.006em;
+  line-height: 0.95;
+}
 
 /* =========================================================
    05. HERO IMAGE / SELECTORS
@@ -532,7 +580,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-size: clamp(1.5rem, 2.25vw, 2.45rem);
   line-height: 0.92;
-  letter-spacing: -0.028em;
+  letter-spacing: 0.004em;
   text-transform: uppercase;
   color: #f4f1ec;
 }
@@ -574,7 +622,7 @@ button { font: inherit; }
   max-width: none;
   font-size: clamp(3rem, 4.65vw, 5.35rem);
   line-height: 0.9;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.005em;
   white-space: nowrap;
 }
 
@@ -750,7 +798,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   text-transform: uppercase;
   color: var(--text);
-  letter-spacing: -0.03em;
+  letter-spacing: 0.005em;
   line-height: 0.9;
 }
 
@@ -764,7 +812,7 @@ button { font: inherit; }
   margin-top: 8px;
   font-size: clamp(2rem, 4vw, 4.2rem);
   line-height: 0.95;
-  letter-spacing: -0.024em;
+  letter-spacing: 0.006em;
 }
 
 .xenIntro,
@@ -831,7 +879,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-size: clamp(3.45rem, 5.65vw, 6.15rem);
   line-height: 0.9;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.005em;
   text-transform: uppercase;
   color: var(--text);
 }
@@ -988,7 +1036,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-size: clamp(2.6rem, 5vw, 5.6rem);
   line-height: 0.85;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.005em;
   text-transform: uppercase;
   color: #fff;
 }
@@ -1082,7 +1130,7 @@ button { font: inherit; }
   color: #fff;
   font-size: clamp(1.4rem, 2vw, 2rem);
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.005em;
 }
 
 .aboutPrinciple span {
