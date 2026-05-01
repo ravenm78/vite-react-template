@@ -64,29 +64,29 @@ const workItems = [
 ];
 
 const aboutStats = [
-  { value: "20+", label: "Years building visual work, campaigns, and weird useful machines" },
-  { value: "AI", label: "Integrated into real creative production, not just sprinkled on top" },
-  { value: "Xen", label: "A custom local agentic system for intake, ideation, routing, and workflow" },
+  { value: "20+", label: "Years of design, photography, motion, web, print, branding, and production problem-solving" },
+  { value: "AI", label: "Used as a real production accelerator: prompts, routing, concepts, notes, memory, and repeatable systems" },
+  { value: "Xen", label: "My own creative automation assistant built to keep projects moving instead of melting into inbox soup" },
 ];
 
 const aboutPrinciples = [
   {
     eyebrow: "01 / Direction",
-    title: "I find the signal before the spectacle.",
+    title: "I turn the fog into a plan.",
     copy:
-      "Good creative starts with taste, hierarchy, audience instinct, and the ability to make a messy brief behave. I care about the idea under the image, not just the shine on top of it.",
+      "A messy ask, a half-formed idea, a client with twelve opinions and four usable sentences: that is where I’m useful. I pull out the real message, shape the visual hierarchy, and make the work feel intentional before the first asset starts wearing a costume.",
   },
   {
     eyebrow: "02 / Production",
-    title: "I build assets that can survive the real world.",
+    title: "I can make the thing, not just point at it.",
     copy:
-      "Flyers, campaigns, identities, motion, photo direction, retouching, web assets, decks, social systems, and print pieces all need to move through actual deadlines without becoming a goblin bonfire.",
+      "Brand systems, campaign graphics, flyers, photo direction, retouching, video, motion, web assets, decks, and print pieces all have to survive deadlines, revisions, weird constraints, and human beings. I like creative that looks expensive and still gets out the door.",
   },
   {
     eyebrow: "03 / Automation",
-    title: "I build better creative pipelines.",
+    title: "I build tools for the boring monsters.",
     copy:
-      "Xen is my custom AI-assisted operations layer: a practical way to sort requests, shape concepts, organize production, remember context, and speed up the parts of creative work that usually eat the day alive.",
+      "Xen helps me sort requests, preserve context, generate concept paths, route production tasks, organize notes, and make repeatable workflows out of the chaos. Less spreadsheet funeral. More finished work.",
   },
 ];
 
@@ -292,23 +292,23 @@ function AboutPage() {
             <p className="eyebrow">About / The Engine</p>
 
             <h1 className="aboutTitle revealTitle">
-              <span>Creative</span>
-              <span>Direction</span>
-              <span>With Teeth.</span>
+              <span>Creative Lead.</span>
+              <span>Systems Builder.</span>
+              <span>Artist.</span>
             </h1>
 
             <p className="aboutLead">
-              I’m Stephen Cruz, a creative lead, designer, artist, photographer,
-              editor, and systems builder who likes when the work looks sharp and
-              the process behind it does not collapse into a flaming spreadsheet.
+              I’m Stephen Cruz. I make sharp visual work, build the systems that
+              keep it moving, and bring enough technical range to be dangerous in
+              the best possible way.
             </p>
 
             <p className="aboutBody">
-              My lane is the intersection of visual taste, campaign thinking,
-              production discipline, and practical AI workflow development. I can
-              shape the concept, build the asset, polish the final, and design the
-              pipeline that makes the next round faster, cleaner, and easier to
-              repeat.
+              My work lives where creative direction, design, photography, motion,
+              web, production, and AI-assisted workflow meet. I can shape the
+              concept, make the asset, polish the final, and tighten the process
+              so the next round moves faster instead of crawling through a swamp
+              wearing ankle weights.
             </p>
 
             <div className="buttons aboutButtons">
@@ -323,14 +323,14 @@ function AboutPage() {
             </div>
           </div>
 
-          <div className="aboutPortraitCard" aria-label="Creative engine visual">
+          <div className="aboutPortraitCard" aria-label="Portrait of Stephen Cruz">
             <div className="aboutPortraitImage"></div>
             <div className="aboutPortraitPanel">
               <p>Creative Lead / Designer / Artist</p>
-              <h2>More than the person making the thing pretty.</h2>
+              <h2>More than a designer with a good eye.</h2>
               <span>
                 Strategy, visuals, automation, photo/video, motion, web, and the
-                occasionally useful dark art of making chaos answer emails.
+                useful dark art of making creative chaos answer emails.
               </span>
             </div>
           </div>
@@ -372,17 +372,18 @@ function AboutPage() {
         <div className="aboutXenShell">
           <div>
             <p className="eyebrow">Xen / Custom AI Workflow</p>
-            <h2>My own creative operations layer.</h2>
+            <h2>Xen is my creative automation assistant.</h2>
           </div>
 
           <p>
-            Xen is a locally developed agentic AI system I use to accelerate the
-            creative process: concept development, task sorting, production notes,
-            prompt systems, memory files, and workflow routing. In normal human
-            language, it helps me move faster without turning the work into bland
-            robot oatmeal. It also lets me say the fun part out loud: I’m not just
-            a graphic designer, I’m the kind of value-add companies are trying to
-            hire before their competitors do.
+            Xen is my own local AI-assisted production system: part intake helper,
+            part concept partner, part memory layer, part workflow goblin that
+            keeps the tiny repetitive monsters off my desk. It helps organize
+            requests, develop directions, route tasks, preserve project context,
+            and turn scattered creative noise into usable next steps. The practical
+            translation: I move faster, stay more organized, and bring a bigger
+            value-add than “person who makes the thing pretty.” I’m building the
+            pipeline while I’m building the work.
           </p>
         </div>
       </section>
