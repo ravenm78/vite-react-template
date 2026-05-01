@@ -63,12 +63,38 @@ const workItems = [
   },
 ];
 
-function App() {
-  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
-  const activeHero = heroSlides[activeHeroIndex];
+const aboutStats = [
+  { value: "20+", label: "Years building visual work, campaigns, and weird useful machines" },
+  { value: "AI", label: "Integrated into real creative production, not just sprinkled on top" },
+  { value: "Xen", label: "A custom local agentic system for intake, ideation, routing, and workflow" },
+];
 
+const aboutPrinciples = [
+  {
+    eyebrow: "01 / Direction",
+    title: "I find the signal before the spectacle.",
+    copy:
+      "Good creative starts with taste, hierarchy, audience instinct, and the ability to make a messy brief behave. I care about the idea under the image, not just the shine on top of it.",
+  },
+  {
+    eyebrow: "02 / Production",
+    title: "I build assets that can survive the real world.",
+    copy:
+      "Flyers, campaigns, identities, motion, photo direction, retouching, web assets, decks, social systems, and print pieces all need to move through actual deadlines without becoming a goblin bonfire.",
+  },
+  {
+    eyebrow: "03 / Automation",
+    title: "I build better creative pipelines.",
+    copy:
+      "Xen is my custom AI-assisted operations layer: a practical way to sort requests, shape concepts, organize production, remember context, and speed up the parts of creative work that usually eat the day alive.",
+  },
+];
+
+function useRevealTitles() {
   useEffect(() => {
-    const revealItems = document.querySelectorAll("[data-reveal]");
+    const elements = Array.from(document.querySelectorAll(".revealTitle"));
+
+    if (!elements.length) return undefined;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -76,179 +102,344 @@ function App() {
           entry.target.classList.toggle("isVisible", entry.isIntersecting);
         });
       },
-      {
-        threshold: 0.34,
-        rootMargin: "0px 0px -12% 0px",
-      }
+      { threshold: 0.34, rootMargin: "0px 0px -10% 0px" }
     );
 
-    revealItems.forEach((item) => observer.observe(item));
+    elements.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
   }, []);
+}
+
+function SiteHeader() {
+  return (
+    <header className="nav">
+      <a className="nameplate" href="/">
+        <strong>Stephen Cruz</strong>
+        <span>Creative Lead / Systems Builder / Artist</span>
+      </a>
+
+      <nav className="navLinks">
+        <a href="/work">Work</a>
+        <a href="/about">About</a>
+        <a href="/skills">Skills</a>
+        <a href="mailto:ravenmacabrex12@gmail.com">Contact</a>
+      </nav>
+    </header>
+  );
+}
+
+function HomePage() {
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const activeHero = heroSlides[activeHeroIndex];
+
+  return (
+    <>
+      <section className="hero">
+        <div className="heroCopy">
+          <p className="eyebrow">
+            Not just a designer. A creative systems builder.
+          </p>
+
+          <h1 className="heroTitle heroTitle--reveal revealTitle">
+            <span>Look Sharp</span>
+            <span className="heroTitleSmaller">Deliver Results</span>
+          </h1>
+
+          <p className="intro">
+            I turn scattered creative requests into brand systems, campaign
+            worlds, and automated production pipelines. Big-picture vision,
+            hands-on execution, and enough technical range to build the machine
+            instead of waiting for one.
+          </p>
+
+          <div className="buttons">
+            <a href="#work">
+              <span>View Proof</span>
+              <span className="buttonArrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="heroStage" aria-label="Featured portfolio visual">
+          <div
+            className="heroImage"
+            style={{
+              "--hero-image": `url("${activeHero.image}")`,
+            }}
+          >
+            <div className="heroFrameLine heroFrameLineTop"></div>
+            <div className="heroFrameLine heroFrameLineBottom"></div>
+            <div className="heroCorner heroCornerTopLeft"></div>
+            <div className="heroCorner heroCornerTopRight"></div>
+            <div className="heroCorner heroCornerBottomLeft"></div>
+            <div className="heroCorner heroCornerBottomRight"></div>
+
+            <div className="heroSelectors" aria-label="Featured visual selectors">
+              {heroSlides.map((slide, index) => (
+                <button
+                  key={slide.id}
+                  className={`selector selector${slide.id} ${
+                    activeHeroIndex === index ? "isActive" : ""
+                  }`}
+                  type="button"
+                  aria-label={`${slide.label} selector`}
+                  aria-pressed={activeHeroIndex === index}
+                  onClick={() => setActiveHeroIndex(index)}
+                  style={{
+                    "--selector-image": `url("${slide.image}")`,
+                  }}
+                >
+                  <span className="selectorDot"></span>
+                  <span className="selectorNumber">{slide.id}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="heroImageLabel">
+              <span className="heroIndex">{activeHero.id}</span>
+              <div>
+                <h2>{activeHero.title}</h2>
+                <p>{activeHero.caption}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="section workSection">
+        <p className="eyebrow sectionEyebrow">Choose Your Entry Point</p>
+
+        <div className="sectionHeader">
+          <h2 className="sectionTitle sectionTitle--proof revealTitle">
+            <span>Proof of</span>
+            <span>life, not</span>
+            <span>just style.</span>
+          </h2>
+
+          <p className="sectionIntro">
+            Brand identity, campaign direction, visual worlds, and automation
+            architecture: the connective tissue between idea, asset, workflow,
+            and result.
+          </p>
+        </div>
+
+        <div className="projectGrid">
+          {workItems.map((item) => (
+            <a className="projectItem" key={item.title} href={item.href}>
+              <div
+                className="projectImage"
+                style={{
+                  "--project-image": `url("${item.image}")`,
+                }}
+              >
+                <div className="projectImageOverlay"></div>
+                <span className="projectImageLabel">{item.imageLabel}</span>
+              </div>
+
+              <div className="projectCard">
+                <p>{item.eyebrow}</p>
+                <h3>{item.title}</h3>
+                <span>{item.copy}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="xen" className="section xenSection">
+        <div className="xenHeader">
+          <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
+
+          <h2 className="xenTitle xenTitle--reveal revealTitle">
+            <span>Xen</span>
+            <strong>Agentic AI for Workflow Automation</strong>
+          </h2>
+
+          <p className="xenIntro">
+            Xen is a custom AI-assisted creative operations system built to help
+            sort requests, shape concepts, route tasks, organize production, and
+            turn scattered creative chaos into a cleaner working pipeline.
+          </p>
+        </div>
+
+        <div className="xenVisual" aria-label="Xen workflow automation visual">
+          <img
+            src="/Scruz_Xen_Section.png"
+            alt=""
+            onError={(event) => {
+              event.currentTarget.style.display = "none";
+            }}
+          />
+        </div>
+
+        <p className="xenOutro">
+          Part creative assistant, part production brain, part workflow skeleton.
+          Xen connects ideas, assets, notes, systems, and automation into one
+          evolving creative engine.
+        </p>
+      </section>
+    </>
+  );
+}
+
+function AboutPage() {
+  return (
+    <>
+      <section className="section aboutHeroSection">
+        <div className="aboutHeroGrid">
+          <div className="aboutHeroCopy">
+            <p className="eyebrow">About / The Engine</p>
+
+            <h1 className="aboutTitle revealTitle">
+              <span>Creative</span>
+              <span>Direction</span>
+              <span>With Teeth.</span>
+            </h1>
+
+            <p className="aboutLead">
+              I’m Stephen Cruz, a creative lead, designer, artist, photographer,
+              editor, and systems builder who likes when the work looks sharp and
+              the process behind it does not collapse into a flaming spreadsheet.
+            </p>
+
+            <p className="aboutBody">
+              My lane is the intersection of visual taste, campaign thinking,
+              production discipline, and practical AI workflow development. I can
+              shape the concept, build the asset, polish the final, and design the
+              pipeline that makes the next round faster, cleaner, and easier to
+              repeat.
+            </p>
+
+            <div className="buttons aboutButtons">
+              <a href="/work">
+                <span>See the Work</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+              <a href="/skills">
+                <span>View Skills</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="aboutPortraitCard" aria-label="Creative engine visual">
+            <div className="aboutPortraitImage"></div>
+            <div className="aboutPortraitPanel">
+              <p>Creative Lead / Designer / Artist</p>
+              <h2>More than the person making the thing pretty.</h2>
+              <span>
+                Strategy, visuals, automation, photo/video, motion, web, and the
+                occasionally useful dark art of making chaos answer emails.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section aboutStatsSection" aria-label="About highlights">
+        <div className="aboutStatsGrid">
+          {aboutStats.map((stat) => (
+            <div className="aboutStat" key={stat.value}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section aboutPrinciplesSection">
+        <div className="aboutSectionHeader">
+          <p className="eyebrow sectionEyebrow">How I Work</p>
+          <h2 className="sectionTitle sectionTitle--about revealTitle">
+            <span>The engine</span>
+            <span>under the hood.</span>
+          </h2>
+        </div>
+
+        <div className="aboutPrinciplesGrid">
+          {aboutPrinciples.map((item) => (
+            <article className="aboutPrinciple" key={item.title}>
+              <p>{item.eyebrow}</p>
+              <h3>{item.title}</h3>
+              <span>{item.copy}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section aboutXenSection">
+        <div className="aboutXenShell">
+          <div>
+            <p className="eyebrow">Xen / Custom AI Workflow</p>
+            <h2>My own creative operations layer.</h2>
+          </div>
+
+          <p>
+            Xen is a locally developed agentic AI system I use to accelerate the
+            creative process: concept development, task sorting, production notes,
+            prompt systems, memory files, and workflow routing. In normal human
+            language, it helps me move faster without turning the work into bland
+            robot oatmeal. It also lets me say the fun part out loud: I’m not just
+            a graphic designer, I’m the kind of value-add companies are trying to
+            hire before their competitors do.
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function PlaceholderPage({ title, copy }) {
+  return (
+    <section className="section placeholderPage">
+      <p className="eyebrow">Coming Next</p>
+      <h1 className="aboutTitle revealTitle">
+        <span>{title}</span>
+      </h1>
+      <p className="aboutLead">{copy}</p>
+      <div className="buttons aboutButtons">
+        <a href="/">
+          <span>Back Home</span>
+          <span className="buttonArrow">↗</span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function App() {
+  useRevealTitles();
+
+  const path = window.location.pathname;
+
+  let page = <HomePage />;
+
+  if (path === "/about") {
+    page = <AboutPage />;
+  } else if (path === "/work") {
+    page = (
+      <PlaceholderPage
+        title="Work"
+        copy="The dedicated work page is next. For now, the homepage proof cards still show the core entry points."
+      />
+    );
+  } else if (path === "/skills") {
+    page = (
+      <PlaceholderPage
+        title="Skills"
+        copy="The dedicated skills page is next. This will become the practical breakdown of tools, production range, and technical systems."
+      />
+    );
+  }
 
   return (
     <>
       <div className="site-bg" aria-hidden="true" />
 
       <main className="site">
-        <header className="nav">
-          <a className="nameplate" href="#">
-            <strong>Stephen Cruz</strong>
-            <span>Creative Lead / Systems Builder / Artist</span>
-          </a>
-
-          <nav className="navLinks">
-            <a href="/work">Work</a>
-            <a href="/about">About</a>
-            <a href="/skills">Skills</a>
-            <a href="mailto:ravenmacabrex12@gmail.com">Contact</a>
-          </nav>
-        </header>
-
-        <section className="hero">
-          <div className="heroCopy">
-            <p className="eyebrow">
-              Not just a designer. A creative systems builder.
-            </p>
-
-            <h1 className="heroTitle revealTitle heroTitle--reveal" data-reveal>
-              <span>Look Sharp</span>
-              <span className="heroTitleSmaller">Deliver Results</span>
-            </h1>
-
-            <p className="intro">
-              I turn scattered creative requests into brand systems, campaign
-              worlds, and automated production pipelines.
-              Big-picture vision, hands-on execution, and enough technical
-              range to build the machine instead of waiting for one.
-            </p>
-
-            <div className="buttons">
-              <a href="#work">
-                <span>View Proof</span>
-                <span className="buttonArrow">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="heroStage" aria-label="Featured portfolio visual">
-            <div
-              className="heroImage"
-              style={{
-                "--hero-image": `url("${activeHero.image}")`,
-              }}
-            >
-              <div className="heroFrameLine heroFrameLineTop"></div>
-              <div className="heroFrameLine heroFrameLineBottom"></div>
-              <div className="heroCorner heroCornerTopLeft"></div>
-              <div className="heroCorner heroCornerTopRight"></div>
-              <div className="heroCorner heroCornerBottomLeft"></div>
-              <div className="heroCorner heroCornerBottomRight"></div>
-
-              <div className="heroSelectors" aria-label="Featured visual selectors">
-                {heroSlides.map((slide, index) => (
-                  <button
-                    key={slide.id}
-                    className={`selector selector${slide.id} ${
-                      activeHeroIndex === index ? "isActive" : ""
-                    }`}
-                    type="button"
-                    aria-label={`${slide.label} selector`}
-                    aria-pressed={activeHeroIndex === index}
-                    onClick={() => setActiveHeroIndex(index)}
-                    style={{
-                      "--selector-image": `url("${slide.image}")`,
-                    }}
-                  >
-                    <span className="selectorDot"></span>
-                    <span className="selectorNumber">{slide.id}</span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="heroImageLabel">
-                <span className="heroIndex">{activeHero.id}</span>
-                <div>
-                  <h2>{activeHero.title}</h2>
-                  <p>{activeHero.caption}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="work" className="section workSection">
-          <p className="eyebrow sectionEyebrow">Choose Your Entry Point</p>
-
-          <div className="sectionHeader">
-            <h2 className="sectionTitle sectionTitle--proof revealTitle" data-reveal>
-              <span>Proof of life,</span>
-              <span>not just style.</span>
-            </h2>
-
-            <p className="sectionIntro">
-              Brand identity, campaign direction, visual worlds, and automation
-              architecture: the connective tissue between idea, asset, workflow,
-              and result.
-            </p>
-          </div>
-
-          <div className="projectGrid">
-            {workItems.map((item) => (
-              <a className="projectItem" key={item.title} href={item.href}>
-                <div
-                  className="projectImage"
-                  style={{
-                    "--project-image": `url("${item.image}")`,
-                  }}
-                >
-                  <div className="projectImageOverlay"></div>
-                  <span className="projectImageLabel">{item.imageLabel}</span>
-                </div>
-
-                <div className="projectCard">
-                  <p>{item.eyebrow}</p>
-                  <h3>{item.title}</h3>
-                  <span>{item.copy}</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section id="xen" className="section xenSection">
-          <div className="xenHeader">
-            <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
-
-            <h2 className="xenTitle revealTitle xenTitle--reveal" data-reveal>
-              <span>Xen</span>
-              <strong>Agentic AI for Workflow Automation</strong>
-            </h2>
-
-            <p className="xenIntro">
-              Xen is a custom AI-assisted creative operations system built on local hardware to help
-              sort requests, shape concepts, route tasks, organize production, and
-              turn scattered creative chaos into a cleaner working pipeline.
-            </p>
-          </div>
-
-          <div className="xenVisual" aria-label="Xen workflow automation visual">
-            <img
-              src="/Scruz_Xen_Section.png"
-              alt=""
-              onError={(event) => {
-                event.currentTarget.style.display = "none";
-              }}
-            />
-          </div>
-
-          <p className="xenOutro">
-            Part creative assistant, part production brain, part workflow skeleton.
-            Xen connects ideas, assets, notes, systems, and automation into one
-            evolving creative engine.
-          </p>
-        </section>
+        <SiteHeader />
+        {page}
       </main>
     </>
   );
