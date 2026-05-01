@@ -129,6 +129,27 @@ function useRevealTitles() {
   }, []);
 }
 
+function useRevealCards() {
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll(".revealCard"));
+
+    if (!elements.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("isVisible", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.22, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+}
+
 function SiteHeader() {
   return (
     <header className="nav">
@@ -363,11 +384,14 @@ function AboutPage() {
 
       <section className="section aboutStatsSection" aria-label="About highlights">
         <div className="aboutStatsGrid">
-          {aboutStats.map((stat) => (
+          {aboutStats.map((stat, index) => (
             <div
-              className="aboutStat"
+              className="aboutStat revealCard"
               key={stat.value}
-              style={{ "--stat-image": `url("${stat.image}")` }}
+              style={{
+                "--stat-image": `url("${stat.image}")`,
+                "--reveal-delay": `${index * 0.08}s`,
+              }}
             >
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
@@ -386,11 +410,14 @@ function AboutPage() {
         </div>
 
         <div className="aboutPrinciplesGrid">
-          {aboutPrinciples.map((item) => (
+          {aboutPrinciples.map((item, index) => (
             <article
-              className="aboutPrinciple"
+              className="aboutPrinciple revealCard"
               key={item.title}
-              style={{ "--principle-image": `url("${item.image}")` }}
+              style={{
+                "--principle-image": `url("${item.image}")`,
+                "--reveal-delay": `${index * 0.08}s`,
+              }}
             >
               <p>{item.eyebrow}</p>
               <h3>{item.title}</h3>
@@ -423,6 +450,7 @@ function PlaceholderPage({ title, copy }) {
 
 function App() {
   useRevealTitles();
+  useRevealCards();
 
   const path = window.location.pathname;
 
