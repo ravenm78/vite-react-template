@@ -839,6 +839,14 @@ button { font: inherit; }
 
 .aboutTitle span { display: block; }
 
+
+
+/* ABOUT TITLE LINE FIX */
+.aboutTitle span:first-child {
+  white-space: nowrap;
+  font-size: 0.965em;
+}
+
 .aboutLead {
   max-width: 920px;
   margin: 26px 0 0;
