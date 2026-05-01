@@ -67,17 +67,17 @@ const aboutStats = [
   {
     value: "20+",
     label:
-      "Years of creative range across web, branding, campaign work, production, photography, video, motion, and the messy reality of getting good work finished.",
+      "Years of creative range across web, branding, campaign work, digital content, video, motion, and the messy reality of getting good work finished.",
   },
   {
     value: "AI",
     label:
-      "I’m not waiting for the industry to explain the future of creative work to me. I’m already using it to think wider, prototype faster, and build smarter ways to work.",
+      "Practical AI use for speeding up concepting, organizing ideas, testing directions, and building smarter creative workflows without letting the tools flatten the taste.",
   },
   {
     value: "Xen",
     label:
-      "My own creative automation assistant: proof that when the workflow gets too scattered, I don’t just complain about the machine. I build a better one.",
+      "My own custom workflow system, built to help sort requests, develop concepts, organize production, and make the creative process less scattered.",
   },
 ];
 
@@ -86,19 +86,19 @@ const aboutPrinciples = [
     eyebrow: "01 / Direction",
     title: "I turn the fog into a plan.",
     copy:
-      "A messy ask, a half-formed idea, a dozen competing opinions, and four usable sentences: that is where I’m useful. I find the real message, shape the hierarchy, and turn loose creative noise into something a team can actually move on.",
+      "A messy ask, a half-formed idea, and four usable sentences: that is where I’m useful. I find the real message, shape the hierarchy, and turn loose creative noise into something clear enough to actually move on.",
   },
   {
     eyebrow: "02 / Creation",
-    title: "I know how to make the thing real.",
+    title: "I build polished work that holds together.",
     copy:
-      "I’m not allergic to the actual work. I can shape the concept, design the asset, edit the footage, prototype the page, work with developers, think in systems, and turn creative direction into something a team can actually execute without needing three discovery calls and a ceremonial spreadsheet.",
+      "I move from concept to execution with a strong eye for layout, hierarchy, pacing, tone, and detail. Whether it is a website, campaign direction, digital asset, motion piece, presentation, or brand system, I care about making the final work feel intentional, sharp, and finished.",
   },
   {
     eyebrow: "03 / Systems",
     title: "I make the next round easier.",
     copy:
-      "Good creative should not fall apart the second it needs version two. I think in reusable patterns, smarter handoffs, cleaner workflows, AI-assisted production, and systems that help teams move faster without sanding all the personality off the work.",
+      "Good creative should not fall apart the second it needs version two. I think in reusable patterns, smarter handoffs, cleaner workflows, practical AI support, and systems that help the work move faster without sanding all the personality off it.",
   },
 ];
 
@@ -304,30 +304,31 @@ function AboutPage() {
             <p className="eyebrow">About / The Engine</p>
 
             <h1 className="aboutTitle revealTitle">
-              <span>Not a Designer.</span>
+              <span>Not Just a Designer.</span>
               <span>A Creative Engine.</span>
             </h1>
 
             <p className="aboutLead">
-              I’m Stephen Cruz, a creative lead, designer, artist, photographer,
-              editor, and systems builder with 20+ years of experience across web,
-              branding, campaign creative, production, photo, video, motion, print,
-              and AI-assisted workflow.
+              I’m Stephen Cruz, a creative lead, designer, artist, editor, and
+              systems builder with 20+ years of experience across web, branding,
+              campaign creative, digital content, video, motion, AI-assisted
+              workflow, and creative operations.
             </p>
 
             <p className="aboutBody">
               I started in the early web during the dot-com era, working with web
-              shops, brands, and production teams before moving through
-              agency life, freelance work, and the nightclub industry. That mix gave me a practical
-              creative range and an extensive amount of technical abilities.
+              shops, brands, and production teams before moving through agency
+              life, freelance work, and the nightclub industry. That mix gave me
+              a practical creative range and an extensive amount of technical
+              abilities.
             </p>
 
             <p className="aboutBody">
               My work lives at the intersection of visual taste, cultural
               awareness, technical curiosity, and production discipline. I’m
               connected across platforms, fluent in how modern audiences see and
-              react, and comfortable moving between art direction, hands-on design,
-              web, motion, AI, and workflow strategy.
+              react, and comfortable moving between art direction, hands-on
+              design, web, motion, AI, and workflow strategy.
             </p>
 
             <p className="aboutBody">
@@ -372,8 +373,8 @@ function AboutPage() {
         <div className="aboutSectionHeader">
           <p className="eyebrow sectionEyebrow">How I Work</p>
           <h2 className="sectionTitle sectionTitle--about revealTitle">
-            <span>From Spark</span>
-            <span>To System.</span>
+            <span>The System</span>
+            <span>Behind the Style.</span>
           </h2>
         </div>
 
@@ -387,7 +388,6 @@ function AboutPage() {
           ))}
         </div>
       </section>
-
     </>
   );
 }
