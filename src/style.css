@@ -825,8 +825,8 @@ button { font: inherit; }
 .aboutTitle {
   margin: 0;
   font-family: var(--title-font);
-  font-size: clamp(3.45rem, 5.65vw, 6.15rem);
-  line-height: 0.9;
+  font-size: clamp(3.15rem, 4.45vw, 5rem);
+  line-height: 0.88;
   letter-spacing: -0.07em;
   text-transform: uppercase;
   color: var(--text);
@@ -856,9 +856,11 @@ button { font: inherit; }
 
 .aboutPortraitCard {
   position: relative;
-  min-height: 520px;
+  min-height: 560px;
   width: min(100%, 620px);
   justify-self: end;
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(255, 36, 71, 0.16);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -867,15 +869,16 @@ button { font: inherit; }
 }
 
 .aboutPortraitImage {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  min-height: 370px;
+  flex: 1 1 auto;
   background-image:
-    linear-gradient(90deg, rgba(5, 5, 5, 0.86) 0%, rgba(5, 5, 5, 0.32) 44%, rgba(5, 5, 5, 0.08) 100%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.04) 0%, rgba(5, 5, 5, 0.18) 72%, rgba(5, 5, 5, 0.62) 100%),
     radial-gradient(circle at 68% 24%, rgba(255, 36, 71, 0.22), transparent 34%),
     url("/Stephen_Cruz_Portrait.jpg");
   background-size: cover;
   background-position: center top;
-  transform: scale(1.01);
+  transform: none;
 }
 
 .aboutPortraitCard::before {
@@ -891,17 +894,13 @@ button { font: inherit; }
 }
 
 .aboutPortraitPanel {
-  position: absolute;
-  left: 26px;
-  right: 26px;
-  bottom: 26px;
+  position: relative;
   z-index: 3;
-  padding: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  background: rgba(5, 5, 5, 0.72);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  padding: 24px 26px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(255, 36, 71, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(18, 9, 9, 0.98), rgba(5, 5, 5, 0.98));
 }
 
 .aboutPortraitPanel p,
@@ -920,7 +919,7 @@ button { font: inherit; }
   margin: 0 0 12px;
   color: #fff;
   font-family: var(--title-font);
-  font-size: clamp(1.55rem, 2.35vw, 2.5rem);
+  font-size: clamp(1.45rem, 2.05vw, 2.2rem);
   line-height: 0.92;
   letter-spacing: -0.055em;
   text-transform: uppercase;
@@ -1325,7 +1324,7 @@ button { font: inherit; }
 @media (max-width: 1180px) {
   .aboutHeroGrid,
   .aboutXenShell { grid-template-columns: 1fr; }
-  .aboutPortraitCard { min-height: 500px; justify-self: stretch; width: 100%; }
+  .aboutPortraitCard { min-height: 560px; justify-self: stretch; width: 100%; }
   .aboutPrinciplesGrid { grid-template-columns: 1fr; }
   .aboutStatsGrid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -1335,8 +1334,9 @@ button { font: inherit; }
   .aboutHeroGrid { gap: 24px; }
   .aboutTitle { font-size: clamp(2.9rem, 11vw, 5.2rem); text-align: left; }
   .aboutLead { font-size: 1.14rem; }
-  .aboutPortraitCard { min-height: 460px; border-radius: 26px; }
-  .aboutPortraitPanel { left: 18px; right: 18px; bottom: 18px; padding: 20px; }
+  .aboutPortraitCard { min-height: 520px; border-radius: 26px; }
+  .aboutPortraitImage { min-height: 330px; }
+  .aboutPortraitPanel { padding: 22px; }
   .aboutStatsGrid { grid-template-columns: 1fr; }
   .aboutStat { min-height: auto; }
   .aboutXenShell { gap: 24px; }
@@ -1351,8 +1351,8 @@ button { font: inherit; }
   .aboutBody { text-align: left; }
   .aboutButtons { width: 100%; }
   .aboutButtons a { width: 100%; justify-content: center; }
-  .aboutPortraitCard { min-height: 430px; }
-  .aboutPortraitImage { background-position: center; }
+  .aboutPortraitCard { min-height: 500px; }
+  .aboutPortraitImage { min-height: 310px; background-position: center top; }
   .aboutPortraitPanel h2 { font-size: 1.9rem; }
   .aboutPrinciple { min-height: auto; padding: 24px; }
   .aboutXenShell { padding: 26px; border-radius: 26px; }
