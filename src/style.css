@@ -911,12 +911,62 @@ button { font: inherit; }
 }
 
 .aboutStat {
+  position: relative;
   min-height: 174px;
   padding: 26px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)), rgba(7, 7, 7, 0.86);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.48)),
+    linear-gradient(135deg, rgba(255, 36, 71, 0.12), rgba(255, 36, 71, 0.02)),
+    var(--stat-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   box-shadow: var(--shadow-soft);
+}
+
+.aboutStat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 36, 71, 0.18), transparent 30%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.58) 100%);
+}
+
+.aboutStat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.14;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 58%,
+      transparent 100%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+.aboutStat strong,
+.aboutStat span {
+  position: relative;
+  z-index: 2;
 }
 
 .aboutStat strong {
