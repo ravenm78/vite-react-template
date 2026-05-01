@@ -1158,6 +1158,64 @@ button { font: inherit; }
   line-height: 1.68;
 }
 
+
+
+.workProductEcosystemSection {
+  padding-top: 24px;
+  padding-bottom: 30px;
+}
+
+.workProductEcosystemCard {
+  display: grid;
+  grid-template-columns: minmax(420px, 0.9fr) minmax(480px, 1.1fr);
+  gap: 22px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 36, 71, 0.14), transparent 28%),
+    radial-gradient(circle at 18% 92%, rgba(255, 255, 255, 0.06), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.032), rgba(255, 255, 255, 0.012)),
+    rgba(7, 7, 7, 0.92);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.26);
+}
+
+.workProductPillGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-content: center;
+}
+
+.workProductPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 36, 71, 0.18);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 36, 71, 0.12), transparent 60%),
+    rgba(12, 12, 12, 0.84);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.workBrandCard {
+  display: block;
+  color: inherit;
+}
+
+.workBrandContent h3::after {
+  content: " ↗";
+  color: var(--accent-bright);
+  font-size: 0.82em;
+}
+
 .workDeliverablesGrid {
   display: grid;
   grid-template-columns: minmax(380px, 0.9fr) minmax(480px, 1.1fr);
@@ -1245,7 +1303,8 @@ button { font: inherit; }
 @media (max-width: 1180px) {
   .workPageHeroGrid,
   .workCaseStudyGrid,
-  .workDeliverablesGrid {
+  .workDeliverablesGrid,
+  .workProductEcosystemCard {
     grid-template-columns: 1fr;
   }
 
