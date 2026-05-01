@@ -108,6 +108,65 @@ const aboutPrinciples = [
   },
 ];
 
+
+const workHighlights = [
+  {
+    eyebrow: "01 / Product Identity",
+    title: "Packaging, positioning, and a sharper product story.",
+    copy:
+      "The goal was not to make the brand look generically natural. It was to make it memorable, useful, and visually distinct, with enough structure to carry across products, campaigns, and future content.",
+    variant: "identity",
+  },
+  {
+    eyebrow: "02 / Campaign Voice",
+    title: "Natural skincare with more personality and bite.",
+    copy:
+      "I pushed the brand toward a clearer voice and a more contemporary tone: still trustworthy, still ingredient-aware, but more playful, more human, and better suited for modern digital attention.",
+    variant: "voice",
+  },
+  {
+    eyebrow: "03 / Audience Expansion",
+    title: "Built to connect with body-art culture and younger buyers.",
+    copy:
+      "The creative direction opened the brand toward tattooed and pierced audiences without losing broader appeal, giving Naked All Natural a more ownable position in a crowded category.",
+    variant: "audience",
+  },
+];
+
+const workDeliverables = [
+  "Creative direction",
+  "Brand positioning",
+  "Product identity",
+  "Campaign concepts",
+  "Digital content direction",
+  "Audience strategy",
+  "Visual systems",
+  "AI-assisted workflow support",
+  "Web and presentation assets",
+  "Brand ecosystem development",
+];
+
+const sisterBrands = [
+  {
+    name: "Naked All Natural",
+    copy:
+      "The main brand: natural skincare with a clearer point of view, stronger visual identity, and room to grow into a wider content and campaign system.",
+    variant: "naked",
+  },
+  {
+    name: "Industrial Strength Needles",
+    copy:
+      "A sister-brand connection grounded in tattoo culture and body-art aesthetics, expanding the world around Naked All Natural with a sharper edge and deeper subcultural alignment.",
+    variant: "needles",
+  },
+  {
+    name: "HON / House of Nipple",
+    copy:
+      "A charity-focused extension tied to breast cancer awareness and body confidence, designed to carry more emotional weight while still feeling connected to the wider brand universe.",
+    variant: "hon",
+  },
+];
+
 function useRevealTitles() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll(".revealTitle"));
@@ -322,6 +381,225 @@ function HomePage() {
   );
 }
 
+
+function WorkPage() {
+  return (
+    <>
+      <section id="workTop" className="section workPageHeroSection">
+        <div className="workPageHeroGrid">
+          <div className="workPageHeroCopy">
+            <p className="eyebrow">Work / Featured Case Study</p>
+
+            <h1 className="workPageTitle revealTitle">
+              <span>Work That</span>
+              <span>Builds Worlds.</span>
+            </h1>
+
+            <p className="workPageLead">
+              Creative direction, campaign systems, brand development, visual
+              identity, AI-assisted workflow, and high-volume content built for
+              brands that need more than one pretty asset.
+            </p>
+
+            <p className="workPageBody">
+              My work sits between visual direction and practical execution:
+              brand systems, campaign language, digital content, web visuals,
+              motion-ready assets, presentation pieces, and workflow structure.
+              I’m interested in the whole machine: the idea, the look, the
+              audience, the production path, and the way a brand shows up
+              repeatedly without turning into wallpaper.
+            </p>
+
+            <div className="buttons workPageButtons">
+              <a href="#nakedCaseStudy">
+                <span>View Case Study</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+              <a href="/about">
+                <span>About the Engine</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="workHeroVisual revealCard" aria-label="Featured work placeholder">
+            <div className="workHeroVisualBadge">Featured Project</div>
+            <div className="workHeroVisualTitle">Naked All Natural</div>
+            <div className="workHeroVisualMeta">
+              Brand identity / campaign direction / product storytelling
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="nakedCaseStudy" className="section workCaseStudySection">
+        <div className="workSectionHeader">
+          <p className="eyebrow sectionEyebrow">Featured / Naked All Natural</p>
+          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
+            <span>Naked All Natural:</span>
+            <span>Building a Skincare Brand With Bite.</span>
+          </h2>
+        </div>
+
+        <div className="workCaseStudyGrid">
+          <div className="workCaseStudyCopy revealCard">
+            <p className="workKicker">Case Study Overview</p>
+            <h3>Natural skincare did not need to look sleepy. It needed a pulse.</h3>
+
+            <p>
+              Naked All Natural is an independent skincare brand built around
+              natural ingredients, skin recovery, and a customer base that cares
+              about what goes on their body. The challenge was not simply to
+              make the products look “clean” or “organic.” The brand needed a
+              stronger visual identity, a sharper voice, and a more memorable
+              presence in a crowded wellness space where everything can start to
+              look like beige lotion in a glass jar.
+            </p>
+
+            <p>
+              For Naked All Natural, I developed a creative direction that
+              balanced natural skincare credibility with a more playful,
+              tattoo-friendly edge. The goal was to make the brand feel
+              approachable, useful, funny, and visually distinct without losing
+              the trust that skincare products need. That meant thinking through
+              product identity, campaign concepts, audience tone, visual
+              hierarchy, social content, product presentation, and how the brand
+              could speak to both longtime customers and a younger
+              body-art-conscious audience.
+            </p>
+
+            <p>
+              This work also expanded into a wider brand ecosystem, including
+              sister projects like Industrial Strength Needles and HON / House
+              of Nipple, a breast cancer charity concept. Together, these brands
+              created an opportunity to build a connected creative universe:
+              skincare, tattoo culture, body confidence, humor, charity, and
+              identity all orbiting the same visual and strategic world.
+            </p>
+          </div>
+
+          <div className="workCaseStudyVisual revealCard" aria-label="Naked All Natural hero placeholder">
+            <div className="workPlaceholderFrame">
+              <span className="workPlaceholderLabel">Primary Campaign Visual Placeholder</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section workGallerySection">
+        <div className="workGalleryBanner revealCard" aria-label="Feature banner placeholder">
+          <div className="workPlaceholderFrame workPlaceholderFrame--banner">
+            <span className="workPlaceholderLabel">Feature Banner / Product Lineup Placeholder</span>
+          </div>
+          <div className="workGalleryBannerCaption">
+            Brand identity and campaign direction for an independent natural skincare line.
+          </div>
+        </div>
+
+        <div className="workHighlightGrid">
+          {workHighlights.map((item, index) => (
+            <article
+              className={`workHighlightCard workHighlightCard--${item.variant} revealCard`}
+              key={item.title}
+              style={{ "--reveal-delay": `${index * 0.08}s` }}
+            >
+              <div className="workHighlightImage">
+                <span className="workPlaceholderLabel">
+                  {item.eyebrow}
+                </span>
+              </div>
+              <div className="workHighlightContent">
+                <p>{item.eyebrow}</p>
+                <h3>{item.title}</h3>
+                <span>{item.copy}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section workDeliverablesSection">
+        <div className="workDeliverablesGrid">
+          <div className="workDeliverablesCopy revealCard">
+            <p className="eyebrow sectionEyebrow">What I Built</p>
+            <h2 className="sectionTitle sectionTitle--workpage sectionTitle--compact revealTitle">
+              <span>Direction.</span>
+              <span>Assets.</span>
+              <span>Systems.</span>
+            </h2>
+            <p className="sectionIntro">
+              The value was not just making the brand look better. It was
+              giving it a stronger point of view, a clearer audience, a more
+              flexible creative system, and a voice that could move across
+              products, campaigns, social content, and future brand extensions.
+            </p>
+          </div>
+
+          <div className="workDeliverablesList revealCard">
+            {workDeliverables.map((item) => (
+              <span className="workDeliverablePill" key={item}>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section workBrandsSection">
+        <div className="workSectionHeader">
+          <p className="eyebrow sectionEyebrow">Brand Ecosystem</p>
+          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
+            <span>One Main Brand.</span>
+            <span>A Wider Creative Universe.</span>
+          </h2>
+        </div>
+
+        <div className="workBrandGrid">
+          {sisterBrands.map((brand, index) => (
+            <article
+              className={`workBrandCard workBrandCard--${brand.variant} revealCard`}
+              key={brand.name}
+              style={{ "--reveal-delay": `${index * 0.08}s` }}
+            >
+              <div className="workBrandImage">
+                <span className="workPlaceholderLabel">{brand.name} Placeholder</span>
+              </div>
+              <div className="workBrandContent">
+                <h3>{brand.name}</h3>
+                <span>{brand.copy}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section workQuoteSection">
+        <div className="workQuoteCard revealCard">
+          <p className="workQuoteEyebrow">Why It Matters</p>
+          <h2>Good branding is not a single image. It is a system people can recognize, trust, and remember.</h2>
+          <p>
+            Naked All Natural became a strong anchor project because it brought
+            together brand identity, campaign direction, audience strategy,
+            product storytelling, and a larger ecosystem of connected creative thinking.
+          </p>
+
+          <div className="buttons workPageButtons workPageButtons--center">
+            <a href="/skills">
+              <span>View Skills</span>
+              <span className="buttonArrow">↗</span>
+            </a>
+            <a href="#workTop">
+              <span>Back to Top</span>
+              <span className="buttonArrow">↑</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+
 function AboutPage() {
   return (
     <>
@@ -404,8 +682,8 @@ function AboutPage() {
         <div className="aboutSectionHeader">
           <p className="eyebrow sectionEyebrow">How I Work</p>
           <h2 className="sectionTitle sectionTitle--about revealTitle">
-            <span>Working</span>
-            <span>Philosophy</span>
+            <span>The System</span>
+            <span>Behind the Style.</span>
           </h2>
         </div>
 
@@ -466,12 +744,7 @@ function App() {
   if (path === "/about") {
     page = <AboutPage />;
   } else if (path === "/work") {
-    page = (
-      <PlaceholderPage
-        title="Work"
-        copy="The dedicated work page is next. For now, the homepage proof cards still show the core entry points."
-      />
-    );
+    page = <WorkPage />;
   } else if (path === "/skills") {
     page = (
       <PlaceholderPage
