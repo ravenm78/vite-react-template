@@ -362,26 +362,6 @@ function AboutPage() {
           ))}
         </div>
       </section>
-
-      <section className="section aboutXenSection">
-        <div className="aboutXenShell">
-          <div>
-            <p className="eyebrow">Xen / Custom AI Workflow</p>
-            <h2>Xen is my creative automation assistant.</h2>
-          </div>
-
-          <p>
-            Xen is my own local AI-assisted production system: part intake helper,
-            part concept partner, part memory layer, part workflow goblin that
-            keeps the tiny repetitive monsters off my desk. It helps organize
-            requests, develop directions, route tasks, preserve project context,
-            and turn scattered creative noise into usable next steps. The practical
-            translation: I move faster, stay more organized, and bring a bigger
-            value-add than “person who makes the thing pretty.” I’m building the
-            pipeline while I’m building the work.
-          </p>
-        </div>
-      </section>
     </>
   );
 }
