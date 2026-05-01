@@ -113,6 +113,7 @@ const workHighlights = [
   {
     eyebrow: "01 / Brand Positioning",
     title: "Pierced, tattooed, or bare: one skincare system.",
+    image: "/Scruz_Work_Naked_Product_Identity.png",
     copy:
       "Naked needed to speak clearly to multiple use cases without splintering the brand. The positioning connects tattoo aftercare, piercing aftercare, sensitive skin, dryness, redness, and daily skincare under one blunt, memorable idea: natural alternative skincare that works for real bodies.",
     variant: "identity",
@@ -120,6 +121,7 @@ const workHighlights = [
   {
     eyebrow: "02 / Product Architecture",
     title: "A line built around routines, concerns, and bundles.",
+    image: "/Scruz_Work_Naked_Campaign_Voice.png",
     copy:
       "Daily Cleanser, Calming Oil, Soothing Salve, Daily Lotion, Body Tea, Lip Butter, Minipacks, Starter Sets, and Build-a-Bundle paths all needed to feel like part of the same family, not random products trapped in the same shopping cart.",
     variant: "voice",
@@ -127,6 +129,7 @@ const workHighlights = [
   {
     eyebrow: "03 / Voice + Audience",
     title: "Clean skincare without the beige spa coma.",
+    image: "/Scruz_Work_Naked_Audience.png",
     copy:
       "The brand voice can be funny, useful, direct, and a little feral when it needs to be. That matters for a brand selling to tattoo artists, piercers, studio clients, body-art people, and everyday customers who still want clean, vegan-friendly, cruelty-free products made in the USA.",
     variant: "audience",
@@ -151,6 +154,7 @@ const workDeliverables = [
 const sisterBrands = [
   {
     name: "Naked All Natural",
+    image: "/Scruz_Work_Naked_Brand.png",
     copy:
       "The main brand: natural alternative skincare for pierced, tattooed, and bare skin, with a product world built around clean ingredients, aftercare, daily routines, bundles, and skin concerns.",
     variant: "naked",
@@ -158,6 +162,7 @@ const sisterBrands = [
   },
   {
     name: "Industrial Strength Needles",
+    image: "/Scruz_Work_Industrial_Strength.png",
     copy:
       "Maria Pinto’s larger body-art ecosystem includes Industrial Strength, a major name in professional piercing needles. That connection gives Naked a real cultural bridge into studios, piercers, tattoo artists, and aftercare credibility.",
     variant: "needles",
@@ -165,6 +170,7 @@ const sisterBrands = [
   },
   {
     name: "HON / House of Nipple",
+    image: "/Scruz_Work_HON.png",
     copy:
       "House of Nipple adds a purpose-driven layer: a nonprofit focused on helping breast cancer survivors receive 3D nipple and areola tattoos, with Naked positioned as part of the healing and aftercare conversation.",
     variant: "hon",
@@ -392,10 +398,13 @@ function WorkPage() {
   return (
     <>
       <section id="workTop" className="section workPageTopBannerSection">
-        <div className="workGalleryBanner workGalleryBanner--top revealCard" aria-label="Feature banner placeholder">
-          <div className="workPlaceholderFrame workPlaceholderFrame--banner">
-            <span className="workPlaceholderLabel">Feature Banner / Product Lineup Placeholder</span>
-          </div>
+        <div
+          className="workGalleryBanner workGalleryBanner--top workGalleryBanner--image revealCard"
+          aria-label="Naked All Natural product lineup banner"
+          style={{
+            "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")`,
+          }}
+        >
           <div className="workGalleryBannerCaption">
             Brand identity, product storytelling, and campaign direction for natural alternative skincare built around pierced, tattooed, and bare skin.
           </div>
@@ -495,11 +504,13 @@ function WorkPage() {
             </p>
           </div>
 
-          <div className="workCaseStudyVisual revealCard" aria-label="Naked All Natural hero placeholder">
-            <div className="workPlaceholderFrame">
-              <span className="workPlaceholderLabel">Primary Campaign Visual Placeholder</span>
-            </div>
-          </div>
+          <div
+            className="workCaseStudyVisual workCaseStudyVisual--image revealCard"
+            aria-label="Naked All Natural hero visual"
+            style={{
+              "--work-hero-image": `url("/Scruz_Work_Naked_Hero.png")`,
+            }}
+          ></div>
         </div>
       </section>
 
@@ -511,7 +522,10 @@ function WorkPage() {
               key={item.title}
               style={{ "--reveal-delay": `${index * 0.08}s` }}
             >
-              <div className="workHighlightImage">
+              <div
+                className="workHighlightImage"
+                style={{ "--work-card-image": `url("${item.image}")` }}
+              >
                 <span className="workPlaceholderLabel">
                   {item.eyebrow}
                 </span>
@@ -572,7 +586,10 @@ function WorkPage() {
               rel="noreferrer"
               style={{ "--reveal-delay": `${index * 0.08}s` }}
             >
-              <div className="workBrandImage">
+              <div
+                className="workBrandImage"
+                style={{ "--work-brand-image": `url("${brand.image}")` }}
+              >
                 <span className="workPlaceholderLabel">{brand.name} Placeholder</span>
               </div>
               <div className="workBrandContent">
