@@ -66,16 +66,19 @@ const workItems = [
 const aboutStats = [
   {
     value: "20+",
+    image: "/Scruz_About_20Years.png",
     label:
       "Years of creative range across web, branding, campaign work, digital content, video, motion, and the messy reality of getting good work finished.",
   },
   {
     value: "AI",
+    image: "/Scruz_About_AI.png",
     label:
       "Practical AI use for speeding up concepting, organizing ideas, testing directions, and building smarter creative workflows without letting the tools flatten the taste.",
   },
   {
     value: "Xen",
+    image: "/Scruz_About_Xen.png",
     label:
       "My own custom workflow system, built to help sort requests, develop concepts, organize production, and make the creative process less scattered.",
   },
@@ -361,7 +364,11 @@ function AboutPage() {
       <section className="section aboutStatsSection" aria-label="About highlights">
         <div className="aboutStatsGrid">
           {aboutStats.map((stat) => (
-            <div className="aboutStat" key={stat.value}>
+            <div
+              className="aboutStat"
+              key={stat.value}
+              style={{ "--stat-image": `url("${stat.image}")` }}
+            >
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
             </div>
