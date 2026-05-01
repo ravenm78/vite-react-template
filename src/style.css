@@ -1351,3 +1351,21 @@ button { font: inherit; }
     text-shadow: none !important;
   }
 }
+
+
+/* ABOUT COPY / CAPTION FINAL TUNING */
+.aboutHeroCopy .aboutBody + .aboutBody {
+  margin-top: 14px;
+}
+
+.aboutPortraitPanel h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 620px) {
+  .aboutPortraitPanel h2 {
+    font-size: clamp(0.78rem, 3.8vw, 1.05rem);
+    white-space: nowrap;
+  }
+}
