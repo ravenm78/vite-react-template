@@ -352,7 +352,7 @@ function AboutPage() {
           <div className="aboutPortraitCard" aria-label="Portrait of Stephen Cruz">
             <div className="aboutPortraitImage"></div>
             <div className="aboutPortraitPanel">
-              <h2>More than a designer with a good eye.</h2>
+              <h2>I like to make things.</h2>
             </div>
           </div>
         </div>
