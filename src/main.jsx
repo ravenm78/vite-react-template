@@ -404,8 +404,8 @@ function AboutPage() {
         <div className="aboutSectionHeader">
           <p className="eyebrow sectionEyebrow">How I Work</p>
           <h2 className="sectionTitle sectionTitle--about revealTitle">
-            <span>The System</span>
-            <span>Behind the Style.</span>
+            <span>Working</span>
+            <span>Philosophy</span>
           </h2>
         </div>
 
