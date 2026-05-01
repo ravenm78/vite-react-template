@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&display=swap");
+
 /* =========================================================
    01. RESET / ROOT
    ========================================================= */
@@ -22,8 +24,8 @@
   --radius-lg: 32px;
   --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
   --shadow-deep: 0 30px 100px rgba(0, 0, 0, 0.45);
-  --title-font: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --ui-font: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --title-font: "Anton", "Arial Black", Impact, sans-serif;
+  --ui-font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -45,6 +47,8 @@ body,
 
 body {
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
   background:
     radial-gradient(circle at 11% 16%, rgba(179, 0, 30, 0.55), transparent 34%),
     radial-gradient(circle at 87% 22%, rgba(179, 0, 30, 0.14), transparent 20%),
@@ -260,7 +264,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-weight: 900;
   line-height: 0.88;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #f5f1eb;
   margin: 0;
@@ -528,7 +532,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-size: clamp(1.5rem, 2.25vw, 2.45rem);
   line-height: 0.92;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.028em;
   text-transform: uppercase;
   color: #f4f1ec;
 }
@@ -570,7 +574,7 @@ button { font: inherit; }
   max-width: none;
   font-size: clamp(3rem, 4.65vw, 5.35rem);
   line-height: 0.9;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.03em;
   white-space: nowrap;
 }
 
@@ -746,7 +750,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   text-transform: uppercase;
   color: var(--text);
-  letter-spacing: -0.065em;
+  letter-spacing: -0.03em;
   line-height: 0.9;
 }
 
@@ -760,7 +764,7 @@ button { font: inherit; }
   margin-top: 8px;
   font-size: clamp(2rem, 4vw, 4.2rem);
   line-height: 0.95;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.024em;
 }
 
 .xenIntro,
@@ -827,7 +831,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-size: clamp(3.45rem, 5.65vw, 6.15rem);
   line-height: 0.9;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
   color: var(--text);
 }
@@ -984,7 +988,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-size: clamp(2.6rem, 5vw, 5.6rem);
   line-height: 0.85;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
   color: #fff;
 }
