@@ -317,11 +317,9 @@ function AboutPage() {
 
             <p className="aboutBody">
               I started in the early web during the dot-com era, working with web
-              shops, agencies, brands, and production teams before moving through
-              agency life, freelance work, Davis Advertising, and nearly six years
-              as Creative Lead at Xtreme Marketing. That mix gave me a practical
-              creative range: I can concept the idea, design the asset, shape the
-              campaign, polish the final, and improve the process behind it.
+              shops, brands, and production teams before moving through
+              agency life, freelance work, and the nightclub industry. That mix gave me a practical
+              creative range and an extensive amount of technical abilities.
             </p>
 
             <p className="aboutBody">
