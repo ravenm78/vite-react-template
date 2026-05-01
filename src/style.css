@@ -810,8 +810,8 @@ button { font: inherit; }
 
 .aboutHeroGrid {
   display: grid;
-  grid-template-columns: minmax(360px, 1.05fr) minmax(360px, 0.78fr);
-  gap: 42px;
+  grid-template-columns: minmax(360px, 1.08fr) minmax(340px, 0.68fr);
+  gap: 48px;
   align-items: center;
 }
 
@@ -856,8 +856,8 @@ button { font: inherit; }
 
 .aboutPortraitCard {
   position: relative;
-  min-height: 560px;
-  width: min(100%, 620px);
+  min-height: 0;
+  width: min(100%, 540px);
   justify-self: end;
   display: flex;
   flex-direction: column;
@@ -870,14 +870,14 @@ button { font: inherit; }
 
 .aboutPortraitImage {
   position: relative;
-  min-height: 370px;
-  flex: 1 1 auto;
+  min-height: 500px;
+  flex: 0 0 auto;
   background-image:
-    linear-gradient(180deg, rgba(5, 5, 5, 0.04) 0%, rgba(5, 5, 5, 0.18) 72%, rgba(5, 5, 5, 0.62) 100%),
-    radial-gradient(circle at 68% 24%, rgba(255, 36, 71, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.02) 0%, rgba(5, 5, 5, 0.08) 72%, rgba(5, 5, 5, 0.36) 100%),
+    radial-gradient(circle at 68% 24%, rgba(255, 36, 71, 0.18), transparent 34%),
     url("/Stephen_Cruz_Portrait.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center 38%;
   transform: none;
 }
 
@@ -896,7 +896,7 @@ button { font: inherit; }
 .aboutPortraitPanel {
   position: relative;
   z-index: 3;
-  padding: 24px 26px 28px;
+  padding: 17px 22px 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background:
     radial-gradient(circle at 92% 12%, rgba(255, 36, 71, 0.12), transparent 34%),
@@ -916,13 +916,14 @@ button { font: inherit; }
 
 .aboutPortraitPanel h2 {
   max-width: 620px;
-  margin: 0 0 12px;
+  margin: 0;
   color: #fff;
   font-family: var(--title-font);
-  font-size: clamp(1.45rem, 2.05vw, 2.2rem);
-  line-height: 0.92;
-  letter-spacing: -0.055em;
+  font-size: clamp(1.1rem, 1.42vw, 1.58rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .aboutPortraitPanel span {
@@ -1013,39 +1014,6 @@ button { font: inherit; }
   line-height: 1.7;
 }
 
-.aboutXenSection { padding-top: 16px; padding-bottom: 110px; }
-
-.aboutXenShell {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.1fr);
-  gap: 38px;
-  align-items: center;
-  padding: clamp(28px, 4vw, 56px);
-  border: 1px solid rgba(255, 36, 71, 0.18);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(circle at 88% 18%, rgba(255, 36, 71, 0.18), transparent 34%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
-    rgba(5, 5, 5, 0.88);
-  box-shadow: var(--shadow-deep);
-}
-
-.aboutXenShell h2 {
-  margin: 0;
-  max-width: 620px;
-  font-family: var(--title-font);
-  font-size: clamp(2.15rem, 3.5vw, 4.55rem);
-  line-height: 0.9;
-  letter-spacing: -0.065em;
-  text-transform: uppercase;
-}
-
-.aboutXenShell p:last-child {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: clamp(1rem, 1.18vw, 1.12rem);
-  line-height: 1.72;
-}
 
 .placeholderPage {
   min-height: 100vh;
@@ -1322,9 +1290,8 @@ button { font: inherit; }
 
 /* ABOUT PAGE RESPONSIVE */
 @media (max-width: 1180px) {
-  .aboutHeroGrid,
-  .aboutXenShell { grid-template-columns: 1fr; }
-  .aboutPortraitCard { min-height: 560px; justify-self: stretch; width: 100%; }
+  .aboutHeroGrid { grid-template-columns: 1fr; }
+  .aboutPortraitCard { justify-self: stretch; width: min(100%, 560px); }
   .aboutPrinciplesGrid { grid-template-columns: 1fr; }
   .aboutStatsGrid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -1334,12 +1301,11 @@ button { font: inherit; }
   .aboutHeroGrid { gap: 24px; }
   .aboutTitle { font-size: clamp(2.9rem, 11vw, 5.2rem); text-align: left; }
   .aboutLead { font-size: 1.14rem; }
-  .aboutPortraitCard { min-height: 520px; border-radius: 26px; }
-  .aboutPortraitImage { min-height: 330px; }
-  .aboutPortraitPanel { padding: 22px; }
+  .aboutPortraitCard { border-radius: 26px; }
+  .aboutPortraitImage { min-height: 500px; }
+  .aboutPortraitPanel { padding: 17px 20px; }
   .aboutStatsGrid { grid-template-columns: 1fr; }
   .aboutStat { min-height: auto; }
-  .aboutXenShell { gap: 24px; }
 }
 
 @media (max-width: 620px) {
@@ -1351,11 +1317,10 @@ button { font: inherit; }
   .aboutBody { text-align: left; }
   .aboutButtons { width: 100%; }
   .aboutButtons a { width: 100%; justify-content: center; }
-  .aboutPortraitCard { min-height: 500px; }
-  .aboutPortraitImage { min-height: 310px; background-position: center top; }
-  .aboutPortraitPanel h2 { font-size: 1.9rem; }
+  .aboutPortraitCard { width: 100%; }
+  .aboutPortraitImage { min-height: 420px; background-position: center 38%; }
+  .aboutPortraitPanel h2 { font-size: clamp(0.95rem, 4.8vw, 1.22rem); white-space: normal; }
   .aboutPrinciple { min-height: auto; padding: 24px; }
-  .aboutXenShell { padding: 26px; border-radius: 26px; }
 }
 
 /* =========================================================
