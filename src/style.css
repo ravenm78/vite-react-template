@@ -1150,6 +1150,17 @@ button { font: inherit; }
 }
 
 
+
+
+.workHeroVisual--image {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.48)),
+    var(--work-featured-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 .workGalleryBanner--image {
   background-image:
     linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
