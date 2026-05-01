@@ -445,7 +445,13 @@ function WorkPage() {
             </div>
           </div>
 
-          <div className="workHeroVisual revealCard" aria-label="Featured work placeholder">
+          <div
+            className="workHeroVisual workHeroVisual--image revealCard"
+            aria-label="Featured Naked All Natural project image"
+            style={{
+              "--work-featured-image": `url("/Scruz_Work_Naked_Featured_Project.png")`,
+            }}
+          >
             <div className="workHeroVisualBadge">Featured Project</div>
             <div className="workHeroVisualTitle">Naked All Natural</div>
             <div className="workHeroVisualMeta">
