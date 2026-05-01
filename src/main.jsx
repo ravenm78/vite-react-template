@@ -111,24 +111,24 @@ const aboutPrinciples = [
 
 const workHighlights = [
   {
-    eyebrow: "01 / Product Identity",
-    title: "Packaging, positioning, and a sharper product story.",
+    eyebrow: "01 / Brand Positioning",
+    title: "Pierced, tattooed, or bare: one skincare system.",
     copy:
-      "The goal was not to make the brand look generically natural. It was to make it memorable, useful, and visually distinct, with enough structure to carry across products, campaigns, and future content.",
+      "Naked needed to speak clearly to multiple use cases without splintering the brand. The positioning connects tattoo aftercare, piercing aftercare, sensitive skin, dryness, redness, and daily skincare under one blunt, memorable idea: natural alternative skincare that works for real bodies.",
     variant: "identity",
   },
   {
-    eyebrow: "02 / Campaign Voice",
-    title: "Natural skincare with more personality and bite.",
+    eyebrow: "02 / Product Architecture",
+    title: "A line built around routines, concerns, and bundles.",
     copy:
-      "I pushed the brand toward a clearer voice and a more contemporary tone: still trustworthy, still ingredient-aware, but more playful, more human, and better suited for modern digital attention.",
+      "Daily Cleanser, Calming Oil, Soothing Salve, Daily Lotion, Body Tea, Lip Butter, Minipacks, Starter Sets, and Build-a-Bundle paths all needed to feel like part of the same family, not random products trapped in the same shopping cart.",
     variant: "voice",
   },
   {
-    eyebrow: "03 / Audience Expansion",
-    title: "Built to connect with body-art culture and younger buyers.",
+    eyebrow: "03 / Voice + Audience",
+    title: "Clean skincare without the beige spa coma.",
     copy:
-      "The creative direction opened the brand toward tattooed and pierced audiences without losing broader appeal, giving Naked All Natural a more ownable position in a crowded category.",
+      "The brand voice can be funny, useful, direct, and a little feral when it needs to be. That matters for a brand selling to tattoo artists, piercers, studio clients, body-art people, and everyday customers who still want clean, vegan-friendly, cruelty-free products made in the USA.",
     variant: "audience",
   },
 ];
@@ -136,35 +136,55 @@ const workHighlights = [
 const workDeliverables = [
   "Creative direction",
   "Brand positioning",
-  "Product identity",
+  "Product line storytelling",
+  "E-commerce content structure",
+  "Skin concern navigation",
   "Campaign concepts",
-  "Digital content direction",
   "Audience strategy",
-  "Visual systems",
-  "AI-assisted workflow support",
-  "Web and presentation assets",
+  "Digital content direction",
+  "Wholesale/studio messaging",
   "Brand ecosystem development",
+  "AI-assisted workflow support",
+  "Presentation and web assets",
 ];
 
 const sisterBrands = [
   {
     name: "Naked All Natural",
     copy:
-      "The main brand: natural skincare with a clearer point of view, stronger visual identity, and room to grow into a wider content and campaign system.",
+      "The main brand: natural alternative skincare for pierced, tattooed, and bare skin, with a product world built around clean ingredients, aftercare, daily routines, bundles, and skin concerns.",
     variant: "naked",
+    url: "https://nakedallnatural.com/",
   },
   {
     name: "Industrial Strength Needles",
     copy:
-      "A sister-brand connection grounded in tattoo culture and body-art aesthetics, expanding the world around Naked All Natural with a sharper edge and deeper subcultural alignment.",
+      "Maria Pinto’s larger body-art ecosystem includes Industrial Strength, a major name in professional piercing needles. That connection gives Naked a real cultural bridge into studios, piercers, tattoo artists, and aftercare credibility.",
     variant: "needles",
+    url: "https://industrialstrengthneedles.com/",
   },
   {
     name: "HON / House of Nipple",
     copy:
-      "A charity-focused extension tied to breast cancer awareness and body confidence, designed to carry more emotional weight while still feeling connected to the wider brand universe.",
+      "House of Nipple adds a purpose-driven layer: a nonprofit focused on helping breast cancer survivors receive 3D nipple and areola tattoos, with Naked positioned as part of the healing and aftercare conversation.",
     variant: "hon",
+    url: "https://houseofnipple.org/",
   },
+];
+
+const productEcosystem = [
+  "Daily Cleanser",
+  "Calming Oil",
+  "Soothing Salve",
+  "Daily Lotion",
+  "Body Tea",
+  "Lip Butter",
+  "Minipack",
+  "Starter Sets",
+  "Tattoo Aftercare",
+  "Piercing Aftercare",
+  "Sensitive Skin",
+  "Wholesale",
 ];
 
 function useRevealTitles() {
@@ -396,18 +416,18 @@ function WorkPage() {
             </h1>
 
             <p className="workPageLead">
-              Creative direction, campaign systems, brand development, visual
-              identity, AI-assisted workflow, and high-volume content built for
-              brands that need more than one pretty asset.
+              Creative direction, campaign systems, product storytelling, e-commerce
+              structure, body-art audience strategy, and high-volume content for
+              a skincare brand with more pulse than the average beige wellness shelf.
             </p>
 
             <p className="workPageBody">
-              My work sits between visual direction and practical execution:
-              brand systems, campaign language, digital content, web visuals,
-              motion-ready assets, presentation pieces, and workflow structure.
-              I’m interested in the whole machine: the idea, the look, the
-              audience, the production path, and the way a brand shows up
-              repeatedly without turning into wallpaper.
+              This case study centers on a real brand ecosystem: Naked All Natural,
+              Industrial Strength Needles, and HON / House of Nipple. The work
+              touches brand voice, product hierarchy, campaign direction, studio
+              culture, aftercare credibility, and the weird little miracle of
+              making natural skincare feel less like oatmeal and more like a
+              brand people remember.
             </p>
 
             <div className="buttons workPageButtons">
@@ -426,7 +446,7 @@ function WorkPage() {
             <div className="workHeroVisualBadge">Featured Project</div>
             <div className="workHeroVisualTitle">Naked All Natural</div>
             <div className="workHeroVisualMeta">
-              Brand identity / campaign direction / product storytelling
+              Natural alternative skincare / body-art aftercare / brand ecosystem
             </div>
           </div>
         </div>
@@ -444,37 +464,37 @@ function WorkPage() {
         <div className="workCaseStudyGrid">
           <div className="workCaseStudyCopy revealCard">
             <p className="workKicker">Case Study Overview</p>
-            <h3>Natural skincare did not need to look sleepy. It needed a pulse.</h3>
+            <h3>Natural skincare did not need to look sleepy. It needed a pulse, a little attitude, and a clear reason to exist.</h3>
 
             <p>
-              Naked All Natural is an independent skincare brand built around
-              natural ingredients, skin recovery, and a customer base that cares
-              about what goes on their body. The challenge was not simply to
-              make the products look “clean” or “organic.” The brand needed a
-              stronger visual identity, a sharper voice, and a more memorable
-              presence in a crowded wellness space where everything can start to
-              look like beige lotion in a glass jar.
+              Naked All Natural is a natural alternative skincare brand with deep
+              roots in tattoo and piercing culture. Its products are built for
+              pierced skin, tattooed skin, bare skin, sensitive skin, dryness,
+              redness, lip blushing care, and everyday routines. The challenge
+              was not simply to make the brand look “clean” or “organic.” It
+              needed to feel credible in aftercare, useful in daily skincare,
+              and memorable in a category where too many brands drift into the
+              same soft-focus wellness fog.
             </p>
 
             <p>
-              For Naked All Natural, I developed a creative direction that
-              balanced natural skincare credibility with a more playful,
-              tattoo-friendly edge. The goal was to make the brand feel
-              approachable, useful, funny, and visually distinct without losing
-              the trust that skincare products need. That meant thinking through
-              product identity, campaign concepts, audience tone, visual
-              hierarchy, social content, product presentation, and how the brand
-              could speak to both longtime customers and a younger
-              body-art-conscious audience.
+              For Naked All Natural, the creative direction had to balance trust,
+              clean ingredients, botanical aftercare, and a sharper body-art
+              personality. The product world includes Daily Cleanser, Calming
+              Oil, Soothing Salve, Daily Lotion, Body Tea, Lip Butter, Minipacks,
+              Starter Sets, and Build-a-Bundle paths, so the brand needed a
+              structure that could hold product education, humor, routine-based
+              shopping, and skin-concern navigation without feeling clinical.
             </p>
 
             <p>
-              This work also expanded into a wider brand ecosystem, including
-              sister projects like Industrial Strength Needles and HON / House
-              of Nipple, a breast cancer charity concept. Together, these brands
-              created an opportunity to build a connected creative universe:
-              skincare, tattoo culture, body confidence, humor, charity, and
-              identity all orbiting the same visual and strategic world.
+              The larger ecosystem matters. Naked sits beside Industrial Strength
+              Needles, tying the brand to professional piercing and tattoo
+              culture, and HON / House of Nipple, a nonprofit connected to
+              breast cancer survivors, body confidence, 3D nipple and areola
+              tattoos, and healing aftercare. That gave the case study more than
+              products. It gave it a world: skincare, studios, recovery,
+              confidence, humor, and purpose orbiting the same creative core.
             </p>
           </div>
 
@@ -492,7 +512,7 @@ function WorkPage() {
             <span className="workPlaceholderLabel">Feature Banner / Product Lineup Placeholder</span>
           </div>
           <div className="workGalleryBannerCaption">
-            Brand identity and campaign direction for an independent natural skincare line.
+            Brand identity, product storytelling, and campaign direction for natural alternative skincare built around pierced, tattooed, and bare skin.
           </div>
         </div>
 
@@ -518,6 +538,33 @@ function WorkPage() {
         </div>
       </section>
 
+      <section className="section workProductEcosystemSection">
+        <div className="workProductEcosystemCard revealCard">
+          <div className="workProductEcosystemCopy">
+            <p className="eyebrow sectionEyebrow">Product + Audience System</p>
+            <h2 className="sectionTitle sectionTitle--workpage sectionTitle--compact revealTitle">
+              <span>Clean.</span>
+              <span>Useful.</span>
+              <span>Not Boring.</span>
+            </h2>
+            <p className="sectionIntro">
+              The brand needed to make its product world easier to understand:
+              shop by product, shop by skin concern, build a bundle, support
+              aftercare, and make the daily routine feel simple without turning
+              the personality down.
+            </p>
+          </div>
+
+          <div className="workProductPillGrid">
+            {productEcosystem.map((item) => (
+              <span className="workProductPill" key={item}>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section workDeliverablesSection">
         <div className="workDeliverablesGrid">
           <div className="workDeliverablesCopy revealCard">
@@ -528,10 +575,11 @@ function WorkPage() {
               <span>Systems.</span>
             </h2>
             <p className="sectionIntro">
-              The value was not just making the brand look better. It was
-              giving it a stronger point of view, a clearer audience, a more
-              flexible creative system, and a voice that could move across
-              products, campaigns, social content, and future brand extensions.
+              The value was not just making the brand look better. It was helping
+              clarify the world around it: what the products do, who they serve,
+              how the voice behaves, how shoppers navigate routines and skin
+              concerns, and how the brand can stretch across e-commerce,
+              wholesale, social, studio relationships, and sister-brand purpose.
             </p>
           </div>
 
@@ -556,9 +604,12 @@ function WorkPage() {
 
         <div className="workBrandGrid">
           {sisterBrands.map((brand, index) => (
-            <article
+            <a
               className={`workBrandCard workBrandCard--${brand.variant} revealCard`}
               key={brand.name}
+              href={brand.url}
+              target="_blank"
+              rel="noreferrer"
               style={{ "--reveal-delay": `${index * 0.08}s` }}
             >
               <div className="workBrandImage">
@@ -568,7 +619,7 @@ function WorkPage() {
                 <h3>{brand.name}</h3>
                 <span>{brand.copy}</span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -576,11 +627,12 @@ function WorkPage() {
       <section className="section workQuoteSection">
         <div className="workQuoteCard revealCard">
           <p className="workQuoteEyebrow">Why It Matters</p>
-          <h2>Good branding is not a single image. It is a system people can recognize, trust, and remember.</h2>
+          <h2>Good branding is not a single image. It is a system people can recognize, trust, use, and remember.</h2>
           <p>
             Naked All Natural became a strong anchor project because it brought
-            together brand identity, campaign direction, audience strategy,
-            product storytelling, and a larger ecosystem of connected creative thinking.
+            together product storytelling, tattoo and piercing aftercare,
+            e-commerce structure, audience strategy, humor, clean skincare, and
+            a larger ecosystem of connected creative thinking.
           </p>
 
           <div className="buttons workPageButtons workPageButtons--center">
