@@ -325,7 +325,7 @@ function HomePage() {
 function AboutPage() {
   return (
     <>
-      <section className="section aboutHeroSection">
+      <section id="aboutTop" className="section aboutHeroSection">
         <div className="aboutHeroGrid">
           <div className="aboutHeroCopy">
             <p className="eyebrow">About / The Engine</p>
@@ -424,6 +424,13 @@ function AboutPage() {
               <span>{item.copy}</span>
             </article>
           ))}
+        </div>
+
+        <div className="aboutBackTop">
+          <a href="#aboutTop">
+            <span>Back to Top</span>
+            <span className="buttonArrow">↑</span>
+          </a>
         </div>
       </section>
     </>
