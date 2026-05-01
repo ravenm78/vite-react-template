@@ -372,8 +372,8 @@ function AboutPage() {
         <div className="aboutSectionHeader">
           <p className="eyebrow sectionEyebrow">How I Work</p>
           <h2 className="sectionTitle sectionTitle--about revealTitle">
-            <span>The engine</span>
-            <span>under the hood.</span>
+            <span>From Spark</span>
+            <span>To System.</span>
           </h2>
         </div>
 
