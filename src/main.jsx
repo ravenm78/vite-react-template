@@ -85,18 +85,21 @@ const aboutPrinciples = [
   {
     eyebrow: "01 / Direction",
     title: "I turn the fog into a plan.",
+    image: "/Scruz_About_Direction.png",
     copy:
       "A messy ask, a half-formed idea, and four usable sentences: that is where I’m useful. I find the real message, shape the hierarchy, and turn loose creative noise into something clear enough to actually move on.",
   },
   {
     eyebrow: "02 / Creation",
     title: "I build polished work that holds together.",
+    image: "/Scruz_About_Creation.png",
     copy:
       "I move from concept to execution with a strong eye for layout, hierarchy, pacing, tone, and detail. Whether it is a website, campaign direction, digital asset, motion piece, presentation, or brand system, I care about making the final work feel intentional, sharp, and finished.",
   },
   {
     eyebrow: "03 / Systems",
     title: "I make the next round easier.",
+    image: "/Scruz_About_Systems.png",
     copy:
       "Good creative should not fall apart the second it needs version two. I think in reusable patterns, smarter handoffs, cleaner workflows, practical AI support, and systems that help the work move faster without sanding all the personality off it.",
   },
@@ -351,9 +354,6 @@ function AboutPage() {
 
           <div className="aboutPortraitCard" aria-label="Portrait of Stephen Cruz">
             <div className="aboutPortraitImage"></div>
-            <div className="aboutPortraitPanel">
-              <h2>I like to make things.</h2>
-            </div>
           </div>
         </div>
       </section>
@@ -380,7 +380,11 @@ function AboutPage() {
 
         <div className="aboutPrinciplesGrid">
           {aboutPrinciples.map((item) => (
-            <article className="aboutPrinciple" key={item.title}>
+            <article
+              className="aboutPrinciple"
+              key={item.title}
+              style={{ "--principle-image": `url("${item.image}")` }}
+            >
               <p>{item.eyebrow}</p>
               <h3>{item.title}</h3>
               <span>{item.copy}</span>
