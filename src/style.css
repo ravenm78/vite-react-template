@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&display=swap");
-
 /* =========================================================
    01. RESET / ROOT
    ========================================================= */
@@ -24,8 +22,8 @@
   --radius-lg: 32px;
   --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
   --shadow-deep: 0 30px 100px rgba(0, 0, 0, 0.45);
-  --title-font: "Anton", "Arial Black", Impact, sans-serif;
-  --ui-font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --title-font: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ui-font: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -264,7 +262,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-weight: 900;
   line-height: 0.88;
-  letter-spacing: 0.005em;
+  letter-spacing: -0.06em;
   text-transform: uppercase;
   color: #f5f1eb;
   margin: 0;
@@ -341,51 +339,6 @@ button { font: inherit; }
 
 
 
-/* ANTON DISPLAY FONT TUNING */
-.heroTitle,
-.sectionTitle,
-.aboutTitle,
-.xenTitle,
-.heroImageLabel h2,
-.aboutStat strong {
-  letter-spacing: 0.005em;
-  font-stretch: normal;
-}
-
-.heroTitle {
-  line-height: 0.96;
-}
-
-.heroTitleSmaller {
-  line-height: 0.96;
-}
-
-.sectionTitle {
-  line-height: 0.98;
-}
-
-.aboutTitle {
-  line-height: 0.98;
-}
-
-.xenTitle {
-  line-height: 0.98;
-}
-
-.xenTitle strong {
-  letter-spacing: 0.006em;
-  line-height: 1;
-}
-
-.heroImageLabel h2 {
-  letter-spacing: 0.006em;
-  line-height: 1;
-}
-
-.aboutStat strong {
-  letter-spacing: 0.006em;
-  line-height: 0.95;
-}
 
 /* =========================================================
    05. HERO IMAGE / SELECTORS
@@ -622,7 +575,7 @@ button { font: inherit; }
   max-width: none;
   font-size: clamp(3rem, 4.65vw, 5.35rem);
   line-height: 0.9;
-  letter-spacing: 0.005em;
+  letter-spacing: -0.065em;
   white-space: nowrap;
 }
 
@@ -798,7 +751,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   text-transform: uppercase;
   color: var(--text);
-  letter-spacing: 0.005em;
+  letter-spacing: -0.065em;
   line-height: 0.9;
 }
 
@@ -812,7 +765,7 @@ button { font: inherit; }
   margin-top: 8px;
   font-size: clamp(2rem, 4vw, 4.2rem);
   line-height: 0.95;
-  letter-spacing: 0.006em;
+  letter-spacing: -0.045em;
 }
 
 .xenIntro,
@@ -879,7 +832,7 @@ button { font: inherit; }
   font-family: var(--title-font);
   font-size: clamp(3.45rem, 5.65vw, 6.15rem);
   line-height: 0.9;
-  letter-spacing: 0.005em;
+  letter-spacing: -0.07em;
   text-transform: uppercase;
   color: var(--text);
 }
