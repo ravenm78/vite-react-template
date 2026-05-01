@@ -438,10 +438,6 @@ function WorkPage() {
                 <span>View Case Study</span>
                 <span className="buttonArrow">↗</span>
               </a>
-              <a href="/about">
-                <span>About the Engine</span>
-                <span className="buttonArrow">↗</span>
-              </a>
             </div>
           </div>
 
@@ -466,7 +462,7 @@ function WorkPage() {
           <p className="eyebrow sectionEyebrow">Featured / Naked All Natural</p>
           <h2 className="sectionTitle sectionTitle--workpage revealTitle">
             <span>Naked All Natural:</span>
-            <span>Building a Skincare Brand With Bite.</span>
+            <span>Soft Skin, Sharp Identity.</span>
           </h2>
         </div>
 
