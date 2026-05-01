@@ -64,41 +64,29 @@ const workItems = [
 ];
 
 const aboutStats = [
-  {
-    value: "20+",
-    label:
-      "Years of real creative production across web, branding, campaigns, photography, motion, print, and the thousand odd formats modern teams somehow need by Friday.",
-  },
-  {
-    value: "AI",
-    label:
-      "I do not treat AI like a novelty button. I use it as an extension of how I think: faster concepting, sharper options, cleaner workflows, and more room for human taste.",
-  },
-  {
-    value: "Xen",
-    label:
-      "I built my own creative automation assistant because when the workflow gets messy, I would rather build a better machine than complain about the old one.",
-  },
+  { value: "20+", label: "Years of design, photography, motion, web, print, branding, and production problem-solving" },
+  { value: "AI", label: "Used as a real production accelerator: prompts, routing, concepts, notes, memory, and repeatable systems" },
+  { value: "Xen", label: "My own creative automation assistant built to keep projects moving instead of melting into inbox soup" },
 ];
 
 const aboutPrinciples = [
   {
     eyebrow: "01 / Direction",
-    title: "I find the signal.",
+    title: "I turn the fog into a plan.",
     copy:
-      "Before anything gets polished, the point has to get clear. I look for the message, the audience, the visual pressure, and the thing that makes someone stop scrolling long enough to care.",
+      "A messy ask, a half-formed idea, a client with twelve opinions and four usable sentences: that is where I’m useful. I pull out the real message, shape the visual hierarchy, and make the work feel intentional before the first asset starts wearing a costume.",
   },
   {
-    eyebrow: "02 / Making",
-    title: "I can build what I direct.",
+    eyebrow: "02 / Production",
+    title: "I can make the thing, not just point at it.",
     copy:
-      "I am not allergic to the actual work. I can shape the concept, design the asset, edit the footage, retouch the image, build the page, prep the print file, and still talk strategy without floating away into scarf weather.",
+      "Brand systems, campaign graphics, flyers, photo direction, retouching, video, motion, web assets, decks, and print pieces all have to survive deadlines, revisions, weird constraints, and human beings. I like creative that looks expensive and still gets out the door.",
   },
   {
-    eyebrow: "03 / Systems",
-    title: "I make the next round easier.",
+    eyebrow: "03 / Automation",
+    title: "I build tools for the boring monsters.",
     copy:
-      "Good creative should not fall apart every time the deadline moves or the request mutates. I like building cleaner workflows, smarter repeatable systems, and production habits that help teams move faster without making everything feel machine-made.",
+      "Xen helps me sort requests, preserve context, generate concept paths, route production tasks, organize notes, and make repeatable workflows out of the chaos. Less spreadsheet funeral. More finished work.",
   },
 ];
 
@@ -304,25 +292,23 @@ function AboutPage() {
             <p className="eyebrow">About / The Engine</p>
 
             <h1 className="aboutTitle revealTitle">
-              <span>Not a Designer.</span>
-              <span>A Creative Engine.</span>
+              <span>Creative Lead.</span>
+              <span>Systems Builder.</span>
+              <span>Artist.</span>
             </h1>
 
             <p className="aboutLead">
-              I’m Stephen Cruz. I build sharp visual work, smarter creative
-              systems, and the kind of production momentum that keeps good ideas
-              from dying in a folder named final_final_v7.
+              I’m Stephen Cruz. I make sharp visual work, build the systems that
+              keep it moving, and bring enough technical range to be dangerous in
+              the best possible way.
             </p>
 
             <p className="aboutBody">
-              I’m a creative lead, designer, artist, photographer, editor, and
-              systems builder with 20+ years of experience across web, branding,
-              campaign creative, production, photo, video, motion, print, and
-              AI-assisted workflow. I started in the early web, moved through
-              agencies, freelance, Davis Advertising, and nearly six years as
-              Creative Lead at Xtreme Marketing. My value is range: I can shape
-              the idea, make the asset, polish the final, and build smarter
-              systems so the next round moves faster.
+              My work lives where creative direction, design, photography, motion,
+              web, production, and AI-assisted workflow meet. I can shape the
+              concept, make the asset, polish the final, and tighten the process
+              so the next round moves faster instead of crawling through a swamp
+              wearing ankle weights.
             </p>
 
             <div className="buttons aboutButtons">
@@ -340,7 +326,12 @@ function AboutPage() {
           <div className="aboutPortraitCard" aria-label="Portrait of Stephen Cruz">
             <div className="aboutPortraitImage"></div>
             <div className="aboutPortraitPanel">
+              <p>Creative Lead / Designer / Artist</p>
               <h2>More than a designer with a good eye.</h2>
+              <span>
+                Strategy, visuals, automation, photo/video, motion, web, and the
+                useful dark art of making creative chaos answer emails.
+              </span>
             </div>
           </div>
         </div>
@@ -361,8 +352,8 @@ function AboutPage() {
         <div className="aboutSectionHeader">
           <p className="eyebrow sectionEyebrow">How I Work</p>
           <h2 className="sectionTitle sectionTitle--about revealTitle">
-            <span>Art brain.</span>
-            <span>Systems spine.</span>
+            <span>The engine</span>
+            <span>under the hood.</span>
           </h2>
         </div>
 
@@ -374,6 +365,26 @@ function AboutPage() {
               <span>{item.copy}</span>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="section aboutXenSection">
+        <div className="aboutXenShell">
+          <div>
+            <p className="eyebrow">Xen / Custom AI Workflow</p>
+            <h2>Xen is my creative automation assistant.</h2>
+          </div>
+
+          <p>
+            Xen is my own local AI-assisted production system: part intake helper,
+            part concept partner, part memory layer, part workflow goblin that
+            keeps the tiny repetitive monsters off my desk. It helps organize
+            requests, develop directions, route tasks, preserve project context,
+            and turn scattered creative noise into usable next steps. The practical
+            translation: I move faster, stay more organized, and bring a bigger
+            value-add than “person who makes the thing pretty.” I’m building the
+            pipeline while I’m building the work.
+          </p>
         </div>
       </section>
     </>
