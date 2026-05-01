@@ -405,9 +405,6 @@ function WorkPage() {
             "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")`,
           }}
         >
-          <div className="workGalleryBannerCaption">
-            Brand identity, product storytelling, and campaign direction for natural alternative skincare built around pierced, tattooed, and bare skin.
-          </div>
         </div>
       </section>
 
