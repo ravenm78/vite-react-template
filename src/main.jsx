@@ -172,20 +172,6 @@ const sisterBrands = [
   },
 ];
 
-const productEcosystem = [
-  "Daily Cleanser",
-  "Calming Oil",
-  "Soothing Salve",
-  "Daily Lotion",
-  "Body Tea",
-  "Lip Butter",
-  "Minipack",
-  "Starter Sets",
-  "Tattoo Aftercare",
-  "Piercing Aftercare",
-  "Sensitive Skin",
-  "Wholesale",
-];
 
 function useRevealTitles() {
   useEffect(() => {
@@ -405,7 +391,18 @@ function HomePage() {
 function WorkPage() {
   return (
     <>
-      <section id="workTop" className="section workPageHeroSection">
+      <section id="workTop" className="section workPageTopBannerSection">
+        <div className="workGalleryBanner workGalleryBanner--top revealCard" aria-label="Feature banner placeholder">
+          <div className="workPlaceholderFrame workPlaceholderFrame--banner">
+            <span className="workPlaceholderLabel">Feature Banner / Product Lineup Placeholder</span>
+          </div>
+          <div className="workGalleryBannerCaption">
+            Brand identity, product storytelling, and campaign direction for natural alternative skincare built around pierced, tattooed, and bare skin.
+          </div>
+        </div>
+      </section>
+
+      <section className="section workPageHeroSection">
         <div className="workPageHeroGrid">
           <div className="workPageHeroCopy">
             <p className="eyebrow">Work / Featured Case Study</p>
@@ -507,15 +504,6 @@ function WorkPage() {
       </section>
 
       <section className="section workGallerySection">
-        <div className="workGalleryBanner revealCard" aria-label="Feature banner placeholder">
-          <div className="workPlaceholderFrame workPlaceholderFrame--banner">
-            <span className="workPlaceholderLabel">Feature Banner / Product Lineup Placeholder</span>
-          </div>
-          <div className="workGalleryBannerCaption">
-            Brand identity, product storytelling, and campaign direction for natural alternative skincare built around pierced, tattooed, and bare skin.
-          </div>
-        </div>
-
         <div className="workHighlightGrid">
           {workHighlights.map((item, index) => (
             <article
@@ -537,34 +525,6 @@ function WorkPage() {
           ))}
         </div>
       </section>
-
-      <section className="section workProductEcosystemSection">
-        <div className="workProductEcosystemCard revealCard">
-          <div className="workProductEcosystemCopy">
-            <p className="eyebrow sectionEyebrow">Product + Audience System</p>
-            <h2 className="sectionTitle sectionTitle--workpage sectionTitle--compact revealTitle">
-              <span>Clean.</span>
-              <span>Useful.</span>
-              <span>Not Boring.</span>
-            </h2>
-            <p className="sectionIntro">
-              The brand needed to make its product world easier to understand:
-              shop by product, shop by skin concern, build a bundle, support
-              aftercare, and make the daily routine feel simple without turning
-              the personality down.
-            </p>
-          </div>
-
-          <div className="workProductPillGrid">
-            {productEcosystem.map((item) => (
-              <span className="workProductPill" key={item}>
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section workDeliverablesSection">
         <div className="workDeliverablesGrid">
           <div className="workDeliverablesCopy revealCard">
@@ -636,10 +596,6 @@ function WorkPage() {
           </p>
 
           <div className="buttons workPageButtons workPageButtons--center">
-            <a href="/skills">
-              <span>View Skills</span>
-              <span className="buttonArrow">↗</span>
-            </a>
             <a href="#workTop">
               <span>Back to Top</span>
               <span className="buttonArrow">↑</span>
