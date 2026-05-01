@@ -917,6 +917,13 @@ button { font: inherit; }
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius-md);
   overflow: hidden;
+  transform: translateY(0);
+  will-change: transform, opacity, filter;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    filter 0.28s ease;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.48)),
     linear-gradient(135deg, rgba(255, 36, 71, 0.12), rgba(255, 36, 71, 0.02)),
@@ -945,6 +952,8 @@ button { font: inherit; }
   z-index: 1;
   pointer-events: none;
   opacity: 0.14;
+  transform: translateX(-24%);
+  transition: opacity 0.28s ease, transform 0.75s ease;
   background:
     linear-gradient(
       120deg,
@@ -1012,6 +1021,13 @@ button { font: inherit; }
   border-radius: var(--radius-md);
   position: relative;
   overflow: hidden;
+  transform: translateY(0);
+  will-change: transform, opacity, filter;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    filter 0.28s ease;
   background:
     radial-gradient(circle at 18% 0%, rgba(255, 36, 71, 0.14), transparent 34%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.78)),
@@ -1070,6 +1086,91 @@ button { font: inherit; }
   color: var(--text-dim);
   font-size: 0.98rem;
   line-height: 1.7;
+}
+
+
+
+/* ABOUT CARD MOTION / IMAGE BACKPLATES */
+
+.revealCard {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(10px);
+  transition:
+    opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+    transform 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+    filter 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.revealCard.isVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.aboutStat,
+.aboutPrinciple {
+  isolation: isolate;
+}
+
+.aboutStat.isVisible,
+.aboutPrinciple.isVisible {
+  animation: cardBackplateDrift 18s ease-in-out 0.35s infinite alternate;
+}
+
+.aboutStat:hover,
+.aboutPrinciple:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(255, 36, 71, 0.24);
+  box-shadow:
+    0 22px 52px rgba(0, 0, 0, 0.42),
+    0 0 34px rgba(255, 36, 71, 0.11);
+}
+
+.aboutStat:hover::after,
+.aboutPrinciple:hover::after {
+  opacity: 0.34;
+  transform: translateX(34%);
+}
+
+.aboutStat strong,
+.aboutStat span,
+.aboutPrinciple p,
+.aboutPrinciple h3,
+.aboutPrinciple span {
+  transition:
+    opacity 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.58s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealCard:not(.isVisible) strong,
+.revealCard:not(.isVisible) p,
+.revealCard:not(.isVisible) h3 {
+  transform: translateY(10px);
+}
+
+.revealCard:not(.isVisible) span {
+  transform: translateY(14px);
+}
+
+.revealCard.isVisible strong,
+.revealCard.isVisible p,
+.revealCard.isVisible h3,
+.revealCard.isVisible span {
+  transform: translateY(0);
+}
+
+@keyframes cardBackplateDrift {
+  0% {
+    background-size: 104% auto, auto, cover;
+    background-position: center center;
+  }
+  100% {
+    background-size: 108% auto, auto, cover;
+    background-position: 52% 48%;
+  }
 }
 
 .placeholderPage {
@@ -1420,6 +1521,18 @@ button { font: inherit; }
     filter: none !important;
     text-shadow: none !important;
   }
+
+  .revealCard {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .aboutStat.isVisible,
+  .aboutPrinciple.isVisible {
+    animation: none !important;
+  }
+
 }
 
 
