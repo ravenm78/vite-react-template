@@ -494,9 +494,8 @@ function WorkPage() {
       <section id="nakedCaseStudy" className="section workCaseStudySection">
         <div className="workSectionHeader workSectionHeader--tight">
           <p className="workKicker">Case Study Overview</p>
-          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
-            <span>Naked All Natural:</span>
-            <span>Soft Skin, Sharp Identity.</span>
+          <h2 className="sectionTitle sectionTitle--workpage sectionTitle--nakedCase revealTitle">
+            <span>Naked: Soft Skin, Sharp Identity.</span>
           </h2>
         </div>
 
@@ -544,11 +543,7 @@ function WorkPage() {
               <div
                 className="workHighlightImage"
                 style={{ "--work-card-image": `url("${item.image}")` }}
-              >
-                <span className="workPlaceholderLabel">
-                  {item.eyebrow}
-                </span>
-              </div>
+              ></div>
               <div className="workHighlightContent">
                 <p>{item.eyebrow}</p>
                 <h3>{item.title}</h3>
