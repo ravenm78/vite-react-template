@@ -2463,3 +2463,36 @@ button { font: inherit; }
     padding-top: 110px;
   }
 }
+
+
+/* WORK PAGE BRAND ECOSYSTEM TITLE */
+.workSectionHeader--center {
+  width: 100%;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.sectionTitle--brandEcosystem {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  font-size: clamp(3rem, 5.4vw, 6.25rem);
+  line-height: 0.9;
+}
+
+.sectionTitle--brandEcosystem span {
+  display: inline-block;
+}
+
+.workBrandsSection {
+  padding-top: 18px;
+}
+
+@media (max-width: 820px) {
+  .sectionTitle--brandEcosystem {
+    white-space: normal;
+    font-size: clamp(2.6rem, 10vw, 4.6rem);
+  }
+}
