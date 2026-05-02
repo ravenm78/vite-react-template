@@ -1049,7 +1049,6 @@ function SkillsPage() {
 
       <section className="section skillsCapabilitySection">
         <div className="skillsCapabilityHeader">
-          <p className="eyebrow sectionEyebrow">How it connects</p>
           <h2 className="sectionTitle sectionTitle--skills revealTitle">
             <span>Creative range,</span>
             <span>proven in production.</span>
