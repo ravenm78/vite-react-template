@@ -2511,3 +2511,109 @@ button { font: inherit; }
 .workPageBody--intro {
   text-wrap: pretty;
 }
+
+
+/* WORK PAGE SINGLE-COLUMN CASE STUDY OVERVIEW */
+.workCaseStudyGrid--single {
+  grid-template-columns: 1fr;
+}
+
+.workCaseStudyGrid--single .workCaseStudyCopy {
+  width: 100%;
+  max-width: 100%;
+}
+
+.workCaseStudyGrid--single .workCaseStudyCopy h3,
+.workCaseStudyGrid--single .workCaseStudyCopy p:not(.workKicker) {
+  max-width: 1180px;
+}
+
+/* MOBILE TITLE + ABOUT PORTRAIT CLEANUP */
+@media (max-width: 820px) {
+  .sectionTitle,
+  .sectionTitle--workpage,
+  .sectionTitle--about,
+  .sectionTitle--brandEcosystem {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .sectionTitle--workpage span,
+  .sectionTitle--about span,
+  .sectionTitle--brandEcosystem span {
+    display: block;
+    width: 100%;
+  }
+
+  .workSectionHeader,
+  .aboutSectionHeader {
+    text-align: center;
+  }
+
+  .aboutPortraitCard {
+    justify-self: center;
+    width: min(100%, 430px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .aboutPortraitImage {
+    background-position: center center;
+  }
+}
+
+@media (max-width: 620px) {
+  .sectionTitle,
+  .sectionTitle--workpage,
+  .sectionTitle--about,
+  .sectionTitle--brandEcosystem {
+    font-size: clamp(2.55rem, 11vw, 4.35rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    text-align: center;
+  }
+
+  .sectionTitle--brandEcosystem {
+    font-size: clamp(2.35rem, 10vw, 3.8rem);
+  }
+
+  .workPageTitle,
+  .aboutTitle {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .workPageLead,
+  .workPageBody,
+  .aboutLead,
+  .aboutBody {
+    max-width: 100%;
+  }
+
+  .aboutHeroCopy,
+  .workPageHeroCopy {
+    text-align: center;
+  }
+
+  .aboutLead,
+  .aboutBody,
+  .workPageLead,
+  .workPageBody {
+    text-align: left;
+  }
+
+  .aboutPortraitCard {
+    width: min(100%, 390px);
+    min-height: 420px;
+  }
+
+  .aboutPortraitImage {
+    min-height: 420px;
+    background-position: center center;
+  }
+}
