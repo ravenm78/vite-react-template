@@ -2896,6 +2896,7 @@ button { font: inherit; }
 
 .skillsWireCube {
   position: absolute;
+  pointer-events: none;
   width: min(78vw, 760px);
   height: min(78vw, 760px);
   max-width: 760px;
@@ -2951,8 +2952,8 @@ button { font: inherit; }
 
 .skillCube {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: var(--cube-left, 50%);
+  top: var(--cube-top, 50%);
   width: var(--skill-size, 96px);
   height: var(--skill-size, 96px);
   padding: 0;
@@ -2961,9 +2962,7 @@ button { font: inherit; }
   background: transparent;
   cursor: pointer;
   transform-style: preserve-3d;
-  transform:
-    translate3d(var(--cube-x), var(--cube-y), var(--cube-z))
-    translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, var(--cube-z));
   animation: skillCubeDrift 5.8s ease-in-out var(--cube-delay) infinite alternate;
   transition: filter 0.28s ease;
 }
