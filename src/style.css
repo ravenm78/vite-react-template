@@ -833,11 +833,20 @@ button { font: inherit; }
   align-items: center;
 }
 
+.workPageHeroGrid--caseIntro {
+  grid-template-columns: 1fr;
+}
+
 .workPageHeroCopy {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 12px 0 20px;
+}
+
+.workPageHeroCopy--full {
+  width: 100%;
+  max-width: 100%;
 }
 
 .workPageTitle {
@@ -855,7 +864,7 @@ button { font: inherit; }
 }
 
 .workPageLead {
-  max-width: 880px;
+  max-width: 1240px;
   margin: 26px 0 0;
   color: rgba(255, 255, 255, 0.92);
   font-size: clamp(1.08rem, 1.3vw, 1.28rem);
@@ -865,7 +874,7 @@ button { font: inherit; }
 }
 
 .workPageBody {
-  max-width: 860px;
+  max-width: 1320px;
   margin: 24px 0 0;
   color: var(--text-dim);
   font-size: 1.04rem;
@@ -875,6 +884,10 @@ button { font: inherit; }
 .workPageButtons {
   margin-top: 32px;
   flex-wrap: wrap;
+}
+
+.workPageButtons--right {
+  justify-content: flex-end;
 }
 
 .workPageButtons--center {
