@@ -112,26 +112,26 @@ const aboutPrinciples = [
 const workHighlights = [
   {
     eyebrow: "01 / Brand Positioning",
-    title: "Pierced, tattooed, or bare: one skincare system.",
+    title: "Skincare for real skin.",
     image: "/Scruz_Work_Naked_Product_Identity.png",
     copy:
-      "Naked needed to speak clearly to multiple use cases without splintering the brand. The positioning connects tattoo aftercare, piercing aftercare, sensitive skin, dryness, redness, and daily skincare under one blunt, memorable idea: natural alternative skincare that works for real bodies.",
+      "The positioning moved Naked away from generic wellness language and toward something more specific: skincare for bodies that have been marked, healed, worked on, lived in, and cared for. Clean, but not sterile. Natural, but not forgettable.",
     variant: "identity",
   },
   {
     eyebrow: "02 / Product Architecture",
-    title: "A line built around routines, concerns, and bundles.",
+    title: "A product line with rhythm.",
     image: "/Scruz_Work_Naked_Campaign_Voice.png",
     copy:
-      "Daily Cleanser, Calming Oil, Soothing Salve, Daily Lotion, Body Tea, Lip Butter, Minipacks, Starter Sets, and Build-a-Bundle paths all needed to feel like part of the same family, not random products trapped in the same shopping cart.",
+      "The line needed to feel organized without becoming mechanical. Each product had to support the larger brand world: daily care, aftercare, soothing, cleansing, recovery, and routine, all connected through a visual and verbal system that made the collection easier to understand.",
     variant: "voice",
   },
   {
     eyebrow: "03 / Voice + Audience",
-    title: "Clean skincare without the beige spa coma.",
+    title: "A cleaner voice with sharper teeth.",
     image: "/Scruz_Work_Naked_Audience.png",
     copy:
-      "The brand voice can be funny, useful, direct, and a little feral when it needs to be. That matters for a brand selling to tattoo artists, piercers, studio clients, body-art people, and everyday customers who still want clean, vegan-friendly, cruelty-free products made in the USA.",
+      "The voice had to be useful, direct, and occasionally funny without falling into gimmick territory. Naked could talk about skin concerns and ingredients, but it also needed to sound like a brand with actual humans behind it.",
     variant: "audience",
   },
 ];
@@ -156,7 +156,7 @@ const sisterBrands = [
     name: "Naked All Natural",
     image: "/Scruz_Work_Naked_Brand.png",
     copy:
-      "The main brand: natural alternative skincare for pierced, tattooed, and bare skin, with a product world built around clean ingredients, aftercare, daily routines, bundles, and skin concerns.",
+      "The central brand: natural alternative skincare shaped around clean ingredients, body-art culture, daily use, and aftercare trust. The work gave Naked a stronger visual identity, clearer product storytelling, and a tone that feels more alive than the average wellness shelf.",
     variant: "naked",
     url: "https://nakedallnatural.com/",
   },
@@ -164,7 +164,7 @@ const sisterBrands = [
     name: "Industrial Strength Needles",
     image: "/Scruz_Work_Industrial_Strength.png",
     copy:
-      "Maria Pinto’s larger body-art ecosystem includes Industrial Strength, a major name in professional piercing needles. That connection gives Naked a real cultural bridge into studios, piercers, tattoo artists, and aftercare credibility.",
+      "Industrial Strength connects the ecosystem to professional piercing culture. That context matters. It gives Naked a credible bridge into studios, artists, piercers, and the aftercare conversations that happen after the appointment.",
     variant: "needles",
     url: "https://industrialstrengthneedles.com/",
   },
@@ -172,7 +172,7 @@ const sisterBrands = [
     name: "HON / House of Nipple",
     image: "/Scruz_Work_HON.png",
     copy:
-      "House of Nipple adds a purpose-driven layer: a nonprofit focused on helping breast cancer survivors receive 3D nipple and areola tattoos, with Naked positioned as part of the healing and aftercare conversation.",
+      "HON brings purpose into the system. Its focus on breast cancer survivors, 3D nipple and areola tattooing, healing, and body confidence adds a deeper emotional layer to the brand world surrounding Naked.",
     variant: "hon",
     url: "https://houseofnipple.org/",
   },
@@ -446,19 +446,17 @@ function WorkPage() {
             </h1>
 
             <p className="workPageLead workPageLead--tight">
-              A full brand build for a skincare line aimed at tattooed, pierced,
-              and skin-care-savvy customers who wanted something cleaner, sharper,
-              and a lot less generic than the usual wellness shelf.
+              A brand system for natural skincare with roots in tattoo culture,
+              piercing studios, body confidence, and everyday care.
             </p>
 
             <p className="workPageBody workPageBody--intro">
-              This case study is a closer look at Naked All Natural and the wider
-              world around it, including Industrial Strength Needles and HON /
-              House of Nipple. Inside, you’ll find the branding, product lineup,
-              campaign direction, audience thinking, and the visual system that
-              helped shape it into something more memorable, more useful, and a
-              lot more human. If you want the fuller story, this is where I pull
-              the curtain back a bit and show how the whole thing was built.
+              Naked All Natural needed more than a clean label and a nice product
+              lineup. It needed a point of view: polished enough for e-commerce,
+              warm enough for daily ritual, and sharp enough to stand apart from
+              the beige chorus of wellness brands all saying the same thing in
+              softer lighting. This case study follows the identity, language,
+              campaign thinking, and visual structure built around that idea.
             </p>
           </div>
 
@@ -504,37 +502,32 @@ function WorkPage() {
 
         <div className="workCaseStudyGrid">
           <div className="workCaseStudyCopy revealCard">
-            <h3>Natural skincare did not need to look sleepy. It needed a pulse, a little attitude, and a clear reason to exist.</h3>
+            <h3>Natural Skincare, Reimagined.</h3>
 
             <p>
-              Naked All Natural is a natural alternative skincare brand with deep
-              roots in tattoo and piercing culture. Its products are built for
-              pierced skin, tattooed skin, bare skin, sensitive skin, dryness,
-              redness, lip blushing care, and everyday routines. The challenge
-              was not simply to make the brand look “clean” or “organic.” It
-              needed to feel credible in aftercare, useful in daily skincare,
-              and memorable in a category where too many brands drift into the
-              same soft-focus wellness fog.
+              Naked All Natural sits in a rare space: clean skincare with a real
+              connection to body-art culture. The brand speaks to people who
+              treat their skin as part of their identity, whether tattooed,
+              pierced, healing, sensitive, decorated, or simply tired of beauty
+              brands that sound like they were written inside a scented candle.
             </p>
 
             <p>
-              For Naked All Natural, the creative direction had to balance trust,
-              clean ingredients, botanical aftercare, and a sharper body-art
-              personality. The product world includes Daily Cleanser, Calming
-              Oil, Soothing Salve, Daily Lotion, Body Tea, Lip Butter, Minipacks,
-              Starter Sets, and Build-a-Bundle paths, so the brand needed a
-              structure that could hold product education, humor, routine-based
-              shopping, and skin-concern navigation without feeling clinical.
+              The creative direction was built around contrast. Natural ingredients
+              without the preciousness. Aftercare credibility without turning
+              the brand clinical. Humor without making the product feel cheap.
+              The goal was to create a system that felt clear, tactile, and
+              memorable: something that could live comfortably on a bathroom
+              shelf, in a studio, or inside a polished e-commerce experience
+              without losing its pulse.
             </p>
 
             <p>
-              The larger ecosystem matters. Naked sits beside Industrial Strength
-              Needles, tying the brand to professional piercing and tattoo
-              culture, and HON / House of Nipple, a nonprofit connected to
-              breast cancer survivors, body confidence, 3D nipple and areola
-              tattoos, and healing aftercare. That gave the case study more than
-              products. It gave it a world: skincare, studios, recovery,
-              confidence, humor, and purpose orbiting the same creative core.
+              The larger ecosystem gave the work more depth. Industrial Strength
+              Needles brings a real connection to professional piercing culture,
+              while HON / House of Nipple adds a human layer of recovery,
+              confidence, and care. Together, they turn Naked into more than a
+              skincare line. They give it a world to belong to.
             </p>
           </div>
 
@@ -608,15 +601,16 @@ function WorkPage() {
         <div className="workQuoteCard revealCard">
           <p className="workQuoteEyebrow">Why It Matters</p>
           <h2>
-            Good skincare branding should not feel anonymous. Good creative
-            systems should not fall apart the second the product line grows.
+            A good brand system does more than make things look related.
+            It gives the work somewhere to live.
           </h2>
           <p>
-            Naked All Natural is a case study in building a brand that could hold
-            culture, utility, humor, aftercare trust, and a wider ecosystem
-            without losing its shape. It is also the kind of work I like most:
-            identity with a pulse, systems with a point of view, and creative
-            that helps a brand feel like an actual living thing.
+            Naked All Natural became a case study in building around tone,
+            culture, clarity, and care. The work had to support products,
+            campaigns, studio credibility, e-commerce, and a wider body-art
+            ecosystem without flattening the personality that made the brand
+            interesting in the first place. That is the kind of creative system
+            I like building: polished, practical, and still unmistakably alive.
           </p>
         </div>
       </section>
