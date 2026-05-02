@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
+import SkillsCubeScene from "./SkillsCubeScene.jsx";
 
 const heroSlides = [
   {
@@ -931,52 +932,9 @@ function AboutPage() {
 }
 
 
-function SkillCube({ skill, index, isActive, onActivate }) {
-  return (
-    <button
-      className={`skillCube skillCube--${skill.size} ${isActive ? "isActive" : ""}`}
-      type="button"
-      style={{
-        "--cube-color": skill.color,
-        "--cube-glow": skill.glow,
-        "--cube-left": skill.left,
-        "--cube-top": skill.top,
-        "--cube-z": skill.z,
-        "--cube-drift-x": skill.driftX,
-        "--cube-drift-y": skill.driftY,
-        "--cube-delay": skill.delay,
-      }}
-      aria-label={skill.name}
-      aria-pressed={isActive}
-      onMouseEnter={() => onActivate(index)}
-      onFocus={() => onActivate(index)}
-      onClick={() => onActivate(index)}
-    >
-      <span className="skillCubeCore" aria-hidden="true">
-        <span className="skillCubeFace skillCubeFace--front"></span>
-        <span className="skillCubeFace skillCubeFace--back"></span>
-        <span className="skillCubeFace skillCubeFace--right"></span>
-        <span className="skillCubeFace skillCubeFace--left"></span>
-        <span className="skillCubeFace skillCubeFace--top"></span>
-        <span className="skillCubeFace skillCubeFace--bottom"></span>
-        <span className="skillCubeIcon">{skill.icon}</span>
-      </span>
-      <span className="skillCubeLabel">{skill.short}</span>
-    </button>
-  );
-}
-
 function SkillsPage() {
   const [activeSkillIndex, setActiveSkillIndex] = useState(0);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const activeSkill = skillCubes[activeSkillIndex];
-
-  function handlePointerMove(event) {
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
-    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-    setPointer({ x: Number(x.toFixed(3)), y: Number(y.toFixed(3)) });
-  }
 
   return (
     <>
@@ -999,39 +957,14 @@ function SkillsPage() {
           </div>
 
           <div
-            className="skillsStage revealCard"
+            className="skillsStage skillsStage--three revealCard"
             aria-label="Interactive 3D skill cube visualization"
-            onMouseMove={handlePointerMove}
-            onMouseLeave={() => setPointer({ x: 0, y: 0 })}
-            style={{
-              "--pointer-x": pointer.x,
-              "--pointer-y": pointer.y,
-            }}
           >
-            <div className="skillsStageGlow" aria-hidden="true"></div>
-
-            <div className="skillsWireScene">
-              <div className="skillsWireCube" aria-hidden="true">
-                <span className="skillsWireFace skillsWireFace--front"></span>
-                <span className="skillsWireFace skillsWireFace--back"></span>
-                <span className="skillsWireFace skillsWireFace--right"></span>
-                <span className="skillsWireFace skillsWireFace--left"></span>
-                <span className="skillsWireFace skillsWireFace--top"></span>
-                <span className="skillsWireFace skillsWireFace--bottom"></span>
-              </div>
-
-              <div className="skillsCubeField">
-                {skillCubes.map((skill, index) => (
-                  <SkillCube
-                    key={skill.name}
-                    skill={skill}
-                    index={index}
-                    isActive={activeSkillIndex === index}
-                    onActivate={setActiveSkillIndex}
-                  />
-                ))}
-              </div>
-            </div>
+            <SkillsCubeScene
+              skills={skillCubes}
+              activeSkillIndex={activeSkillIndex}
+              setActiveSkillIndex={setActiveSkillIndex}
+            />
           </div>
 
           <div className="skillsActiveCard" style={{ "--active-color": activeSkill.color }}>
