@@ -916,7 +916,8 @@ button { font: inherit; }
   pointer-events: none;
   background:
     linear-gradient(120deg, transparent 0%, transparent 42%, rgba(255, 255, 255, 0.08) 50%, transparent 58%, transparent 100%);
-  opacity: 0.08;
+  opacity: 0.06;
+  mix-blend-mode: screen;
 }
 
 .workHeroVisualBadge,
@@ -1076,6 +1077,8 @@ button { font: inherit; }
 }
 
 .workGalleryBannerCaption {
+  position: relative;
+  z-index: 2;
   margin-top: 14px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.88rem;
@@ -1144,6 +1147,44 @@ button { font: inherit; }
   background:
     radial-gradient(circle at 70% 28%, rgba(255, 36, 71, 0.24), transparent 24%),
     linear-gradient(135deg, rgba(72, 0, 16, 0.88), rgba(12, 12, 12, 0.94) 40%, rgba(46, 4, 14, 0.96));
+}
+
+
+
+
+.workHeroVisual--image {
+  background-image: var(--work-featured-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.workGalleryBanner--image {
+  background-image: var(--work-banner-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.workCaseStudyVisual--image {
+  background-image: var(--work-hero-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.workHighlightImage {
+  background-image: var(--work-card-image) !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+.workBrandImage {
+  background-image: var(--work-brand-image) !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 }
 
 .workHighlightContent,
