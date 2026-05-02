@@ -2713,3 +2713,13 @@ button { font: inherit; }
     letter-spacing: 0.14em;
   }
 }
+
+
+/* CENTER NAKED CASE TITLE */
+.sectionTitle--nakedCase {
+  text-align: center;
+}
+
+.sectionTitle--nakedCase span {
+  text-align: center;
+}
