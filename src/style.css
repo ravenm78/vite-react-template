@@ -3931,3 +3931,130 @@ button { font: inherit; }
     width: 100%;
   }
 }
+
+/* =========================================================
+   13. REAL 3D SKILLS CUBE OVERRIDES
+   ========================================================= */
+
+.skillsStage--three {
+  min-height: clamp(560px, 48vw, 820px);
+  display: block;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.08), transparent 28%),
+    radial-gradient(circle at 28% 66%, rgba(255, 36, 71, 0.1), transparent 28%),
+    rgba(0, 0, 0, 0.02);
+  border: 0;
+  box-shadow: none;
+  perspective: none;
+}
+
+.skillsCanvasShell {
+  position: relative;
+  width: 100%;
+  height: clamp(560px, 48vw, 820px);
+  min-height: 100%;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.skillsCanvas {
+  position: relative;
+  z-index: 2;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  cursor: grab;
+}
+
+.skillsCanvas:active {
+  cursor: grabbing;
+}
+
+.skillsCanvasGlow {
+  position: absolute;
+  inset: 8% 2% 2% 2%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 54% 46%, rgba(0, 216, 255, 0.11), transparent 30%),
+    radial-gradient(circle at 34% 44%, rgba(255, 63, 95, 0.14), transparent 27%),
+    radial-gradient(circle at 70% 58%, rgba(164, 107, 255, 0.11), transparent 25%),
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.72) 100%);
+  filter: blur(10px);
+  opacity: 0.9;
+}
+
+.skills3dLabel {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.skills3dLabel.isActive {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.skills3dLabel span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--label-color) 70%, transparent);
+  background: rgba(0, 0, 0, 0.66);
+  color: var(--label-color);
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--label-color) 42%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+  font-size: 0.54rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 1180px) {
+  .skillsStage--three {
+    min-height: clamp(500px, 76vw, 720px);
+  }
+
+  .skillsCanvasShell {
+    height: clamp(500px, 76vw, 720px);
+  }
+}
+
+@media (max-width: 620px) {
+  .skillsStage--three {
+    min-height: 430px;
+    margin-top: 22px;
+    overflow: hidden;
+  }
+
+  .skillsCanvasShell {
+    height: 430px;
+    overflow: hidden;
+  }
+
+  .skillsCanvasGlow {
+    inset: 4% -14% 0 -14%;
+    filter: blur(8px);
+  }
+
+  .skills3dLabel span {
+    min-height: 22px;
+    padding: 0 8px;
+    font-size: 0.48rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .skillsStage--three,
+  .skillsCanvasShell {
+    height: 390px;
+    min-height: 390px;
+  }
+}
