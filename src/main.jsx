@@ -574,44 +574,10 @@ function WorkPage() {
         </div>
       </section>
 
-      <section className="section workDeliverablesSection">
-        <div className="workSectionHeader">
-          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
-            <span>What This</span>
-            <span>Included.</span>
-          </h2>
-        </div>
-
-        <div className="workDeliverablesGrid">
-          <div className="workDeliverablesCopy revealCard">
-            <p className="workKicker">Scope / Direction / Execution</p>
-            <h3>
-              More than a logo pass. This was a brand system built to support
-              products, storytelling, aftercare credibility, and content.
-            </h3>
-            <p>
-              The work extended across positioning, product organization,
-              e-commerce structure, messaging, audience clarity, campaign thinking,
-              and the brand’s visual tone. The goal was not to make Naked feel
-              “pretty.” It was to make it feel alive, useful, clear, and distinct.
-            </p>
-          </div>
-
-          <div className="workDeliverablesList revealCard">
-            {workDeliverables.map((item) => (
-              <span className="workDeliverablePill" key={item}>
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section workBrandsSection">
-        <div className="workSectionHeader">
-          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
-            <span>The Brand</span>
-            <span>Ecosystem.</span>
+        <div className="workSectionHeader workSectionHeader--center">
+          <h2 className="sectionTitle sectionTitle--workpage sectionTitle--brandEcosystem revealTitle">
+            <span>The Brand Ecosystem.</span>
           </h2>
         </div>
 
