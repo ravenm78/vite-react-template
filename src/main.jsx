@@ -411,8 +411,6 @@ function WorkPage() {
       <section className="section workPageHeroSection">
         <div className="workPageHeroGrid">
           <div className="workPageHeroCopy">
-            <p className="eyebrow">Work / Featured Case Study</p>
-
             <h1 className="workPageTitle revealTitle">
               <span>Work That</span>
               <span>Builds Worlds.</span>
