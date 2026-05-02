@@ -915,9 +915,8 @@ button { font: inherit; }
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(120deg, transparent 0%, transparent 38%, rgba(255, 255, 255, 0.1) 48%, transparent 58%, transparent 100%),
-    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 3px);
-  opacity: 0.16;
+    linear-gradient(120deg, transparent 0%, transparent 42%, rgba(255, 255, 255, 0.08) 50%, transparent 58%, transparent 100%);
+  opacity: 0.08;
 }
 
 .workHeroVisualBadge,
@@ -1077,8 +1076,6 @@ button { font: inherit; }
 }
 
 .workGalleryBannerCaption {
-  position: relative;
-  z-index: 2;
   margin-top: 14px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.88rem;
@@ -1147,54 +1144,6 @@ button { font: inherit; }
   background:
     radial-gradient(circle at 70% 28%, rgba(255, 36, 71, 0.24), transparent 24%),
     linear-gradient(135deg, rgba(72, 0, 16, 0.88), rgba(12, 12, 12, 0.94) 40%, rgba(46, 4, 14, 0.96));
-}
-
-
-
-
-.workHeroVisual--image {
-  background-image:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.48)),
-    var(--work-featured-image);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.workGalleryBanner--image {
-  background-image:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
-    var(--work-banner-image);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.workCaseStudyVisual--image {
-  background-image:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.36)),
-    var(--work-hero-image);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.workHighlightImage {
-  background-image:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.36)),
-    var(--work-card-image) !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-
-.workBrandImage {
-  background-image:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.36)),
-    var(--work-brand-image) !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
 }
 
 .workHighlightContent,
@@ -1421,6 +1370,46 @@ button { font: inherit; }
   .workQuoteCard h2 {
     font-size: clamp(2.2rem, 11vw, 3.3rem);
   }
+}
+
+
+
+/* WORK PAGE CLEAN IMAGE TREATMENT */
+.workGalleryBanner--image,
+.workHeroVisual--image,
+.workCaseStudyVisual--image,
+.workHighlightImage,
+.workBrandImage {
+  filter: none;
+}
+
+.workGalleryBanner--image::before,
+.workHeroVisual--image::before,
+.workCaseStudyVisual--image::before,
+.workHighlightImage::before,
+.workBrandImage::before {
+  opacity: 0.06;
+  mix-blend-mode: screen;
+}
+
+.workGalleryBanner--image {
+  background-image: var(--work-banner-image);
+}
+
+.workHeroVisual--image {
+  background-image: var(--work-featured-image);
+}
+
+.workCaseStudyVisual--image {
+  background-image: var(--work-hero-image);
+}
+
+.workHighlightImage {
+  background-image: var(--work-card-image) !important;
+}
+
+.workBrandImage {
+  background-image: var(--work-brand-image) !important;
 }
 
 /* =========================================================
