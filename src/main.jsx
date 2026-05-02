@@ -179,6 +179,34 @@ const sisterBrands = [
 ];
 
 
+const workHeroRailItems = [
+  {
+    title: "Packaging system",
+    image: "/Scruz_Work_Rail_01.png",
+    fallback:
+      "linear-gradient(135deg, rgba(151, 149, 82, 0.96), rgba(116, 112, 60, 0.96))",
+  },
+  {
+    title: "Campaign world",
+    image: "/Scruz_Work_Rail_02.png",
+    fallback:
+      "linear-gradient(135deg, rgba(230, 97, 70, 0.96), rgba(193, 73, 49, 0.96))",
+  },
+  {
+    title: "Product storytelling",
+    image: "/Scruz_Work_Rail_03.png",
+    fallback:
+      "linear-gradient(135deg, rgba(45, 110, 136, 0.96), rgba(30, 81, 105, 0.96))",
+  },
+  {
+    title: "Brand voice",
+    image: "/Scruz_Work_Rail_04.png",
+    fallback:
+      "linear-gradient(135deg, rgba(149, 17, 100, 0.96), rgba(110, 10, 72, 0.96))",
+  },
+];
+
+
 function useRevealTitles() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll(".revealTitle"));
@@ -404,46 +432,70 @@ function WorkPage() {
           style={{
             "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")`,
           }}
-        >
-        </div>
+        ></div>
       </section>
 
       <section className="section workPageHeroSection">
         <div className="workPageHeroGrid workPageHeroGrid--caseIntro">
           <div className="workPageHeroCopy workPageHeroCopy--full">
+            <p className="eyebrow workPageEyebrow">Featured / Naked All Natural</p>
+
             <h1 className="workPageTitle revealTitle">
               <span>Work That</span>
               <span>Builds Worlds.</span>
             </h1>
 
-            <p className="workPageLead">
-              Creative direction, campaign systems, product storytelling, e-commerce
-              structure, body-art audience strategy, and high-volume content for
-              a skincare brand with more pulse than the average beige wellness shelf.
+            <p className="workPageLead workPageLead--tight">
+              A full brand build for a skincare line aimed at tattooed, pierced,
+              and skin-care-savvy customers who wanted something cleaner, sharper,
+              and a lot less generic than the usual wellness shelf.
             </p>
 
-            <p className="workPageBody">
-              This case study centers on a real brand ecosystem: Naked All Natural,
-              Industrial Strength Needles, and HON / House of Nipple. The work
-              touches brand voice, product hierarchy, campaign direction, studio
-              culture, aftercare credibility, and the weird little miracle of
-              making natural skincare feel less like oatmeal and more like a
-              brand people remember.
+            <p className="workPageBody workPageBody--intro">
+              This case study is a closer look at Naked All Natural and the wider
+              world around it, including Industrial Strength Needles and HON /
+              House of Nipple. Inside, you’ll find the branding, product lineup,
+              campaign direction, audience thinking, and the visual system that
+              helped shape it into something more memorable, more useful, and a
+              lot more human. If you want the fuller story, this is where I pull
+              the curtain back a bit and show how the whole thing was built.
             </p>
+          </div>
 
+          <aside
+            className="workPageHeroAside revealCard"
+            aria-label="Case study quick links and preview tiles"
+          >
             <div className="buttons workPageButtons workPageButtons--right">
               <a href="#nakedCaseStudy">
                 <span>View Case Study</span>
                 <span className="buttonArrow">↗</span>
               </a>
             </div>
-          </div>
+
+            <div className="workPageTileGrid">
+              {workHeroRailItems.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="workPageTile revealCard"
+                  style={{
+                    "--reveal-delay": `${index * 0.08}s`,
+                    "--work-rail-image": `url("${item.image}")`,
+                    "--work-rail-fallback": item.fallback,
+                  }}
+                  aria-label={item.title}
+                >
+                  <span className="srOnly">{item.title}</span>
+                </div>
+              ))}
+            </div>
+          </aside>
         </div>
       </section>
 
       <section id="nakedCaseStudy" className="section workCaseStudySection">
-        <div className="workSectionHeader">
-          <p className="eyebrow sectionEyebrow">Featured / Naked All Natural</p>
+        <div className="workSectionHeader workSectionHeader--tight">
+          <p className="workKicker">Case Study Overview</p>
           <h2 className="sectionTitle sectionTitle--workpage revealTitle">
             <span>Naked All Natural:</span>
             <span>Soft Skin, Sharp Identity.</span>
@@ -452,7 +504,6 @@ function WorkPage() {
 
         <div className="workCaseStudyGrid">
           <div className="workCaseStudyCopy revealCard">
-            <p className="workKicker">Case Study Overview</p>
             <h3>Natural skincare did not need to look sleepy. It needed a pulse, a little attitude, and a clear reason to exist.</h3>
 
             <p>
@@ -522,21 +573,27 @@ function WorkPage() {
           ))}
         </div>
       </section>
+
       <section className="section workDeliverablesSection">
+        <div className="workSectionHeader">
+          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
+            <span>What This</span>
+            <span>Included.</span>
+          </h2>
+        </div>
+
         <div className="workDeliverablesGrid">
           <div className="workDeliverablesCopy revealCard">
-            <p className="eyebrow sectionEyebrow">What I Built</p>
-            <h2 className="sectionTitle sectionTitle--workpage sectionTitle--compact revealTitle">
-              <span>Direction.</span>
-              <span>Assets.</span>
-              <span>Systems.</span>
-            </h2>
-            <p className="sectionIntro">
-              The value was not just making the brand look better. It was helping
-              clarify the world around it: what the products do, who they serve,
-              how the voice behaves, how shoppers navigate routines and skin
-              concerns, and how the brand can stretch across e-commerce,
-              wholesale, social, studio relationships, and sister-brand purpose.
+            <p className="workKicker">Scope / Direction / Execution</p>
+            <h3>
+              More than a logo pass. This was a brand system built to support
+              products, storytelling, aftercare credibility, and content.
+            </h3>
+            <p>
+              The work extended across positioning, product organization,
+              e-commerce structure, messaging, audience clarity, campaign thinking,
+              and the brand’s visual tone. The goal was not to make Naked feel
+              “pretty.” It was to make it feel alive, useful, clear, and distinct.
             </p>
           </div>
 
@@ -552,10 +609,9 @@ function WorkPage() {
 
       <section className="section workBrandsSection">
         <div className="workSectionHeader">
-          <p className="eyebrow sectionEyebrow">Brand Ecosystem</p>
           <h2 className="sectionTitle sectionTitle--workpage revealTitle">
-            <span>One Main Brand.</span>
-            <span>A Wider Creative Universe.</span>
+            <span>The Brand</span>
+            <span>Ecosystem.</span>
           </h2>
         </div>
 
@@ -572,9 +628,7 @@ function WorkPage() {
               <div
                 className="workBrandImage"
                 style={{ "--work-brand-image": `url("${brand.image}")` }}
-              >
-                <span className="workPlaceholderLabel">{brand.name} Placeholder</span>
-              </div>
+              ></div>
               <div className="workBrandContent">
                 <h3>{brand.name}</h3>
                 <span>{brand.copy}</span>
@@ -587,26 +641,22 @@ function WorkPage() {
       <section className="section workQuoteSection">
         <div className="workQuoteCard revealCard">
           <p className="workQuoteEyebrow">Why It Matters</p>
-          <h2>Good branding is not a single image. It is a system people can recognize, trust, use, and remember.</h2>
+          <h2>
+            Good skincare branding should not feel anonymous. Good creative
+            systems should not fall apart the second the product line grows.
+          </h2>
           <p>
-            Naked All Natural became a strong anchor project because it brought
-            together product storytelling, tattoo and piercing aftercare,
-            e-commerce structure, audience strategy, humor, clean skincare, and
-            a larger ecosystem of connected creative thinking.
+            Naked All Natural is a case study in building a brand that could hold
+            culture, utility, humor, aftercare trust, and a wider ecosystem
+            without losing its shape. It is also the kind of work I like most:
+            identity with a pulse, systems with a point of view, and creative
+            that helps a brand feel like an actual living thing.
           </p>
-
-          <div className="buttons workPageButtons workPageButtons--center">
-            <a href="#workTop">
-              <span>Back to Top</span>
-              <span className="buttonArrow">↑</span>
-            </a>
-          </div>
         </div>
       </section>
     </>
   );
 }
-
 
 function AboutPage() {
   return (
