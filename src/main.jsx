@@ -543,9 +543,10 @@ function WorkPage() {
               <div
                 className="workHighlightImage"
                 style={{ "--work-card-image": `url("${item.image}")` }}
-              ></div>
+              >
+                <span className="workImageTopLabel">{item.eyebrow}</span>
+              </div>
               <div className="workHighlightContent">
-                <p>{item.eyebrow}</p>
                 <h3>{item.title}</h3>
                 <span>{item.copy}</span>
               </div>
