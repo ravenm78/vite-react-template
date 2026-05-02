@@ -500,7 +500,7 @@ function WorkPage() {
           </h2>
         </div>
 
-        <div className="workCaseStudyGrid">
+        <div className="workCaseStudyGrid workCaseStudyGrid--single">
           <div className="workCaseStudyCopy revealCard">
             <h3>Natural Skincare, Reimagined.</h3>
 
@@ -530,14 +530,6 @@ function WorkPage() {
               skincare line. They give it a world to belong to.
             </p>
           </div>
-
-          <div
-            className="workCaseStudyVisual workCaseStudyVisual--image revealCard"
-            aria-label="Naked All Natural hero visual"
-            style={{
-              "--work-hero-image": `url("/Scruz_Work_Naked_Hero.png")`,
-            }}
-          ></div>
         </div>
       </section>
 
