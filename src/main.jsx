@@ -388,27 +388,6 @@ const skillCubes = [
   },
 ];
 
-const capabilityGroups = [
-  {
-    eyebrow: "01 / Direction",
-    title: "Shape the idea before the pixels harden.",
-    copy:
-      "Creative direction, brand strategy, audience awareness, visual hierarchy, campaign angles, and concept development that gives the work a reason to exist before production starts.",
-  },
-  {
-    eyebrow: "02 / Experience",
-    title: "Design the thing people actually touch.",
-    copy:
-      "UX/UI thinking, responsive front-end design, content structure, motion, photography, video, and digital creative shaped around clarity, polish, and interaction.",
-  },
-  {
-    eyebrow: "03 / Growth",
-    title: "Connect creative choices to momentum.",
-    copy:
-      "Digital marketing, conversion-minded layouts, AI-assisted workflows, automation, content systems, and practical process improvements that help the work move faster without losing its pulse.",
-  },
-];
-
 const workHeroRailItems = [
   {
     title: "Packaging system",
@@ -1072,24 +1051,28 @@ function SkillsPage() {
         <div className="skillsCapabilityHeader">
           <p className="eyebrow sectionEyebrow">How it connects</p>
           <h2 className="sectionTitle sectionTitle--skills revealTitle">
-            <span>Range with</span>
-            <span>real-world teeth.</span>
+            <span>Creative range,</span>
+            <span>proven in production.</span>
           </h2>
         </div>
 
-        <div className="skillsCapabilityGrid">
-          {capabilityGroups.map((group, index) => (
-            <article
-              className="skillsCapabilityCard revealCard"
-              key={group.title}
-              style={{ "--reveal-delay": `${index * 0.08}s` }}
-            >
-              <p>{group.eyebrow}</p>
-              <h3>{group.title}</h3>
-              <span>{group.copy}</span>
-            </article>
-          ))}
-        </div>
+        <article className="skillsCapabilityCopy revealCard">
+          <p>
+            My skill set was built in production: under deadlines, inside real
+            campaigns, across changing platforms, and through years of making
+            things that had to work. I bring creative direction, design,
+            branding, photography, video, motion, web, AI workflow, and
+            production experience into one connected practice.
+          </p>
+
+          <p>
+            That means I can help shape the idea, design the system, build the
+            asset, polish the final, and improve the process behind it. I’m not
+            just checking software boxes. I’m bringing range, judgment,
+            persistence, and the ability to keep moving when the project gets
+            weird, rushed, revised, or on fire.
+          </p>
+        </article>
 
         <div className="aboutBackTop skillsBackTop">
           <a href="#skillsTop">
