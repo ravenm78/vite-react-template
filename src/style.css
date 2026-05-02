@@ -2617,3 +2617,99 @@ button { font: inherit; }
     background-position: center center;
   }
 }
+
+
+/* WORK PAGE NAKED CASE TITLE */
+.sectionTitle--nakedCase {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.sectionTitle--nakedCase span {
+  display: inline-block;
+}
+
+@media (max-width: 820px) {
+  .sectionTitle--nakedCase {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .sectionTitle--nakedCase span {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+/* WORK PAGE FINAL CASE TITLE + HIGHLIGHT LABEL TUNING */
+.sectionTitle--nakedCase {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  text-align: left;
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.sectionTitle--nakedCase span {
+  display: inline-block;
+  width: auto;
+}
+
+.workHighlightImage {
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 22px 22px 18px;
+}
+
+.workImageTopLabel {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
+  background: rgba(7, 7, 7, 0.46);
+  border: 1px solid rgba(255, 36, 71, 0.2);
+  color: var(--accent-bright);
+  font-size: 0.72rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.workHighlightContent p {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .sectionTitle--nakedCase {
+    white-space: normal;
+    text-align: center;
+    font-size: clamp(2.9rem, 7vw, 5rem);
+  }
+
+  .sectionTitle--nakedCase span {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .sectionTitle--nakedCase {
+    font-size: clamp(2.45rem, 10vw, 3.8rem);
+    line-height: 0.92;
+  }
+
+  .workImageTopLabel {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+}
