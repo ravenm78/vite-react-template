@@ -189,26 +189,32 @@ const skillCubes = [
     glow: "rgba(255, 63, 95, 0.58)",
     icon: "✦",
     size: "large",
-    left: "22%",
-    top: "31%",
+    left: "20%",
+    top: "32%",
     z: "150px",
+    driftX: "7px",
+    driftY: "-9px",
     delay: "0.02s",
     copy:
       "Concepts, visual direction, hierarchy, tone, and the big-picture decisions that keep the work from wandering into traffic.",
+    tools: ["Adobe Creative Cloud", "Figma", "Miro", "ChatGPT", "Notion"],
   },
   {
-    name: "Branding",
-    short: "Branding",
+    name: "Brand Strategy",
+    short: "Brand",
     color: "#ff8a2a",
     glow: "rgba(255, 138, 42, 0.54)",
     icon: "◆",
     size: "medium",
-    left: "49%",
+    left: "48%",
     top: "18%",
     z: "86px",
+    driftX: "-8px",
+    driftY: "7px",
     delay: "0.08s",
     copy:
-      "Identity, positioning, voice, visual systems, and the connective tissue that makes a brand feel intentional.",
+      "Positioning, identity systems, campaign voice, audience fit, and the connective tissue that makes a brand feel intentional.",
+    tools: ["Adobe Illustrator", "Photoshop", "Figma", "ChatGPT", "Behance"],
   },
   {
     name: "Graphic Design",
@@ -217,26 +223,32 @@ const skillCubes = [
     glow: "rgba(255, 194, 71, 0.48)",
     icon: "▰",
     size: "small",
-    left: "15%",
-    top: "68%",
+    left: "29%",
+    top: "60%",
     z: "-60px",
+    driftX: "6px",
+    driftY: "8px",
     delay: "0.14s",
     copy:
-      "Layout, typography, campaign assets, social graphics, decks, print pieces, and the daily craft of making things land.",
+      "Layout, typography, campaign assets, social systems, decks, digital ad creative, and the daily craft of making things land.",
+    tools: ["Photoshop", "Illustrator", "InDesign", "Figma", "Adobe Express"],
   },
   {
-    name: "Web + Interactive",
-    short: "Web",
+    name: "UX/UI + Front-End Design",
+    short: "UX/UI",
     color: "#00d8ff",
     glow: "rgba(0, 216, 255, 0.5)",
     icon: "◎",
     size: "large",
     left: "53%",
-    top: "52%",
+    top: "51%",
     z: "180px",
+    driftX: "-7px",
+    driftY: "-8px",
     delay: "0.2s",
     copy:
-      "Responsive web layouts, interactive concepts, front-end polish, and digital experiences that feel designed instead of assembled.",
+      "Responsive layouts, interaction polish, component thinking, front-end implementation, and digital experiences that feel designed instead of assembled.",
+    tools: ["React", "Vite", "CSS", "JavaScript", "Figma"],
   },
   {
     name: "Photography",
@@ -245,12 +257,15 @@ const skillCubes = [
     glow: "rgba(212, 92, 255, 0.5)",
     icon: "◉",
     size: "large",
-    left: "29%",
-    top: "58%",
+    left: "28%",
+    top: "52%",
     z: "82px",
+    driftX: "8px",
+    driftY: "-6px",
     delay: "0.26s",
     copy:
-      "Lighting, direction, composition, retouching awareness, and a practical eye for images that carry the idea.",
+      "Lighting, direction, composition, product awareness, and a practical eye for images that carry the idea.",
+    tools: ["Nikon Camera Systems", "Blackmagic Design", "Capture One", "Photoshop"],
   },
   {
     name: "Video + Editing",
@@ -259,30 +274,36 @@ const skillCubes = [
     glow: "rgba(40, 124, 255, 0.52)",
     icon: "▣",
     size: "medium",
-    left: "40%",
-    top: "40%",
+    left: "42%",
+    top: "38%",
     z: "-135px",
+    driftX: "-5px",
+    driftY: "7px",
     delay: "0.32s",
     copy:
       "Editing, pacing, cinematography instincts, asset prep, storytelling, and production decisions that survive the timeline.",
+    tools: ["DaVinci Resolve", "Adobe Premiere Pro", "After Effects", "Media Encoder"],
   },
   {
-    name: "Motion",
+    name: "Motion Design",
     short: "Motion",
     color: "#a46bff",
     glow: "rgba(164, 107, 255, 0.48)",
     icon: "Ae",
     size: "small",
     left: "78%",
-    top: "56%",
+    top: "55%",
     z: "115px",
+    driftX: "7px",
+    driftY: "6px",
     delay: "0.38s",
     copy:
-      "Title movement, animated assets, motion logic, timing, transitions, and enough restraint to not make everything bounce like a haunted trampoline.",
+      "Title movement, animated assets, timing, transitions, kinetic typography, and enough restraint to not make everything bounce like a haunted trampoline.",
+    tools: ["Adobe After Effects", "DaVinci Resolve", "Premiere Pro", "Cinema 4D"],
   },
   {
-    name: "Retouching",
-    short: "Retouch",
+    name: "Digital Marketing + Content Strategy",
+    short: "Marketing",
     color: "#ff6fb4",
     glow: "rgba(255, 111, 180, 0.45)",
     icon: "✧",
@@ -290,12 +311,15 @@ const skillCubes = [
     left: "66%",
     top: "70%",
     z: "-15px",
+    driftX: "-6px",
+    driftY: "-7px",
     delay: "0.44s",
     copy:
-      "Clean finishing, image polish, compositing instincts, product cleanup, skin work, and detail control without plasticizing the soul out of it.",
+      "Campaign angles, audience hooks, content planning, social creative, launch support, and turning brand noise into useful signals.",
+    tools: ["Meta Business Suite", "Google Analytics", "Canva", "ChatGPT", "Mailchimp"],
   },
   {
-    name: "AI Workflows",
+    name: "AI-Assisted Workflows",
     short: "AI",
     color: "#7f5cff",
     glow: "rgba(127, 92, 255, 0.48)",
@@ -304,13 +328,16 @@ const skillCubes = [
     left: "75%",
     top: "32%",
     z: "-70px",
+    driftX: "5px",
+    driftY: "-9px",
     delay: "0.5s",
     copy:
-      "AI-assisted concepting, sorting, prompt systems, production acceleration, and practical workflows that make the creative process sharper.",
+      "AI-assisted concepting, prompt systems, production acceleration, image ideation, and practical workflows that make the creative process sharper.",
+    tools: ["ChatGPT", "Gemini", "Midjourney", "Runway", "Ollama"],
   },
   {
-    name: "Automation",
-    short: "Automate",
+    name: "Automation + Agentic Systems",
+    short: "Automation",
     color: "#8cff52",
     glow: "rgba(140, 255, 82, 0.38)",
     icon: "⌁",
@@ -318,13 +345,16 @@ const skillCubes = [
     left: "36%",
     top: "18%",
     z: "-155px",
+    driftX: "-8px",
+    driftY: "7px",
     delay: "0.56s",
     copy:
-      "Custom tools, routing logic, repeatable processes, and the quiet backstage wiring that saves time when deadlines start breathing fire.",
+      "Custom tools, routing logic, repeatable processes, local AI experiments, and the quiet backstage wiring that saves time when deadlines start breathing fire.",
+    tools: ["Python", "Ollama", "OpenClaw", "GitHub", "Shell Scripts"],
   },
   {
-    name: "Print + Production",
-    short: "Print",
+    name: "Conversion + Growth Creative",
+    short: "Growth",
     color: "#15e0b2",
     glow: "rgba(21, 224, 178, 0.42)",
     icon: "▤",
@@ -332,9 +362,12 @@ const skillCubes = [
     left: "57%",
     top: "79%",
     z: "120px",
+    driftX: "6px",
+    driftY: "6px",
     delay: "0.62s",
     copy:
-      "Production files, print awareness, specs, versioning, practical handoffs, and the unglamorous details that prevent expensive nonsense.",
+      "Landing-page thinking, ad iterations, messaging hierarchy, offer framing, lead-gen assets, and design choices tied to what users actually do.",
+    tools: ["Google Analytics", "Search Console", "Figma", "React", "Meta Ads"],
   },
   {
     name: "3D + Visual Development",
@@ -346,9 +379,12 @@ const skillCubes = [
     left: "86%",
     top: "16%",
     z: "155px",
+    driftX: "-7px",
+    driftY: "-5px",
     delay: "0.68s",
     copy:
-      "Cinema 4D, dimensional thinking, spatial concepts, lighting, depth, and visual experiments that give flat assets more atmosphere.",
+      "Dimensional thinking, spatial concepts, lighting, depth, and visual experiments that give flat assets more atmosphere.",
+    tools: ["Cinema 4D", "LightWave", "Photoshop", "After Effects"],
   },
 ];
 
@@ -357,19 +393,19 @@ const capabilityGroups = [
     eyebrow: "01 / Direction",
     title: "Shape the idea before the pixels harden.",
     copy:
-      "Creative direction, campaign thinking, brand voice, audience awareness, visual hierarchy, and concept development that gives the work a reason to exist.",
+      "Creative direction, brand strategy, audience awareness, visual hierarchy, campaign angles, and concept development that gives the work a reason to exist before production starts.",
   },
   {
-    eyebrow: "02 / Making",
-    title: "Build the asset, polish the thing, ship the thing.",
+    eyebrow: "02 / Experience",
+    title: "Design the thing people actually touch.",
     copy:
-      "Design, web layouts, photography, video, motion, retouching, print, decks, social assets, and production work built for real deadlines and actual humans.",
+      "UX/UI thinking, responsive front-end design, content structure, motion, photography, video, and digital creative shaped around clarity, polish, and interaction.",
   },
   {
-    eyebrow: "03 / Workflow",
-    title: "Make the next round faster and cleaner.",
+    eyebrow: "03 / Growth",
+    title: "Connect creative choices to momentum.",
     copy:
-      "AI-assisted workflows, automation, local systems, intake structure, repeatable patterns, and process improvements that turn chaos into usable momentum.",
+      "Digital marketing, conversion-minded layouts, AI-assisted workflows, automation, content systems, and practical process improvements that help the work move faster without losing its pulse.",
   },
 ];
 
@@ -927,6 +963,8 @@ function SkillCube({ skill, index, isActive, onActivate }) {
         "--cube-left": skill.left,
         "--cube-top": skill.top,
         "--cube-z": skill.z,
+        "--cube-drift-x": skill.driftX,
+        "--cube-drift-y": skill.driftY,
         "--cube-delay": skill.delay,
       }}
       aria-label={skill.name}
@@ -984,6 +1022,11 @@ function SkillsPage() {
               <p>{String(activeSkillIndex + 1).padStart(2, "0")} / Selected Capability</p>
               <h2>{activeSkill.name}</h2>
               <span>{activeSkill.copy}</span>
+              <div className="skillsToolList" aria-label={`${activeSkill.name} supporting tools`}>
+                {activeSkill.tools.map((tool) => (
+                  <em key={tool}>{tool}</em>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -1022,29 +1065,6 @@ function SkillsPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="section skillsLegendSection" aria-label="Skill categories">
-        <div className="skillsLegendGrid">
-          {skillCubes.map((skill, index) => (
-            <button
-              className={`skillsLegendItem revealCard ${activeSkillIndex === index ? "isActive" : ""}`}
-              key={skill.name}
-              type="button"
-              onMouseEnter={() => setActiveSkillIndex(index)}
-              onFocus={() => setActiveSkillIndex(index)}
-              onClick={() => setActiveSkillIndex(index)}
-              style={{
-                "--legend-color": skill.color,
-                "--legend-glow": skill.glow,
-                "--reveal-delay": `${Math.min(index, 7) * 0.04}s`,
-              }}
-            >
-              <span className="skillsLegendIcon">{skill.icon}</span>
-              <span>{skill.name}</span>
-            </button>
-          ))}
         </div>
       </section>
 
