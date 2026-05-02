@@ -3478,3 +3478,348 @@ button { font: inherit; }
   .skillsStage { min-height: 460px; }
   .skillsCapabilitySection { padding-top: 0; }
 }
+
+/* =========================================================
+   15. SKILLS + ABOUT MOBILE CLEANUP / V5
+   ========================================================= */
+
+/* Skills desktop layout: copy + selected card on the left, cube on the right. */
+.skillsHeroGrid {
+  grid-template-areas:
+    "copy stage"
+    "card stage";
+}
+
+.skillsHeroCopy { grid-area: copy; }
+.skillsStage { grid-area: stage; }
+.skillsActiveCard { grid-area: card; }
+
+/* Keep the hero title powerful without punching through the cube. */
+.skillsTitle {
+  max-width: 580px;
+  font-size: clamp(3.05rem, 4.55vw, 5.05rem);
+}
+
+.skillsLead {
+  max-width: 560px;
+  font-size: clamp(1rem, 1.03vw, 1.08rem);
+}
+
+.skillsActiveCard {
+  width: 100%;
+}
+
+/* Make the skill cube motion feel alive, not jittery. */
+.skillCube {
+  animation:
+    skillCubeDrift 5.8s ease-in-out var(--cube-delay) infinite alternate,
+    skillCubeFloatX 7.6s ease-in-out calc(var(--cube-delay) * 1.5) infinite alternate;
+}
+
+@keyframes skillCubeFloatX {
+  0% { margin-left: calc(var(--cube-drift-x) * -0.5); }
+  100% { margin-left: var(--cube-drift-x); }
+}
+
+@media (max-width: 1180px) {
+  .skillsHeroGrid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "stage"
+      "card";
+    gap: 22px;
+  }
+
+  .skillsHeroCopy,
+  .skillsActiveCard {
+    max-width: 760px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .skillsStage {
+    width: 100%;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 820px) {
+  .skillsHeroSection {
+    width: min(calc(100% - 32px), var(--max-width));
+    padding-top: calc(var(--header-height) + 44px);
+    padding-bottom: 16px;
+  }
+
+  .skillsHeroGrid {
+    gap: 24px;
+    align-items: center;
+  }
+
+  .skillsHeroCopy {
+    text-align: center;
+  }
+
+  .skillsHeroCopy .eyebrow {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skillsTitle {
+    max-width: 100%;
+    text-align: center;
+    font-size: clamp(2.85rem, 11.8vw, 4.55rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+  }
+
+  .skillsLead {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: clamp(1.02rem, 4vw, 1.28rem);
+    line-height: 1.55;
+  }
+
+  .skillsStage {
+    min-height: clamp(390px, 88vw, 560px);
+    margin: 4px auto 0;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .skillsWireScene {
+    transform: rotateX(-8deg) rotateY(-11deg) scale(0.98);
+  }
+
+  .skillsWireCube,
+  .skillsCubeField {
+    width: min(82vw, 500px);
+    height: min(82vw, 500px);
+  }
+
+  .skillsActiveCard {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .skillsActiveCard span {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skillsToolList {
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .skillsCapabilitySection {
+    padding-top: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .skillsHeroSection {
+    padding-top: 132px;
+    width: min(calc(100% - 28px), var(--max-width));
+  }
+
+  .skillsHeroGrid {
+    gap: 22px;
+  }
+
+  .skillsTitle {
+    font-size: clamp(2.48rem, 12.7vw, 3.75rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+  }
+
+  .skillsLead {
+    text-align: center;
+    font-size: 1.08rem;
+    line-height: 1.58;
+  }
+
+  .skillsStage {
+    min-height: clamp(330px, 86vw, 430px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .skillsStageGlow {
+    inset: 0;
+    filter: blur(14px);
+  }
+
+  .skillsWireScene {
+    transform: rotateX(-7deg) rotateY(-8deg) scale(0.92);
+  }
+
+  .skillsWireCube,
+  .skillsCubeField {
+    width: min(78vw, 360px);
+    height: min(78vw, 360px);
+  }
+
+  .skillsWireFace { background-size: 34% 34%; }
+  .skillsWireFace--front { transform: translateZ(calc(min(78vw, 360px) * 0.25)); }
+  .skillsWireFace--back { transform: rotateY(180deg) translateZ(calc(min(78vw, 360px) * 0.25)); }
+  .skillsWireFace--right { transform: rotateY(90deg) translateZ(calc(min(78vw, 360px) * 0.25)); }
+  .skillsWireFace--left { transform: rotateY(-90deg) translateZ(calc(min(78vw, 360px) * 0.25)); }
+  .skillsWireFace--top { transform: rotateX(90deg) translateZ(calc(min(78vw, 360px) * 0.25)); }
+  .skillsWireFace--bottom { transform: rotateX(-90deg) translateZ(calc(min(78vw, 360px) * 0.25)); }
+
+  .skillCube--large { --skill-size: 66px; --face-depth: 33px; }
+  .skillCube--medium { --skill-size: 52px; --face-depth: 26px; }
+  .skillCube--small { --skill-size: 42px; --face-depth: 21px; }
+  .skillCube--tiny { --skill-size: 30px; --face-depth: 15px; }
+
+  .skillsActiveCard {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .skillsActiveCard h2 {
+    font-size: clamp(1.7rem, 7.8vw, 2.6rem);
+    line-height: 1.02;
+  }
+
+  .skillsActiveCard span {
+    font-size: 1.02rem;
+    line-height: 1.62;
+  }
+
+  .skillsToolList em {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.74rem;
+  }
+
+  .skillsCapabilityHeader {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .skillsTitle {
+    font-size: clamp(2.35rem, 12.2vw, 3.25rem);
+  }
+
+  .skillsStage {
+    min-height: 315px;
+  }
+
+  .skillsWireScene {
+    transform: rotateX(-7deg) rotateY(-7deg) scale(0.9);
+  }
+
+  .skillsWireCube,
+  .skillsCubeField {
+    width: 315px;
+    height: 315px;
+  }
+
+  .skillsWireFace--front { transform: translateZ(78px); }
+  .skillsWireFace--back { transform: rotateY(180deg) translateZ(78px); }
+  .skillsWireFace--right { transform: rotateY(90deg) translateZ(78px); }
+  .skillsWireFace--left { transform: rotateY(-90deg) translateZ(78px); }
+  .skillsWireFace--top { transform: rotateX(90deg) translateZ(78px); }
+  .skillsWireFace--bottom { transform: rotateX(-90deg) translateZ(78px); }
+}
+
+/* About page mobile cleanup: centered titles/copy and no edge clipping. */
+@media (max-width: 820px) {
+  .aboutHeroSection,
+  .aboutStatsSection,
+  .aboutPrinciplesSection {
+    width: min(calc(100% - 32px), var(--max-width));
+    overflow-x: hidden;
+  }
+
+  .aboutHeroCopy,
+  .aboutSectionHeader,
+  .aboutStat,
+  .aboutPrinciple {
+    text-align: center;
+  }
+
+  .aboutHeroCopy .eyebrow {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .aboutTitle,
+  .sectionTitle--about {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(2.65rem, 10.8vw, 4.35rem);
+    line-height: 0.92;
+    letter-spacing: -0.058em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .aboutTitle span,
+  .aboutTitle span:first-child,
+  .sectionTitle--about span {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .aboutLead,
+  .aboutBody,
+  .aboutStat span,
+  .aboutPrinciple span {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .aboutStat strong {
+    text-align: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .aboutHeroSection {
+    padding-top: 126px;
+    width: min(calc(100% - 28px), var(--max-width));
+  }
+
+  .aboutTitle {
+    font-size: clamp(2.35rem, 11.8vw, 3.65rem);
+    line-height: 0.94;
+  }
+
+  .aboutLead {
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+
+  .aboutBody {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .aboutPrinciple,
+  .aboutStat {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .aboutPrinciple h3 {
+    text-align: center;
+    font-size: clamp(1.55rem, 7.5vw, 2.35rem);
+  }
+}
