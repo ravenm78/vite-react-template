@@ -409,8 +409,8 @@ function WorkPage() {
       </section>
 
       <section className="section workPageHeroSection">
-        <div className="workPageHeroGrid">
-          <div className="workPageHeroCopy">
+        <div className="workPageHeroGrid workPageHeroGrid--caseIntro">
+          <div className="workPageHeroCopy workPageHeroCopy--full">
             <h1 className="workPageTitle revealTitle">
               <span>Work That</span>
               <span>Builds Worlds.</span>
@@ -431,25 +431,11 @@ function WorkPage() {
               brand people remember.
             </p>
 
-            <div className="buttons workPageButtons">
+            <div className="buttons workPageButtons workPageButtons--right">
               <a href="#nakedCaseStudy">
                 <span>View Case Study</span>
                 <span className="buttonArrow">↗</span>
               </a>
-            </div>
-          </div>
-
-          <div
-            className="workHeroVisual workHeroVisual--image revealCard"
-            aria-label="Featured Naked All Natural project image"
-            style={{
-              "--work-featured-image": `url("/Scruz_Work_Naked_Featured_Project.png")`,
-            }}
-          >
-            <div className="workHeroVisualBadge">Featured Project</div>
-            <div className="workHeroVisualTitle">Naked All Natural</div>
-            <div className="workHeroVisualMeta">
-              Natural alternative skincare / body-art aftercare / brand ecosystem
             </div>
           </div>
         </div>
