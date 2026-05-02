@@ -7,7 +7,7 @@ const heroSlides = [
     id: "01",
     image: "/Scruz_Website_Hero_0001.png",
     title: "Build Better Systems",
-    caption: "Turning loose ideas into creative structure teams can build on.",
+    caption: "Turning loose ideas into clear creative direction teams can build on.",
     label: "Creative systems",
   },
   {
@@ -46,7 +46,7 @@ const workItems = [
   {
     href: "/about",
     image: "/Scruz_Work_02.png",
-    imageLabel: "The Engine",
+    imageLabel: "Creative Range",
     eyebrow: "About / Process / Creative Range",
     title: "Meet the Mind Behind It",
     copy:
@@ -179,6 +179,200 @@ const sisterBrands = [
 ];
 
 
+
+
+const skillCubes = [
+  {
+    name: "Creative Direction",
+    short: "Direction",
+    color: "#ff3f5f",
+    glow: "rgba(255, 63, 95, 0.58)",
+    icon: "✦",
+    size: "large",
+    x: "-34%",
+    y: "-18%",
+    z: "78px",
+    delay: "0.02s",
+    copy:
+      "Concepts, visual direction, hierarchy, tone, and the big-picture decisions that keep the work from wandering into traffic.",
+  },
+  {
+    name: "Branding",
+    short: "Branding",
+    color: "#ff8a2a",
+    glow: "rgba(255, 138, 42, 0.54)",
+    icon: "◆",
+    size: "medium",
+    x: "3%",
+    y: "-32%",
+    z: "126px",
+    delay: "0.08s",
+    copy:
+      "Identity, positioning, voice, visual systems, and the connective tissue that makes a brand feel intentional.",
+  },
+  {
+    name: "Graphic Design",
+    short: "Design",
+    color: "#ffc247",
+    glow: "rgba(255, 194, 71, 0.48)",
+    icon: "▰",
+    size: "small",
+    x: "-46%",
+    y: "34%",
+    z: "38px",
+    delay: "0.14s",
+    copy:
+      "Layout, typography, campaign assets, social graphics, decks, print pieces, and the daily craft of making things land.",
+  },
+  {
+    name: "Web + Interactive",
+    short: "Web",
+    color: "#00d8ff",
+    glow: "rgba(0, 216, 255, 0.5)",
+    icon: "◎",
+    size: "large",
+    x: "3%",
+    y: "16%",
+    z: "96px",
+    delay: "0.2s",
+    copy:
+      "Responsive web layouts, interactive concepts, front-end polish, and digital experiences that feel designed instead of assembled.",
+  },
+  {
+    name: "Photography",
+    short: "Photo",
+    color: "#d45cff",
+    glow: "rgba(212, 92, 255, 0.5)",
+    icon: "◉",
+    size: "large",
+    x: "-30%",
+    y: "18%",
+    z: "152px",
+    delay: "0.26s",
+    copy:
+      "Lighting, direction, composition, retouching awareness, and a practical eye for images that carry the idea.",
+  },
+  {
+    name: "Video + Editing",
+    short: "Video",
+    color: "#287cff",
+    glow: "rgba(40, 124, 255, 0.52)",
+    icon: "▣",
+    size: "medium",
+    x: "-10%",
+    y: "-4%",
+    z: "28px",
+    delay: "0.32s",
+    copy:
+      "Editing, pacing, cinematography instincts, asset prep, storytelling, and production decisions that survive the timeline.",
+  },
+  {
+    name: "Motion",
+    short: "Motion",
+    color: "#a46bff",
+    glow: "rgba(164, 107, 255, 0.48)",
+    icon: "Ae",
+    size: "small",
+    x: "41%",
+    y: "18%",
+    z: "106px",
+    delay: "0.38s",
+    copy:
+      "Title movement, animated assets, motion logic, timing, transitions, and enough restraint to not make everything bounce like a haunted trampoline.",
+  },
+  {
+    name: "Retouching",
+    short: "Retouch",
+    color: "#ff6fb4",
+    glow: "rgba(255, 111, 180, 0.45)",
+    icon: "✧",
+    size: "small",
+    x: "25%",
+    y: "32%",
+    z: "54px",
+    delay: "0.44s",
+    copy:
+      "Clean finishing, image polish, compositing instincts, product cleanup, skin work, and detail control without plasticizing the soul out of it.",
+  },
+  {
+    name: "AI Workflows",
+    short: "AI",
+    color: "#7f5cff",
+    glow: "rgba(127, 92, 255, 0.48)",
+    icon: "✺",
+    size: "medium",
+    x: "35%",
+    y: "-19%",
+    z: "58px",
+    delay: "0.5s",
+    copy:
+      "AI-assisted concepting, sorting, prompt systems, production acceleration, and practical workflows that make the creative process sharper.",
+  },
+  {
+    name: "Automation",
+    short: "Automate",
+    color: "#8cff52",
+    glow: "rgba(140, 255, 82, 0.38)",
+    icon: "⌁",
+    size: "tiny",
+    x: "-17%",
+    y: "-30%",
+    z: "8px",
+    delay: "0.56s",
+    copy:
+      "Custom tools, routing logic, repeatable processes, and the quiet backstage wiring that saves time when deadlines start breathing fire.",
+  },
+  {
+    name: "Print + Production",
+    short: "Print",
+    color: "#15e0b2",
+    glow: "rgba(21, 224, 178, 0.42)",
+    icon: "▤",
+    size: "medium",
+    x: "12%",
+    y: "44%",
+    z: "130px",
+    delay: "0.62s",
+    copy:
+      "Production files, print awareness, specs, versioning, practical handoffs, and the unglamorous details that prevent expensive nonsense.",
+  },
+  {
+    name: "3D + Visual Development",
+    short: "3D",
+    color: "#4aa8ff",
+    glow: "rgba(74, 168, 255, 0.42)",
+    icon: "⬡",
+    size: "tiny",
+    x: "49%",
+    y: "-38%",
+    z: "142px",
+    delay: "0.68s",
+    copy:
+      "Cinema 4D, dimensional thinking, spatial concepts, lighting, depth, and visual experiments that give flat assets more atmosphere.",
+  },
+];
+
+const capabilityGroups = [
+  {
+    eyebrow: "01 / Direction",
+    title: "Shape the idea before the pixels harden.",
+    copy:
+      "Creative direction, campaign thinking, brand voice, audience awareness, visual hierarchy, and concept development that gives the work a reason to exist.",
+  },
+  {
+    eyebrow: "02 / Making",
+    title: "Build the asset, polish the thing, ship the thing.",
+    copy:
+      "Design, web layouts, photography, video, motion, retouching, print, decks, social assets, and production work built for real deadlines and actual humans.",
+  },
+  {
+    eyebrow: "03 / Workflow",
+    title: "Make the next round faster and cleaner.",
+    copy:
+      "AI-assisted workflows, automation, local systems, intake structure, repeatable patterns, and process improvements that turn chaos into usable momentum.",
+  },
+];
+
 const workHeroRailItems = [
   {
     title: "Packaging system",
@@ -254,7 +448,7 @@ function SiteHeader() {
     <header className="nav">
       <a className="nameplate" href="/">
         <strong>Stephen Cruz</strong>
-        <span>Creative Lead / Systems Builder / Artist</span>
+        <span>Creative Lead / Designer / Artist</span>
       </a>
 
       <nav className="navLinks">
@@ -276,7 +470,7 @@ function HomePage() {
       <section className="hero">
         <div className="heroCopy">
           <p className="eyebrow">
-            Not just a designer. A creative systems builder.
+            Creative lead. Designer. Artist. Human creative chaos wrangler.
           </p>
 
           <h1 className="heroTitle heroTitle--reveal revealTitle">
@@ -414,7 +608,7 @@ function HomePage() {
         <p className="xenOutro">
           Part creative assistant, part production brain, part workflow skeleton.
           Xen connects ideas, assets, notes, systems, and automation into one
-          evolving creative engine.
+          evolving creative support system.
         </p>
       </section>
     </>
@@ -616,7 +810,7 @@ function AboutPage() {
 
             <h1 className="aboutTitle revealTitle">
               <span>Not Just a Designer.</span>
-              <span>A Creative Engine.</span>
+              <span>A Creative Human.</span>
             </h1>
 
             <p className="aboutLead">
@@ -721,6 +915,173 @@ function AboutPage() {
   );
 }
 
+
+function SkillCube({ skill, index, isActive, onActivate }) {
+  return (
+    <button
+      className={`skillCube skillCube--${skill.size} ${isActive ? "isActive" : ""}`}
+      type="button"
+      style={{
+        "--cube-color": skill.color,
+        "--cube-glow": skill.glow,
+        "--cube-x": skill.x,
+        "--cube-y": skill.y,
+        "--cube-z": skill.z,
+        "--cube-delay": skill.delay,
+      }}
+      aria-label={skill.name}
+      aria-pressed={isActive}
+      onMouseEnter={() => onActivate(index)}
+      onFocus={() => onActivate(index)}
+      onClick={() => onActivate(index)}
+    >
+      <span className="skillCubeCore" aria-hidden="true">
+        <span className="skillCubeFace skillCubeFace--front"></span>
+        <span className="skillCubeFace skillCubeFace--back"></span>
+        <span className="skillCubeFace skillCubeFace--right"></span>
+        <span className="skillCubeFace skillCubeFace--left"></span>
+        <span className="skillCubeFace skillCubeFace--top"></span>
+        <span className="skillCubeFace skillCubeFace--bottom"></span>
+        <span className="skillCubeIcon">{skill.icon}</span>
+      </span>
+      <span className="skillCubeLabel">{skill.short}</span>
+    </button>
+  );
+}
+
+function SkillsPage() {
+  const [activeSkillIndex, setActiveSkillIndex] = useState(0);
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const activeSkill = skillCubes[activeSkillIndex];
+
+  function handlePointerMove(event) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+    setPointer({ x: Number(x.toFixed(3)), y: Number(y.toFixed(3)) });
+  }
+
+  return (
+    <>
+      <section id="skillsTop" className="section skillsHeroSection">
+        <div className="skillsHeroGrid">
+          <div className="skillsHeroCopy">
+            <p className="eyebrow skillsEyebrow">Skills / Creative Range</p>
+
+            <h1 className="skillsTitle revealTitle">
+              <span>Creative</span>
+              <span>Capabilities.</span>
+            </h1>
+
+            <p className="skillsLead">
+              A multidisciplinary practice built across direction, design,
+              production, media, and workflow thinking. Not a pile of software
+              badges. A set of connected abilities shaped by actually making the
+              work.
+            </p>
+
+            <div className="skillsActiveCard" style={{ "--active-color": activeSkill.color }}>
+              <p>{String(activeSkillIndex + 1).padStart(2, "0")} / Selected Capability</p>
+              <h2>{activeSkill.name}</h2>
+              <span>{activeSkill.copy}</span>
+            </div>
+          </div>
+
+          <div
+            className="skillsStage revealCard"
+            aria-label="Interactive 3D skill cube visualization"
+            onMouseMove={handlePointerMove}
+            onMouseLeave={() => setPointer({ x: 0, y: 0 })}
+            style={{
+              "--pointer-x": pointer.x,
+              "--pointer-y": pointer.y,
+            }}
+          >
+            <div className="skillsStageGlow" aria-hidden="true"></div>
+
+            <div className="skillsWireScene">
+              <div className="skillsWireCube" aria-hidden="true">
+                <span className="skillsWireFace skillsWireFace--front"></span>
+                <span className="skillsWireFace skillsWireFace--back"></span>
+                <span className="skillsWireFace skillsWireFace--right"></span>
+                <span className="skillsWireFace skillsWireFace--left"></span>
+                <span className="skillsWireFace skillsWireFace--top"></span>
+                <span className="skillsWireFace skillsWireFace--bottom"></span>
+              </div>
+
+              <div className="skillsCubeField">
+                {skillCubes.map((skill, index) => (
+                  <SkillCube
+                    key={skill.name}
+                    skill={skill}
+                    index={index}
+                    isActive={activeSkillIndex === index}
+                    onActivate={setActiveSkillIndex}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section skillsLegendSection" aria-label="Skill categories">
+        <div className="skillsLegendGrid">
+          {skillCubes.map((skill, index) => (
+            <button
+              className={`skillsLegendItem revealCard ${activeSkillIndex === index ? "isActive" : ""}`}
+              key={skill.name}
+              type="button"
+              onMouseEnter={() => setActiveSkillIndex(index)}
+              onFocus={() => setActiveSkillIndex(index)}
+              onClick={() => setActiveSkillIndex(index)}
+              style={{
+                "--legend-color": skill.color,
+                "--legend-glow": skill.glow,
+                "--reveal-delay": `${Math.min(index, 7) * 0.04}s`,
+              }}
+            >
+              <span className="skillsLegendIcon">{skill.icon}</span>
+              <span>{skill.name}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="section skillsCapabilitySection">
+        <div className="skillsCapabilityHeader">
+          <p className="eyebrow sectionEyebrow">How it connects</p>
+          <h2 className="sectionTitle sectionTitle--skills revealTitle">
+            <span>Range with</span>
+            <span>real-world teeth.</span>
+          </h2>
+        </div>
+
+        <div className="skillsCapabilityGrid">
+          {capabilityGroups.map((group, index) => (
+            <article
+              className="skillsCapabilityCard revealCard"
+              key={group.title}
+              style={{ "--reveal-delay": `${index * 0.08}s` }}
+            >
+              <p>{group.eyebrow}</p>
+              <h3>{group.title}</h3>
+              <span>{group.copy}</span>
+            </article>
+          ))}
+        </div>
+
+        <div className="aboutBackTop skillsBackTop">
+          <a href="#skillsTop">
+            <span>Back to Top</span>
+            <span className="buttonArrow">↑</span>
+          </a>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function PlaceholderPage({ title, copy }) {
   return (
     <section className="section placeholderPage">
@@ -752,12 +1113,7 @@ function App() {
   } else if (path === "/work") {
     page = <WorkPage />;
   } else if (path === "/skills") {
-    page = (
-      <PlaceholderPage
-        title="Skills"
-        copy="The dedicated skills page is next. This will become the practical breakdown of tools, production range, and technical systems."
-      />
-    );
+    page = <SkillsPage />;
   }
 
   return (
