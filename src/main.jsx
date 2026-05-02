@@ -37,29 +37,29 @@ const workItems = [
   {
     href: "/work",
     image: "/Scruz_Work_01.png",
-    imageLabel: "Case Studies",
-    eyebrow: "Work / Brand Systems / Campaign Worlds",
-    title: "Work That Builds Worlds",
+    imageLabel: "Creative Direction",
+    eyebrow: "Work / Campaigns / Visual Systems",
+    title: "See the Work",
     copy:
-      "Identity, campaign direction, production design, and complete visual systems built to survive real-world deadlines, revisions, and weird human weather.",
+      "A focused look at campaign direction, brand systems, visual worlds, production design, and finished creative built to move from idea to execution.",
   },
   {
     href: "/about",
     image: "/Scruz_Work_02.png",
     imageLabel: "The Engine",
-    eyebrow: "About / Creative Direction / Systems Thinking",
-    title: "The Mind Behind the Machine",
+    eyebrow: "About / Process / Creative Range",
+    title: "Meet the Mind Behind It",
     copy:
-      "Creative lead, designer, artist, editor, photographer, and systems builder with enough range to shape the idea and build the pipeline behind it.",
+      "The person behind the polish: creative lead, designer, artist, systems builder, and hands-on problem solver who can shape the concept and build the machine around it.",
   },
   {
     href: "/skills",
     image: "/Scruz_Work_03.png",
-    imageLabel: "Capabilities",
+    imageLabel: "Abilities",
     eyebrow: "Skills / Tools / Technical Range",
-    title: "Taste With a Tool Belt",
+    title: "See the Abilities",
     copy:
-      "A practical range of design, photo, video, motion, web, AI workflow, brand, and production skills. Pretty pixels, plus the plumbing.",
+      "A practical breakdown of the creative, technical, production, automation, design, photo, video, and systems skills that let the work go deeper than surface-level design.",
   },
 ];
 
@@ -68,45 +68,46 @@ const aboutStats = [
     value: "20+",
     image: "/Scruz_About_20Years.png",
     label:
-      "Years across web, branding, campaign creative, production, video, motion, print, and the noble art of getting impossible-looking things out the door.",
+      "Years of creative range across web, branding, campaign work, digital content, video, motion, and the messy reality of getting good work finished.",
   },
   {
     value: "AI",
     image: "/Scruz_About_AI.png",
     label:
-      "Practical AI integration for concepting, organizing, prompt systems, production acceleration, and workflow support without letting the machine flatten the taste.",
+      "Practical AI use for speeding up concepting, organizing ideas, testing directions, and building smarter creative workflows without letting the tools flatten the taste.",
   },
   {
     value: "Xen",
     image: "/Scruz_About_Xen.png",
     label:
-      "A custom local creative-operations system built to route requests, shape concepts, organize production, and turn chaos into something less feral.",
+      "My own custom workflow system, built to help sort requests, develop concepts, organize production, and make the creative process less scattered.",
   },
 ];
 
 const aboutPrinciples = [
   {
     eyebrow: "01 / Direction",
-    title: "Turn the fog into a plan.",
+    title: "I turn the fog into a plan.",
     image: "/Scruz_About_Direction.png",
     copy:
-      "A loose ask, a messy brief, a folder full of half-clues: that is where I like to work. I find the message, build the hierarchy, and give the creative a spine.",
+      "A messy ask, a half-formed idea, and four usable sentences: that is where I’m useful. I find the real message, shape the hierarchy, and turn loose creative noise into something clear enough to actually move on.",
   },
   {
     eyebrow: "02 / Creation",
-    title: "Make the work feel finished.",
+    title: "I build polished work that holds together.",
     image: "/Scruz_About_Creation.png",
     copy:
-      "I can move from concept to execution across layout, identity, photo direction, retouching, motion, web assets, print, presentations, and campaign design.",
+      "I move from concept to execution with a strong eye for layout, hierarchy, pacing, tone, and detail. Whether it is a website, campaign direction, digital asset, motion piece, presentation, or brand system, I care about making the final work feel intentional, sharp, and finished.",
   },
   {
     eyebrow: "03 / Systems",
-    title: "Make the next round easier.",
+    title: "I make the next round easier.",
     image: "/Scruz_About_Systems.png",
     copy:
-      "Good creative should not collapse the second someone asks for version two. I build reusable patterns, cleaner handoffs, smarter processes, and AI-assisted workflows.",
+      "Good creative should not fall apart the second it needs version two. I think in reusable patterns, smarter handoffs, cleaner workflows, practical AI support, and systems that help the work move faster without sanding all the personality off it.",
   },
 ];
+
 
 const workHighlights = [
   {
@@ -114,7 +115,7 @@ const workHighlights = [
     title: "Skincare for real skin.",
     image: "/Scruz_Work_Naked_Product_Identity.png",
     copy:
-      "Naked moved away from generic wellness language and toward people who treat their skin as part of identity: tattooed, pierced, healing, sensitive, decorated, worked on, lived in, and cared for.",
+      "The positioning moved Naked away from generic wellness language and toward something more specific: skincare for bodies that have been marked, healed, worked on, lived in, and cared for. Clean, but not sterile. Natural, but not forgettable.",
     variant: "identity",
   },
   {
@@ -122,7 +123,7 @@ const workHighlights = [
     title: "A product line with rhythm.",
     image: "/Scruz_Work_Naked_Campaign_Voice.png",
     copy:
-      "Each product needed its own job while still feeling part of one system: daily care, cleansing, soothing, aftercare, recovery, and routine, all organized without turning clinical.",
+      "The line needed to feel organized without becoming mechanical. Each product had to support the larger brand world: daily care, aftercare, soothing, cleansing, recovery, and routine, all connected through a visual and verbal system that made the collection easier to understand.",
     variant: "voice",
   },
   {
@@ -130,9 +131,24 @@ const workHighlights = [
     title: "A cleaner voice with sharper teeth.",
     image: "/Scruz_Work_Naked_Audience.png",
     copy:
-      "The voice had to be useful, direct, and funny without becoming a gimmick. Naked needed to talk about ingredients and concerns like actual humans were behind it.",
+      "The voice had to be useful, direct, and occasionally funny without falling into gimmick territory. Naked could talk about skin concerns and ingredients, but it also needed to sound like a brand with actual humans behind it.",
     variant: "audience",
   },
+];
+
+const workDeliverables = [
+  "Creative direction",
+  "Brand positioning",
+  "Product line storytelling",
+  "E-commerce content structure",
+  "Skin concern navigation",
+  "Campaign concepts",
+  "Audience strategy",
+  "Digital content direction",
+  "Wholesale/studio messaging",
+  "Brand ecosystem development",
+  "AI-assisted workflow support",
+  "Presentation and web assets",
 ];
 
 const sisterBrands = [
@@ -140,7 +156,7 @@ const sisterBrands = [
     name: "Naked All Natural",
     image: "/Scruz_Work_Naked_Brand.png",
     copy:
-      "The centerpiece: natural alternative skincare around clean ingredients, real bodies, body-art culture, daily use, and aftercare trust.",
+      "The central brand: natural alternative skincare shaped around clean ingredients, body-art culture, daily use, and aftercare trust. The work gave Naked a stronger visual identity, clearer product storytelling, and a tone that feels more alive than the average wellness shelf.",
     variant: "naked",
     url: "https://nakedallnatural.com/",
   },
@@ -148,7 +164,7 @@ const sisterBrands = [
     name: "Industrial Strength Needles",
     image: "/Scruz_Work_Industrial_Strength.png",
     copy:
-      "Professional piercing context gives the system a credible bridge into studios, artists, piercers, and aftercare conversations.",
+      "Industrial Strength connects the ecosystem to professional piercing culture. That context matters. It gives Naked a credible bridge into studios, artists, piercers, and the aftercare conversations that happen after the appointment.",
     variant: "needles",
     url: "https://industrialstrengthneedles.com/",
   },
@@ -156,49 +172,45 @@ const sisterBrands = [
     name: "HON / House of Nipple",
     image: "/Scruz_Work_HON.png",
     copy:
-      "A purpose-driven layer focused on breast cancer survivors, areola tattooing, healing, body confidence, and care.",
+      "HON brings purpose into the system. Its focus on breast cancer survivors, 3D nipple and areola tattooing, healing, and body confidence adds a deeper emotional layer to the brand world surrounding Naked.",
     variant: "hon",
     url: "https://houseofnipple.org/",
   },
 ];
 
+
 const workHeroRailItems = [
-  { title: "Packaging system", image: "/Scruz_Work_Rail_01.png", fallback: "linear-gradient(135deg, #8f9154, #5d5f35)" },
-  { title: "Campaign world", image: "/Scruz_Work_Rail_02.png", fallback: "linear-gradient(135deg, #e05238, #8e281f)" },
-  { title: "Product storytelling", image: "/Scruz_Work_Rail_03.png", fallback: "linear-gradient(135deg, #236f86, #113f52)" },
-  { title: "Brand voice", image: "/Scruz_Work_Rail_04.png", fallback: "linear-gradient(135deg, #9a1268, #4f0838)" },
+  {
+    title: "Packaging system",
+    image: "/Scruz_Work_Rail_01.png",
+    fallback:
+      "linear-gradient(135deg, rgba(151, 149, 82, 0.96), rgba(116, 112, 60, 0.96))",
+  },
+  {
+    title: "Campaign world",
+    image: "/Scruz_Work_Rail_02.png",
+    fallback:
+      "linear-gradient(135deg, rgba(230, 97, 70, 0.96), rgba(193, 73, 49, 0.96))",
+  },
+  {
+    title: "Product storytelling",
+    image: "/Scruz_Work_Rail_03.png",
+    fallback:
+      "linear-gradient(135deg, rgba(45, 110, 136, 0.96), rgba(30, 81, 105, 0.96))",
+  },
+  {
+    title: "Brand voice",
+    image: "/Scruz_Work_Rail_04.png",
+    fallback:
+      "linear-gradient(135deg, rgba(149, 17, 100, 0.96), rgba(110, 10, 72, 0.96))",
+  },
 ];
 
-const skillsGroups = [
-  {
-    eyebrow: "01 / Creative Direction",
-    title: "Concept, taste, and visual authority.",
-    image: "/Scruz_Work_01.png",
-    items: ["Brand direction", "Campaign concepts", "Art direction", "Visual systems", "Audience strategy"],
-  },
-  {
-    eyebrow: "02 / Production Design",
-    title: "The hands-on part where ideas become assets.",
-    image: "/Scruz_Work_02.png",
-    items: ["Adobe Creative Suite", "Retouching", "Print + digital", "Decks", "Social assets"],
-  },
-  {
-    eyebrow: "03 / Motion + Media",
-    title: "Photo, video, motion, and cinematic polish.",
-    image: "/Scruz_Website_Hero_0002.png",
-    items: ["Photography", "Video editing", "After Effects", "Cinematography", "Sound design"],
-  },
-  {
-    eyebrow: "04 / Web + Systems",
-    title: "Useful technical range, not buzzword confetti.",
-    image: "/Scruz_Website_Hero_0003.png",
-    items: ["React", "CSS", "Python", "AI workflows", "Local automation"],
-  },
-];
 
 function useRevealTitles() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll(".revealTitle"));
+
     if (!elements.length) return undefined;
 
     const observer = new IntersectionObserver(
@@ -211,6 +223,7 @@ function useRevealTitles() {
     );
 
     elements.forEach((element) => observer.observe(element));
+
     return () => observer.disconnect();
   }, []);
 }
@@ -218,6 +231,7 @@ function useRevealTitles() {
 function useRevealCards() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll(".revealCard"));
+
     if (!elements.length) return undefined;
 
     const observer = new IntersectionObserver(
@@ -230,16 +244,17 @@ function useRevealCards() {
     );
 
     elements.forEach((element) => observer.observe(element));
+
     return () => observer.disconnect();
   }, []);
 }
 
 function SiteHeader() {
   return (
-    <header className="nav" id="top">
+    <header className="nav">
       <a className="nameplate" href="/">
         <strong>Stephen Cruz</strong>
-        <span>Brand Systems / Creative Direction</span>
+        <span>Creative Lead / Systems Builder / Artist</span>
       </a>
 
       <nav className="navLinks">
@@ -252,61 +267,68 @@ function SiteHeader() {
   );
 }
 
-function Button({ href, children, variant = "ghost", arrow = "↗" }) {
-  return (
-    <a className={`siteButton siteButton--${variant}`} href={href}>
-      <span>{children}</span>
-      <span className="buttonArrow">{arrow}</span>
-    </a>
-  );
-}
-
 function HomePage() {
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const activeHero = heroSlides[activeHeroIndex];
 
   return (
     <>
-      <section className="hero siteShell">
+      <section className="hero">
         <div className="heroCopy">
-          <p className="eyebrow">Creative systems with teeth</p>
+          <p className="eyebrow">
+            Not just a designer. A creative systems builder.
+          </p>
 
           <h1 className="heroTitle heroTitle--reveal revealTitle">
-            <span>Look Sharp.</span>
-            <span>Deliver Results.</span>
+            <span>Look Sharp</span>
+            <span className="heroTitleSmaller">Deliver Results</span>
           </h1>
 
           <p className="intro">
-            I build brand systems, campaign worlds, production assets, and AI-assisted workflows for teams that need more than a pretty layout. The work has to look expensive, move fast, and survive contact with real deadlines.
+            I turn scattered creative requests into brand systems, campaign
+            worlds, and automated production pipelines. Big-picture vision,
+            hands-on execution, and enough technical range to build the machine
+            instead of waiting for one.
           </p>
 
           <div className="buttons">
-            <Button href="#work">View Proof</Button>
-            <Button href="/work" variant="red">See Case Study</Button>
+            <a href="#work">
+              <span>View Proof</span>
+              <span className="buttonArrow">↗</span>
+            </a>
           </div>
         </div>
 
         <div className="heroStage" aria-label="Featured portfolio visual">
-          <div className="heroImage" style={{ "--hero-image": `url("${activeHero.image}")` }}>
-            <div className="heroFrameLine heroFrameLineTop" />
-            <div className="heroFrameLine heroFrameLineBottom" />
-            <div className="heroCorner heroCornerTopLeft" />
-            <div className="heroCorner heroCornerTopRight" />
-            <div className="heroCorner heroCornerBottomLeft" />
-            <div className="heroCorner heroCornerBottomRight" />
+          <div
+            className="heroImage"
+            style={{
+              "--hero-image": `url("${activeHero.image}")`,
+            }}
+          >
+            <div className="heroFrameLine heroFrameLineTop"></div>
+            <div className="heroFrameLine heroFrameLineBottom"></div>
+            <div className="heroCorner heroCornerTopLeft"></div>
+            <div className="heroCorner heroCornerTopRight"></div>
+            <div className="heroCorner heroCornerBottomLeft"></div>
+            <div className="heroCorner heroCornerBottomRight"></div>
 
             <div className="heroSelectors" aria-label="Featured visual selectors">
               {heroSlides.map((slide, index) => (
                 <button
                   key={slide.id}
-                  className={`selector ${activeHeroIndex === index ? "isActive" : ""}`}
+                  className={`selector selector${slide.id} ${
+                    activeHeroIndex === index ? "isActive" : ""
+                  }`}
                   type="button"
                   aria-label={`${slide.label} selector`}
                   aria-pressed={activeHeroIndex === index}
                   onClick={() => setActiveHeroIndex(index)}
-                  style={{ "--selector-image": `url("${slide.image}")` }}
+                  style={{
+                    "--selector-image": `url("${slide.image}")`,
+                  }}
                 >
-                  <span className="selectorDot" />
+                  <span className="selectorDot"></span>
                   <span className="selectorNumber">{slide.id}</span>
                 </button>
               ))}
@@ -324,23 +346,35 @@ function HomePage() {
       </section>
 
       <section id="work" className="section workSection">
-        <p className="eyebrow sectionEyebrow">Choose your entry point</p>
-        <div className="sectionHeader splitHeader">
+        <p className="eyebrow sectionEyebrow">Choose Your Entry Point</p>
+
+        <div className="sectionHeader">
           <h2 className="sectionTitle sectionTitle--proof revealTitle">
-            <span>Proof of systems,</span>
-            <span>not just style.</span>
+            <span>Proof of</span>
+            <span>life, not</span>
+            <span>just style.</span>
           </h2>
+
           <p className="sectionIntro">
-            Brand identity, campaign direction, visual worlds, and automation architecture: the connective tissue between idea, asset, workflow, and result.
+            Brand identity, campaign direction, visual worlds, and automation
+            architecture: the connective tissue between idea, asset, workflow,
+            and result.
           </p>
         </div>
 
         <div className="projectGrid">
-          {workItems.map((item, index) => (
-            <a className="projectItem revealCard" key={item.title} href={item.href} style={{ "--reveal-delay": `${index * 0.08}s` }}>
-              <div className="projectImage" style={{ "--project-image": `url("${item.image}")` }}>
+          {workItems.map((item) => (
+            <a className="projectItem" key={item.title} href={item.href}>
+              <div
+                className="projectImage"
+                style={{
+                  "--project-image": `url("${item.image}")`,
+                }}
+              >
+                <div className="projectImageOverlay"></div>
                 <span className="projectImageLabel">{item.imageLabel}</span>
               </div>
+
               <div className="projectCard">
                 <p>{item.eyebrow}</p>
                 <h3>{item.title}</h3>
@@ -353,51 +387,90 @@ function HomePage() {
 
       <section id="xen" className="section xenSection">
         <div className="xenHeader">
-          <p className="eyebrow xenEyebrow">Custom creative ops system</p>
+          <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
+
           <h2 className="xenTitle xenTitle--reveal revealTitle">
             <span>Xen</span>
             <strong>Agentic AI for Workflow Automation</strong>
           </h2>
+
           <p className="xenIntro">
-            Xen is a custom AI-assisted creative operations system running through my own local workflow. It helps sort requests, shape concepts, organize production, and speed up the process companies keep saying they desperately need, plus it lets me say, with a straight face, that I’m more than a graphic designer. I’m the value-add goblin in the wiring.
+            Xen is a custom AI-assisted creative operations system built to help
+            sort requests, shape concepts, route tasks, organize production, and
+            turn scattered creative chaos into a cleaner working pipeline.
           </p>
         </div>
-        <div className="xenVisual revealCard" aria-label="Xen workflow automation visual">
-          <img src="/Scruz_Xen_Section.png" alt="" onError={(event) => { event.currentTarget.style.display = "none"; }} />
+
+        <div className="xenVisual" aria-label="Xen workflow automation visual">
+          <img
+            src="/Scruz_Xen_Section.png"
+            alt=""
+            onError={(event) => {
+              event.currentTarget.style.display = "none";
+            }}
+          />
         </div>
+
+        <p className="xenOutro">
+          Part creative assistant, part production brain, part workflow skeleton.
+          Xen connects ideas, assets, notes, systems, and automation into one
+          evolving creative engine.
+        </p>
       </section>
     </>
   );
 }
 
+
 function WorkPage() {
   return (
     <>
       <section id="workTop" className="section workPageTopBannerSection">
-        <div className="workHeroBanner revealCard" aria-label="Naked All Natural product lineup banner">
-          <div className="workHeroBannerImage" style={{ "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")` }} />
-        </div>
+        <div
+          className="workGalleryBanner workGalleryBanner--top workGalleryBanner--image revealCard"
+          aria-label="Naked All Natural product lineup banner"
+          style={{
+            "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")`,
+          }}
+        ></div>
       </section>
 
       <section className="section workPageHeroSection">
         <div className="workPageHeroGrid workPageHeroGrid--caseIntro">
           <div className="workPageHeroCopy workPageHeroCopy--full">
-            <p className="eyebrow workPageEyebrow">Featured case study</p>
+            <p className="eyebrow workPageEyebrow">Featured / Naked All Natural</p>
+
             <h1 className="workPageTitle revealTitle">
               <span>Work That</span>
               <span>Builds Worlds.</span>
             </h1>
+
             <p className="workPageLead workPageLead--tight">
-              A brand system for natural skincare with roots in tattoo culture, piercing studios, body confidence, and everyday care.
+              A brand system for natural skincare with roots in tattoo culture,
+              piercing studios, body confidence, and everyday care.
             </p>
+
             <p className="workPageBody workPageBody--intro">
-              Naked All Natural needed more than a clean label and a nice product lineup. It needed a point of view: polished enough for e-commerce, warm enough for daily ritual, and sharp enough to stand apart from the beige chorus of wellness brands all whispering the same beige lullaby.
+              Naked All Natural needed more than a clean label and a nice product
+              lineup. It needed a point of view: polished enough for e-commerce,
+              warm enough for daily ritual, and sharp enough to stand apart from
+              the beige chorus of wellness brands all saying the same thing in
+              softer lighting. This case study follows the identity, language,
+              campaign thinking, and visual structure built around that idea.
             </p>
-            <div className="buttons workPageButtons"><Button href="#nakedCaseStudy">View Full Project</Button></div>
           </div>
 
-          <aside className="workPageHeroAside revealCard" aria-label="Case study quick links and preview tiles">
-            <Button href="#nakedCaseStudy">View Case Study</Button>
+          <aside
+            className="workPageHeroAside revealCard"
+            aria-label="Case study quick links and preview tiles"
+          >
+            <div className="buttons workPageButtons workPageButtons--right">
+              <a href="#nakedCaseStudy">
+                <span>View Case Study</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+            </div>
+
             <div className="workPageTileGrid">
               {workHeroRailItems.map((item, index) => (
                 <div
@@ -419,27 +492,41 @@ function WorkPage() {
       </section>
 
       <section id="nakedCaseStudy" className="section workCaseStudySection">
-        <div className="workSectionHeader workSectionHeader--tight workSectionHeader--center">
-          <p className="workKicker">Case Study</p>
+        <div className="workSectionHeader workSectionHeader--tight">
+          <p className="workKicker">Case Study Overview</p>
           <h2 className="sectionTitle sectionTitle--workpage sectionTitle--nakedCase revealTitle">
-            <span>Naked: Soft Skin, Sharp Identity.</span>
+            <span>Naked : Soft Skin, Sharp Identity.</span>
           </h2>
         </div>
 
         <div className="workCaseStudyGrid workCaseStudyGrid--single">
           <div className="workCaseStudyCopy revealCard">
-            <div>
-              <p className="workKicker">Overview</p>
-              <h3>Natural Skincare, Reimagined.</h3>
-            </div>
+            <h3>Natural Skincare, Reimagined.</h3>
+
             <p>
-              Naked All Natural sits in a rare space: clean skincare with a real connection to body-art culture. The brand speaks to people who treat their skin as part of their identity, whether tattooed, pierced, healing, sensitive, decorated, or simply tired of weak formulas and overhyped claims.
+              Naked All Natural sits in a rare space: clean skincare with a real
+              connection to body-art culture. The brand speaks to people who
+              treat their skin as part of their identity, whether tattooed,
+              pierced, healing, sensitive, decorated, or simply tired of beauty
+              brands that sound like they were written inside a scented candle.
             </p>
+
             <p>
-              The creative direction was built around contrast. Natural ingredients without turning precious. Aftercare credibility without turning clinical. Humor without making the product feel cheap. The goal was to create a system that felt clear, tactile, and memorable.
+              The creative direction was built around contrast. Natural ingredients
+              without the preciousness. Aftercare credibility without turning
+              the brand clinical. Humor without making the product feel cheap.
+              The goal was to create a system that felt clear, tactile, and
+              memorable: something that could live comfortably on a bathroom
+              shelf, in a studio, or inside a polished e-commerce experience
+              without losing its pulse.
             </p>
+
             <p>
-              The larger ecosystem gave the work more depth. Industrial Strength Needles brings professional piercing credibility, while HON / House of Nipple adds a human layer of recovery, confidence, and care. Together, they give the work a world to belong to.
+              The larger ecosystem gave the work more depth. Industrial Strength
+              Needles brings a real connection to professional piercing culture,
+              while HON / House of Nipple adds a human layer of recovery,
+              confidence, and care. Together, they turn Naked into more than a
+              skincare line. They give it a world to belong to.
             </p>
           </div>
         </div>
@@ -448,13 +535,20 @@ function WorkPage() {
       <section className="section workGallerySection">
         <div className="workHighlightGrid">
           {workHighlights.map((item, index) => (
-            <article className={`workHighlightCard workHighlightCard--${item.variant} revealCard`} key={item.title} style={{ "--reveal-delay": `${index * 0.08}s` }}>
-              <div className="workHighlightImage" style={{ "--work-card-image": `url("${item.image}")` }}>
-                <div className="workHighlightText">
-                  <p>{item.eyebrow}</p>
-                  <h3>{item.title}</h3>
-                  <span>{item.copy}</span>
-                </div>
+            <article
+              className={`workHighlightCard workHighlightCard--${item.variant} revealCard`}
+              key={item.title}
+              style={{ "--reveal-delay": `${index * 0.08}s` }}
+            >
+              <div
+                className="workHighlightImage"
+                style={{ "--work-card-image": `url("${item.image}")` }}
+              >
+                <span className="workImageTopLabel">{item.eyebrow}</span>
+              </div>
+              <div className="workHighlightContent">
+                <h3>{item.title}</h3>
+                <span>{item.copy}</span>
               </div>
             </article>
           ))}
@@ -463,20 +557,28 @@ function WorkPage() {
 
       <section className="section workBrandsSection">
         <div className="workSectionHeader workSectionHeader--center">
-          <p className="workKicker">The Brand Ecosystem</p>
           <h2 className="sectionTitle sectionTitle--workpage sectionTitle--brandEcosystem revealTitle">
-            <span>One World. Three Brands.</span>
+            <span>The Brand Ecosystem.</span>
           </h2>
         </div>
 
         <div className="workBrandGrid">
           {sisterBrands.map((brand, index) => (
-            <a className={`workBrandCard workBrandCard--${brand.variant} revealCard`} key={brand.name} href={brand.url} target="_blank" rel="noreferrer" style={{ "--reveal-delay": `${index * 0.08}s` }}>
-              <div className="workBrandImage" style={{ "--work-brand-image": `url("${brand.image}")` }}>
-                <div className="workBrandContent">
-                  <h3>{brand.name}</h3>
-                  <span>{brand.copy}</span>
-                </div>
+            <a
+              className={`workBrandCard workBrandCard--${brand.variant} revealCard`}
+              key={brand.name}
+              href={brand.url}
+              target="_blank"
+              rel="noreferrer"
+              style={{ "--reveal-delay": `${index * 0.08}s` }}
+            >
+              <div
+                className="workBrandImage"
+                style={{ "--work-brand-image": `url("${brand.image}")` }}
+              ></div>
+              <div className="workBrandContent">
+                <h3>{brand.name}</h3>
+                <span>{brand.copy}</span>
               </div>
             </a>
           ))}
@@ -486,14 +588,18 @@ function WorkPage() {
       <section className="section workQuoteSection">
         <div className="workQuoteCard revealCard">
           <p className="workQuoteEyebrow">Why It Matters</p>
-          <h2>A good brand system does more than make things look related. It gives the work somewhere to live.</h2>
+          <h2>
+            A good brand system does more than make things look related.
+            It gives the work somewhere to live.
+          </h2>
           <p>
-            Naked All Natural became more than a product. It became a platform for care, clarity, and culture. The work had to support products, campaigns, studio credibility, e-commerce, and a wider body-art ecosystem without flattening the personality that made the brand interesting in the first place.
+            Naked All Natural became a case study in building around tone,
+            culture, clarity, and care. The work had to support products,
+            campaigns, studio credibility, e-commerce, and a wider body-art
+            ecosystem without flattening the personality that made the brand
+            interesting in the first place. That is the kind of creative system
+            I like building: polished, practical, and still unmistakably alive.
           </p>
-          <div className="quoteButtons">
-            <Button href="mailto:ravenmacabrex12@gmail.com" variant="red">Let’s Build Your World</Button>
-            <Button href="#workTop" arrow="↑">Back to Top</Button>
-          </div>
         </div>
       </section>
     </>
@@ -507,29 +613,55 @@ function AboutPage() {
         <div className="aboutHeroGrid">
           <div className="aboutHeroCopy">
             <p className="eyebrow">About / The Engine</p>
+
             <h1 className="aboutTitle revealTitle">
               <span>Not Just a Designer.</span>
               <span>A Creative Engine.</span>
             </h1>
+
             <p className="aboutLead">
-              I’m Stephen Cruz, a creative lead, designer, artist, photographer, editor, and systems builder with 20+ years of experience across web, branding, campaign creative, production, photo, video, motion, print, and AI-assisted workflow.
+              I’m Stephen Cruz, a creative lead, designer, artist, editor, and
+              systems builder with 20+ years of experience across web, branding,
+              campaign creative, digital content, video, motion, AI-assisted
+              workflow, and creative operations.
             </p>
+
             <p className="aboutBody">
-              I started in the early web during the dot-com era, working with web shops, agencies, brands, and production teams before moving through agency life, freelance work, Davis Advertising, and nearly six years as Creative Lead at Xtreme Marketing.
+              I started in the early web during the dot-com era, working with web
+              shops, brands, and production teams before moving through agency
+              life, freelance work, and the nightclub industry. That mix gave me
+              a practical creative range and an extensive amount of technical
+              abilities.
             </p>
+
             <p className="aboutBody">
-              My work lives at the intersection of visual taste, cultural awareness, technical curiosity, and production discipline. I can concept the idea, design the asset, shape the campaign, polish the final, and improve the process behind it.
+              My work lives at the intersection of visual taste, cultural
+              awareness, technical curiosity, and production discipline. I’m
+              connected across platforms, fluent in how modern audiences see and
+              react, and comfortable moving between art direction, hands-on
+              design, web, motion, AI, and workflow strategy.
             </p>
+
             <p className="aboutBody">
-              Basically, I’m the person you call when the brief needs an art director, a designer, a production brain, a technical translator, and one mildly haunted problem-solver in the same chair.
+              Basically, I’m a highly caffeinated 21st-century creative human who
+              can make the thing, improve the machine around the thing, and
+              usually figure out why the thing broke in the first place.
             </p>
+
             <div className="buttons aboutButtons">
-              <Button href="/work">See the Work</Button>
-              <Button href="/skills">View Skills</Button>
+              <a href="/work">
+                <span>See the Work</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+              <a href="/skills">
+                <span>View Skills</span>
+                <span className="buttonArrow">↗</span>
+              </a>
             </div>
           </div>
-          <div className="aboutPortraitCard revealCard" aria-label="Portrait of Stephen Cruz">
-            <div className="aboutPortraitImage" />
+
+          <div className="aboutPortraitCard" aria-label="Portrait of Stephen Cruz">
+            <div className="aboutPortraitImage"></div>
           </div>
         </div>
       </section>
@@ -537,7 +669,14 @@ function AboutPage() {
       <section className="section aboutStatsSection" aria-label="About highlights">
         <div className="aboutStatsGrid">
           {aboutStats.map((stat, index) => (
-            <div className="aboutStat revealCard" key={stat.value} style={{ "--stat-image": `url("${stat.image}")`, "--reveal-delay": `${index * 0.08}s` }}>
+            <div
+              className="aboutStat revealCard"
+              key={stat.value}
+              style={{
+                "--stat-image": `url("${stat.image}")`,
+                "--reveal-delay": `${index * 0.08}s`,
+              }}
+            >
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
             </div>
@@ -553,41 +692,49 @@ function AboutPage() {
             <span>Behind the Style.</span>
           </h2>
         </div>
+
         <div className="aboutPrinciplesGrid">
           {aboutPrinciples.map((item, index) => (
-            <article className="aboutPrinciple revealCard" key={item.title} style={{ "--principle-image": `url("${item.image}")`, "--reveal-delay": `${index * 0.08}s` }}>
+            <article
+              className="aboutPrinciple revealCard"
+              key={item.title}
+              style={{
+                "--principle-image": `url("${item.image}")`,
+                "--reveal-delay": `${index * 0.08}s`,
+              }}
+            >
               <p>{item.eyebrow}</p>
               <h3>{item.title}</h3>
               <span>{item.copy}</span>
             </article>
           ))}
         </div>
-        <div className="aboutBackTop"><Button href="#aboutTop" arrow="↑">Back to Top</Button></div>
+
+        <div className="aboutBackTop">
+          <a href="#aboutTop">
+            <span>Back to Top</span>
+            <span className="buttonArrow">↑</span>
+          </a>
+        </div>
       </section>
     </>
   );
 }
 
-function SkillsPage() {
+function PlaceholderPage({ title, copy }) {
   return (
-    <section id="skillsTop" className="section skillsPage">
-      <p className="eyebrow">Skills / Tools / Range</p>
-      <h1 className="aboutTitle revealTitle"><span>Taste With</span><span>a Tool Belt.</span></h1>
-      <p className="aboutLead skillsLead">
-        A practical creative stack for concepting, designing, building, shooting, editing, automating, and shipping. Not a buzzword museum, more like a garage full of dangerous-looking instruments that actually work.
-      </p>
-      <div className="skillsGrid">
-        {skillsGroups.map((group, index) => (
-          <article className="skillCard revealCard" key={group.title} style={{ "--skill-image": `url("${group.image}")`, "--reveal-delay": `${index * 0.08}s` }}>
-            <p>{group.eyebrow}</p>
-            <h2>{group.title}</h2>
-            <div className="skillPills">
-              {group.items.map((item) => <span key={item}>{item}</span>)}
-            </div>
-          </article>
-        ))}
+    <section className="section placeholderPage">
+      <p className="eyebrow">Coming Next</p>
+      <h1 className="aboutTitle revealTitle">
+        <span>{title}</span>
+      </h1>
+      <p className="aboutLead">{copy}</p>
+      <div className="buttons aboutButtons">
+        <a href="/">
+          <span>Back Home</span>
+          <span className="buttonArrow">↗</span>
+        </a>
       </div>
-      <div className="aboutBackTop"><Button href="#skillsTop" arrow="↑">Back to Top</Button></div>
     </section>
   );
 }
@@ -597,15 +744,26 @@ function App() {
   useRevealCards();
 
   const path = window.location.pathname;
+
   let page = <HomePage />;
 
-  if (path === "/about") page = <AboutPage />;
-  else if (path === "/work") page = <WorkPage />;
-  else if (path === "/skills") page = <SkillsPage />;
+  if (path === "/about") {
+    page = <AboutPage />;
+  } else if (path === "/work") {
+    page = <WorkPage />;
+  } else if (path === "/skills") {
+    page = (
+      <PlaceholderPage
+        title="Skills"
+        copy="The dedicated skills page is next. This will become the practical breakdown of tools, production range, and technical systems."
+      />
+    );
+  }
 
   return (
     <>
       <div className="site-bg" aria-hidden="true" />
+
       <main className="site">
         <SiteHeader />
         {page}
