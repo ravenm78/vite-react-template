@@ -495,7 +495,7 @@ function WorkPage() {
         <div className="workSectionHeader workSectionHeader--tight">
           <p className="workKicker">Case Study Overview</p>
           <h2 className="sectionTitle sectionTitle--workpage sectionTitle--nakedCase revealTitle">
-            <span>Naked: Soft Skin, Sharp Identity.</span>
+            <span>Naked : Soft Skin, Sharp Identity.</span>
           </h2>
         </div>
 
