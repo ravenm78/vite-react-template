@@ -1017,17 +1017,6 @@ function SkillsPage() {
               badges. A set of connected abilities shaped by actually making the
               work.
             </p>
-
-            <div className="skillsActiveCard" style={{ "--active-color": activeSkill.color }}>
-              <p>{String(activeSkillIndex + 1).padStart(2, "0")} / Selected Capability</p>
-              <h2>{activeSkill.name}</h2>
-              <span>{activeSkill.copy}</span>
-              <div className="skillsToolList" aria-label={`${activeSkill.name} supporting tools`}>
-                {activeSkill.tools.map((tool) => (
-                  <em key={tool}>{tool}</em>
-                ))}
-              </div>
-            </div>
           </div>
 
           <div
@@ -1063,6 +1052,17 @@ function SkillsPage() {
                   />
                 ))}
               </div>
+            </div>
+          </div>
+
+          <div className="skillsActiveCard" style={{ "--active-color": activeSkill.color }}>
+            <p>{String(activeSkillIndex + 1).padStart(2, "0")} / Selected Capability</p>
+            <h2>{activeSkill.name}</h2>
+            <span>{activeSkill.copy}</span>
+            <div className="skillsToolList" aria-label={`${activeSkill.name} supporting tools`}>
+              {activeSkill.tools.map((tool) => (
+                <em key={tool}>{tool}</em>
+              ))}
             </div>
           </div>
         </div>
