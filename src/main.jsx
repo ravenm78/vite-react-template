@@ -66,16 +66,19 @@ const workItems = [
 const aboutStats = [
   {
     value: "20+",
+    image: "/Scruz_About_20Years.png",
     label:
       "Years of creative range across web, branding, campaign work, digital content, video, motion, and the messy reality of getting good work finished.",
   },
   {
     value: "AI",
+    image: "/Scruz_About_AI.png",
     label:
       "Practical AI use for speeding up concepting, organizing ideas, testing directions, and building smarter creative workflows without letting the tools flatten the taste.",
   },
   {
     value: "Xen",
+    image: "/Scruz_About_Xen.png",
     label:
       "My own custom workflow system, built to help sort requests, develop concepts, organize production, and make the creative process less scattered.",
   },
@@ -85,22 +88,96 @@ const aboutPrinciples = [
   {
     eyebrow: "01 / Direction",
     title: "I turn the fog into a plan.",
+    image: "/Scruz_About_Direction.png",
     copy:
       "A messy ask, a half-formed idea, and four usable sentences: that is where I’m useful. I find the real message, shape the hierarchy, and turn loose creative noise into something clear enough to actually move on.",
   },
   {
     eyebrow: "02 / Creation",
     title: "I build polished work that holds together.",
+    image: "/Scruz_About_Creation.png",
     copy:
       "I move from concept to execution with a strong eye for layout, hierarchy, pacing, tone, and detail. Whether it is a website, campaign direction, digital asset, motion piece, presentation, or brand system, I care about making the final work feel intentional, sharp, and finished.",
   },
   {
     eyebrow: "03 / Systems",
     title: "I make the next round easier.",
+    image: "/Scruz_About_Systems.png",
     copy:
       "Good creative should not fall apart the second it needs version two. I think in reusable patterns, smarter handoffs, cleaner workflows, practical AI support, and systems that help the work move faster without sanding all the personality off it.",
   },
 ];
+
+
+const workHighlights = [
+  {
+    eyebrow: "01 / Brand Positioning",
+    title: "Pierced, tattooed, or bare: one skincare system.",
+    image: "/Scruz_Work_Naked_Product_Identity.png",
+    copy:
+      "Naked needed to speak clearly to multiple use cases without splintering the brand. The positioning connects tattoo aftercare, piercing aftercare, sensitive skin, dryness, redness, and daily skincare under one blunt, memorable idea: natural alternative skincare that works for real bodies.",
+    variant: "identity",
+  },
+  {
+    eyebrow: "02 / Product Architecture",
+    title: "A line built around routines, concerns, and bundles.",
+    image: "/Scruz_Work_Naked_Campaign_Voice.png",
+    copy:
+      "Daily Cleanser, Calming Oil, Soothing Salve, Daily Lotion, Body Tea, Lip Butter, Minipacks, Starter Sets, and Build-a-Bundle paths all needed to feel like part of the same family, not random products trapped in the same shopping cart.",
+    variant: "voice",
+  },
+  {
+    eyebrow: "03 / Voice + Audience",
+    title: "Clean skincare without the beige spa coma.",
+    image: "/Scruz_Work_Naked_Audience.png",
+    copy:
+      "The brand voice can be funny, useful, direct, and a little feral when it needs to be. That matters for a brand selling to tattoo artists, piercers, studio clients, body-art people, and everyday customers who still want clean, vegan-friendly, cruelty-free products made in the USA.",
+    variant: "audience",
+  },
+];
+
+const workDeliverables = [
+  "Creative direction",
+  "Brand positioning",
+  "Product line storytelling",
+  "E-commerce content structure",
+  "Skin concern navigation",
+  "Campaign concepts",
+  "Audience strategy",
+  "Digital content direction",
+  "Wholesale/studio messaging",
+  "Brand ecosystem development",
+  "AI-assisted workflow support",
+  "Presentation and web assets",
+];
+
+const sisterBrands = [
+  {
+    name: "Naked All Natural",
+    image: "/Scruz_Work_Naked_Brand.png",
+    copy:
+      "The main brand: natural alternative skincare for pierced, tattooed, and bare skin, with a product world built around clean ingredients, aftercare, daily routines, bundles, and skin concerns.",
+    variant: "naked",
+    url: "https://nakedallnatural.com/",
+  },
+  {
+    name: "Industrial Strength Needles",
+    image: "/Scruz_Work_Industrial_Strength.png",
+    copy:
+      "Maria Pinto’s larger body-art ecosystem includes Industrial Strength, a major name in professional piercing needles. That connection gives Naked a real cultural bridge into studios, piercers, tattoo artists, and aftercare credibility.",
+    variant: "needles",
+    url: "https://industrialstrengthneedles.com/",
+  },
+  {
+    name: "HON / House of Nipple",
+    image: "/Scruz_Work_HON.png",
+    copy:
+      "House of Nipple adds a purpose-driven layer: a nonprofit focused on helping breast cancer survivors receive 3D nipple and areola tattoos, with Naked positioned as part of the healing and aftercare conversation.",
+    variant: "hon",
+    url: "https://houseofnipple.org/",
+  },
+];
+
 
 function useRevealTitles() {
   useEffect(() => {
@@ -115,6 +192,27 @@ function useRevealTitles() {
         });
       },
       { threshold: 0.34, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+}
+
+function useRevealCards() {
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll(".revealCard"));
+
+    if (!elements.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("isVisible", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.22, rootMargin: "0px 0px -8% 0px" }
     );
 
     elements.forEach((element) => observer.observe(element));
@@ -295,10 +393,241 @@ function HomePage() {
   );
 }
 
+
+function WorkPage() {
+  return (
+    <>
+      <section id="workTop" className="section workPageTopBannerSection">
+        <div
+          className="workGalleryBanner workGalleryBanner--top workGalleryBanner--image revealCard"
+          aria-label="Naked All Natural product lineup banner"
+          style={{
+            "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")`,
+          }}
+        >
+        </div>
+      </section>
+
+      <section className="section workPageHeroSection">
+        <div className="workPageHeroGrid">
+          <div className="workPageHeroCopy">
+            <p className="eyebrow">Work / Featured Case Study</p>
+
+            <h1 className="workPageTitle revealTitle">
+              <span>Work That</span>
+              <span>Builds Worlds.</span>
+            </h1>
+
+            <p className="workPageLead">
+              Creative direction, campaign systems, product storytelling, e-commerce
+              structure, body-art audience strategy, and high-volume content for
+              a skincare brand with more pulse than the average beige wellness shelf.
+            </p>
+
+            <p className="workPageBody">
+              This case study centers on a real brand ecosystem: Naked All Natural,
+              Industrial Strength Needles, and HON / House of Nipple. The work
+              touches brand voice, product hierarchy, campaign direction, studio
+              culture, aftercare credibility, and the weird little miracle of
+              making natural skincare feel less like oatmeal and more like a
+              brand people remember.
+            </p>
+
+            <div className="buttons workPageButtons">
+              <a href="#nakedCaseStudy">
+                <span>View Case Study</span>
+                <span className="buttonArrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div
+            className="workHeroVisual workHeroVisual--image revealCard"
+            aria-label="Featured Naked All Natural project image"
+            style={{
+              "--work-featured-image": `url("/Scruz_Work_Naked_Featured_Project.png")`,
+            }}
+          >
+            <div className="workHeroVisualBadge">Featured Project</div>
+            <div className="workHeroVisualTitle">Naked All Natural</div>
+            <div className="workHeroVisualMeta">
+              Natural alternative skincare / body-art aftercare / brand ecosystem
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="nakedCaseStudy" className="section workCaseStudySection">
+        <div className="workSectionHeader">
+          <p className="eyebrow sectionEyebrow">Featured / Naked All Natural</p>
+          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
+            <span>Naked All Natural:</span>
+            <span>Soft Skin, Sharp Identity.</span>
+          </h2>
+        </div>
+
+        <div className="workCaseStudyGrid">
+          <div className="workCaseStudyCopy revealCard">
+            <p className="workKicker">Case Study Overview</p>
+            <h3>Natural skincare did not need to look sleepy. It needed a pulse, a little attitude, and a clear reason to exist.</h3>
+
+            <p>
+              Naked All Natural is a natural alternative skincare brand with deep
+              roots in tattoo and piercing culture. Its products are built for
+              pierced skin, tattooed skin, bare skin, sensitive skin, dryness,
+              redness, lip blushing care, and everyday routines. The challenge
+              was not simply to make the brand look “clean” or “organic.” It
+              needed to feel credible in aftercare, useful in daily skincare,
+              and memorable in a category where too many brands drift into the
+              same soft-focus wellness fog.
+            </p>
+
+            <p>
+              For Naked All Natural, the creative direction had to balance trust,
+              clean ingredients, botanical aftercare, and a sharper body-art
+              personality. The product world includes Daily Cleanser, Calming
+              Oil, Soothing Salve, Daily Lotion, Body Tea, Lip Butter, Minipacks,
+              Starter Sets, and Build-a-Bundle paths, so the brand needed a
+              structure that could hold product education, humor, routine-based
+              shopping, and skin-concern navigation without feeling clinical.
+            </p>
+
+            <p>
+              The larger ecosystem matters. Naked sits beside Industrial Strength
+              Needles, tying the brand to professional piercing and tattoo
+              culture, and HON / House of Nipple, a nonprofit connected to
+              breast cancer survivors, body confidence, 3D nipple and areola
+              tattoos, and healing aftercare. That gave the case study more than
+              products. It gave it a world: skincare, studios, recovery,
+              confidence, humor, and purpose orbiting the same creative core.
+            </p>
+          </div>
+
+          <div
+            className="workCaseStudyVisual workCaseStudyVisual--image revealCard"
+            aria-label="Naked All Natural hero visual"
+            style={{
+              "--work-hero-image": `url("/Scruz_Work_Naked_Hero.png")`,
+            }}
+          ></div>
+        </div>
+      </section>
+
+      <section className="section workGallerySection">
+        <div className="workHighlightGrid">
+          {workHighlights.map((item, index) => (
+            <article
+              className={`workHighlightCard workHighlightCard--${item.variant} revealCard`}
+              key={item.title}
+              style={{ "--reveal-delay": `${index * 0.08}s` }}
+            >
+              <div
+                className="workHighlightImage"
+                style={{ "--work-card-image": `url("${item.image}")` }}
+              >
+                <span className="workPlaceholderLabel">
+                  {item.eyebrow}
+                </span>
+              </div>
+              <div className="workHighlightContent">
+                <p>{item.eyebrow}</p>
+                <h3>{item.title}</h3>
+                <span>{item.copy}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="section workDeliverablesSection">
+        <div className="workDeliverablesGrid">
+          <div className="workDeliverablesCopy revealCard">
+            <p className="eyebrow sectionEyebrow">What I Built</p>
+            <h2 className="sectionTitle sectionTitle--workpage sectionTitle--compact revealTitle">
+              <span>Direction.</span>
+              <span>Assets.</span>
+              <span>Systems.</span>
+            </h2>
+            <p className="sectionIntro">
+              The value was not just making the brand look better. It was helping
+              clarify the world around it: what the products do, who they serve,
+              how the voice behaves, how shoppers navigate routines and skin
+              concerns, and how the brand can stretch across e-commerce,
+              wholesale, social, studio relationships, and sister-brand purpose.
+            </p>
+          </div>
+
+          <div className="workDeliverablesList revealCard">
+            {workDeliverables.map((item) => (
+              <span className="workDeliverablePill" key={item}>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section workBrandsSection">
+        <div className="workSectionHeader">
+          <p className="eyebrow sectionEyebrow">Brand Ecosystem</p>
+          <h2 className="sectionTitle sectionTitle--workpage revealTitle">
+            <span>One Main Brand.</span>
+            <span>A Wider Creative Universe.</span>
+          </h2>
+        </div>
+
+        <div className="workBrandGrid">
+          {sisterBrands.map((brand, index) => (
+            <a
+              className={`workBrandCard workBrandCard--${brand.variant} revealCard`}
+              key={brand.name}
+              href={brand.url}
+              target="_blank"
+              rel="noreferrer"
+              style={{ "--reveal-delay": `${index * 0.08}s` }}
+            >
+              <div
+                className="workBrandImage"
+                style={{ "--work-brand-image": `url("${brand.image}")` }}
+              >
+                <span className="workPlaceholderLabel">{brand.name} Placeholder</span>
+              </div>
+              <div className="workBrandContent">
+                <h3>{brand.name}</h3>
+                <span>{brand.copy}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section workQuoteSection">
+        <div className="workQuoteCard revealCard">
+          <p className="workQuoteEyebrow">Why It Matters</p>
+          <h2>Good branding is not a single image. It is a system people can recognize, trust, use, and remember.</h2>
+          <p>
+            Naked All Natural became a strong anchor project because it brought
+            together product storytelling, tattoo and piercing aftercare,
+            e-commerce structure, audience strategy, humor, clean skincare, and
+            a larger ecosystem of connected creative thinking.
+          </p>
+
+          <div className="buttons workPageButtons workPageButtons--center">
+            <a href="#workTop">
+              <span>Back to Top</span>
+              <span className="buttonArrow">↑</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+
 function AboutPage() {
   return (
     <>
-      <section className="section aboutHeroSection">
+      <section id="aboutTop" className="section aboutHeroSection">
         <div className="aboutHeroGrid">
           <div className="aboutHeroCopy">
             <p className="eyebrow">About / The Engine</p>
@@ -351,17 +680,21 @@ function AboutPage() {
 
           <div className="aboutPortraitCard" aria-label="Portrait of Stephen Cruz">
             <div className="aboutPortraitImage"></div>
-            <div className="aboutPortraitPanel">
-              <h2>I like to make things.</h2>
-            </div>
           </div>
         </div>
       </section>
 
       <section className="section aboutStatsSection" aria-label="About highlights">
         <div className="aboutStatsGrid">
-          {aboutStats.map((stat) => (
-            <div className="aboutStat" key={stat.value}>
+          {aboutStats.map((stat, index) => (
+            <div
+              className="aboutStat revealCard"
+              key={stat.value}
+              style={{
+                "--stat-image": `url("${stat.image}")`,
+                "--reveal-delay": `${index * 0.08}s`,
+              }}
+            >
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
             </div>
@@ -379,13 +712,27 @@ function AboutPage() {
         </div>
 
         <div className="aboutPrinciplesGrid">
-          {aboutPrinciples.map((item) => (
-            <article className="aboutPrinciple" key={item.title}>
+          {aboutPrinciples.map((item, index) => (
+            <article
+              className="aboutPrinciple revealCard"
+              key={item.title}
+              style={{
+                "--principle-image": `url("${item.image}")`,
+                "--reveal-delay": `${index * 0.08}s`,
+              }}
+            >
               <p>{item.eyebrow}</p>
               <h3>{item.title}</h3>
               <span>{item.copy}</span>
             </article>
           ))}
+        </div>
+
+        <div className="aboutBackTop">
+          <a href="#aboutTop">
+            <span>Back to Top</span>
+            <span className="buttonArrow">↑</span>
+          </a>
         </div>
       </section>
     </>
@@ -412,6 +759,7 @@ function PlaceholderPage({ title, copy }) {
 
 function App() {
   useRevealTitles();
+  useRevealCards();
 
   const path = window.location.pathname;
 
@@ -420,12 +768,7 @@ function App() {
   if (path === "/about") {
     page = <AboutPage />;
   } else if (path === "/work") {
-    page = (
-      <PlaceholderPage
-        title="Work"
-        copy="The dedicated work page is next. For now, the homepage proof cards still show the core entry points."
-      />
-    );
+    page = <WorkPage />;
   } else if (path === "/skills") {
     page = (
       <PlaceholderPage
