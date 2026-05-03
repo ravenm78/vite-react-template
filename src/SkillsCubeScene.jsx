@@ -4,12 +4,12 @@ import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /*
-  V19 goals:
+  V20 goals:
   Tier 1:
   - richer glass/acrylic cube materials
   - better lighting and edge glow
   - individual cube motion personalities
-  - hover-triggered cube-face glint/highlight + glowing nucleus core
+  - hover-triggered cube-face glint/highlight + clearly visible glowing nucleus core
 
   Tier 2:
   - subtle background particles
@@ -480,17 +480,17 @@ function PremiumCube({
     }
 
     if (nucleusShellRef.current) {
-      nucleusShellRef.current.rotation.x -= 0.006;
-      nucleusShellRef.current.rotation.y += 0.009;
+      nucleusShellRef.current.rotation.x -= 0.009;
+      nucleusShellRef.current.rotation.y += 0.014;
       const nucleusScale = isActive
-        ? 0.62 + Math.sin(t * 3.1) * 0.05
-        : 0.34 + Math.sin(t * 1.4) * 0.012;
+        ? 0.82 + Math.sin(t * 3.25) * 0.075
+        : 0.42 + Math.sin(t * 1.4) * 0.012;
       nucleusShellRef.current.scale.setScalar(nucleusScale);
-      nucleusShellRef.current.material.opacity = isActive ? 0.28 + Math.sin(t * 3.1) * 0.08 : 0.055;
+      nucleusShellRef.current.material.opacity = isActive ? 0.62 + Math.sin(t * 3.25) * 0.12 : 0.09;
     }
 
     if (nucleusLightRef.current) {
-      nucleusLightRef.current.intensity = isActive ? 0.42 + Math.sin(t * 3.2) * 0.18 : 0;
+      nucleusLightRef.current.intensity = isActive ? 1.15 + Math.sin(t * 3.2) * 0.35 : 0;
     }
 
     if (auraRef.current) {
@@ -614,24 +614,50 @@ function PremiumCube({
           <boxGeometry args={[size, size, size]} />
         </mesh>
 
-        {/* Inner nucleus: small cube that wakes up on hover/selection. */}
-        <mesh ref={innerRef}>
-          <boxGeometry args={[size * 0.24, size * 0.24, size * 0.24]} />
+        {/* Inner nucleus: intentionally visible through the glass cube on hover/selection. */}
+        <mesh ref={innerRef} renderOrder={20}>
+          <boxGeometry args={[size * 0.32, size * 0.32, size * 0.32]} />
           <meshBasicMaterial
-            color={hex(skill.color, 1.28)}
+            color={hex(skill.color, 1.65)}
             transparent
-            opacity={isActive ? 0.46 : 0.1}
+            opacity={isActive ? 0.92 : 0.16}
+            depthTest={false}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
           />
         </mesh>
 
-        <mesh ref={nucleusShellRef}>
-          <boxGeometry args={[size * 0.34, size * 0.34, size * 0.34]} />
+        <mesh ref={nucleusShellRef} renderOrder={19}>
+          <boxGeometry args={[size * 0.46, size * 0.46, size * 0.46]} />
           <meshBasicMaterial
-            color={hex(skill.color, 1.55)}
+            color={hex(skill.color, 1.9)}
             transparent
-            opacity={isActive ? 0.28 : 0.055}
+            opacity={isActive ? 0.62 : 0.09}
+            depthTest={false}
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+
+        <lineSegments renderOrder={21}>
+          <edgesGeometry args={[new THREE.BoxGeometry(size * 0.46, size * 0.46, size * 0.46)]} />
+          <lineBasicMaterial
+            color="#ffffff"
+            transparent
+            opacity={isActive ? 0.82 : 0.12}
+            depthTest={false}
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </lineSegments>
+
+        <mesh renderOrder={18} scale={isActive ? 1 : 0.55}>
+          <sphereGeometry args={[size * 0.48, 24, 24]} />
+          <meshBasicMaterial
+            color={skill.color}
+            transparent
+            opacity={isActive ? 0.16 : 0.025}
+            depthTest={false}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
           />
@@ -640,9 +666,9 @@ function PremiumCube({
         <pointLight
           ref={nucleusLightRef}
           color={skill.color}
-          intensity={isActive ? 0.42 : 0}
-          distance={size * 2.1}
-          decay={2}
+          intensity={isActive ? 1.15 : 0}
+          distance={size * 3.2}
+          decay={1.65}
         />
 
         <CubeEdges
