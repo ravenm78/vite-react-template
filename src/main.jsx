@@ -949,16 +949,9 @@ function SkillsPage() {
             </h1>
 
             <p className="skillsLead">
-              My value is range with follow-through. I can think like a creative
-              lead, design like a specialist, produce like a maker, troubleshoot
-              like a systems person, and keep moving when the project gets messy.
-              Across branding, campaign creative, photography, video, motion,
-              web, AI-assisted workflow, and production, the common thread is
-              simple: I know how to turn scattered ideas into finished work that
-              looks intentional, feels current, and survives the real world. And
-              I keep adding to the range, learning new tools, testing new systems,
-              and sharpening the process so the work does not just keep up. It
-              gets better.
+              I can think like a creative lead, design like a specialist, produce
+              like a maker, and troubleshoot like a systems person. I keep adding
+              new skills all the time, not just to stay fresh, but to get better.
             </p>
           </div>
 
