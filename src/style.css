@@ -4059,54 +4059,53 @@ button { font: inherit; }
   }
 }
 
-/* =========================================================
-   V12 – tighter active card title/copy spacing
-   ========================================================= */
-
-.skillsActiveCard p {
-  margin: 0 0 10px;
-}
-
-.skillsActiveCard h2 {
-  margin: 0 0 8px;
-  line-height: 0.98;
-}
-
-.skillsActiveCard span {
-  line-height: 1.62;
-}
-
-@media (max-width: 900px) {
-  .skillsActiveCard h2 {
-    margin: 0 0 8px;
-  }
-}
-
 
 /* =========================================================
-   V13 – pull selected skills card closer to intro content
-   Desktop-only placement adjustment. Keeps internal card
-   spacing tight while moving the whole card upward.
+   V14 – desktop left rail pull-up + active card stability
+   - Pull the entire left content block higher
+   - Keep the selected capability card tucked closer
+   - Prevent active card title/body from jumping on switch
    ========================================================= */
 
 @media (min-width: 1181px) {
   .skillsHeroGrid {
-    row-gap: 0;
+    align-items: start;
+    row-gap: 12px;
+  }
+
+  .skillsHeroCopy {
+    align-self: start;
+    padding-top: 0;
+    padding-bottom: 8px;
+    margin-top: -18px;
   }
 
   .skillsActiveCard {
-    margin-top: -118px;
+    align-self: start;
+    margin-top: -2px !important;
+    min-height: 258px;
+  }
+
+  .skillsActiveCard h2 {
+    min-height: 2.15em;
+    margin-bottom: 10px;
+  }
+
+  .skillsActiveCard span {
+    min-height: 5.3em;
+  }
+
+  .skillsToolList {
+    margin-top: 14px;
   }
 }
 
-@media (min-width: 1401px) {
-  .skillsActiveCard {
-    margin-top: -136px;
+@media (min-width: 1500px) {
+  .skillsHeroCopy {
+    margin-top: -24px;
   }
-}
 
-@media (min-width: 1700px) {
   .skillsActiveCard {
-    margin-top: -150px;
+    margin-top: -8px !important;
   }
 }
