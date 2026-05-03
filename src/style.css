@@ -4081,3 +4081,32 @@ button { font: inherit; }
     margin: 0 0 8px;
   }
 }
+
+
+/* =========================================================
+   V13 – pull selected skills card closer to intro content
+   Desktop-only placement adjustment. Keeps internal card
+   spacing tight while moving the whole card upward.
+   ========================================================= */
+
+@media (min-width: 1181px) {
+  .skillsHeroGrid {
+    row-gap: 0;
+  }
+
+  .skillsActiveCard {
+    margin-top: -118px;
+  }
+}
+
+@media (min-width: 1401px) {
+  .skillsActiveCard {
+    margin-top: -136px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .skillsActiveCard {
+    margin-top: -150px;
+  }
+}
