@@ -4,27 +4,25 @@ import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /*
-  V15 goals:
-  - stop visible cube intersections
-  - use a more intentional, hard-spaced 3D composition
-  - keep the bright jewel-tone palette
-  - keep the easier hover/click hit areas
-  - slightly reduce scale/drift so cubes don't push into each other
+  V16 goals:
+  - spread the cubes out farther across the main wire cube
+  - keep them separated and easier to target
+  - preserve the current brighter jewel-tone look
 */
 
 const POSITION_PRESETS = [
-  [-1.45, 0.85, 0.55],
-  [-0.35, 1.22, -0.25],
-  [0.85, 0.78, 0.18],
-  [-1.18, -0.18, -0.48],
-  [0.18, -0.10, 0.58],
-  [1.36, -0.02, -0.36],
-  [-0.55, -1.16, 0.18],
-  [0.78, -1.08, 0.44],
-  [0.24, 1.58, 0.92],
-  [1.48, 1.18, 0.62],
-  [-1.52, -1.05, -0.18],
-  [1.08, -0.72, 1.02],
+  [-1.95, 1.15, 0.70],   // direction
+  [-0.60, 1.75, -0.50],  // brand
+  [0.95, 1.10, 0.30],    // design
+  [-1.55, 0.00, -0.80],  // web
+  [0.10, 0.05, 0.90],    // photo
+  [1.65, -0.05, -0.55],  // motion
+  [-1.10, -1.35, 0.22],  // ai
+  [0.55, -1.55, 0.55],   // automation
+  [1.55, 1.55, 1.10],    // print / production
+  [1.95, 0.55, 0.95],    // 3d / visual dev
+  [-0.15, -0.95, -1.10], // conversion / growth
+  [0.95, -0.90, -1.00],  // ux/ui
 ];
 
 function getScenePosition(index) {
@@ -63,7 +61,6 @@ function createBrightCubeMaterials(baseColor, active) {
     depthWrite: true,
   };
 
-  // right, left, top, bottom, front, back
   return [
     new THREE.MeshStandardMaterial({
       ...shared,
@@ -306,10 +303,9 @@ function BrightLuxuryCube({
     const activeLift = isActive ? 0.06 : 0;
     const targetScale = isActive ? 1.04 : 1;
 
-    // smaller drift so cubes don't wander into each other
-    groupRef.current.position.x = position[0] + Math.sin(t * 0.34) * 0.015;
-    groupRef.current.position.y = position[1] + Math.cos(t * 0.31) * 0.020 + activeLift;
-    groupRef.current.position.z = position[2] + Math.sin(t * 0.28) * 0.015;
+    groupRef.current.position.x = position[0] + Math.sin(t * 0.34) * 0.012;
+    groupRef.current.position.y = position[1] + Math.cos(t * 0.31) * 0.016 + activeLift;
+    groupRef.current.position.z = position[2] + Math.sin(t * 0.28) * 0.012;
 
     groupRef.current.rotation.x = startRotation[0] + elapsed * spin.x;
     groupRef.current.rotation.y = startRotation[1] + elapsed * spin.y;
@@ -377,7 +373,6 @@ function BrightLuxuryCube({
   return (
     <group ref={groupRef} position={position} rotation={startRotation}>
       <group>
-        {/* larger invisible hit area */}
         <mesh
           onPointerOver={(event) => {
             activate(event);
