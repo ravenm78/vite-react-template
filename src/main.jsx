@@ -561,9 +561,8 @@ function HomePage() {
 
         <div className="sectionHeader sectionHeader--proofCenter">
           <h2 className="sectionTitle sectionTitle--proof revealTitle">
-            <span>Proof of</span>
-            <span>life, not</span>
-            <span>just style.</span>
+            <span className="proofTitleLine">Proof of Life</span>
+            <span className="proofTitleLine">Not Just Style</span>
           </h2>
 
           <p className="sectionIntro">
@@ -599,7 +598,7 @@ function HomePage() {
 
       <section id="xen" className="section xenSection">
         <div className="xenHeader">
-          <p className="eyebrow xenEyebrow">Custom AI Workflow System</p>
+          <p className="xenEyebrow xenEyebrow--button">Custom AI Workflow System</p>
 
           <h2 className="xenTitle xenTitle--reveal revealTitle">
             <span>Xen</span>
