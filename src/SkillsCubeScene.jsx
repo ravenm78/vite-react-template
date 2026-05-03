@@ -19,102 +19,91 @@ function getScenePosition(skill) {
   const depth = parseDepth(skill.z);
 
   return [
-    ((left - 50) / 50) * 2.25,
-    ((50 - top) / 50) * 2.05,
-    THREE.MathUtils.clamp(depth / 72, -1.95, 1.95),
+    ((left - 50) / 50) * 2.18,
+    ((50 - top) / 50) * 2.0,
+    THREE.MathUtils.clamp(depth / 76, -1.9, 1.9),
   ];
 }
 
 function getCubeSize(size) {
   const sizes = {
-    tiny: 0.44,
-    small: 0.68,
-    medium: 0.92,
-    large: 1.15,
+    tiny: 0.42,
+    small: 0.64,
+    medium: 0.86,
+    large: 1.08,
   };
 
-  return sizes[size] || 0.82;
+  return sizes[size] || 0.78;
 }
 
-function color(color, multiplier = 1) {
-  return new THREE.Color(color).multiplyScalar(multiplier);
+function color(colorValue, multiplier = 1) {
+  return new THREE.Color(colorValue).multiplyScalar(multiplier);
 }
 
 function hex(colorValue, multiplier = 1) {
   return `#${color(colorValue, multiplier).getHexString()}`;
 }
 
-function makeFaceMaterials(baseColor, active) {
+function createGlassBlockMaterials(baseColor, active) {
+  const opacity = active ? 0.88 : 0.78;
+  const emissiveLift = active ? 0.12 : 0.07;
+
   const shared = {
-    roughness: 0.42,
-    metalness: 0.04,
+    transparent: true,
+    opacity,
+    roughness: 0.22,
+    metalness: 0.08,
     flatShading: true,
-    transparent: false,
+    depthWrite: true,
   };
-}
 
-function createFaceMaterials(baseColor, active) {
-  const edgeBoost = active ? 0.18 : 0;
-
-  // BoxGeometry material index order:
+  // BoxGeometry material order:
   // 0 right +X, 1 left -X, 2 top +Y, 3 bottom -Y, 4 front +Z, 5 back -Z
-  // These intentionally use strong value differences so the cube reads as a CUBE.
+  // Strong face variation is intentional. It preserves the block read while restoring polish.
   return [
     new THREE.MeshStandardMaterial({
-      color: color(baseColor, 0.72 + edgeBoost),
-      emissive: color(baseColor, 0.025),
-      emissiveIntensity: active ? 0.08 : 0.04,
-      roughness: 0.46,
-      metalness: 0.04,
-      flatShading: true,
+      ...shared,
+      color: color(baseColor, 0.78),
+      emissive: color(baseColor, 0.12),
+      emissiveIntensity: emissiveLift,
     }),
     new THREE.MeshStandardMaterial({
-      color: color(baseColor, 0.42 + edgeBoost * 0.6),
-      emissive: color(baseColor, 0.015),
-      emissiveIntensity: active ? 0.05 : 0.02,
-      roughness: 0.5,
-      metalness: 0.02,
-      flatShading: true,
+      ...shared,
+      color: color(baseColor, 0.46),
+      emissive: color(baseColor, 0.08),
+      emissiveIntensity: emissiveLift * 0.68,
     }),
     new THREE.MeshStandardMaterial({
-      color: color(baseColor, 1.34 + edgeBoost),
+      ...shared,
+      color: color(baseColor, 1.28),
+      emissive: color(baseColor, 0.16),
+      emissiveIntensity: emissiveLift,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...shared,
+      color: color(baseColor, 0.3),
+      emissive: color(baseColor, 0.05),
+      emissiveIntensity: emissiveLift * 0.5,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...shared,
+      color: color(baseColor, 1.02),
+      emissive: color(baseColor, 0.12),
+      emissiveIntensity: emissiveLift * 0.9,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...shared,
+      color: color(baseColor, 0.24),
       emissive: color(baseColor, 0.04),
-      emissiveIntensity: active ? 0.08 : 0.04,
-      roughness: 0.36,
-      metalness: 0.03,
-      flatShading: true,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: color(baseColor, 0.28 + edgeBoost * 0.45),
-      emissive: color(baseColor, 0.008),
-      emissiveIntensity: active ? 0.035 : 0.015,
-      roughness: 0.56,
-      metalness: 0.02,
-      flatShading: true,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: color(baseColor, 1.0 + edgeBoost),
-      emissive: color(baseColor, 0.025),
-      emissiveIntensity: active ? 0.06 : 0.03,
-      roughness: 0.4,
-      metalness: 0.04,
-      flatShading: true,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: color(baseColor, 0.2 + edgeBoost * 0.35),
-      emissive: color(baseColor, 0.006),
-      emissiveIntensity: active ? 0.025 : 0.01,
-      roughness: 0.6,
-      metalness: 0.01,
-      flatShading: true,
+      emissiveIntensity: emissiveLift * 0.42,
     }),
   ];
 }
 
 function CubeGridLines() {
   const geometry = useMemo(() => {
-    const half = 2.7;
-    const steps = [-1.35, 0, 1.35];
+    const half = 2.68;
+    const steps = [-1.34, 0, 1.34];
     const points = [];
 
     steps.forEach((v) => {
@@ -145,7 +134,7 @@ function CubeGridLines() {
       <lineBasicMaterial
         color="#ffffff"
         transparent
-        opacity={0.075}
+        opacity={0.055}
         depthWrite={false}
       />
     </lineSegments>
@@ -153,7 +142,7 @@ function CubeGridLines() {
 }
 
 function OuterWireCube() {
-  const half = 2.7;
+  const half = 2.68;
 
   const edgeGeometry = useMemo(() => {
     const corners = [
@@ -205,8 +194,18 @@ function OuterWireCube() {
         <lineBasicMaterial
           color="#f4f1ec"
           transparent
-          opacity={0.72}
+          opacity={0.58}
           depthWrite={false}
+        />
+      </lineSegments>
+
+      <lineSegments geometry={edgeGeometry} scale={1.006}>
+        <lineBasicMaterial
+          color="#ffffff"
+          transparent
+          opacity={0.14}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
         />
       </lineSegments>
 
@@ -215,7 +214,12 @@ function OuterWireCube() {
       {cornerPositions.map((position, index) => (
         <mesh key={index} position={position}>
           <sphereGeometry args={[0.048, 14, 14]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.9} />
+          <meshBasicMaterial
+            color="#ffffff"
+            transparent
+            opacity={0.86}
+            depthWrite={false}
+          />
         </mesh>
       ))}
     </group>
@@ -232,7 +236,7 @@ function CubeEdges({ baseColor, size, active }) {
         <lineBasicMaterial
           color={active ? "#ffffff" : hex(baseColor, 1.45)}
           transparent
-          opacity={active ? 1 : 0.88}
+          opacity={active ? 0.98 : 0.78}
           depthWrite={false}
         />
       </lineSegments>
@@ -240,24 +244,26 @@ function CubeEdges({ baseColor, size, active }) {
       <lineSegments scale={1.025}>
         <edgesGeometry args={[geometry]} />
         <lineBasicMaterial
-          color={hex(baseColor, 1.65)}
+          color={hex(baseColor, 1.8)}
           transparent
-          opacity={active ? 0.3 : 0.14}
+          opacity={active ? 0.28 : 0.13}
           depthWrite={false}
+          blending={THREE.AdditiveBlending}
         />
       </lineSegments>
     </group>
   );
 }
 
-function ProveCubeBlock({ skill, index, isActive, onActivate }) {
+function PolishedGlassCube({ skill, index, isActive, onActivate }) {
   const groupRef = useRef(null);
   const innerRef = useRef(null);
+  const auraRef = useRef(null);
 
   const position = useMemo(() => getScenePosition(skill), [skill]);
   const size = getCubeSize(skill.size);
   const materials = useMemo(
-    () => createFaceMaterials(skill.color, isActive),
+    () => createGlassBlockMaterials(skill.color, isActive),
     [skill.color, isActive]
   );
 
@@ -272,9 +278,9 @@ function ProveCubeBlock({ skill, index, isActive, onActivate }) {
 
   const spin = useMemo(
     () => ({
-      x: 0.28 + (index % 4) * 0.025,
-      y: 0.38 + (index % 5) * 0.025,
-      z: 0.12 + (index % 3) * 0.018,
+      x: 0.16 + (index % 4) * 0.014,
+      y: 0.22 + (index % 5) * 0.014,
+      z: 0.055 + (index % 3) * 0.01,
     }),
     [index]
   );
@@ -284,13 +290,13 @@ function ProveCubeBlock({ skill, index, isActive, onActivate }) {
 
     const elapsed = state.clock.elapsedTime;
     const t = elapsed + index * 0.71;
-    const activeLift = isActive ? 0.14 : 0;
+    const activeLift = isActive ? 0.13 : 0;
 
     groupRef.current.position.x = position[0] + Math.sin(t * 0.48) * 0.035;
     groupRef.current.position.y = position[1] + Math.cos(t * 0.44) * 0.05 + activeLift;
     groupRef.current.position.z = position[2] + Math.sin(t * 0.38) * 0.04;
 
-    // Deliberately obvious constant rotation so the viewer can see all sides.
+    // Slow constant rotation: visible 3D movement, not hover-only shifting.
     groupRef.current.rotation.x = startRotation[0] + elapsed * spin.x;
     groupRef.current.rotation.y = startRotation[1] + elapsed * spin.y;
     groupRef.current.rotation.z = startRotation[2] + elapsed * spin.z;
@@ -298,13 +304,17 @@ function ProveCubeBlock({ skill, index, isActive, onActivate }) {
     const targetScale = isActive ? 1.12 : 1;
     groupRef.current.scale.lerp(
       new THREE.Vector3(targetScale, targetScale, targetScale),
-      0.09
+      0.08
     );
 
     if (innerRef.current) {
-      innerRef.current.rotation.x += 0.012;
-      innerRef.current.rotation.y += 0.016;
-      innerRef.current.scale.setScalar(0.46 + Math.sin(t * 1.6) * 0.015);
+      innerRef.current.rotation.x += 0.008;
+      innerRef.current.rotation.y += 0.011;
+      innerRef.current.scale.setScalar(0.46 + Math.sin(t * 1.55) * 0.015);
+    }
+
+    if (auraRef.current) {
+      auraRef.current.scale.setScalar((isActive ? 1.13 : 1.04) + Math.sin(t * 1.25) * 0.018);
     }
   });
 
@@ -325,23 +335,36 @@ function ProveCubeBlock({ skill, index, isActive, onActivate }) {
         }}
         onClick={activate}
       >
-        {/* Diagnostic cube: opaque, shaded, and face-differentiated. */}
+        {/* The real cube. It keeps the proved block geometry, now with controlled glassy polish. */}
         <mesh material={materials}>
           <boxGeometry args={[size, size, size]} />
         </mesh>
 
-        {/* Small internal color core, intentionally minimal. */}
+        {/* Internal color core. Small enough that it adds glow without flattening the cube silhouette. */}
         <mesh ref={innerRef}>
           <boxGeometry args={[size * 0.42, size * 0.42, size * 0.42]} />
           <meshBasicMaterial
             color={hex(skill.color, 1.08)}
             transparent
-            opacity={isActive ? 0.18 : 0.11}
+            opacity={isActive ? 0.18 : 0.1}
             depthWrite={false}
+            blending={THREE.AdditiveBlending}
           />
         </mesh>
 
         <CubeEdges baseColor={skill.color} size={size} active={isActive} />
+
+        {/* Tiny aura only, not the old fog bank. */}
+        <mesh ref={auraRef} scale={1.04}>
+          <boxGeometry args={[size, size, size]} />
+          <meshBasicMaterial
+            color={skill.color}
+            transparent
+            opacity={isActive ? 0.028 : 0.014}
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
       </group>
 
       <Html
@@ -363,7 +386,7 @@ function SkillCore({ skills, activeSkillIndex, setActiveSkillIndex }) {
       <OuterWireCube />
 
       {skills.map((skill, index) => (
-        <ProveCubeBlock
+        <PolishedGlassCube
           key={skill.name}
           skill={skill}
           index={index}
@@ -388,24 +411,29 @@ export default function SkillsCubeScene({
         className="skillsCanvas"
         dpr={[1, 1.75]}
         camera={{
-          position: [6.8, 5.55, 8.05],
-          fov: 34,
+          position: [6.55, 5.25, 7.95],
+          fov: 35,
           near: 0.1,
           far: 100,
         }}
         gl={{
           antialias: true,
           alpha: true,
+          premultipliedAlpha: false,
           powerPreference: "high-performance",
         }}
+        onCreated={({ gl, scene }) => {
+          gl.setClearColor(new THREE.Color("#000000"), 0);
+          scene.background = null;
+        }}
       >
-        <color attach="background" args={["transparent"]} />
-
-        <ambientLight intensity={0.25} />
-        <hemisphereLight args={["#ffffff", "#050505", 0.62]} />
-        <directionalLight position={[6.5, 8, 7]} intensity={3.15} />
-        <directionalLight position={[-6, 3, -5]} intensity={0.9} />
-        <pointLight position={[2.8, 4.5, 5]} intensity={0.95} color="#ffffff" />
+        <ambientLight intensity={0.22} />
+        <hemisphereLight args={["#ffffff", "#050505", 0.56]} />
+        <directionalLight position={[6.5, 8, 7]} intensity={2.9} />
+        <directionalLight position={[-6, 3, -5]} intensity={0.8} />
+        <pointLight position={[2.8, 4.5, 5]} intensity={0.82} color="#ffffff" />
+        <pointLight position={[-4, -2, 4]} intensity={0.38} color="#ff2447" />
+        <pointLight position={[4.2, 1.4, 3.6]} intensity={0.44} color="#00d8ff" />
 
         <SkillCore
           skills={skills}
