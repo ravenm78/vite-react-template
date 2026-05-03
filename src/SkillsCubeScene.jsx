@@ -29,23 +29,19 @@ function getCubeSize(size) {
   const sizes = {
     tiny: 0.42,
     small: 0.62,
-    medium: 0.82,
-    large: 1.04,
+    medium: 0.84,
+    large: 1.06,
   };
 
-  return sizes[size] || 0.72;
+  return sizes[size] || 0.74;
 }
 
-function brighten(color, multiplier = 1.2) {
-  const c = new THREE.Color(color);
-  c.multiplyScalar(multiplier);
-  return `#${c.getHexString()}`;
+function makeColor(color, multiplier = 1) {
+  return new THREE.Color(color).multiplyScalar(multiplier);
 }
 
-function darken(color, multiplier = 0.55) {
-  const c = new THREE.Color(color);
-  c.multiplyScalar(multiplier);
-  return `#${c.getHexString()}`;
+function makeHex(color, multiplier = 1) {
+  return `#${makeColor(color, multiplier).getHexString()}`;
 }
 
 function CubeGridLines() {
@@ -82,7 +78,7 @@ function CubeGridLines() {
       <lineBasicMaterial
         color="#ffffff"
         transparent
-        opacity={0.07}
+        opacity={0.065}
         depthWrite={false}
       />
     </lineSegments>
@@ -172,7 +168,7 @@ function OuterWireCube() {
         <lineBasicMaterial
           color="#ffffff"
           transparent
-          opacity={0.18}
+          opacity={0.16}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
         />
@@ -192,106 +188,134 @@ function CubeEdges({ color, size, active }) {
       <lineSegments>
         <edgesGeometry args={[geometry]} />
         <lineBasicMaterial
-          color={brighten(color, 1.15)}
+          color={makeHex(color, 1.55)}
           transparent
-          opacity={active ? 0.98 : 0.82}
+          opacity={active ? 1 : 0.86}
           depthWrite={false}
         />
       </lineSegments>
 
-      <lineSegments scale={1.03}>
+      <lineSegments scale={1.028}>
         <edgesGeometry args={[geometry]} />
         <lineBasicMaterial
-          color={brighten(color, 1.4)}
+          color="#ffffff"
           transparent
-          opacity={active ? 0.26 : 0.14}
+          opacity={active ? 0.2 : 0.105}
           depthWrite={false}
-          blending={THREE.AdditiveBlending}
         />
       </lineSegments>
     </group>
   );
 }
 
-function CornerBeads({ color, size }) {
-  const h = size / 2;
-  const points = useMemo(
-    () => [
-      [-h, -h, -h],
-      [-h, -h, h],
-      [-h, h, -h],
-      [-h, h, h],
-      [h, -h, -h],
-      [h, -h, h],
-      [h, h, -h],
-      [h, h, h],
-    ],
-    [h]
-  );
+function createFaceMaterials(color, active) {
+  const opacity = active ? 0.92 : 0.84;
 
-  return (
-    <group>
-      {points.map((position, index) => (
-        <mesh key={index} position={position}>
-          <sphereGeometry args={[Math.max(size * 0.025, 0.012), 12, 12]} />
-          <meshBasicMaterial
-            color={brighten(color, 1.4)}
-            transparent
-            opacity={0.78}
-            depthWrite={false}
-            blending={THREE.AdditiveBlending}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
+  const base = {
+    transparent: true,
+    opacity,
+    roughness: 0.28,
+    metalness: 0.04,
+    depthWrite: true,
+    flatShading: true,
+  };
+
+  // BoxGeometry material order:
+  // +X right, -X left, +Y top, -Y bottom, +Z front, -Z back.
+  return [
+    new THREE.MeshStandardMaterial({
+      ...base,
+      color: makeColor(color, 0.76),
+      emissive: makeColor(color, 0.12),
+      emissiveIntensity: active ? 0.22 : 0.12,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...base,
+      color: makeColor(color, 0.48),
+      emissive: makeColor(color, 0.08),
+      emissiveIntensity: active ? 0.16 : 0.08,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...base,
+      color: makeColor(color, 1.22),
+      emissive: makeColor(color, 0.16),
+      emissiveIntensity: active ? 0.24 : 0.12,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...base,
+      color: makeColor(color, 0.34),
+      emissive: makeColor(color, 0.05),
+      emissiveIntensity: active ? 0.12 : 0.06,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...base,
+      color: makeColor(color, 1.0),
+      emissive: makeColor(color, 0.12),
+      emissiveIntensity: active ? 0.2 : 0.1,
+    }),
+    new THREE.MeshStandardMaterial({
+      ...base,
+      color: makeColor(color, 0.28),
+      emissive: makeColor(color, 0.04),
+      emissiveIntensity: active ? 0.08 : 0.04,
+    }),
+  ];
 }
 
-function GlassSkillCube({ skill, index, isActive, onActivate }) {
+function ShadedVoxelCube({ skill, index, isActive, onActivate }) {
   const groupRef = useRef(null);
-  const auraRef = useRef(null);
-  const innerRef = useRef(null);
+  const cubeRef = useRef(null);
+  const coreRef = useRef(null);
 
   const basePosition = useMemo(() => getScenePosition(skill), [skill]);
   const size = getCubeSize(skill.size);
 
+  const materialSet = useMemo(
+    () => createFaceMaterials(skill.color, isActive),
+    [skill.color, isActive]
+  );
+
   const baseRotation = useMemo(
     () => [
-      THREE.MathUtils.degToRad(24 + (index % 3) * 8),
-      THREE.MathUtils.degToRad(34 + (index % 4) * 14),
-      THREE.MathUtils.degToRad(-10 + (index % 5) * 4),
+      THREE.MathUtils.degToRad(28 + (index % 3) * 7),
+      THREE.MathUtils.degToRad(42 + (index % 4) * 11),
+      THREE.MathUtils.degToRad(-8 + (index % 5) * 4),
     ],
+    [index]
+  );
+
+  const spinSpeed = useMemo(
+    () => ({
+      x: 0.18 + (index % 4) * 0.018,
+      y: 0.24 + (index % 5) * 0.016,
+      z: 0.06 + (index % 3) * 0.01,
+    }),
     [index]
   );
 
   useFrame((state) => {
     if (!groupRef.current) return;
 
-    const t = state.clock.elapsedTime + index * 0.63;
-    const activeLift = isActive ? 0.12 : 0;
+    const t = state.clock.elapsedTime + index * 0.59;
+    const activeLift = isActive ? 0.14 : 0;
 
-    groupRef.current.position.x = basePosition[0] + Math.sin(t * 0.52) * 0.04;
-    groupRef.current.position.y = basePosition[1] + Math.cos(t * 0.47) * 0.055 + activeLift;
-    groupRef.current.position.z = basePosition[2] + Math.sin(t * 0.43) * 0.05;
+    groupRef.current.position.x = basePosition[0] + Math.sin(t * 0.5) * 0.04;
+    groupRef.current.position.y = basePosition[1] + Math.cos(t * 0.45) * 0.055 + activeLift;
+    groupRef.current.position.z = basePosition[2] + Math.sin(t * 0.4) * 0.05;
 
-    // Actual ongoing 3D rotation so the cubes reveal their sides/top/bottom.
-    groupRef.current.rotation.x = baseRotation[0] + t * 0.16;
-    groupRef.current.rotation.y = baseRotation[1] + t * 0.21;
-    groupRef.current.rotation.z = baseRotation[2] + Math.sin(t * 0.38) * 0.08;
+    // This is the important part: actual constant 3D rotation, not hover-only shifting.
+    groupRef.current.rotation.x = baseRotation[0] + state.clock.elapsedTime * spinSpeed.x;
+    groupRef.current.rotation.y = baseRotation[1] + state.clock.elapsedTime * spinSpeed.y;
+    groupRef.current.rotation.z = baseRotation[2] + Math.sin(t * 0.35) * 0.1 + state.clock.elapsedTime * spinSpeed.z;
 
     const target = isActive ? 1.13 : 1;
     groupRef.current.scale.lerp(new THREE.Vector3(target, target, target), 0.08);
 
-    if (auraRef.current) {
-      const pulse = (isActive ? 1.28 : 1.14) + Math.sin(t * 1.15) * 0.025;
-      auraRef.current.scale.setScalar(pulse);
-    }
-
-    if (innerRef.current) {
-      const innerPulse = (isActive ? 0.61 : 0.56) + Math.sin(t * 1.7) * 0.02;
-      innerRef.current.scale.setScalar(innerPulse);
-      innerRef.current.rotation.x += 0.006;
-      innerRef.current.rotation.y += 0.008;
+    if (coreRef.current) {
+      const pulse = (isActive ? 0.53 : 0.48) + Math.sin(t * 1.55) * 0.018;
+      coreRef.current.scale.setScalar(pulse);
+      coreRef.current.rotation.x += 0.008;
+      coreRef.current.rotation.y += 0.011;
     }
   });
 
@@ -302,18 +326,6 @@ function GlassSkillCube({ skill, index, isActive, onActivate }) {
 
   return (
     <group ref={groupRef} position={basePosition} rotation={baseRotation}>
-      {/* Reduced aura so it stops flattening the block silhouette */}
-      <mesh ref={auraRef}>
-        <boxGeometry args={[size, size, size]} />
-        <meshBasicMaterial
-          color={skill.color}
-          transparent
-          opacity={isActive ? 0.04 : 0.018}
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-
       <group
         onPointerOver={(event) => {
           handleActivate(event);
@@ -324,58 +336,32 @@ function GlassSkillCube({ skill, index, isActive, onActivate }) {
         }}
         onClick={handleActivate}
       >
-        {/* Main glass block: equal depth and width so it reads as a true cube */}
-        <mesh>
+        {/* The actual skill cube: one true cube with separate shaded face materials. */}
+        <mesh ref={cubeRef} material={materialSet}>
           <boxGeometry args={[size, size, size]} />
-          <meshStandardMaterial
-            color={skill.color}
-            emissive={darken(skill.color, 0.55)}
-            emissiveIntensity={isActive ? 0.36 : 0.2}
-            transparent
-            opacity={isActive ? 0.76 : 0.66}
-            roughness={0.2}
-            metalness={0.04}
-            depthWrite={true}
-          />
         </mesh>
 
-        {/* Slight darker core-offset block to help the volume read as thick, not paper-thin */}
-        <mesh position={[size * 0.06, -size * 0.04, -size * 0.07]} scale={0.82}>
-          <boxGeometry args={[size, size, size]} />
-          <meshStandardMaterial
-            color={darken(skill.color, 0.8)}
-            emissive={darken(skill.color, 0.45)}
-            emissiveIntensity={0.16}
-            transparent
-            opacity={0.18}
-            roughness={0.35}
-            metalness={0}
-            depthWrite={true}
-          />
-        </mesh>
-
-        {/* Inner glow block */}
-        <mesh ref={innerRef}>
-          <boxGeometry args={[size * 0.52, size * 0.52, size * 0.52]} />
+        {/* Inner colored light block, smaller and tucked inside so it adds depth without flattening the silhouette. */}
+        <mesh ref={coreRef}>
+          <boxGeometry args={[size * 0.48, size * 0.48, size * 0.48]} />
           <meshBasicMaterial
-            color={brighten(skill.color, 1.08)}
+            color={makeHex(skill.color, 1.12)}
             transparent
-            opacity={isActive ? 0.28 : 0.2}
+            opacity={isActive ? 0.24 : 0.16}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
           />
         </mesh>
 
         <CubeEdges color={skill.color} size={size} active={isActive} />
-        <CornerBeads color={skill.color} size={size} />
 
-        {/* Tiny front marker, kept subtle */}
-        <mesh position={[0, 0, size * 0.52]}>
-          <sphereGeometry args={[size * 0.03, 16, 16]} />
+        {/* Very small edge glow only. No big aura cloud. */}
+        <mesh scale={1.06}>
+          <boxGeometry args={[size, size, size]} />
           <meshBasicMaterial
-            color={brighten(skill.color, 1.6)}
+            color={skill.color}
             transparent
-            opacity={0.92}
+            opacity={isActive ? 0.035 : 0.018}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
           />
@@ -384,8 +370,8 @@ function GlassSkillCube({ skill, index, isActive, onActivate }) {
 
       <Html
         center
-        distanceFactor={7.3}
-        position={[0, -size * 0.86, size * 0.38]}
+        distanceFactor={7.4}
+        position={[0, -size * 0.9, size * 0.35]}
         className={`skills3dLabel ${isActive ? "isActive" : ""}`}
         style={{ "--label-color": skill.color }}
       >
@@ -401,7 +387,7 @@ function SkillCore({ skills, activeSkillIndex, setActiveSkillIndex }) {
       <OuterWireCube />
 
       {skills.map((skill, index) => (
-        <GlassSkillCube
+        <ShadedVoxelCube
           key={skill.name}
           skill={skill}
           index={index}
@@ -426,8 +412,8 @@ export default function SkillsCubeScene({
         className="skillsCanvas"
         dpr={[1, 1.75]}
         camera={{
-          position: [6.35, 4.95, 7.65],
-          fov: 36,
+          position: [6.5, 5.15, 7.85],
+          fov: 35,
           near: 0.1,
           far: 100,
         }}
@@ -439,13 +425,13 @@ export default function SkillsCubeScene({
       >
         <color attach="background" args={["transparent"]} />
 
-        <ambientLight intensity={0.32} />
-        <hemisphereLight args={["#ffffff", "#090909", 0.82]} />
-        <directionalLight position={[5.5, 7.4, 6.8]} intensity={2.35} />
-        <directionalLight position={[-5, 3.5, -4.4]} intensity={1} />
-        <pointLight position={[-4, -2, 4]} intensity={1.35} color="#ff2447" />
-        <pointLight position={[4.2, 1.4, 3.6]} intensity={1.45} color="#00d8ff" />
-        <pointLight position={[0, 4.8, -4.2]} intensity={1.05} color="#ffffff" />
+        <ambientLight intensity={0.28} />
+        <hemisphereLight args={["#ffffff", "#060606", 0.78]} />
+        <directionalLight position={[5.8, 7.8, 6.8]} intensity={2.6} />
+        <directionalLight position={[-5.5, 3.4, -4.4]} intensity={1.05} />
+        <pointLight position={[3.5, 3.8, 4.8]} intensity={0.9} color="#ffffff" />
+        <pointLight position={[-4, -2, 4]} intensity={0.65} color="#ff2447" />
+        <pointLight position={[4.2, 1.4, 3.6]} intensity={0.75} color="#00d8ff" />
 
         <SkillCore
           skills={skills}
