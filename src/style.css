@@ -4324,3 +4324,75 @@ button { font: inherit; }
     width: 100%;
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE COPY/LAYOUT POLISH V2
+   ========================================================= */
+
+@media (min-width: 1181px) {
+  .heroCopy {
+    padding-left: 0;
+  }
+}
+
+.sectionTitle--proof {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  white-space: normal;
+}
+
+.sectionTitle--proof span {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.xenEyebrow--button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  background: rgba(7, 7, 7, 0.58);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 28px;
+}
+
+.xenEyebrow--button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0%, transparent 38%, rgba(255, 255, 255, 0.12) 48%, transparent 58%, transparent 100%);
+  opacity: 0.12;
+}
+
+@media (max-width: 620px) {
+  .sectionTitle--proof {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sectionTitle--proof span:nth-child(3) {
+    flex-basis: auto;
+  }
+
+  .xenEyebrow--button {
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 0.66rem;
+    white-space: normal;
+    text-align: center;
+  }
+}
