@@ -4159,3 +4159,54 @@ button { font: inherit; }
     margin-top: -170px !important;
   }
 }
+
+
+/* =========================================================
+   V16 – card spacing refinement
+   - Moves the selected capability card 15px lower than V15
+   - Removes excess internal reserved spacing that created big
+     dead gaps for shorter titles like Photography / Creative Direction
+   - Keeps the card itself stable so hover switching still feels calm
+   ========================================================= */
+
+@media (min-width: 1181px) {
+  .skillsHeroGrid > .skillsActiveCard,
+  .skillsActiveCard {
+    margin-top: -103px !important;
+    min-height: 238px;
+  }
+
+  .skillsActiveCard p {
+    margin-bottom: 9px !important;
+  }
+
+  .skillsActiveCard h2 {
+    min-height: 0 !important;
+    margin-bottom: 9px !important;
+    line-height: 1 !important;
+  }
+
+  .skillsActiveCard span {
+    min-height: 0 !important;
+    line-height: 1.56 !important;
+  }
+
+  .skillsToolList {
+    margin-top: 14px !important;
+    min-height: 0 !important;
+  }
+}
+
+@media (min-width: 1401px) {
+  .skillsHeroGrid > .skillsActiveCard,
+  .skillsActiveCard {
+    margin-top: -133px !important;
+  }
+}
+
+@media (min-width: 1650px) {
+  .skillsHeroGrid > .skillsActiveCard,
+  .skillsActiveCard {
+    margin-top: -155px !important;
+  }
+}
