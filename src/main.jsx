@@ -40,7 +40,7 @@ const workItems = [
     image: "/Scruz_Work_01.png",
     imageLabel: "Creative Direction",
     eyebrow: "Work / Campaigns / Brand Systems",
-    title: "See the Work",
+    title: "Follow the Work",
     copy:
       "Case studies, campaign direction, visual systems, product storytelling, and finished creative built to survive the jump from concept to production.",
   },
@@ -49,7 +49,7 @@ const workItems = [
     image: "/Scruz_Work_02.png",
     imageLabel: "Creative Range",
     eyebrow: "About / Experience / Point of View",
-    title: "Meet the Operator",
+    title: "Meet the Creative",
     copy:
       "A creative lead with 20+ years across web, branding, photo, video, motion, production, and the strange little battlefield where ideas become real assets.",
   },
@@ -58,7 +58,7 @@ const workItems = [
     image: "/Scruz_Work_03.png",
     imageLabel: "Abilities",
     eyebrow: "Skills / Tools / Systems",
-    title: "See the Range",
+    title: "Explore the Range",
     copy:
       "Design, direction, front-end thinking, content, production, AI workflows, automation, and enough technical curiosity to keep building new muscles.",
   },
