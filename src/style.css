@@ -4210,3 +4210,117 @@ button { font: inherit; }
     margin-top: -155px !important;
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE PROOF CENTERING + BACK TO TOP
+   ========================================================= */
+
+.sectionHeader--proofCenter {
+  width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.sectionHeader--proofCenter .sectionTitle--proof {
+  justify-content: center;
+  text-align: center;
+}
+
+.sectionHeader--proofCenter .sectionIntro {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.homeBackTop {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.homeBackTop a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 190px;
+  padding: 16px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 36, 71, 0.3);
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 36, 71, 0.16), transparent 58%),
+    rgba(7, 7, 7, 0.74);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+  overflow: hidden;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.homeBackTop a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(255, 255, 255, 0.12) 48%,
+      transparent 58%,
+      transparent 100%
+    );
+  opacity: 0.16;
+  transform: translateX(-34%);
+  transition: opacity 0.24s ease, transform 0.65s ease;
+  pointer-events: none;
+}
+
+.homeBackTop a:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 36, 71, 0.58);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 36, 71, 0.22), transparent 58%),
+    rgba(10, 10, 10, 0.88);
+  box-shadow:
+    0 20px 46px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(255, 36, 71, 0.11);
+}
+
+.homeBackTop a:hover::before {
+  opacity: 0.36;
+  transform: translateX(38%);
+}
+
+.homeBackTop span {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 620px) {
+  .sectionHeader--proofCenter .sectionIntro {
+    text-align: center;
+  }
+
+  .homeBackTop {
+    margin-top: 34px;
+  }
+
+  .homeBackTop a {
+    width: 100%;
+  }
+}
