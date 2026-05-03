@@ -4109,3 +4109,53 @@ button { font: inherit; }
     margin-top: -8px !important;
   }
 }
+
+
+/* =========================================================
+   V15 – near-flush selected card placement
+   Places the selected capability card roughly 10px below the
+   intro copy on desktop. Uses high-specificity overrides because
+   earlier spacing patches were too polite.
+   ========================================================= */
+
+@media (min-width: 1181px) {
+  .skillsHeroGrid {
+    align-items: start !important;
+    row-gap: 0 !important;
+    grid-template-areas:
+      "copy stage"
+      "card stage" !important;
+  }
+
+  .skillsHeroCopy {
+    align-self: start !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: -28px !important;
+  }
+
+  .skillsLead {
+    margin-bottom: 0 !important;
+  }
+
+  .skillsHeroGrid > .skillsActiveCard,
+  .skillsActiveCard {
+    align-self: start !important;
+    margin-top: -118px !important;
+    min-height: 258px;
+  }
+}
+
+@media (min-width: 1401px) {
+  .skillsHeroGrid > .skillsActiveCard,
+  .skillsActiveCard {
+    margin-top: -148px !important;
+  }
+}
+
+@media (min-width: 1650px) {
+  .skillsHeroGrid > .skillsActiveCard,
+  .skillsActiveCard {
+    margin-top: -170px !important;
+  }
+}
