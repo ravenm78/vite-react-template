@@ -4149,3 +4149,26 @@ button { font: inherit; }
     gap: 20px;
   }
 }
+
+
+/* =========================================================
+   SKILLS ACTIVE CARD POSITION TUNING / V11
+   Pulls the selected capability card much closer to the intro
+   copy on desktop, matching the intended mockup spacing.
+   ========================================================= */
+
+@media (min-width: 1181px) {
+  .skillsHeroGrid {
+    row-gap: 0;
+  }
+
+  .skillsActiveCard {
+    margin-top: -42px;
+  }
+}
+
+@media (min-width: 1401px) {
+  .skillsActiveCard {
+    margin-top: -56px;
+  }
+}
