@@ -559,7 +559,7 @@ function HomePage() {
       <section id="work" className="section workSection">
         <p className="eyebrow sectionEyebrow">Selected Proof</p>
 
-        <div className="sectionHeader">
+        <div className="sectionHeader sectionHeader--proofCenter">
           <h2 className="sectionTitle sectionTitle--proof revealTitle">
             <span>Proof of</span>
             <span>life, not</span>
@@ -633,6 +633,12 @@ function HomePage() {
           designer. I bring the creative, the production brain, and the system
           that helps the team move.
         </p>
+
+        <div className="homeBackTop">
+          <a href="#top" aria-label="Back to top">
+            <span>Back to Top</span>
+          </a>
+        </div>
       </section>
     </>
   );
@@ -1061,7 +1067,7 @@ function App() {
     <>
       <div className="site-bg" aria-hidden="true" />
 
-      <main className="site">
+      <main id="top" className="site">
         <SiteHeader />
         {page}
       </main>
