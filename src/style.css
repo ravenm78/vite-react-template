@@ -4058,3 +4058,61 @@ button { font: inherit; }
     min-height: 390px;
   }
 }
+
+
+/* =========================================================
+   SKILLS ACTIVE CARD STABILITY FIX
+   Prevents selected skill copy from making the hero column jump
+   when different cubes are hovered.
+   ========================================================= */
+
+.skillsHeroGrid {
+  align-items: start;
+}
+
+.skillsHeroCopy {
+  align-self: start;
+}
+
+.skillsStage {
+  align-self: start;
+}
+
+.skillsActiveCard {
+  align-self: start;
+  min-height: 268px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.skillsActiveCard h2 {
+  min-height: 2.1em;
+}
+
+.skillsActiveCard span {
+  min-height: 5.2em;
+}
+
+.skillsToolList {
+  min-height: 72px;
+  align-content: flex-start;
+}
+
+@media (max-width: 1180px) {
+  .skillsActiveCard {
+    min-height: 250px;
+  }
+
+  .skillsActiveCard h2,
+  .skillsActiveCard span,
+  .skillsToolList {
+    min-height: initial;
+  }
+}
+
+@media (max-width: 620px) {
+  .skillsActiveCard {
+    min-height: auto;
+  }
+}
