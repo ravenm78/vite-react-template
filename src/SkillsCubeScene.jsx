@@ -21,45 +21,112 @@ function getScenePosition(skill) {
   return [
     ((left - 50) / 50) * 2.25,
     ((50 - top) / 50) * 2.05,
-    THREE.MathUtils.clamp(depth / 76, -1.9, 1.9),
+    THREE.MathUtils.clamp(depth / 72, -1.95, 1.95),
   ];
 }
 
 function getCubeSize(size) {
   const sizes = {
-    tiny: 0.42,
-    small: 0.62,
-    medium: 0.84,
-    large: 1.06,
+    tiny: 0.44,
+    small: 0.68,
+    medium: 0.92,
+    large: 1.15,
   };
 
-  return sizes[size] || 0.74;
+  return sizes[size] || 0.82;
 }
 
-function makeColor(color, multiplier = 1) {
+function color(color, multiplier = 1) {
   return new THREE.Color(color).multiplyScalar(multiplier);
 }
 
-function makeHex(color, multiplier = 1) {
-  return `#${makeColor(color, multiplier).getHexString()}`;
+function hex(colorValue, multiplier = 1) {
+  return `#${color(colorValue, multiplier).getHexString()}`;
+}
+
+function makeFaceMaterials(baseColor, active) {
+  const shared = {
+    roughness: 0.42,
+    metalness: 0.04,
+    flatShading: true,
+    transparent: false,
+  };
+}
+
+function createFaceMaterials(baseColor, active) {
+  const edgeBoost = active ? 0.18 : 0;
+
+  // BoxGeometry material index order:
+  // 0 right +X, 1 left -X, 2 top +Y, 3 bottom -Y, 4 front +Z, 5 back -Z
+  // These intentionally use strong value differences so the cube reads as a CUBE.
+  return [
+    new THREE.MeshStandardMaterial({
+      color: color(baseColor, 0.72 + edgeBoost),
+      emissive: color(baseColor, 0.025),
+      emissiveIntensity: active ? 0.08 : 0.04,
+      roughness: 0.46,
+      metalness: 0.04,
+      flatShading: true,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: color(baseColor, 0.42 + edgeBoost * 0.6),
+      emissive: color(baseColor, 0.015),
+      emissiveIntensity: active ? 0.05 : 0.02,
+      roughness: 0.5,
+      metalness: 0.02,
+      flatShading: true,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: color(baseColor, 1.34 + edgeBoost),
+      emissive: color(baseColor, 0.04),
+      emissiveIntensity: active ? 0.08 : 0.04,
+      roughness: 0.36,
+      metalness: 0.03,
+      flatShading: true,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: color(baseColor, 0.28 + edgeBoost * 0.45),
+      emissive: color(baseColor, 0.008),
+      emissiveIntensity: active ? 0.035 : 0.015,
+      roughness: 0.56,
+      metalness: 0.02,
+      flatShading: true,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: color(baseColor, 1.0 + edgeBoost),
+      emissive: color(baseColor, 0.025),
+      emissiveIntensity: active ? 0.06 : 0.03,
+      roughness: 0.4,
+      metalness: 0.04,
+      flatShading: true,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: color(baseColor, 0.2 + edgeBoost * 0.35),
+      emissive: color(baseColor, 0.006),
+      emissiveIntensity: active ? 0.025 : 0.01,
+      roughness: 0.6,
+      metalness: 0.01,
+      flatShading: true,
+    }),
+  ];
 }
 
 function CubeGridLines() {
   const geometry = useMemo(() => {
-    const half = 2.65;
-    const steps = [-1.325, 0, 1.325];
+    const half = 2.7;
+    const steps = [-1.35, 0, 1.35];
     const points = [];
 
     steps.forEach((v) => {
-      // Back wall
+      // Back wall grid
       points.push(-half, v, -half, half, v, -half);
       points.push(v, -half, -half, v, half, -half);
 
-      // Floor
+      // Floor grid
       points.push(-half, -half, v, half, -half, v);
       points.push(v, -half, -half, v, -half, half);
 
-      // Left wall
+      // Left wall grid
       points.push(-half, v, -half, -half, v, half);
       points.push(-half, -half, v, -half, half, v);
     });
@@ -78,48 +145,15 @@ function CubeGridLines() {
       <lineBasicMaterial
         color="#ffffff"
         transparent
-        opacity={0.065}
+        opacity={0.075}
         depthWrite={false}
       />
     </lineSegments>
   );
 }
 
-function CornerPoints() {
-  const half = 2.65;
-  const points = useMemo(
-    () => [
-      [-half, -half, -half],
-      [-half, -half, half],
-      [-half, half, -half],
-      [-half, half, half],
-      [half, -half, -half],
-      [half, -half, half],
-      [half, half, -half],
-      [half, half, half],
-    ],
-    []
-  );
-
-  return (
-    <group>
-      {points.map((position, index) => (
-        <mesh key={index} position={position}>
-          <sphereGeometry args={[0.05, 16, 16]} />
-          <meshBasicMaterial
-            color="#ffffff"
-            transparent
-            opacity={0.9}
-            depthWrite={false}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
 function OuterWireCube() {
-  const half = 2.65;
+  const half = 2.7;
 
   const edgeGeometry = useMemo(() => {
     const corners = [
@@ -140,9 +174,7 @@ function OuterWireCube() {
     ];
 
     const points = [];
-    pairs.forEach(([a, b]) => {
-      points.push(...corners[a], ...corners[b]);
-    });
+    pairs.forEach(([a, b]) => points.push(...corners[a], ...corners[b]));
 
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute(
@@ -151,7 +183,21 @@ function OuterWireCube() {
     );
 
     return geometry;
-  }, [half]);
+  }, []);
+
+  const cornerPositions = useMemo(
+    () => [
+      [-half, -half, -half],
+      [-half, -half, half],
+      [-half, half, -half],
+      [-half, half, half],
+      [half, -half, -half],
+      [half, -half, half],
+      [half, half, -half],
+      [half, half, half],
+    ],
+    []
+  );
 
   return (
     <group>
@@ -159,28 +205,24 @@ function OuterWireCube() {
         <lineBasicMaterial
           color="#f4f1ec"
           transparent
-          opacity={0.68}
+          opacity={0.72}
           depthWrite={false}
-        />
-      </lineSegments>
-
-      <lineSegments geometry={edgeGeometry} scale={1.008}>
-        <lineBasicMaterial
-          color="#ffffff"
-          transparent
-          opacity={0.16}
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
         />
       </lineSegments>
 
       <CubeGridLines />
-      <CornerPoints />
+
+      {cornerPositions.map((position, index) => (
+        <mesh key={index} position={position}>
+          <sphereGeometry args={[0.048, 14, 14]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.9} />
+        </mesh>
+      ))}
     </group>
   );
 }
 
-function CubeEdges({ color, size, active }) {
+function CubeEdges({ baseColor, size, active }) {
   const geometry = useMemo(() => new THREE.BoxGeometry(size, size, size), [size]);
 
   return (
@@ -188,19 +230,19 @@ function CubeEdges({ color, size, active }) {
       <lineSegments>
         <edgesGeometry args={[geometry]} />
         <lineBasicMaterial
-          color={makeHex(color, 1.55)}
+          color={active ? "#ffffff" : hex(baseColor, 1.45)}
           transparent
-          opacity={active ? 1 : 0.86}
+          opacity={active ? 1 : 0.88}
           depthWrite={false}
         />
       </lineSegments>
 
-      <lineSegments scale={1.028}>
+      <lineSegments scale={1.025}>
         <edgesGeometry args={[geometry]} />
         <lineBasicMaterial
-          color="#ffffff"
+          color={hex(baseColor, 1.65)}
           transparent
-          opacity={active ? 0.2 : 0.105}
+          opacity={active ? 0.3 : 0.14}
           depthWrite={false}
         />
       </lineSegments>
@@ -208,87 +250,31 @@ function CubeEdges({ color, size, active }) {
   );
 }
 
-function createFaceMaterials(color, active) {
-  const opacity = active ? 0.92 : 0.84;
-
-  const base = {
-    transparent: true,
-    opacity,
-    roughness: 0.28,
-    metalness: 0.04,
-    depthWrite: true,
-    flatShading: true,
-  };
-
-  // BoxGeometry material order:
-  // +X right, -X left, +Y top, -Y bottom, +Z front, -Z back.
-  return [
-    new THREE.MeshStandardMaterial({
-      ...base,
-      color: makeColor(color, 0.76),
-      emissive: makeColor(color, 0.12),
-      emissiveIntensity: active ? 0.22 : 0.12,
-    }),
-    new THREE.MeshStandardMaterial({
-      ...base,
-      color: makeColor(color, 0.48),
-      emissive: makeColor(color, 0.08),
-      emissiveIntensity: active ? 0.16 : 0.08,
-    }),
-    new THREE.MeshStandardMaterial({
-      ...base,
-      color: makeColor(color, 1.22),
-      emissive: makeColor(color, 0.16),
-      emissiveIntensity: active ? 0.24 : 0.12,
-    }),
-    new THREE.MeshStandardMaterial({
-      ...base,
-      color: makeColor(color, 0.34),
-      emissive: makeColor(color, 0.05),
-      emissiveIntensity: active ? 0.12 : 0.06,
-    }),
-    new THREE.MeshStandardMaterial({
-      ...base,
-      color: makeColor(color, 1.0),
-      emissive: makeColor(color, 0.12),
-      emissiveIntensity: active ? 0.2 : 0.1,
-    }),
-    new THREE.MeshStandardMaterial({
-      ...base,
-      color: makeColor(color, 0.28),
-      emissive: makeColor(color, 0.04),
-      emissiveIntensity: active ? 0.08 : 0.04,
-    }),
-  ];
-}
-
-function ShadedVoxelCube({ skill, index, isActive, onActivate }) {
+function ProveCubeBlock({ skill, index, isActive, onActivate }) {
   const groupRef = useRef(null);
-  const cubeRef = useRef(null);
-  const coreRef = useRef(null);
+  const innerRef = useRef(null);
 
-  const basePosition = useMemo(() => getScenePosition(skill), [skill]);
+  const position = useMemo(() => getScenePosition(skill), [skill]);
   const size = getCubeSize(skill.size);
-
-  const materialSet = useMemo(
+  const materials = useMemo(
     () => createFaceMaterials(skill.color, isActive),
     [skill.color, isActive]
   );
 
-  const baseRotation = useMemo(
+  const startRotation = useMemo(
     () => [
-      THREE.MathUtils.degToRad(28 + (index % 3) * 7),
-      THREE.MathUtils.degToRad(42 + (index % 4) * 11),
-      THREE.MathUtils.degToRad(-8 + (index % 5) * 4),
+      THREE.MathUtils.degToRad(28 + (index % 3) * 9),
+      THREE.MathUtils.degToRad(38 + (index % 4) * 13),
+      THREE.MathUtils.degToRad(-12 + (index % 5) * 5),
     ],
     [index]
   );
 
-  const spinSpeed = useMemo(
+  const spin = useMemo(
     () => ({
-      x: 0.18 + (index % 4) * 0.018,
-      y: 0.24 + (index % 5) * 0.016,
-      z: 0.06 + (index % 3) * 0.01,
+      x: 0.28 + (index % 4) * 0.025,
+      y: 0.38 + (index % 5) * 0.025,
+      z: 0.12 + (index % 3) * 0.018,
     }),
     [index]
   );
@@ -296,82 +282,72 @@ function ShadedVoxelCube({ skill, index, isActive, onActivate }) {
   useFrame((state) => {
     if (!groupRef.current) return;
 
-    const t = state.clock.elapsedTime + index * 0.59;
+    const elapsed = state.clock.elapsedTime;
+    const t = elapsed + index * 0.71;
     const activeLift = isActive ? 0.14 : 0;
 
-    groupRef.current.position.x = basePosition[0] + Math.sin(t * 0.5) * 0.04;
-    groupRef.current.position.y = basePosition[1] + Math.cos(t * 0.45) * 0.055 + activeLift;
-    groupRef.current.position.z = basePosition[2] + Math.sin(t * 0.4) * 0.05;
+    groupRef.current.position.x = position[0] + Math.sin(t * 0.48) * 0.035;
+    groupRef.current.position.y = position[1] + Math.cos(t * 0.44) * 0.05 + activeLift;
+    groupRef.current.position.z = position[2] + Math.sin(t * 0.38) * 0.04;
 
-    // This is the important part: actual constant 3D rotation, not hover-only shifting.
-    groupRef.current.rotation.x = baseRotation[0] + state.clock.elapsedTime * spinSpeed.x;
-    groupRef.current.rotation.y = baseRotation[1] + state.clock.elapsedTime * spinSpeed.y;
-    groupRef.current.rotation.z = baseRotation[2] + Math.sin(t * 0.35) * 0.1 + state.clock.elapsedTime * spinSpeed.z;
+    // Deliberately obvious constant rotation so the viewer can see all sides.
+    groupRef.current.rotation.x = startRotation[0] + elapsed * spin.x;
+    groupRef.current.rotation.y = startRotation[1] + elapsed * spin.y;
+    groupRef.current.rotation.z = startRotation[2] + elapsed * spin.z;
 
-    const target = isActive ? 1.13 : 1;
-    groupRef.current.scale.lerp(new THREE.Vector3(target, target, target), 0.08);
+    const targetScale = isActive ? 1.12 : 1;
+    groupRef.current.scale.lerp(
+      new THREE.Vector3(targetScale, targetScale, targetScale),
+      0.09
+    );
 
-    if (coreRef.current) {
-      const pulse = (isActive ? 0.53 : 0.48) + Math.sin(t * 1.55) * 0.018;
-      coreRef.current.scale.setScalar(pulse);
-      coreRef.current.rotation.x += 0.008;
-      coreRef.current.rotation.y += 0.011;
+    if (innerRef.current) {
+      innerRef.current.rotation.x += 0.012;
+      innerRef.current.rotation.y += 0.016;
+      innerRef.current.scale.setScalar(0.46 + Math.sin(t * 1.6) * 0.015);
     }
   });
 
-  const handleActivate = (event) => {
+  const activate = (event) => {
     event.stopPropagation();
     onActivate(index);
   };
 
   return (
-    <group ref={groupRef} position={basePosition} rotation={baseRotation}>
+    <group ref={groupRef} position={position} rotation={startRotation}>
       <group
         onPointerOver={(event) => {
-          handleActivate(event);
+          activate(event);
           document.body.style.cursor = "grab";
         }}
         onPointerOut={() => {
           document.body.style.cursor = "default";
         }}
-        onClick={handleActivate}
+        onClick={activate}
       >
-        {/* The actual skill cube: one true cube with separate shaded face materials. */}
-        <mesh ref={cubeRef} material={materialSet}>
+        {/* Diagnostic cube: opaque, shaded, and face-differentiated. */}
+        <mesh material={materials}>
           <boxGeometry args={[size, size, size]} />
         </mesh>
 
-        {/* Inner colored light block, smaller and tucked inside so it adds depth without flattening the silhouette. */}
-        <mesh ref={coreRef}>
-          <boxGeometry args={[size * 0.48, size * 0.48, size * 0.48]} />
+        {/* Small internal color core, intentionally minimal. */}
+        <mesh ref={innerRef}>
+          <boxGeometry args={[size * 0.42, size * 0.42, size * 0.42]} />
           <meshBasicMaterial
-            color={makeHex(skill.color, 1.12)}
+            color={hex(skill.color, 1.08)}
             transparent
-            opacity={isActive ? 0.24 : 0.16}
+            opacity={isActive ? 0.18 : 0.11}
             depthWrite={false}
-            blending={THREE.AdditiveBlending}
           />
         </mesh>
 
-        <CubeEdges color={skill.color} size={size} active={isActive} />
-
-        {/* Very small edge glow only. No big aura cloud. */}
-        <mesh scale={1.06}>
-          <boxGeometry args={[size, size, size]} />
-          <meshBasicMaterial
-            color={skill.color}
-            transparent
-            opacity={isActive ? 0.035 : 0.018}
-            depthWrite={false}
-            blending={THREE.AdditiveBlending}
-          />
-        </mesh>
+        <CubeEdges baseColor={skill.color} size={size} active={isActive} />
       </group>
 
       <Html
         center
-        distanceFactor={7.4}
-        position={[0, -size * 0.9, size * 0.35]}
+        distanceFactor={7.5}
+        position={[0, -size * 0.92, size * 0.28]}
         className={`skills3dLabel ${isActive ? "isActive" : ""}`}
         style={{ "--label-color": skill.color }}
       >
@@ -383,11 +359,11 @@ function ShadedVoxelCube({ skill, index, isActive, onActivate }) {
 
 function SkillCore({ skills, activeSkillIndex, setActiveSkillIndex }) {
   return (
-    <group rotation={[0.22, -0.46, -0.03]}>
+    <group rotation={[0.2, -0.42, -0.04]}>
       <OuterWireCube />
 
       {skills.map((skill, index) => (
-        <ShadedVoxelCube
+        <ProveCubeBlock
           key={skill.name}
           skill={skill}
           index={index}
@@ -412,8 +388,8 @@ export default function SkillsCubeScene({
         className="skillsCanvas"
         dpr={[1, 1.75]}
         camera={{
-          position: [6.5, 5.15, 7.85],
-          fov: 35,
+          position: [6.8, 5.55, 8.05],
+          fov: 34,
           near: 0.1,
           far: 100,
         }}
@@ -425,13 +401,11 @@ export default function SkillsCubeScene({
       >
         <color attach="background" args={["transparent"]} />
 
-        <ambientLight intensity={0.28} />
-        <hemisphereLight args={["#ffffff", "#060606", 0.78]} />
-        <directionalLight position={[5.8, 7.8, 6.8]} intensity={2.6} />
-        <directionalLight position={[-5.5, 3.4, -4.4]} intensity={1.05} />
-        <pointLight position={[3.5, 3.8, 4.8]} intensity={0.9} color="#ffffff" />
-        <pointLight position={[-4, -2, 4]} intensity={0.65} color="#ff2447" />
-        <pointLight position={[4.2, 1.4, 3.6]} intensity={0.75} color="#00d8ff" />
+        <ambientLight intensity={0.25} />
+        <hemisphereLight args={["#ffffff", "#050505", 0.62]} />
+        <directionalLight position={[6.5, 8, 7]} intensity={3.15} />
+        <directionalLight position={[-6, 3, -5]} intensity={0.9} />
+        <pointLight position={[2.8, 4.5, 5]} intensity={0.95} color="#ffffff" />
 
         <SkillCore
           skills={skills}
@@ -445,8 +419,8 @@ export default function SkillsCubeScene({
           enableRotate={true}
           enableZoom={true}
           minDistance={4.8}
-          maxDistance={11.6}
-          rotateSpeed={0.64}
+          maxDistance={11.8}
+          rotateSpeed={0.66}
           zoomSpeed={0.76}
           dampingFactor={0.08}
           enableDamping={true}
