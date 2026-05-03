@@ -4,12 +4,12 @@ import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /*
-  V17 goals:
+  V18 goals:
   Tier 1:
   - richer glass/acrylic cube materials
   - better lighting and edge glow
   - individual cube motion personalities
-  - stronger selected-cube glint/highlight
+  - hover-triggered cube-face glint/highlight
 
   Tier 2:
   - subtle background particles
@@ -391,6 +391,27 @@ function CubeEdges({ baseColor, size, active, glintStrength }) {
   );
 }
 
+
+function getFaceGlintTransform(normal, size) {
+  const n = normal.clone().normalize();
+  const position = n.clone().multiplyScalar(size * 0.506);
+
+  const quaternion = new THREE.Quaternion();
+  quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), n);
+
+  return { position, quaternion };
+}
+
+function getFaceGlintRotation(normal) {
+  const absX = Math.abs(normal.x);
+  const absY = Math.abs(normal.y);
+  const absZ = Math.abs(normal.z);
+
+  if (absY >= absX && absY >= absZ) return Math.PI * 0.22;
+  if (absX >= absY && absX >= absZ) return Math.PI * -0.28;
+  return Math.PI * -0.18;
+}
+
 function PremiumCube({
   skill,
   index,
@@ -406,6 +427,8 @@ function PremiumCube({
   const glintRef = useRef(null);
   const flashRef = useRef(null);
   const glintProgress = useRef(-1);
+  const hoverGlintProgress = useRef(-1);
+  const hoveredFaceNormal = useRef(new THREE.Vector3(0, 0, 1));
 
   const position = useMemo(() => getScenePosition(index), [index]);
   const size = getCubeSize(skill.size);
@@ -465,44 +488,79 @@ function PremiumCube({
     }
 
     let glintStrength = 0;
+
+    if (hoverGlintProgress.current >= 0) {
+      hoverGlintProgress.current += delta / 0.64;
+
+      if (hoverGlintProgress.current > 1) {
+        hoverGlintProgress.current = -1;
+      } else {
+        const progress = hoverGlintProgress.current;
+        glintStrength = Math.sin(progress * Math.PI);
+
+        if (glintRef.current) {
+          const transform = getFaceGlintTransform(hoveredFaceNormal.current, size);
+          glintRef.current.visible = true;
+          glintRef.current.position.copy(transform.position);
+          glintRef.current.quaternion.copy(transform.quaternion);
+          glintRef.current.rotateZ(getFaceGlintRotation(hoveredFaceNormal.current));
+
+          // Sweep across the selected face in its own local face-space.
+          glintRef.current.translateX(THREE.MathUtils.lerp(-size * 0.44, size * 0.44, progress));
+          glintRef.current.translateY(THREE.MathUtils.lerp(size * 0.16, -size * 0.16, progress));
+
+          glintRef.current.material.opacity = glintStrength * 0.78;
+        }
+      }
+    }
+
     if (glintProgress.current >= 0) {
-      glintProgress.current += delta / 0.82;
+      glintProgress.current += delta / 0.55;
 
       if (glintProgress.current > 1) {
         glintProgress.current = -1;
       } else {
         const progress = glintProgress.current;
-        glintStrength = Math.sin(progress * Math.PI);
-        const x = THREE.MathUtils.lerp(-size * 0.78, size * 0.78, progress);
-        const y = THREE.MathUtils.lerp(size * 0.58, -size * 0.12, progress);
-
-        if (glintRef.current) {
-          glintRef.current.visible = true;
-          glintRef.current.position.set(x, y, size * 0.545);
-          glintRef.current.material.opacity = glintStrength * 0.72;
-        }
+        const clickStrength = Math.sin(progress * Math.PI);
+        glintStrength = Math.max(glintStrength, clickStrength);
 
         if (flashRef.current) {
-          flashRef.current.material.opacity = glintStrength * 0.22;
+          flashRef.current.material.opacity = clickStrength * 0.22;
         }
       }
     }
 
-    if (glintProgress.current < 0) {
+    if (hoverGlintProgress.current < 0) {
       if (glintRef.current) glintRef.current.visible = false;
-      if (flashRef.current) flashRef.current.material.opacity = 0;
+    }
+
+    if (glintProgress.current < 0 && flashRef.current) {
+      flashRef.current.material.opacity = 0;
     }
 
     glintStrengthRef.current = glintStrength;
   });
 
-  const activate = (event) => {
+  const triggerHoverGlint = (event) => {
     event.stopPropagation();
+
+    if (event.face?.normal) {
+      hoveredFaceNormal.current.copy(event.face.normal);
+    }
+
     onActivate(index);
+    hoverGlintProgress.current = 0;
   };
 
   const handleClick = (event) => {
-    activate(event);
+    event.stopPropagation();
+
+    if (event.face?.normal) {
+      hoveredFaceNormal.current.copy(event.face.normal);
+    }
+
+    onActivate(index);
+    hoverGlintProgress.current = 0;
     glintProgress.current = 0;
     setClickPulseIndex(index);
   };
@@ -512,7 +570,7 @@ function PremiumCube({
       <group>
         <mesh
           onPointerOver={(event) => {
-            activate(event);
+            triggerHoverGlint(event);
             document.body.style.cursor = "grab";
           }}
           onPointerOut={() => {
@@ -526,9 +584,10 @@ function PremiumCube({
 
         <mesh
           onPointerOver={(event) => {
-            activate(event);
+            triggerHoverGlint(event);
             document.body.style.cursor = "grab";
           }}
+          onPointerMove={triggerHoverGlint}
           onPointerOut={() => {
             document.body.style.cursor = "default";
           }}
@@ -592,10 +651,8 @@ function PremiumCube({
         <mesh
           ref={glintRef}
           visible={false}
-          rotation={[0.0, 0.0, -0.7]}
-          position={[0, 0, size * 0.545]}
         >
-          <planeGeometry args={[size * 0.16, size * 1.65]} />
+          <planeGeometry args={[size * 0.13, size * 1.26]} />
           <meshBasicMaterial
             color="#ffffff"
             transparent
