@@ -4,94 +4,42 @@ import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /*
-  V14 goals:
-  - keep all cubes bright
-  - keep earlier neon/jewel color feel
-  - spread cubes apart further, especially Photo / Growth / UX/UI
-  - add a larger invisible hit area to make cubes easier to target
-  - preserve real cube geometry and click glint effect
+  V15 goals:
+  - stop visible cube intersections
+  - use a more intentional, hard-spaced 3D composition
+  - keep the bright jewel-tone palette
+  - keep the easier hover/click hit areas
+  - slightly reduce scale/drift so cubes don't push into each other
 */
 
-const CURATED_OFFSETS = [
-  { x: -0.88, y: 0.34, z: 0.26 },
-  { x: 0.56, y: 0.76, z: -0.24 },
-  { x: 0.26, y: -0.10, z: 0.12 },
-  { x: -0.50, y: -0.18, z: -0.42 },
-  { x: 1.04, y: 0.14, z: 0.32 },
-  { x: 1.18, y: 0.66, z: 0.28 },
-  { x: 0.92, y: -0.76, z: 0.42 },
-  { x: -0.66, y: -0.96, z: 0.04 },
-  { x: 0.04, y: 1.02, z: -0.36 },
-  { x: -1.08, y: 0.92, z: 0.42 },
-  { x: -0.02, y: 0.02, z: 0.58 },
-  { x: 1.28, y: -0.36, z: -0.08 },
+const POSITION_PRESETS = [
+  [-1.45, 0.85, 0.55],
+  [-0.35, 1.22, -0.25],
+  [0.85, 0.78, 0.18],
+  [-1.18, -0.18, -0.48],
+  [0.18, -0.10, 0.58],
+  [1.36, -0.02, -0.36],
+  [-0.55, -1.16, 0.18],
+  [0.78, -1.08, 0.44],
+  [0.24, 1.58, 0.92],
+  [1.48, 1.18, 0.62],
+  [-1.52, -1.05, -0.18],
+  [1.08, -0.72, 1.02],
 ];
 
-function parsePercent(value, fallback = 50) {
-  const parsed = Number.parseFloat(String(value).replace("%", ""));
-  return Number.isFinite(parsed) ? parsed : fallback;
-}
-
-function parseDepth(value) {
-  const parsed = Number.parseFloat(String(value).replace("px", ""));
-  return Number.isFinite(parsed) ? parsed : 0;
-}
-
-function getSpecialNudge(skill) {
-  const name = (skill?.name || "").toLowerCase();
-  const short = (skill?.short || "").toLowerCase();
-
-  // Push the commonly colliding cubes farther apart.
-  if (
-    name.includes("photography") ||
-    short.includes("photo")
-  ) {
-    return [-0.44, -0.30, -0.10];
-  }
-
-  if (
-    name.includes("growth") ||
-    short.includes("growth")
-  ) {
-    return [-0.10, 0.30, 0.30];
-  }
-
-  if (
-    name.includes("ux/ui") ||
-    name.includes("ui/ux") ||
-    name.includes("front-end") ||
-    short.includes("ux/ui") ||
-    short.includes("ui/ux")
-  ) {
-    return [0.36, -0.06, 0.22];
-  }
-
-  return [0, 0, 0];
-}
-
-function getScenePosition(skill, index) {
-  const left = parsePercent(skill.left);
-  const top = parsePercent(skill.top);
-  const depth = parseDepth(skill.z);
-  const offset = CURATED_OFFSETS[index % CURATED_OFFSETS.length];
-  const special = getSpecialNudge(skill);
-
-  return [
-    ((left - 50) / 50) * 1.30 + offset.x + special[0],
-    ((50 - top) / 50) * 1.14 + offset.y + special[1],
-    THREE.MathUtils.clamp(depth / 100, -1.52, 1.52) + offset.z + special[2],
-  ];
+function getScenePosition(index) {
+  return POSITION_PRESETS[index % POSITION_PRESETS.length];
 }
 
 function getCubeSize(size) {
   const sizes = {
-    tiny: 0.30,
-    small: 0.50,
-    medium: 0.72,
-    large: 0.94,
+    tiny: 0.28,
+    small: 0.46,
+    medium: 0.66,
+    large: 0.86,
   };
 
-  return sizes[size] || 0.68;
+  return sizes[size] || 0.64;
 }
 
 function color(colorValue, multiplier = 1) {
@@ -323,7 +271,7 @@ function BrightLuxuryCube({
   const flashRef = useRef(null);
   const glintProgress = useRef(-1);
 
-  const position = useMemo(() => getScenePosition(skill, index), [skill, index]);
+  const position = useMemo(() => getScenePosition(index), [index]);
   const size = getCubeSize(skill.size);
   const materials = useMemo(
     () => createBrightCubeMaterials(skill.color, isActive),
@@ -332,18 +280,18 @@ function BrightLuxuryCube({
 
   const startRotation = useMemo(
     () => [
-      THREE.MathUtils.degToRad(24 + (index % 3) * 9),
-      THREE.MathUtils.degToRad(30 + (index % 4) * 12),
-      THREE.MathUtils.degToRad(-12 + (index % 5) * 4),
+      THREE.MathUtils.degToRad(22 + (index % 3) * 8),
+      THREE.MathUtils.degToRad(28 + (index % 4) * 11),
+      THREE.MathUtils.degToRad(-10 + (index % 5) * 4),
     ],
     [index]
   );
 
   const spin = useMemo(
     () => ({
-      x: 0.12 + (index % 4) * 0.012,
-      y: 0.16 + (index % 5) * 0.012,
-      z: 0.045 + (index % 3) * 0.008,
+      x: 0.08 + (index % 4) * 0.009,
+      y: 0.11 + (index % 5) * 0.010,
+      z: 0.03 + (index % 3) * 0.006,
     }),
     [index]
   );
@@ -355,12 +303,13 @@ function BrightLuxuryCube({
 
     const elapsed = state.clock.elapsedTime;
     const t = elapsed + index * 0.71;
-    const activeLift = isActive ? 0.11 : 0;
-    const targetScale = isActive ? 1.1 : 1;
+    const activeLift = isActive ? 0.06 : 0;
+    const targetScale = isActive ? 1.04 : 1;
 
-    groupRef.current.position.x = position[0] + Math.sin(t * 0.42) * 0.028;
-    groupRef.current.position.y = position[1] + Math.cos(t * 0.39) * 0.042 + activeLift;
-    groupRef.current.position.z = position[2] + Math.sin(t * 0.35) * 0.032;
+    // smaller drift so cubes don't wander into each other
+    groupRef.current.position.x = position[0] + Math.sin(t * 0.34) * 0.015;
+    groupRef.current.position.y = position[1] + Math.cos(t * 0.31) * 0.020 + activeLift;
+    groupRef.current.position.z = position[2] + Math.sin(t * 0.28) * 0.015;
 
     groupRef.current.rotation.x = startRotation[0] + elapsed * spin.x;
     groupRef.current.rotation.y = startRotation[1] + elapsed * spin.y;
@@ -372,14 +321,14 @@ function BrightLuxuryCube({
     );
 
     if (innerRef.current) {
-      innerRef.current.rotation.x += 0.007;
-      innerRef.current.rotation.y += 0.010;
-      innerRef.current.scale.setScalar(0.42 + Math.sin(t * 1.4) * 0.012);
+      innerRef.current.rotation.x += 0.006;
+      innerRef.current.rotation.y += 0.008;
+      innerRef.current.scale.setScalar(0.42 + Math.sin(t * 1.2) * 0.010);
     }
 
     if (auraRef.current) {
-      const auraBase = isActive ? 1.12 : 1.06;
-      auraRef.current.scale.setScalar(auraBase + Math.sin(t * 1.15) * 0.016);
+      const auraBase = isActive ? 1.10 : 1.05;
+      auraRef.current.scale.setScalar(auraBase + Math.sin(t * 1.05) * 0.012);
     }
 
     let glintStrength = 0;
@@ -428,7 +377,7 @@ function BrightLuxuryCube({
   return (
     <group ref={groupRef} position={position} rotation={startRotation}>
       <group>
-        {/* Larger invisible hit area for easier hover/click */}
+        {/* larger invisible hit area */}
         <mesh
           onPointerOver={(event) => {
             activate(event);
@@ -439,7 +388,7 @@ function BrightLuxuryCube({
           }}
           onClick={handleClick}
         >
-          <boxGeometry args={[size * 1.45, size * 1.45, size * 1.45]} />
+          <boxGeometry args={[size * 1.36, size * 1.36, size * 1.36]} />
           <meshBasicMaterial transparent opacity={0} depthWrite={false} />
         </mesh>
 
@@ -537,7 +486,7 @@ function SkillCore({
   setClickPulseIndex,
 }) {
   return (
-    <group rotation={[0.18, -0.32, -0.03]}>
+    <group rotation={[0.16, -0.34, -0.04]}>
       <OuterWireCube />
 
       {skills.map((skill, index) => {
