@@ -4,12 +4,12 @@ import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /*
-  V18 goals:
+  V19 goals:
   Tier 1:
   - richer glass/acrylic cube materials
   - better lighting and edge glow
   - individual cube motion personalities
-  - hover-triggered cube-face glint/highlight
+  - hover-triggered cube-face glint/highlight + glowing nucleus core
 
   Tier 2:
   - subtle background particles
@@ -422,6 +422,8 @@ function PremiumCube({
 }) {
   const groupRef = useRef(null);
   const innerRef = useRef(null);
+  const nucleusShellRef = useRef(null);
+  const nucleusLightRef = useRef(null);
   const auraRef = useRef(null);
   const rimRef = useRef(null);
   const glintRef = useRef(null);
@@ -473,7 +475,22 @@ function PremiumCube({
     if (innerRef.current) {
       innerRef.current.rotation.x += 0.0055;
       innerRef.current.rotation.y += 0.0075;
-      innerRef.current.scale.setScalar(0.42 + Math.sin(t * 1.18) * 0.01);
+      const innerPulse = isActive ? 0.035 : 0.01;
+      innerRef.current.scale.setScalar(0.34 + Math.sin(t * 1.55) * innerPulse);
+    }
+
+    if (nucleusShellRef.current) {
+      nucleusShellRef.current.rotation.x -= 0.006;
+      nucleusShellRef.current.rotation.y += 0.009;
+      const nucleusScale = isActive
+        ? 0.62 + Math.sin(t * 3.1) * 0.05
+        : 0.34 + Math.sin(t * 1.4) * 0.012;
+      nucleusShellRef.current.scale.setScalar(nucleusScale);
+      nucleusShellRef.current.material.opacity = isActive ? 0.28 + Math.sin(t * 3.1) * 0.08 : 0.055;
+    }
+
+    if (nucleusLightRef.current) {
+      nucleusLightRef.current.intensity = isActive ? 0.42 + Math.sin(t * 3.2) * 0.18 : 0;
     }
 
     if (auraRef.current) {
@@ -597,16 +614,36 @@ function PremiumCube({
           <boxGeometry args={[size, size, size]} />
         </mesh>
 
+        {/* Inner nucleus: small cube that wakes up on hover/selection. */}
         <mesh ref={innerRef}>
-          <boxGeometry args={[size * 0.42, size * 0.42, size * 0.42]} />
+          <boxGeometry args={[size * 0.24, size * 0.24, size * 0.24]} />
           <meshBasicMaterial
-            color={hex(skill.color, 1.24)}
+            color={hex(skill.color, 1.28)}
             transparent
-            opacity={isActive ? 0.2 : 0.12}
+            opacity={isActive ? 0.46 : 0.1}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
           />
         </mesh>
+
+        <mesh ref={nucleusShellRef}>
+          <boxGeometry args={[size * 0.34, size * 0.34, size * 0.34]} />
+          <meshBasicMaterial
+            color={hex(skill.color, 1.55)}
+            transparent
+            opacity={isActive ? 0.28 : 0.055}
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+
+        <pointLight
+          ref={nucleusLightRef}
+          color={skill.color}
+          intensity={isActive ? 0.42 : 0}
+          distance={size * 2.1}
+          decay={2}
+        />
 
         <CubeEdges
           baseColor={skill.color}
