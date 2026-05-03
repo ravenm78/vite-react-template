@@ -8,28 +8,28 @@ const heroSlides = [
     id: "01",
     image: "/Scruz_Website_Hero_0001.png",
     title: "Build Better Systems",
-    caption: "Turning loose ideas into clear creative direction teams can build on.",
+    caption: "Creative should not collapse every time the deadline moves.",
     label: "Creative systems",
   },
   {
     id: "02",
     image: "/Scruz_Website_Hero_0002.png",
-    title: "Shape the Big Picture",
-    caption: "Taste, hierarchy, and direction before the first pixel hardens.",
+    title: "Shape the Signal",
+    caption: "Direction, hierarchy, and taste before the pixels start breeding.",
     label: "Campaign worlds",
   },
   {
     id: "03",
     image: "/Scruz_Website_Hero_0003.png",
-    title: "Improve the Workflow",
-    caption: "Cleaner intake, smarter routing, fewer fires in production.",
+    title: "Make the Workflow Smarter",
+    caption: "Custom AI systems, cleaner production logic, and fewer fires wearing fake mustaches.",
     label: "Xen creative pipeline",
   },
   {
     id: "04",
     image: "/Scruz_Website_Hero_0004.png",
     title: "Turn Ideas Into Assets",
-    caption: "A steady creative hand when the brief gets weird.",
+    caption: "Concept, design, production, polish, and delivery under one roof.",
     label: "Built to scale",
   },
 ];
@@ -39,28 +39,28 @@ const workItems = [
     href: "/work",
     image: "/Scruz_Work_01.png",
     imageLabel: "Creative Direction",
-    eyebrow: "Work / Campaigns / Visual Systems",
+    eyebrow: "Work / Campaigns / Brand Systems",
     title: "See the Work",
     copy:
-      "A focused look at campaign direction, brand systems, visual worlds, production design, and finished creative built to move from idea to execution.",
+      "Case studies, campaign direction, visual systems, product storytelling, and finished creative built to survive the jump from concept to production.",
   },
   {
     href: "/about",
     image: "/Scruz_Work_02.png",
     imageLabel: "Creative Range",
-    eyebrow: "About / Process / Creative Range",
-    title: "Meet the Mind Behind It",
+    eyebrow: "About / Experience / Point of View",
+    title: "Meet the Operator",
     copy:
-      "The person behind the polish: creative lead, designer, artist, systems builder, and hands-on problem solver who can shape the concept and build the machine around it.",
+      "A creative lead with 20+ years across web, branding, photo, video, motion, production, and the strange little battlefield where ideas become real assets.",
   },
   {
     href: "/skills",
     image: "/Scruz_Work_03.png",
     imageLabel: "Abilities",
-    eyebrow: "Skills / Tools / Technical Range",
-    title: "See the Abilities",
+    eyebrow: "Skills / Tools / Systems",
+    title: "See the Range",
     copy:
-      "A practical breakdown of the creative, technical, production, automation, design, photo, video, and systems skills that let the work go deeper than surface-level design.",
+      "Design, direction, front-end thinking, content, production, AI workflows, automation, and enough technical curiosity to keep building new muscles.",
   },
 ];
 
@@ -486,7 +486,7 @@ function HomePage() {
       <section className="hero">
         <div className="heroCopy">
           <p className="eyebrow">
-            Creative lead. Designer. Artist. Human creative chaos wrangler.
+            Creative Lead / Designer / Systems Builder
           </p>
 
           <h1 className="heroTitle heroTitle--reveal revealTitle">
@@ -495,15 +495,16 @@ function HomePage() {
           </h1>
 
           <p className="intro">
-            I turn scattered creative requests into brand systems, campaign
-            worlds, and automated production pipelines. Big-picture vision,
-            hands-on execution, and enough technical range to build the machine
-            instead of waiting for one.
+            I build sharp creative, clean systems, and practical AI-powered
+            workflows for brands that need more than decoration. My work sits
+            where taste, production, technology, and strategy overlap: creative
+            direction with enough hands-on range to make the idea real, and
+            enough systems thinking to make the next round faster.
           </p>
 
           <div className="buttons">
             <a href="#work">
-              <span>View Proof</span>
+              <span>See the Proof</span>
               <span className="buttonArrow">↗</span>
             </a>
           </div>
@@ -556,7 +557,7 @@ function HomePage() {
       </section>
 
       <section id="work" className="section workSection">
-        <p className="eyebrow sectionEyebrow">Choose Your Entry Point</p>
+        <p className="eyebrow sectionEyebrow">Selected Proof</p>
 
         <div className="sectionHeader">
           <h2 className="sectionTitle sectionTitle--proof revealTitle">
@@ -566,9 +567,10 @@ function HomePage() {
           </h2>
 
           <p className="sectionIntro">
-            Brand identity, campaign direction, visual worlds, and automation
-            architecture: the connective tissue between idea, asset, workflow,
-            and result.
+            The work is not just about making things look expensive. It is
+            about shaping the idea, building the visual system, producing the
+            assets, improving the workflow, and leaving the team with something
+            stronger than a pretty final file.
           </p>
         </div>
 
@@ -597,17 +599,18 @@ function HomePage() {
 
       <section id="xen" className="section xenSection">
         <div className="xenHeader">
-          <p className="eyebrow xenEyebrow">Custom Creative Ops System</p>
+          <p className="eyebrow xenEyebrow">Custom AI Workflow System</p>
 
           <h2 className="xenTitle xenTitle--reveal revealTitle">
             <span>Xen</span>
-            <strong>Agentic AI for Workflow Automation</strong>
+            <strong>Agentic AI for Creative Operations</strong>
           </h2>
 
           <p className="xenIntro">
-            Xen is a custom AI-assisted creative operations system built to help
-            sort requests, shape concepts, route tasks, organize production, and
-            turn scattered creative chaos into a cleaner working pipeline.
+            Xen is my custom-built AI creative operations system: a local,
+            evolving workflow designed to help sort requests, develop concepts,
+            organize production, route tasks, and keep creative work from
+            turning into a junk drawer with deadlines.
           </p>
         </div>
 
@@ -622,9 +625,13 @@ function HomePage() {
         </div>
 
         <p className="xenOutro">
-          Part creative assistant, part production brain, part workflow skeleton.
-          Xen connects ideas, assets, notes, systems, and automation into one
-          evolving creative support system.
+          It is not a gimmick or a chatbot duct-taped to a mood board. It is a
+          working creative support system built around how production actually
+          happens: messy inputs, fast pivots, scattered assets, repeat requests,
+          half-formed ideas, and the constant need to make better work faster.
+          It also lets me say the quiet part out loud: I am not just another
+          designer. I bring the creative, the production brain, and the system
+          that helps the team move.
         </p>
       </section>
     </>
