@@ -4,18 +4,19 @@ import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 /*
-  V13 goals:
-  - keep all cubes bright (no global dimming of non-selected cubes)
-  - bring back more of the earlier neon/jewel color feel
-  - spread cubes apart so they are easier to hover/click
+  V14 goals:
+  - keep all cubes bright
+  - keep earlier neon/jewel color feel
+  - spread cubes apart further, especially Photo / Growth / UX/UI
+  - add a larger invisible hit area to make cubes easier to target
   - preserve real cube geometry and click glint effect
 */
 
 const CURATED_OFFSETS = [
   { x: -0.88, y: 0.34, z: 0.26 },
   { x: 0.56, y: 0.76, z: -0.24 },
-  { x: 0.26, y: -0.1, z: 0.12 },
-  { x: -0.5, y: -0.18, z: -0.42 },
+  { x: 0.26, y: -0.10, z: 0.12 },
+  { x: -0.50, y: -0.18, z: -0.42 },
   { x: 1.04, y: 0.14, z: 0.32 },
   { x: 1.18, y: 0.66, z: 0.28 },
   { x: 0.92, y: -0.76, z: 0.42 },
@@ -36,16 +37,49 @@ function parseDepth(value) {
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
+function getSpecialNudge(skill) {
+  const name = (skill?.name || "").toLowerCase();
+  const short = (skill?.short || "").toLowerCase();
+
+  // Push the commonly colliding cubes farther apart.
+  if (
+    name.includes("photography") ||
+    short.includes("photo")
+  ) {
+    return [-0.44, -0.30, -0.10];
+  }
+
+  if (
+    name.includes("growth") ||
+    short.includes("growth")
+  ) {
+    return [-0.10, 0.30, 0.30];
+  }
+
+  if (
+    name.includes("ux/ui") ||
+    name.includes("ui/ux") ||
+    name.includes("front-end") ||
+    short.includes("ux/ui") ||
+    short.includes("ui/ux")
+  ) {
+    return [0.36, -0.06, 0.22];
+  }
+
+  return [0, 0, 0];
+}
+
 function getScenePosition(skill, index) {
   const left = parsePercent(skill.left);
   const top = parsePercent(skill.top);
   const depth = parseDepth(skill.z);
   const offset = CURATED_OFFSETS[index % CURATED_OFFSETS.length];
+  const special = getSpecialNudge(skill);
 
   return [
-    ((left - 50) / 50) * 1.36 + offset.x,
-    ((50 - top) / 50) * 1.2 + offset.y,
-    THREE.MathUtils.clamp(depth / 96, -1.48, 1.48) + offset.z,
+    ((left - 50) / 50) * 1.30 + offset.x + special[0],
+    ((50 - top) / 50) * 1.14 + offset.y + special[1],
+    THREE.MathUtils.clamp(depth / 100, -1.52, 1.52) + offset.z + special[2],
   ];
 }
 
@@ -70,7 +104,7 @@ function hex(colorValue, multiplier = 1) {
 
 function createBrightCubeMaterials(baseColor, active) {
   const opacity = active ? 0.84 : 0.72;
-  const emissiveLift = active ? 0.15 : 0.1;
+  const emissiveLift = active ? 0.15 : 0.10;
 
   const shared = {
     transparent: true,
@@ -81,7 +115,7 @@ function createBrightCubeMaterials(baseColor, active) {
     depthWrite: true,
   };
 
-  // order: right, left, top, bottom, front, back
+  // right, left, top, bottom, front, back
   return [
     new THREE.MeshStandardMaterial({
       ...shared,
@@ -105,7 +139,7 @@ function createBrightCubeMaterials(baseColor, active) {
       ...shared,
       color: color(baseColor, 0.34),
       emissive: color(baseColor, 0.05),
-      emissiveIntensity: emissiveLift * 0.5,
+      emissiveIntensity: emissiveLift * 0.50,
     }),
     new THREE.MeshStandardMaterial({
       ...shared,
@@ -117,7 +151,7 @@ function createBrightCubeMaterials(baseColor, active) {
       ...shared,
       color: color(baseColor, 0.28),
       emissive: color(baseColor, 0.04),
-      emissiveIntensity: emissiveLift * 0.4,
+      emissiveIntensity: emissiveLift * 0.40,
     }),
   ];
 }
@@ -339,7 +373,7 @@ function BrightLuxuryCube({
 
     if (innerRef.current) {
       innerRef.current.rotation.x += 0.007;
-      innerRef.current.rotation.y += 0.01;
+      innerRef.current.rotation.y += 0.010;
       innerRef.current.scale.setScalar(0.42 + Math.sin(t * 1.4) * 0.012);
     }
 
@@ -393,17 +427,33 @@ function BrightLuxuryCube({
 
   return (
     <group ref={groupRef} position={position} rotation={startRotation}>
-      <group
-        onPointerOver={(event) => {
-          activate(event);
-          document.body.style.cursor = "grab";
-        }}
-        onPointerOut={() => {
-          document.body.style.cursor = "default";
-        }}
-        onClick={handleClick}
-      >
-        <mesh material={materials}>
+      <group>
+        {/* Larger invisible hit area for easier hover/click */}
+        <mesh
+          onPointerOver={(event) => {
+            activate(event);
+            document.body.style.cursor = "grab";
+          }}
+          onPointerOut={() => {
+            document.body.style.cursor = "default";
+          }}
+          onClick={handleClick}
+        >
+          <boxGeometry args={[size * 1.45, size * 1.45, size * 1.45]} />
+          <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+        </mesh>
+
+        <mesh
+          onPointerOver={(event) => {
+            activate(event);
+            document.body.style.cursor = "grab";
+          }}
+          onPointerOut={() => {
+            document.body.style.cursor = "default";
+          }}
+          onClick={handleClick}
+          material={materials}
+        >
           <boxGeometry args={[size, size, size]} />
         </mesh>
 
