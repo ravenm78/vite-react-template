@@ -4116,3 +4116,36 @@ button { font: inherit; }
     min-height: auto;
   }
 }
+
+
+/* =========================================================
+   SKILLS ACTIVE CARD POSITION TUNING / V10
+   Pulls the selected capability card closer to the intro copy
+   without reintroducing hover-height jumping.
+   ========================================================= */
+
+.skillsActiveCard {
+  margin-top: 14px;
+}
+
+@media (max-width: 1180px) {
+  .skillsActiveCard {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 820px) {
+  .skillsHeroGrid {
+    gap: 18px;
+  }
+
+  .skillsActiveCard {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .skillsHeroGrid {
+    gap: 20px;
+  }
+}
