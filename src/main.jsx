@@ -15,6 +15,7 @@ const heroSlides = [
     id: "02",
     image: "/Scruz_Website_Hero_0002.png",
     title: "Make the Idea Hit",
+    titleLines: ["Make The", "Idea Hit"],
     caption: "Good creative is not decoration. It gives the idea structure, sharpens the message, and makes the audience feel the point fast.",
     label: "Campaign worlds",
   },
@@ -22,6 +23,7 @@ const heroSlides = [
     id: "03",
     image: "/Scruz_Website_Hero_0003.png",
     title: "Make the Workflow Smarter",
+    titleLines: ["Make The", "Workflow Smarter"],
     caption: "Custom AI systems, cleaner production logic, and fewer fires wearing fake mustaches.",
     label: "Xen creative pipeline",
   },
@@ -29,6 +31,7 @@ const heroSlides = [
     id: "04",
     image: "/Scruz_Website_Hero_0004.png",
     title: "Turn Ideas Into Assets",
+    titleLines: ["Turn Ideas", "Into Assets"],
     caption: "Concept, design, production, polish, and delivery under one roof.",
     label: "Built to scale",
   },
@@ -548,7 +551,11 @@ function HomePage() {
             <div className="heroImageLabel">
               <span className="heroIndex">{activeHero.id}</span>
               <div>
-                <h2>{activeHero.title}</h2>
+                <h2>
+                  {(activeHero.titleLines || [activeHero.title]).map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </h2>
                 <p>{activeHero.caption}</p>
               </div>
             </div>
