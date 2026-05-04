@@ -14,8 +14,8 @@ const heroSlides = [
   {
     id: "02",
     image: "/Scruz_Website_Hero_0002.png",
-    title: "Shape the Signal",
-    caption: "Direction, hierarchy, and taste before the pixels start breeding.",
+    title: "Make the Idea Hit",
+    caption: "Good creative is not decoration. It gives the idea structure, sharpens the message, and makes the audience feel the point fast.",
     label: "Campaign worlds",
   },
   {
