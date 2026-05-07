@@ -4555,12 +4555,15 @@ button { font: inherit; }
 }
 
 /* =========================================================
-   WORK PAGE V2 - INTRO-FIRST CASE STUDY FLOW
+   WORK PAGE - CASE STUDY CONSOLIDATED
+   Replaces Work Page V2-V6 patch stack
    ========================================================= */
 
+/* Intro-first work page flow */
+
 .workPageHeroSection--lead {
-  padding-top: calc(var(--header-height) + 56px);
-  padding-bottom: 28px;
+  padding-top: calc(var(--header-height) + 28px);
+  padding-bottom: 24px;
 }
 
 .workPageTopBannerSection--caseImage {
@@ -4572,13 +4575,13 @@ button { font: inherit; }
   .workPageHeroSection--lead .workPageHeroGrid--caseIntro {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
     gap: clamp(28px, 3vw, 56px);
-    align-items: end;
+    align-items: start;
   }
 
   .workPageHeroSection--lead .workPageHeroAside {
     max-width: 360px;
     padding-top: 0;
-    align-self: end;
+    align-self: start;
   }
 
   .workPageHeroSection--lead .workPageTileGrid {
@@ -4587,13 +4590,17 @@ button { font: inherit; }
   }
 
   .workPageHeroSection--lead .workPageTile {
-    min-height: 0;
     width: 100%;
+    min-height: 0;
     aspect-ratio: 1 / 1;
   }
 }
 
 @media (min-width: 1401px) {
+  .workPageHeroSection--lead {
+    padding-top: calc(var(--header-height) + 26px);
+  }
+
   .workPageHeroSection--lead .workPageHeroGrid--caseIntro {
     grid-template-columns: minmax(0, 1fr) minmax(350px, 390px);
   }
@@ -4607,50 +4614,7 @@ button { font: inherit; }
   }
 }
 
-@media (max-width: 1180px) {
-  .workPageHeroSection--lead {
-    padding-top: calc(var(--header-height) + 42px);
-  }
-
-  .workPageHeroSection--lead .workPageHeroAside {
-    max-width: 460px;
-    justify-self: center;
-    align-items: center;
-  }
-
-  .workPageHeroSection--lead .workPageTileGrid {
-    width: 100%;
-    max-width: 460px;
-  }
-}
-
-@media (max-width: 820px) {
-  .workPageHeroSection--lead {
-    padding-top: calc(var(--header-height) + 36px);
-    padding-bottom: 22px;
-  }
-
-  .workPageTopBannerSection--caseImage {
-    padding-top: 4px;
-  }
-}
-
-@media (max-width: 620px) {
-  .workPageHeroSection--lead {
-    padding-top: 126px;
-  }
-
-  .workPageHeroSection--lead .workPageHeroAside,
-  .workPageHeroSection--lead .workPageTileGrid {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-
-/* =========================================================
-   WORK PAGE V3 - NAKED CASE LOGO TITLE
-   ========================================================= */
+/* Naked case logo title */
 
 .workSectionHeader--nakedLogo {
   margin-bottom: 18px;
@@ -4699,96 +4663,15 @@ button { font: inherit; }
   text-transform: lowercase;
 }
 
-@media (max-width: 1180px) {
-  .nakedLogoWord {
-    font-size: clamp(5rem, 14vw, 10rem);
-  }
-
-  .nakedLogoTagline {
-    font-size: clamp(1.85rem, 5vw, 3.9rem);
-  }
-}
-
-@media (max-width: 620px) {
-  .workSectionHeader--nakedLogo {
-    margin-bottom: 16px;
-  }
-
-  .nakedLogoWord {
-    font-size: clamp(4rem, 22vw, 6.9rem);
-    letter-spacing: -0.09em;
-  }
-
-  .nakedLogoTagline {
-    max-width: 100%;
-    margin-top: 10px;
-    font-size: clamp(1.5rem, 8.2vw, 2.7rem);
-    line-height: 0.95;
-    letter-spacing: -0.045em;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 420px) {
-  .nakedLogoWord {
-    font-size: clamp(3.65rem, 21vw, 5.7rem);
-  }
-
-  .nakedLogoTagline {
-    font-size: clamp(1.26rem, 7.2vw, 2.1rem);
-  }
-}
-
-
-/* =========================================================
-   WORK PAGE V4 - INTRO POSITION + EDITORIAL FLOW TUNING
-   ========================================================= */
-
-.workPageHeroSection--lead {
-  padding-top: calc(var(--header-height) + 28px);
-  padding-bottom: 24px;
-}
-
-@media (min-width: 1181px) {
-  .workPageHeroSection--lead .workPageHeroGrid--caseIntro {
-    align-items: start !important;
-  }
-
-  .workPageHeroSection--lead .workPageHeroAside {
-    align-self: start !important;
-  }
-}
-
-@media (min-width: 1401px) {
-  .workPageHeroSection--lead {
-    padding-top: calc(var(--header-height) + 26px);
-  }
-}
-
-@media (max-width: 1180px) {
-  .workPageHeroSection--lead {
-    padding-top: calc(var(--header-height) + 34px);
-  }
-}
-
-@media (max-width: 820px) {
-  .workPageHeroSection--lead {
-    padding-top: calc(var(--header-height) + 30px);
-  }
-}
-
-@media (max-width: 620px) {
-  .workPageHeroSection--lead {
-    padding-top: 118px;
-  }
-}
-
-
-/* =========================================================
-   WORK PAGE V4 - CASE STUDY MEDIA + COLOR-TINTED HIGHLIGHTS
-   ========================================================= */
+/* Case study overview card */
 
 .workCaseStudyGrid--single {
+  max-width: 100%;
+  grid-template-columns: 1fr;
+}
+
+.workCaseStudyGrid--single .workCaseStudyCopy {
+  width: 100%;
   max-width: 100%;
 }
 
@@ -4816,21 +4699,32 @@ button { font: inherit; }
 }
 
 .workCaseStudyFigure {
+  min-width: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-self: stretch;
-  min-width: 0;
 }
+
+/* Case detail / color study image
+   Generated image ratio is 3:1.
+   This makes the image fit the box cleanly without the magenta side bars.
+*/
 
 .workCaseStudyFigureImage {
   width: 100%;
-  min-height: clamp(240px, 27vw, 420px);
+  aspect-ratio: 3 / 1;
+  min-height: 0 !important;
+  height: auto;
   border-radius: 0;
-  background:
-    var(--work-case-study-image) center / cover no-repeat,
+  background-image:
+    var(--work-case-study-image),
     linear-gradient(135deg, rgba(171, 29, 116, 0.98), rgba(131, 13, 82, 0.98));
+  background-size: cover, cover;
+  background-position: center center, center center;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #050505;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
@@ -4843,9 +4737,10 @@ button { font: inherit; }
   text-align: right;
 }
 
+/* Highlight cards with fallback color systems */
+
 .workHighlightCard {
   --work-card-accent: #8f8f8f;
-  --work-card-surface: rgba(255, 255, 255, 0.05);
   background:
     radial-gradient(circle at 14% 0%, color-mix(in srgb, var(--work-card-accent) 20%, transparent) 0%, transparent 48%),
     linear-gradient(180deg, rgba(8, 8, 8, 0.98), rgba(5, 5, 5, 0.98));
@@ -4888,21 +4783,73 @@ button { font: inherit; }
     linear-gradient(135deg, rgba(45, 110, 136, 0.96), rgba(30, 81, 105, 0.96)) !important;
 }
 
+/* Brand ecosystem fallback colors */
+
+.workBrandCard--naked .workBrandImage {
+  background-image:
+    var(--work-brand-image),
+    linear-gradient(135deg, rgba(151, 149, 82, 0.97), rgba(116, 112, 60, 0.97)) !important;
+}
+
+.workBrandCard--needles .workBrandImage {
+  background-image:
+    var(--work-brand-image),
+    linear-gradient(135deg, rgba(230, 97, 70, 0.97), rgba(193, 73, 49, 0.97)) !important;
+}
+
+.workBrandCard--hon .workBrandImage {
+  background-image:
+    var(--work-brand-image),
+    linear-gradient(135deg, rgba(149, 17, 100, 0.97), rgba(110, 10, 72, 0.97)) !important;
+}
+
+.workBrandCard--naked .workBrandImage,
+.workBrandCard--needles .workBrandImage,
+.workBrandCard--hon .workBrandImage {
+  background-size: cover, cover !important;
+  background-position: center center, center center !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+
+/* Responsive cleanup */
+
+@media (max-width: 1180px) {
+  .workPageHeroSection--lead {
+    padding-top: calc(var(--header-height) + 34px);
+  }
+
+  .workPageHeroSection--lead .workPageHeroAside {
+    max-width: 460px;
+    justify-self: center;
+    align-items: center;
+  }
+
+  .workPageHeroSection--lead .workPageTileGrid {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .nakedLogoWord {
+    font-size: clamp(5rem, 14vw, 10rem);
+  }
+
+  .nakedLogoTagline {
+    font-size: clamp(1.85rem, 5vw, 3.9rem);
+  }
+}
+
 @media (max-width: 1100px) {
   .workCaseStudyInner {
     grid-template-columns: 1fr;
   }
 
-  .workCaseStudyText {
-    max-width: none;
-  }
-
-  .workCaseStudyText p:not(.workKicker) {
+  .workCaseStudyText,
+  .workCaseStudyText p:not(.workKicker),
+  .workCaseStudyFigure {
     max-width: none;
   }
 
   .workCaseStudyFigure {
-    max-width: 760px;
     width: 100%;
   }
 
@@ -4912,7 +4859,46 @@ button { font: inherit; }
   }
 }
 
+@media (max-width: 820px) {
+  .workPageHeroSection--lead {
+    padding-top: calc(var(--header-height) + 30px);
+    padding-bottom: 22px;
+  }
+
+  .workPageTopBannerSection--caseImage {
+    padding-top: 4px;
+  }
+}
+
 @media (max-width: 620px) {
+  .workPageHeroSection--lead {
+    padding-top: 118px;
+  }
+
+  .workPageHeroSection--lead .workPageHeroAside,
+  .workPageHeroSection--lead .workPageTileGrid {
+    width: 100%;
+    max-width: none;
+  }
+
+  .workSectionHeader--nakedLogo {
+    margin-bottom: 16px;
+  }
+
+  .nakedLogoWord {
+    font-size: clamp(4rem, 22vw, 6.9rem);
+    letter-spacing: -0.09em;
+  }
+
+  .nakedLogoTagline {
+    max-width: 100%;
+    margin-top: 10px;
+    font-size: clamp(1.5rem, 8.2vw, 2.7rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
+  }
+
   .workCaseStudyCopy {
     padding: 20px 18px;
   }
@@ -4922,78 +4908,18 @@ button { font: inherit; }
   }
 
   .workCaseStudyFigureImage {
-    min-height: 200px;
-  }
-}
-
-
-/* =========================================================
-   WORK PAGE V5 - BRAND ECOSYSTEM FALLBACK COLORS
-   ========================================================= */
-
-.workBrandCard--naked .workBrandImage {
-  background-image:
-    var(--work-brand-image),
-    linear-gradient(135deg, rgba(151, 149, 82, 0.97), rgba(116, 112, 60, 0.97)) !important;
-  background-size: cover, cover !important;
-  background-position: center center, center center !important;
-  background-repeat: no-repeat, no-repeat !important;
-}
-
-.workBrandCard--needles .workBrandImage {
-  background-image:
-    var(--work-brand-image),
-    linear-gradient(135deg, rgba(230, 97, 70, 0.97), rgba(193, 73, 49, 0.97)) !important;
-  background-size: cover, cover !important;
-  background-position: center center, center center !important;
-  background-repeat: no-repeat, no-repeat !important;
-}
-
-.workBrandCard--hon .workBrandImage {
-  background-image:
-    var(--work-brand-image),
-    linear-gradient(135deg, rgba(149, 17, 100, 0.97), rgba(110, 10, 72, 0.97)) !important;
-  background-size: cover, cover !important;
-  background-position: center center, center center !important;
-  background-repeat: no-repeat, no-repeat !important;
-}
-/* =========================================================
-   WORK PAGE V6 - CASE DETAIL IMAGE AUTOFIT
-   Makes the case study detail / color study image fit fully
-   instead of cropping wide brand-board artwork.
-   Target image ratio: approx 8.5 / 2.7
-   ========================================================= */
-
-.workCaseStudyFigureImage {
-  width: 100%;
-  aspect-ratio: 8.5 / 2.7;
-  min-height: 0 !important;
-  height: auto;
-  border-radius: 0;
-  background-image:
-    var(--work-case-study-image),
-    linear-gradient(135deg, rgba(171, 29, 116, 0.98), rgba(131, 13, 82, 0.98));
-  background-size: contain, cover;
-  background-position: center center, center center;
-  background-repeat: no-repeat, no-repeat;
-  background-color: #050505;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-}
-
-@media (max-width: 1100px) {
-  .workCaseStudyFigure {
-    max-width: 100%;
-  }
-
-  .workCaseStudyFigureImage {
-    aspect-ratio: 8.5 / 2.7;
+    aspect-ratio: 3 / 1;
     min-height: 0 !important;
   }
 }
 
-@media (max-width: 620px) {
-  .workCaseStudyFigureImage {
-    aspect-ratio: 8.5 / 2.7;
-    min-height: 0 !important;
+@media (max-width: 420px) {
+  .nakedLogoWord {
+    font-size: clamp(3.65rem, 21vw, 5.7rem);
+  }
+
+  .nakedLogoTagline {
+    font-size: clamp(1.26rem, 7.2vw, 2.1rem);
   }
 }
+
