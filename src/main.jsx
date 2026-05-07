@@ -1059,6 +1059,17 @@ function App() {
 
   const path = window.location.pathname;
 
+  const pageTitles = {
+    "/": "Stephen Cruz | Creative Lead / Systems Builder",
+    "/work": "Work | Stephen Cruz",
+    "/about": "About | Stephen Cruz",
+    "/skills": "Skills | Stephen Cruz",
+  };
+
+  useEffect(() => {
+    document.title = pageTitles[path] || "Stephen Cruz | Creative Lead / Systems Builder";
+  }, [path]);
+
   let page = <HomePage />;
 
   if (path === "/about") {
