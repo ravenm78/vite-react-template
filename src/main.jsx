@@ -668,12 +668,12 @@ function WorkPage() {
             </p>
 
             <p className="workPageBody workPageBody--intro">
-              Naked All Natural needed more than a clean label and a nice product
-              lineup. It needed a point of view: polished enough for e-commerce,
-              warm enough for daily ritual, and sharp enough to stand apart from
-              the beige chorus of wellness brands all saying the same thing in
-              softer lighting. This case study follows the identity, language,
-              campaign thinking, and visual structure built around that idea.
+              Naked All Natural already had the products. What it needed was a point
+              of view. Not the sleepy, beige kind of skincare language that
+              whispers from a shelf and hopes someone feels hydrated. This had
+              to feel cleaner, sharper, warmer, and a little more human: a brand
+              system for people whose skin carries tattoos, piercings, scars,
+              stories, routines, and actual lives.
             </p>
           </div>
 
