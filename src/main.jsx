@@ -730,33 +730,45 @@ function WorkPage() {
 
         <div className="workCaseStudyGrid workCaseStudyGrid--single">
           <div className="workCaseStudyCopy revealCard">
-            <h3>Natural Skincare, Reimagined.</h3>
+            <div className="workCaseStudyInner">
+              <div className="workCaseStudyText">
+                <h3>Natural Skincare, Reimagined.</h3>
 
-            <p>
-              Naked All Natural sits in a rare space: clean skincare with a real
-              connection to body-art culture. The brand speaks to people who
-              treat their skin as part of their identity, whether tattooed,
-              pierced, healing, sensitive, decorated, or simply tired of beauty
-              brands that sound like they were written inside a scented candle.
-            </p>
+                <p>
+                  Naked All Natural sits in a rare space: clean skincare with a real
+                  connection to body-art culture. The brand speaks to people who
+                  treat their skin as part of their identity, whether tattooed,
+                  pierced, healing, sensitive, decorated, or simply tired of beauty
+                  brands that sound like they were written inside a scented candle.
+                </p>
 
-            <p>
-              The creative direction was built around contrast. Natural ingredients
-              without the preciousness. Aftercare credibility without turning
-              the brand clinical. Humor without making the product feel cheap.
-              The goal was to create a system that felt clear, tactile, and
-              memorable: something that could live comfortably on a bathroom
-              shelf, in a studio, or inside a polished e-commerce experience
-              without losing its pulse.
-            </p>
+                <p>
+                  The creative direction was built around contrast. Natural ingredients
+                  without the preciousness. Aftercare credibility without turning
+                  the brand clinical. Humor without making the product feel cheap.
+                  The goal was to create a system that felt clear, tactile, and
+                  memorable: something that could live comfortably on a bathroom
+                  shelf, in a studio, or inside a polished e-commerce experience
+                  without losing its pulse.
+                </p>
 
-            <p>
-              The larger ecosystem gave the work more depth. Industrial Strength
-              Needles brings a real connection to professional piercing culture,
-              while HON / House of Nipple adds a human layer of recovery,
-              confidence, and care. Together, they turn Naked into more than a
-              skincare line. They give it a world to belong to.
-            </p>
+                <p>
+                  The larger ecosystem gave the work more depth. Industrial Strength
+                  Needles brings a real connection to professional piercing culture,
+                  while HON / House of Nipple adds a human layer of recovery,
+                  confidence, and care. Together, they turn Naked into more than a
+                  skincare line. They give it a world to belong to.
+                </p>
+              </div>
+
+              <figure
+                className="workCaseStudyFigure"
+                style={{ "--work-case-study-image": `url("/Scruz_Work_Naked_Case_Detail.png")` }}
+              >
+                <div className="workCaseStudyFigureImage" aria-hidden="true"></div>
+                <figcaption>Campaign detail / color study</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
