@@ -719,10 +719,12 @@ function WorkPage() {
       </section>
 
       <section id="nakedCaseStudy" className="section workCaseStudySection">
-        <div className="workSectionHeader workSectionHeader--tight">
-          <p className="workKicker">Case Study Overview</p>
-          <h2 className="sectionTitle sectionTitle--workpage sectionTitle--nakedCase revealTitle">
-            <span>Naked : Soft Skin, Sharp Identity.</span>
+        <div className="workSectionHeader workSectionHeader--tight workSectionHeader--nakedLogo">
+          <h2 className="nakedCaseLogoTitle revealCard" aria-label="Naked: soft skin, sharp identity">
+            <span className="nakedLogoWord" aria-hidden="true">
+              <span className="nakedLogoStrong">na</span><span className="nakedLogoRegular">ked</span>
+            </span>
+            <span className="nakedLogoTagline">soft skin, sharp identity</span>
           </h2>
         </div>
 
