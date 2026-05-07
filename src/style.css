@@ -4782,3 +4782,146 @@ button { font: inherit; }
     padding-top: 118px;
   }
 }
+
+
+/* =========================================================
+   WORK PAGE V4 - CASE STUDY MEDIA + COLOR-TINTED HIGHLIGHTS
+   ========================================================= */
+
+.workCaseStudyGrid--single {
+  max-width: 100%;
+}
+
+.workCaseStudyCopy {
+  padding: clamp(22px, 2vw, 32px);
+}
+
+.workCaseStudyInner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.78fr);
+  gap: clamp(26px, 3vw, 48px);
+  align-items: start;
+}
+
+.workCaseStudyText {
+  max-width: 690px;
+}
+
+.workCaseStudyText h3 {
+  margin-top: 0;
+}
+
+.workCaseStudyText p:not(.workKicker) {
+  max-width: 62ch;
+}
+
+.workCaseStudyFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-self: stretch;
+  min-width: 0;
+}
+
+.workCaseStudyFigureImage {
+  width: 100%;
+  min-height: clamp(240px, 27vw, 420px);
+  border-radius: 0;
+  background:
+    var(--work-case-study-image) center / cover no-repeat,
+    linear-gradient(135deg, rgba(171, 29, 116, 0.98), rgba(131, 13, 82, 0.98));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.workCaseStudyFigure figcaption {
+  margin-top: 10px;
+  align-self: flex-end;
+  font-size: 0.84rem;
+  line-height: 1.1;
+  color: rgba(244, 241, 236, 0.9);
+  text-align: right;
+}
+
+.workHighlightCard {
+  --work-card-accent: #8f8f8f;
+  --work-card-surface: rgba(255, 255, 255, 0.05);
+  background:
+    radial-gradient(circle at 14% 0%, color-mix(in srgb, var(--work-card-accent) 20%, transparent) 0%, transparent 48%),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.98), rgba(5, 5, 5, 0.98));
+  border-color: color-mix(in srgb, var(--work-card-accent) 24%, rgba(255,255,255,0.08));
+}
+
+.workHighlightCard--identity {
+  --work-card-accent: rgb(151, 149, 82);
+}
+
+.workHighlightCard--voice {
+  --work-card-accent: rgb(230, 97, 70);
+}
+
+.workHighlightCard--audience {
+  --work-card-accent: rgb(45, 110, 136);
+}
+
+.workHighlightCard .workImageTopLabel {
+  color: color-mix(in srgb, var(--work-card-accent) 78%, white 22%);
+  border-color: color-mix(in srgb, var(--work-card-accent) 46%, rgba(255,255,255,0.12));
+  background: color-mix(in srgb, var(--work-card-accent) 14%, rgba(0,0,0,0.42));
+}
+
+.workHighlightCard--identity .workHighlightImage {
+  background-image:
+    var(--work-card-image),
+    linear-gradient(135deg, rgba(151, 149, 82, 0.96), rgba(116, 112, 60, 0.96)) !important;
+}
+
+.workHighlightCard--voice .workHighlightImage {
+  background-image:
+    var(--work-card-image),
+    linear-gradient(135deg, rgba(230, 97, 70, 0.96), rgba(193, 73, 49, 0.96)) !important;
+}
+
+.workHighlightCard--audience .workHighlightImage {
+  background-image:
+    var(--work-card-image),
+    linear-gradient(135deg, rgba(45, 110, 136, 0.96), rgba(30, 81, 105, 0.96)) !important;
+}
+
+@media (max-width: 1100px) {
+  .workCaseStudyInner {
+    grid-template-columns: 1fr;
+  }
+
+  .workCaseStudyText {
+    max-width: none;
+  }
+
+  .workCaseStudyText p:not(.workKicker) {
+    max-width: none;
+  }
+
+  .workCaseStudyFigure {
+    max-width: 760px;
+    width: 100%;
+  }
+
+  .workCaseStudyFigure figcaption {
+    align-self: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 620px) {
+  .workCaseStudyCopy {
+    padding: 20px 18px;
+  }
+
+  .workCaseStudyInner {
+    gap: 18px;
+  }
+
+  .workCaseStudyFigureImage {
+    min-height: 200px;
+  }
+}
