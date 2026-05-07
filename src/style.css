@@ -4551,3 +4551,96 @@ button { font: inherit; }
     letter-spacing: -0.062em !important;
   }
 }
+
+/* =========================================================
+   WORK PAGE V2 - INTRO-FIRST CASE STUDY FLOW
+   ========================================================= */
+
+.workPageHeroSection--lead {
+  padding-top: calc(var(--header-height) + 56px);
+  padding-bottom: 28px;
+}
+
+.workPageTopBannerSection--caseImage {
+  padding-top: 8px;
+  padding-bottom: 18px;
+}
+
+@media (min-width: 1181px) {
+  .workPageHeroSection--lead .workPageHeroGrid--caseIntro {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
+    gap: clamp(28px, 3vw, 56px);
+    align-items: end;
+  }
+
+  .workPageHeroSection--lead .workPageHeroAside {
+    max-width: 360px;
+    padding-top: 0;
+    align-self: end;
+  }
+
+  .workPageHeroSection--lead .workPageTileGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .workPageHeroSection--lead .workPageTile {
+    min-height: 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 1401px) {
+  .workPageHeroSection--lead .workPageHeroGrid--caseIntro {
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 390px);
+  }
+
+  .workPageHeroSection--lead .workPageHeroAside {
+    max-width: 390px;
+  }
+
+  .workPageHeroSection--lead .workPageTileGrid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .workPageHeroSection--lead {
+    padding-top: calc(var(--header-height) + 42px);
+  }
+
+  .workPageHeroSection--lead .workPageHeroAside {
+    max-width: 460px;
+    justify-self: center;
+    align-items: center;
+  }
+
+  .workPageHeroSection--lead .workPageTileGrid {
+    width: 100%;
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 820px) {
+  .workPageHeroSection--lead {
+    padding-top: calc(var(--header-height) + 36px);
+    padding-bottom: 22px;
+  }
+
+  .workPageTopBannerSection--caseImage {
+    padding-top: 4px;
+  }
+}
+
+@media (max-width: 620px) {
+  .workPageHeroSection--lead {
+    padding-top: 126px;
+  }
+
+  .workPageHeroSection--lead .workPageHeroAside,
+  .workPageHeroSection--lead .workPageTileGrid {
+    width: 100%;
+    max-width: none;
+  }
+}
