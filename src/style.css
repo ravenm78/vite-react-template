@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
 /* =========================================================
    01. RESET / ROOT
    ========================================================= */
@@ -4642,5 +4644,97 @@ button { font: inherit; }
   .workPageHeroSection--lead .workPageTileGrid {
     width: 100%;
     max-width: none;
+  }
+}
+
+
+/* =========================================================
+   WORK PAGE V3 - NAKED CASE LOGO TITLE
+   ========================================================= */
+
+.workSectionHeader--nakedLogo {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.nakedCaseLogoTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto 10px;
+  color: #fff;
+  font-family: "Poppins", var(--ui-font);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.nakedLogoWord {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  font-size: clamp(6.2rem, 11.6vw, 13.4rem);
+  line-height: 0.76;
+  letter-spacing: -0.095em;
+  text-transform: lowercase;
+}
+
+.nakedLogoStrong {
+  font-weight: 600;
+}
+
+.nakedLogoRegular {
+  font-weight: 400;
+}
+
+.nakedLogoTagline {
+  display: block;
+  margin-top: clamp(12px, 1.3vw, 20px);
+  font-size: clamp(2rem, 4.1vw, 4.7rem);
+  line-height: 0.92;
+  font-weight: 600;
+  letter-spacing: -0.052em;
+  text-transform: lowercase;
+}
+
+@media (max-width: 1180px) {
+  .nakedLogoWord {
+    font-size: clamp(5rem, 14vw, 10rem);
+  }
+
+  .nakedLogoTagline {
+    font-size: clamp(1.85rem, 5vw, 3.9rem);
+  }
+}
+
+@media (max-width: 620px) {
+  .workSectionHeader--nakedLogo {
+    margin-bottom: 16px;
+  }
+
+  .nakedLogoWord {
+    font-size: clamp(4rem, 22vw, 6.9rem);
+    letter-spacing: -0.09em;
+  }
+
+  .nakedLogoTagline {
+    max-width: 100%;
+    margin-top: 10px;
+    font-size: clamp(1.5rem, 8.2vw, 2.7rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .nakedLogoWord {
+    font-size: clamp(3.65rem, 21vw, 5.7rem);
+  }
+
+  .nakedLogoTagline {
+    font-size: clamp(1.26rem, 7.2vw, 2.1rem);
   }
 }
