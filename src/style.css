@@ -4708,13 +4708,13 @@ button { font: inherit; }
 }
 
 /* Case detail / color study image
-   Generated image ratio is 3:1.
-   This makes the image fit the box cleanly without the magenta side bars.
+   Native image size: Scruz_Work_Naked_Case_Detail.png = 1086 x 704.
+   This keeps the taller color-study board visible at the correct height.
 */
 
 .workCaseStudyFigureImage {
   width: 100%;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 1086 / 704;
   min-height: 0 !important;
   height: auto;
   border-radius: 0;
@@ -4908,7 +4908,7 @@ button { font: inherit; }
   }
 
   .workCaseStudyFigureImage {
-    aspect-ratio: 3 / 1;
+    aspect-ratio: 1086 / 704;
     min-height: 0 !important;
   }
 }
