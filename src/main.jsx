@@ -654,21 +654,9 @@ function HomePage() {
 function WorkPage() {
   return (
     <>
-      <section id="workTop" className="section workPageTopBannerSection">
-        <div
-          className="workGalleryBanner workGalleryBanner--top workGalleryBanner--image revealCard"
-          aria-label="Naked All Natural product lineup banner"
-          style={{
-            "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")`,
-          }}
-        ></div>
-      </section>
-
-      <section className="section workPageHeroSection">
+      <section id="workTop" className="section workPageHeroSection workPageHeroSection--lead">
         <div className="workPageHeroGrid workPageHeroGrid--caseIntro">
           <div className="workPageHeroCopy workPageHeroCopy--full">
-            <p className="eyebrow workPageEyebrow">Featured / Naked All Natural</p>
-
             <h1 className="workPageTitle revealTitle">
               <span>Work That</span>
               <span>Builds Worlds.</span>
@@ -718,6 +706,16 @@ function WorkPage() {
             </div>
           </aside>
         </div>
+      </section>
+
+      <section className="section workPageTopBannerSection workPageTopBannerSection--caseImage">
+        <div
+          className="workGalleryBanner workGalleryBanner--top workGalleryBanner--image revealCard"
+          aria-label="Naked All Natural product lineup banner"
+          style={{
+            "--work-banner-image": `url("/Scruz_Work_Naked_Product_Lineup.png")`,
+          }}
+        ></div>
       </section>
 
       <section id="nakedCaseStudy" className="section workCaseStudySection">
