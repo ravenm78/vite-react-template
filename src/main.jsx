@@ -8,6 +8,7 @@ const heroSlides = [
     id: "01",
     image: "/Scruz_Website_Hero_0001.png",
     title: "Build Better Systems",
+    titleLines: ["Build Better", "Systems"],
     caption: "Creative should not collapse every time the deadline moves.",
     label: "Creative systems",
   },
