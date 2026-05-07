@@ -4925,3 +4925,35 @@ button { font: inherit; }
     min-height: 200px;
   }
 }
+
+
+/* =========================================================
+   WORK PAGE V5 - BRAND ECOSYSTEM FALLBACK COLORS
+   ========================================================= */
+
+.workBrandCard--naked .workBrandImage {
+  background-image:
+    var(--work-brand-image),
+    linear-gradient(135deg, rgba(151, 149, 82, 0.97), rgba(116, 112, 60, 0.97)) !important;
+  background-size: cover, cover !important;
+  background-position: center center, center center !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+
+.workBrandCard--needles .workBrandImage {
+  background-image:
+    var(--work-brand-image),
+    linear-gradient(135deg, rgba(230, 97, 70, 0.97), rgba(193, 73, 49, 0.97)) !important;
+  background-size: cover, cover !important;
+  background-position: center center, center center !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+
+.workBrandCard--hon .workBrandImage {
+  background-image:
+    var(--work-brand-image),
+    linear-gradient(135deg, rgba(149, 17, 100, 0.97), rgba(110, 10, 72, 0.97)) !important;
+  background-size: cover, cover !important;
+  background-position: center center, center center !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
